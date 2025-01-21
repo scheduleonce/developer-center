@@ -10,12 +10,13 @@ next:
   description: ''
 ---
 ## The conversation object
-| Field    | Type     | Description                                                                                                        |
-| :------- | :------- | :----------------------------------------------------------------------------------------------------------------- |
-| `id`     | *string* | Unique alphanumeric identifier for the object. The prefix of the Website ID is `WEB-`.                             |
-| `object` | *string* | String representing the object’s type. Objects of the same type share the same value. The value here is `website`. |
-| `name`   | *string* | The name of the website.                                                                                           |
-| `url`    | *string* | The URL of the website.                                                                                            |
+
+| Field           | Type     | Description                                                                                                             |
+| :-------------- | :------- | :---------------------------------------------------------------------------------------------------------------------- |
+| `id`            | *string* | Unique alphanumeric identifier for the object. The prefix of the Conversation ID is `CVR-`.                             |
+| `object`        | *string* | String representing the object’s type. Objects of the same type share the same value. The value here is `conversation`. |
+| `creation_time`        | _timestamp_                                 | The date and time the conversation was created.                                                                                                                                                                                                                                                                                             
+| `url`           | *string* | The URL of the website.                                                                                                 |
 
 ## The website object
 
