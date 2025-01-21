@@ -13,57 +13,21 @@ next:
 Webhook subscriptions are configured with a unique ID, User-provided name and POST URL, and an array of User-specified event triggers representing different booking lifecycle events.
 
 [Learn more about webhook subscription configuration](https://developers.scheduleonce.com/docs/introduction-to-webhooks) 
-[block:parameters]
-{
-  "data": {
-    "0-0": "`id`",
-    "h-0": "Field",
-    "h-1": "Type",
-    "0-1": "*string*",
-    "1-0": "`object`",
-    "1-1": "*string*",
-    "3-0": "`name`",
-    "3-1": "*string*",
-    "4-0": "`url`",
-    "4-1": "*string*",
-    "5-0": "`events`",
-    "h-2": "Description",
-    "0-2": "Unique alphanumeric identifier for the object. The prefix of the Webhook ID is `WHK_`.",
-    "1-2": "String representing the object’s type. Objects of the same type share the same value. The value here is `webhook`.",
-    "3-2": "Name of the Webhook. This name is only used by you to easily differentiate between Webhooks in the app.",
-    "4-2": "The URL on your side to which we will send the event payload.",
-    "5-1": "*list*",
-    "5-2": "A list of events this Webhook will trigger for.",
-    "6-0": "`creation_time`",
-    "6-1": "*timestamp*",
-    "6-2": "The time the Webhook was created.",
-    "7-0": "`secret`",
-    "7-2": "The webhook secret, used to generate [webhook signatures](https://developers.oncehub.com/docs/webhook-signatures). Only returned at creation.",
-    "7-1": "*string*",
-    "2-0": "`api_version`",
-    "2-1": "*string*",
-    "2-2": "The API version events are rendered as for this webhook endpoint."
-  },
-  "cols": 3,
-  "rows": 8
-}
-[/block]
+| Field           | Type        | Description                                                                                                                                                                                 |
+| :-------------- | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`            | _string_    | Unique alphanumeric identifier for the object. The prefix of the Webhook ID is `WHK-`.                                                                                                        |
+| `object`        | _string_    | String representing the object’s type. Objects of the same type share the same value. The value here is `webhook`.                                                                               |
+| `api_version`   | _string_    | The API version events are rendered as for this webhook endpoint.                                                                                                                               |
+| `name`          | _string_    | Name of the Webhook. This name is only used by you to easily differentiate between Webhooks in the app.                                                                                      |
+| `url`           | _string_    | The URL on your side to which we will send the event payload.                                                                                                                                 |
+| `events`        | _list_      | A list of events this Webhook will trigger for.                                                                                                                                             |
+| `creation_time` | _timestamp_ | The time the Webhook was created.                                                                                                                                                            |
+| `secret`        | _string_    | The webhook secret, used to generate [webhook signatures](https://developers.oncehub.com/docs/webhook-signatures). Only returned at creation. |
 
-[block:api-header]
-{
-  "title": "WEBHOOK",
-  "sidebar": true
-}
-[/block]
+## WEBHOOK
+The following is an example of a webhook object with the name `Cancellations and No-shows`. This webhook subscription is configured to send POST messages to `https://requestbin.com/r/en2ways4mm55h` whenever a booking is canceled or set to \"no-show\" status (event triggers: `booking.canceled` and `booking.no_show`).
 
-[block:textarea]
-{
-  "text": "The following is an example of a webhook object with the name `Cancellations and No-shows`. This webhook subscription is configured to send POST messages to `https://requestbin.com/r/en2ways4mm55h` whenever a booking is canceled or set to \"no-show\" status (event triggers: `booking.canceled` and `booking.no_show`).",
-  "sidebar": true
-}
-[/block]
-
-[block:code]
+```json
 {
   "codes": [
     {
@@ -74,4 +38,4 @@ Webhook subscriptions are configured with a unique ID, User-provided name and PO
   ],
   "sidebar": true
 }
-[/block]
+```
