@@ -10,66 +10,6 @@ metadata:
 next:
   description: ''
 ---
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "`id`",
-    "0-1": "_string_",
-    "0-2": "Unique alphanumeric identifier for the object. The prefix of the Conversation ID is `CVR-`.",
-    "1-0": "`object`",
-    "1-1": "_string_",
-    "1-2": "String representing the object’s type. Objects of the same type share the same value. The value here is `conversation`.",
-    "2-0": "`creation_time`",
-    "2-1": "_timestamp_",
-    "2-2": "The date and time the conversation was created.",
-    "3-0": "`initiated_by`",
-    "3-1": "_string_",
-    "3-2": "Either `bot` (auto reach out) or `contact` (website visitor clicked on a CTA).",
-    "4-0": "`last_updated_time`",
-    "4-1": "_string_",
-    "4-2": "The date and time the conversation was last updated.",
-    "5-0": "`last_interacted_time`",
-    "5-1": "_string_",
-    "5-2": "The date and time of the last conversation interaction.",
-    "6-0": "`contact`",
-    "6-1": "_string_, [expandable](expanding-responses)",
-    "6-2": "The contact / customer involved in this conversation.",
-    "7-0": "`owner`",
-    "7-1": "_string_, [expandable](expanding-responses)",
-    "7-2": "The owner (user object) of the conversation.",
-    "8-0": "`status`",
-    "8-1": "_string_",
-    "8-2": "The status of the conversation. Can be one of the following:  \n`started` - The website visitor has responded with a first message and the conversation is active from this point.  \n`closed` - The conversation has been closed, this can be done by the conversation ending with a last message, or the visitor starting a different conversation.  \n`abandoned` - If there is no response from the visitor for more than 10 minutes the conversation is ended in an abandoned state.",
-    "9-0": "`bot`",
-    "9-1": "_string_, [expandable](expanding-responses)",
-    "9-2": "The bot that facilitated the conversation.",
-    "10-0": "`website`",
-    "10-1": "_string_, [expandable](expanding-responses)",
-    "10-2": "The website this conversation was triggered on.",
-    "11-0": "`audience`",
-    "11-1": "_string_, [expandable](expanding-responses)",
-    "11-2": "The audience associated with this conversation.",
-    "12-0": "`answers`",
-    "12-1": "_array[hash]_",
-    "12-2": "Answers to the questions asked during the conversation.",
-    "13-0": "`bookings`",
-    "13-1": "_array[string]_",
-    "13-2": "Bookings that are associated to the conversation."
-  },
-  "cols": 3,
-  "rows": 14,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
-
-
 ## The website object
 
 | Field    | Type     | Description                                                                                                        |
@@ -96,14 +36,7 @@ next:
 | `name`   | _string_ | The name of the bot.                                                                                           |
 
 ## CONVERSATION
-
-[block:textarea]
-{
-  "text": "The following is an example of a conversation object.",
-  "sidebar": true
-}
-[/block]
-
+The following is an example of a conversation object.
 
 ```json Sample conversation
 {
