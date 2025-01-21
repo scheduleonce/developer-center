@@ -13,11 +13,8 @@ metadata:
 next:
   description: ''
 ---
-[block:api-header]
-{
-  "title": "Input parameters"
-}
-[/block]
+## Input parameters
+
 When creating the webhook, you should provide a `name`, a `url` for receiving POST messages, and an array of `events` in the request body.
 
 You may specify specific booking lifecycle events you wish to subscribe to, or you can pass the `booking` event to trigger the POST payload message whenever any of the supported booking lifecycle events occurs. [Learn more about events](the-event-object) 
