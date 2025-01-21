@@ -10,14 +10,6 @@ metadata:
 next:
   description: ''
 ---
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field",
-    "h-1": "Type",
-    "h-2": "Description"
-  },
-  "cols": 3,
-  "rows": 1
-}
-[/block]
+| Field | Type | Description |
+| :---- | :--- | :---------- |
+|       |      |             |
