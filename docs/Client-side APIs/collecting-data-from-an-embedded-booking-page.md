@@ -20,22 +20,9 @@ This feature can be used to create a custom confirmation page, enable client-sid
 
 In order to start collecting data from an embedded booking page, you must first publish your Booking page using <a target="_blank" href="https://help.oncehub.com/help/website-embed">Website embed</a>. You can do this from the **ScheduleOnce > Share & Publish** section of your account. Simply copy the embed code generated for your selected Booking page, and paste it into your web page.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d01b172-website_embed_copy_code.png",
-        "website embed copy code.png",
-        1089
-      ],
-      "align": "center",
-      "caption": "Figure 1: Website embed"
-    }
-  ]
-}
-[/block]
-
+<Image title="website embed copy code.png" alt={1089} align="center" src="https://files.readme.io/d01b172-website_embed_copy_code.png">
+  Figure 1: Website embed
+</Image>
 
 To implement the JavaScript data collection function, follow these steps:
 
@@ -72,15 +59,15 @@ The following is an example of the booking confirmation data object returned whe
 
 The JSON object contains the following booking information represented by key-value pairs (KVPs):
 
-- Customer name
-- Customer phone number
-- Customer email
-- Event type name
-- Meeting times - UTC, customer time zone, and booking page time zone
-- Cancel/Reschedule link
-- Customer note
-- Calendar event files - ICS and VCS
-- Error status and error codes (if relevant)
+* Customer name
+* Customer phone number
+* Customer email
+* Event type name
+* Meeting times - UTC, customer time zone, and booking page time zone
+* Cancel/Reschedule link
+* Customer note
+* Calendar event files - ICS and VCS
+* Error status and error codes (if relevant)
 
 Below is a sample booking confirmation data payload:
 
@@ -117,28 +104,28 @@ Below is a sample booking confirmation data payload:
 
 The JSON object returned to the parent page upon execution of the `SOAfterConfirmationFunction()` function contains an error status (0 = function executed successfully; 1 = function did not execute successfully) and booking information. The following table describes the fields included in the `bookingInfo` payload:
 
-| Field                       | Type            | Description                                                                                                                        |
-| :-------------------------- | :-------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-| `Version`                   | _string_        | Payload version                                                                                                                    |
-| `MeetingTimes.UTCTime`      | _datetime_      | The starting date and time, in UTC.                                                                                                |
-| `MeetingTimes.CustomerTime` | _datetime_      | The starting date and time, in the customer time zone.                                                                             |
-| `MeetingTimes.SOTime`       | _datetime_      | The starting date and time, in the booking page time zone.                                                                         |
-| `CancelRescheduleLink`      | _url_           | The Cancel/Reschedule link sent to the customer.                                                                                   |
-| `Note`                      | _string_        | The note provided by the customer in the booking form.                                                                             |
-| `CalendarEvent.ICS`         | _url_           | Files that can be downloaded and added to a calendar event.                                                                        |
-| `CalendarEvent.VCS`         | _url_           | Files that can be downloaded and added to a calendar event.                                                                        |
-| `statusCode`                | _string_        | Error status: "1" = success; "0" = invalid request. Data can be accessed for a particular meeting only once from this api request. |
-| `Message`                   | _string_        | Error message. For a server error: "Something went wrong on server". All other cases return "null".                                |
-| `CustomerName`              | _string_        | The name provided by the Customer in the booking form.                                                                             |
-| `CustomerEmail`             | _string_        | The email provided by the Customer in the booking form.                                                                            |
-| `CustomerPhone`             | _string_        | The phone number provided by the customer in the booking form.                                                                     |
-| `EventTypeName`             | _string_        | The name of the service selected by the customer.                                                                                  |
-| `BookingId`                 | _array[string]_ | The ID of the booking. In case of a session package, multiple IDs could be returned.                                               |
+| Field                       | Type             | Description                                                                                                                        |
+| :-------------------------- | :--------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| `Version`                   | *string*         | Payload version                                                                                                                    |
+| `MeetingTimes.UTCTime`      | *datetime*       | The starting date and time, in UTC.                                                                                                |
+| `MeetingTimes.CustomerTime` | *datetime*       | The starting date and time, in the customer time zone.                                                                             |
+| `MeetingTimes.SOTime`       | *datetime*       | The starting date and time, in the booking page time zone.                                                                         |
+| `CancelRescheduleLink`      | *url*            | The Cancel/Reschedule link sent to the customer.                                                                                   |
+| `Note`                      | *string*         | The note provided by the customer in the booking form.                                                                             |
+| `CalendarEvent.ICS`         | *url*            | Files that can be downloaded and added to a calendar event.                                                                        |
+| `CalendarEvent.VCS`         | *url*            | Files that can be downloaded and added to a calendar event.                                                                        |
+| `statusCode`                | *string*         | Error status: "1" = success; "0" = invalid request. Data can be accessed for a particular meeting only once from this api request. |
+| `Message`                   | *string*         | Error message. For a server error: "Something went wrong on server". All other cases return "null".                                |
+| `CustomerName`              | *string*         | The name provided by the Customer in the booking form.                                                                             |
+| `CustomerEmail`             | *string*         | The email provided by the Customer in the booking form.                                                                            |
+| `CustomerPhone`             | *string*         | The phone number provided by the customer in the booking form.                                                                     |
+| `EventTypeName`             | *string*         | The name of the service selected by the customer.                                                                                  |
+| `BookingId`                 | *array\[string]* | The ID of the booking. In case of a session package, multiple IDs could be returned.                                               |
 
 ## Constraints
 
 The following constraints are important to keep in mind when implementing the data collection JavaScript function in your embedded booking page:
 
-- The function will only execute when a booking is scheduled (not canceled, rescheduled, or reassigned).
-- The function is available for use with booking pages published via website embed only (not for website button, website widget, or stand-alone booking pages).
-- For security and privacy reasons, this function does not execute when your OnceHub account is integrated with a CRM and you are using the CRM record ID to <a target="_blank" href="https://help.oncehub.com/help/prepopulated-booking-forms">skip or pre-populate the booking form</a>.
+* The function will only execute when a booking is scheduled (not canceled, rescheduled, or reassigned).
+* The function is available for use with booking pages published via website embed only (not for website button, website widget, or stand-alone booking pages).
+* For security and privacy reasons, this function does not execute when your OnceHub account is integrated with a CRM and you are using the CRM record ID to <a target="_blank" href="https://help.oncehub.com/help/prepopulated-booking-forms">skip or pre-populate the booking form</a>.
