@@ -4,3 +4,4 @@
 - create-webhook
 - list-webhooks
 - get-webhook
+- delete-webhook
