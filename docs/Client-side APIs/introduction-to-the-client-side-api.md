@@ -10,8 +10,8 @@ metadata:
 next:
   description: ''
 ---
-> 📘 
-> 
+> 📘
+>
 > The client-side APIs are currently only supported for booking pages and chatbots.
 
 ## What are the OnceHub client-side APIs?
