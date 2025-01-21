@@ -1,6 +1,5 @@
 ---
 title: The conversation object
-excerpt: ''
 deprecated: false
 hidden: false
 metadata:
@@ -10,6 +9,13 @@ metadata:
 next:
   description: ''
 ---
+## The conversation object
+| Field    | Type     | Description                                                                                                        |
+| :------- | :------- | :----------------------------------------------------------------------------------------------------------------- |
+| `id`     | *string* | Unique alphanumeric identifier for the object. The prefix of the Website ID is `WEB-`.                             |
+| `object` | *string* | String representing the object’s type. Objects of the same type share the same value. The value here is `website`. |
+| `name`   | *string* | The name of the website.                                                                                           |
+| `url`    | *string* | The URL of the website.                                                                                            |
 
 ## The website object
 
