@@ -43,7 +43,7 @@ window.addEventListener("message", function (e) {
 ```
 
 > 📘 Note
-> 
+>
 > Note: The `oncehubEvent` function is used in the example above just to filter out other events that might be coming from other 3rd party code. It is not mandatory but recommended.
 
 That’s it!
@@ -55,7 +55,7 @@ Now your embedded chatbot will send important events to the parent page
 The following table lists all the events that will be sent, when they are sent and their payload.
 
 > 📘 Note
-> 
+>
 > All events are prefixed with `oncehub` namespace. This makes sure that we do not conflict with other events from other third party code running on your page.
 
 ### `oncehub.widget.loaded`
