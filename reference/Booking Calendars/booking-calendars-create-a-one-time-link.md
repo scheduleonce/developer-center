@@ -14,5 +14,5 @@ next:
   description: ''
 ---
 > 📘 Note
-> 
+>
 > One-time links are only available for published booking calendars.
