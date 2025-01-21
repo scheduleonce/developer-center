@@ -14,9 +14,9 @@ The team object contains the name of the teams in your account.
 
 | Field    | Type     | Description                                                                                                    |
 | :------- | :------- | :------------------------------------------------------------------------------------------------------------- |
-| `object` | _string_ | String representing the object’s type. Objects of the same type share the same value. The type here is `team`. |
-| `id`     | _string_ | Unique identifier for the object.                                                                              |
-| `name`   | _string_ | The name of the team.                                                                                          |
+| `object` | *string* | String representing the object’s type. Objects of the same type share the same value. The type here is `team`. |
+| `id`     | *string* | Unique identifier for the object.                                                                              |
+| `name`   | *string* | The name of the team.                                                                                          |
 
 ## TEAM
 
