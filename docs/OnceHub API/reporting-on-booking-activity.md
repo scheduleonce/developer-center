@@ -16,12 +16,12 @@ The booking object allows you to retrieve booking data for every booking created
 
 The nested data object contains all of the booking information related to the booking lifecycle event, including the following:
 
-- A booking object with a tracking ID
-- The booking subject, duration, status, creation time, start time, location, and customer time zone
-- Information about related cancellations or rescheduled bookings, when relevant
-- Customer data submitted in the booking form, including name, phone, email, company, time zone, as well as customer guests, note, and custom fields when relevant
-- Booking page, master page, and event type data
-- UTM parameters used in the booking process
+* A booking object with a tracking ID
+* The booking subject, duration, status, creation time, start time, location, and customer time zone
+* Information about related cancellations or rescheduled bookings, when relevant
+* Customer data submitted in the booking form, including name, phone, email, company, time zone, as well as customer guests, note, and custom fields when relevant
+* Booking page, master page, and event type data
+* UTM parameters used in the booking process
 
 ## List all bookings
 
@@ -37,13 +37,13 @@ You will need to indicate the booking ID using the **id** path parameter.
 
 If you have a specific booking ID from past data retrieval, you can cancel a booking through the API, using a POST request. 
 
-You can also include a cancellation reason using string format, with parameter **cancellation_reason**. If you'd like a cancellation email sent, use parameter **send_cancellation_email** in boolean format. These are optional parameters. 
+You can also include a cancellation reason using string format, with parameter **cancellation\_reason**. If you'd like a cancellation email sent, use parameter **send\_cancellation\_email** in boolean format. These are optional parameters. 
 
 ## Request a reschedule
 
 If you have a specific booking ID from past data retrieval, you can request the customer reschedule a booking through the API, using a POST request. 
 
-You can also include a cancellation reason using string format, with parameter **reschedule_reason**. This is an optional parameter.
+You can also include a cancellation reason using string format, with parameter **reschedule\_reason**. This is an optional parameter.
 
 ## Set a booking as no-show
 
