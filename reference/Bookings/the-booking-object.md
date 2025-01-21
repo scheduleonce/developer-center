@@ -10,140 +10,586 @@ metadata:
 next:
   description: ''
 ---
-[block:api-header]
-{
-  "title": "Data model description"
-}
-[/block]
+## Data model description
+
 The booking object is sent in standard JSON format inside the data object, which is nested under the event object in the Webhook payload. The booking object contains a tracking ID, booking data, cancel/reschedule data when relevant, Booking form submission data, Booking page, Master page, and event type data. [Learn more about the data object and the Webhook payload](https://developers.oncehub.com/docs/webhook-data-payload) 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "`object`",
-    "1-0": "`tracking_id`",
-    "3-0": "`subject`",
-    "4-0": "`status`",
-    "5-0": "`creation_time`",
-    "6-0": "`starting_time`",
-    "7-0": "`owner`",
-    "9-0": "`virtual_or_physical_location`",
-    "10-0": "`customer_time_zone_description`",
-    "12-0": "`canceled_booking_tracking_id`",
-    "13-0": "`cancel_reschedule_reason`",
-    "14-0": "`name_of_user_who_canceled_rescheduled`",
-    "15-0": "`name_of_customer_who_canceled_rescheduled`",
-    "16-0": "`form_submission`",
-    "17-0": "`form_submission.name`",
-    "0-2": "String representing the object’s type. Objects of the same type share the same value. The type here is `booking`.",
-    "0-1": "*string*",
-    "1-1": "*string*",
-    "3-1": "*string*",
-    "4-1": "*string*",
-    "5-1": "*datetime*",
-    "6-1": "*datetime*",
-    "2-0": "`package_id`",
-    "2-1": "*string*",
-    "9-1": "*string*",
-    "10-1": "*string*",
-    "12-1": "*string*",
-    "13-1": "*string*",
-    "7-1": "*string*",
-    "14-1": "*string*",
-    "15-1": "*string*",
-    "16-1": "*hash*",
-    "18-0": "`form_submission.email`",
-    "19-0": "`form_submission.phone`",
-    "20-0": "`form_submission.mobile_phone`",
-    "21-0": "`form_submission.note`",
-    "22-0": "`form_submission.company`",
-    "23-0": "`form_submission.guests`",
-    "24-0": "`form_submission.custom_fields`",
-    "24-1": "*hash*",
-    "25-0": "`booking_page.public_name`",
-    "26-0": "`booking_page.internal_label`",
-    "27-0": "`booking_page.link`",
-    "28-0": "`booking_page.category`",
-    "29-0": "`booking_page.time_zone_description`",
-    "30-1": "*string*",
-    "30-0": "`master_page.name`",
-    "31-0": "`master_page.label`",
-    "32-0": "`master_page.link`",
-    "33-0": "`event_type.name`",
-    "34-0": "`event_type.description`",
-    "35-0": "`event_type.category`",
-    "1-2": "A unique ID automatically assigned to every booking.",
-    "2-2": "A unique ID automatically assigned to every Session package.",
-    "5-2": "The date and time when the booking was created.",
-    "6-2": "The date and time when the meeting is scheduled to start.",
-    "3-2": "The name of the Service or Subject as defined in the Booking form.",
-    "4-2": "The status of the booking event. The booking can have any of the following statuses: Requested, Scheduled, Rescheduled, Completed, Canceled, or No-Show.",
-    "7-2": "The owner of the booking. This is the User who originally accepted the booking, and remains unchanged even if the booking was reassigned to a new Booking page.",
-    "9-2": "The virtual or physical location for the meeting.",
-    "10-2": "The time zone selected by the Customer.",
-    "12-2": "The tracking ID of the booking that was canceled.",
-    "13-2": "The reason given for canceling or rescheduling a meeting.",
-    "14-2": "The name of the User who performed the cancellation or reschedule action.",
-    "15-2": "The name of the Customer who performed the cancellation or reschedule action.",
-    "16-2": "The object containing information entered by the Customer into the Booking form.",
-    "17-1": "*string*",
-    "18-1": "*string*",
-    "19-1": "*string*",
-    "20-1": "*string*",
-    "21-1": "*string*",
-    "22-1": "*string*",
-    "24-2": "The object containing custom Booking form fields.",
-    "23-1": "*array*",
-    "25-1": "*string*",
-    "26-1": "*string*",
-    "28-1": "*string*",
-    "29-1": "*string*",
-    "27-1": "*url*",
-    "31-1": "*string*",
-    "32-1": "*url*",
-    "33-1": "*string*",
-    "34-1": "*string*",
-    "35-1": "*string*",
-    "17-2": "The name provided by the Customer in the Booking form.",
-    "18-2": "The email provided by the Customer in the Booking form.",
-    "19-2": "The phone number provided by the Customer in the Booking form.",
-    "20-2": "The mobile phone number provided by the Customer in the Booking form.",
-    "21-2": "The note provided by the Customer in the Booking form.",
-    "22-2": "The company provided by your Customer in the Booking form.",
-    "23-2": "List of additional attendees (emails) invited by the Customer.",
-    "27-2": "The URL of the Booking page used to make the booking.",
-    "26-2": "The internal name of the Booking page used to make the booking.",
-    "25-2": "The Customer-facing name of the Booking page used to make the booking.",
-    "28-2": "The Category to which the Booking page has been assigned.",
-    "29-2": "The time zone of the Booking page as defined in the Availability section.",
-    "30-2": "The Customer-facing name of the Master booking page used to make the booking.",
-    "31-2": "The internal name of the Master booking page used to make the booking. The label is defined in the left pane of the Master booking pages tab under Configuration.",
-    "32-2": "The URL of the Master booking page used to make the booking.",
-    "33-2": "The name of the Service selected by the Customer.",
-    "34-2": "The description of the Service selected by the Customer.",
-    "35-2": "The Category of the Service selected by the Customer.",
-    "11-0": "`cancel_reschedule_link`",
-    "11-1": "*url*",
-    "11-2": "The Cancel/Reschedule link sent to the Customer.",
-    "8-2": "The length of the meeting, in minutes.",
-    "8-1": "*integer*",
-    "8-0": "`duration_minutes`",
-    "36-0": "`external_calendar.type`",
-    "36-1": "*string*",
-    "37-0": "`external_calendar.name`",
-    "38-0": "`external_calendar.id`",
-    "39-0": "`external_calendar.event_id`",
-    "37-1": "*string*",
-    "38-1": "*string*",
-    "39-1": "*string*",
-    "36-2": "The type of external calendar to which the booking was added.",
-    "37-2": "The name of the external calendar to which the booking was added.",
-    "38-2": "The id of the external calendar to which the booking was added.",
-    "39-2": "The id of the booking event that was created in the external calendar."
-  },
-  "cols": 3,
-  "rows": 40
-}
-[/block]
+
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Field
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Type
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `object`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        String representing the object’s type. Objects of the same type share the same value. The type here is `booking`.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `tracking_id`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        A unique ID automatically assigned to every booking.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `package_id`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        A unique ID automatically assigned to every Session package.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `subject`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The name of the Service or Subject as defined in the Booking form.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `status`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The status of the booking event. The booking can have any of the following statuses: Requested, Scheduled, Rescheduled, Completed, Canceled, or No-Show.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `creation_time`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *datetime*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The date and time when the booking was created.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `starting_time`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *datetime*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The date and time when the meeting is scheduled to start.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `owner`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The owner of the booking. This is the User who originally accepted the booking, and remains unchanged even if the booking was reassigned to a new Booking page.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `duration_minutes`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *integer*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The length of the meeting, in minutes.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `virtual_or_physical_location`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The virtual or physical location for the meeting.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `customer_time_zone_description`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The time zone selected by the Customer.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `cancel_reschedule_link`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *url*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The Cancel/Reschedule link sent to the Customer.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `canceled_booking_tracking_id`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The tracking ID of the booking that was canceled.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `cancel_reschedule_reason`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The reason given for canceling or rescheduling a meeting.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `name_of_user_who_canceled_rescheduled`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The name of the User who performed the cancellation or reschedule action.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `name_of_customer_who_canceled_rescheduled`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The name of the Customer who performed the cancellation or reschedule action.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `form_submission`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *hash*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The object containing information entered by the Customer into the Booking form.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `form_submission.name`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The name provided by the Customer in the Booking form.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `form_submission.email`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The email provided by the Customer in the Booking form.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `form_submission.phone`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The phone number provided by the Customer in the Booking form.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `form_submission.mobile_phone`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The mobile phone number provided by the Customer in the Booking form.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `form_submission.note`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The note provided by the Customer in the Booking form.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `form_submission.company`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The company provided by your Customer in the Booking form.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `form_submission.guests`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *array*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        List of additional attendees (emails) invited by the Customer.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `form_submission.custom_fields`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *hash*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The object containing custom Booking form fields.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `booking_page.public_name`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The Customer-facing name of the Booking page used to make the booking.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `booking_page.internal_label`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The internal name of the Booking page used to make the booking.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `booking_page.link`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *url*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The URL of the Booking page used to make the booking.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `booking_page.category`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The Category to which the Booking page has been assigned.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `booking_page.time_zone_description`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The time zone of the Booking page as defined in the Availability section.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `master_page.name`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The Customer-facing name of the Master booking page used to make the booking.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `master_page.label`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The internal name of the Master booking page used to make the booking. The label is defined in the left pane of the Master booking pages tab under Configuration.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `master_page.link`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *url*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The URL of the Master booking page used to make the booking.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `event_type.name`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The name of the Service selected by the Customer.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `event_type.description`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The description of the Service selected by the Customer.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `event_type.category`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The Category of the Service selected by the Customer.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `external_calendar.type`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The type of external calendar to which the booking was added.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `external_calendar.name`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The name of the external calendar to which the booking was added.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `external_calendar.id`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The id of the external calendar to which the booking was added.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `external_calendar.event_id`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The id of the booking event that was created in the external calendar.
+      </td>
+    </tr>
+  </tbody>
+</Table>
