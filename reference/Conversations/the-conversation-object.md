@@ -11,23 +11,224 @@ next:
 ---
 ## The conversation object
 
-| Field           | Type     | Description                                                                                                             |
-| :-------------- | :------- | :---------------------------------------------------------------------------------------------------------------------- |
-| `id`            | *string* | Unique alphanumeric identifier for the object. The prefix of the Conversation ID is `CVR-`.                             |
-| `object`        | *string* | String representing the object’s type. Objects of the same type share the same value. The value here is `conversation`. |
-| `creation_time`        | _timestamp_                                 | The date and time the conversation was created.                                                                                                                                                                                                                                                                                             
-| `initiated_by`         | _string_                                    | Either `bot` (auto reach out) or `contact` (website visitor clicked on a CTA).                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `last_updated_time`    | _string_                                    | The date and time the conversation was last updated.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `last_interacted_time` | _string_                                    | The date and time of the last conversation interaction.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `contact`              | _string_, [expandable](expanding-responses) | The contact / customer involved in this conversation.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `owner`                | _string_, [expandable](expanding-responses) | The owner (user object) of the conversation.                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `status`               | _string_                                    | The status of the conversation. Can be one of the following: `started` - The website visitor has responded with a first message and the conversation is active from this point. `closed` - The conversation has been closed, this can be done by the conversation ending with a last message, or the visitor starting a different conversation. `abandoned` - If there is no response from the visitor for more than 10 minutes the conversation is ended in an abandoned state. |
-| `bot`                  | _string_, [expandable](expanding-responses) | The bot that facilitated the conversation.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `website`              | _string_, [expandable](expanding-responses) | The website this conversation was triggered on.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `audience`             | _string_, [expandable](expanding-responses) | The audience associated with this conversation.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `answers`              | _array[hash]_                               | Answers to the questions asked during the conversation.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `bookings`             | _array[string]_                             | Bookings that are associated to the conversation.                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Field
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Type
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `id`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Unique alphanumeric identifier for the object. The prefix of the Conversation ID is `CVR-`.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `object`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        String representing the object’s type. Objects of the same type share the same value. The value here is `conversation`.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `creation_time`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *timestamp*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The date and time the conversation was created.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `initiated_by`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Either `bot` (auto reach out) or `contact` (website visitor clicked on a CTA).
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `last_updated_time`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The date and time the conversation was last updated.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `last_interacted_time`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The date and time of the last conversation interaction.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `contact`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*, [expandable](expanding-responses)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The contact / customer involved in this conversation.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `owner`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*, [expandable](expanding-responses)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The owner (user object) of the conversation.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `status`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The status of the conversation. Can be one of the following:
+        `started`  - The website visitor has responded with a first message and the conversation is active from this point.
+        `closed`  - The conversation has been closed, this can be done by the conversation ending with a last message, or the visitor starting a different conversation.
+        `abandoned`  - If there is no response from the visitor for more than 10 minutes the conversation is ended in an abandoned state.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `bot`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*, [expandable](expanding-responses)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The bot that facilitated the conversation.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `website`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*, [expandable](expanding-responses)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The website this conversation was triggered on.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `audience`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*, [expandable](expanding-responses)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The audience associated with this conversation.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `answers`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *array\[hash]*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Answers to the questions asked during the conversation.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `bookings`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *array\[string]*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Bookings that are associated to the conversation.
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ## The website object
 
