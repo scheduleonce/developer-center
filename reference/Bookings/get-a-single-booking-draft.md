@@ -13,9 +13,6 @@ metadata:
 next:
   description: ''
 ---
-[block:api-header]
-{
-  "title": "Returns"
-}
-[/block]
+## Returns
+
 Returns a booking object if a valid identifier was provided.
