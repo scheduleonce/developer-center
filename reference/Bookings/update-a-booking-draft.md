@@ -15,9 +15,6 @@ metadata:
 next:
   description: ''
 ---
-[block:api-header]
-{
-  "title": "Returns"
-}
-[/block]
+## Returns
+
 Returns the booking object if the update succeeded.
