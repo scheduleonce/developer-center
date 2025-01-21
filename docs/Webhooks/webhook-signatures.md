@@ -12,9 +12,9 @@ next:
 ---
 OnceHub can sign all webhook events sent to your endpoints with a signature. This signature appears in each event's `Oncehub-Signature` header. It allows you to verify that the events were sent by OnceHub rather than a third party. 
 
-Before you can verify signatures, you need to retrieve your endpoint's secret from your OnceHub dashboard's webhooks settings in the [Webhook & API integration section](https://app.oncehub.com/integrations/api). Find the relevant webhook and click _View secret_.
+Before you can verify signatures, you need to retrieve your endpoint's secret from your OnceHub dashboard's webhooks settings in the [Webhook & API integration section](https://app.oncehub.com/integrations/api). Find the relevant webhook and click *View secret*.
 
-OnceHub generates a unique secret key for each endpoint separately. If the webhook was created in v2 of the API, each event will be signed with the secret. If you don't see the _View secret_ option, this means you are using v1 of the API. Any new endpoints will be created using v2. 
+OnceHub generates a unique secret key for each endpoint separately. If the webhook was created in v2 of the API, each event will be signed with the secret. If you don't see the *View secret* option, this means you are using v1 of the API. Any new endpoints will be created using v2. 
 
 ## Verifying signatures
 
@@ -36,9 +36,9 @@ The value for the prefix `t` corresponds to the timestamp and `s` corresponds to
 
 The `signed_payload` string is created by concatenating:
 
-- The timestamp (as a string)
-- The character `.`
-- The actual JSON payload (i.e., the request body)
+* The timestamp (as a string)
+* The character `.`
+* The actual JSON payload (i.e., the request body)
 
 For example: 
 
@@ -46,8 +46,8 @@ For example:
 1611144604.{"id":"EVNT-2AB8RJY3LF","object":"event","creation_time":"2021-01-20T12:10:03.140Z","type":"booking.scheduled","api_version":"v2","data":{"object":"booking","id":"BKNG-YNMGHKQ24XV5","tracking_id":"BKNG-YNMGHKQ24XV5","subject":"15-minute meeting","status":"scheduled","in_trash":false,"creation_time":"2021-01-20T12:10:02.487Z","starting_time":"2021-01-20T16:45:00.000Z","last_updated_time":"2021-01-20T12:10:02.753Z","owner":{"id":"USR-YX0J4ANZTV","object":"user","first_name":"Michael","last_name":"","email":"michael@example.com","status":"active"},"duration_minutes":15,"virtual_conferencing":{"join_url":""},"location_description":"","rescheduled_booking_id":"","cancel_reschedule_information":{"reason":"","actioned_by":"","user_id":""},"form_submission":{"name":"Carrie","email":"carrie@customer.com","phone":"","mobile_phone":"","note":"","company":"","guests":[],"custom_fields":[]},"booking_page":{"id":"BP-L5SMQPFA1V","object":"booking_page","name":"Michael ","label":"Michael4","url":"https://go.oncehub.com/Michael4","active":true},"master_page":null,"event_type":{"id":"ET-E8DL20JT5U","object":"event_type","name":"15-minute meeting","description":""},"external_calendar":{"type":"none","name":"","id":"","event_id":""}}}
 ```
 
-> 🚧 
-> 
+> 🚧
+>
 > Don't apply any formatting on the request body payload; take it as it is. If you apply formatting, it will add white-space characters that will result in a wrong signature construction.
 
 #### Step 3: Determine the expected signature
