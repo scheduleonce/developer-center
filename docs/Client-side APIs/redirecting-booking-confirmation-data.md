@@ -25,22 +25,9 @@ In order to send booking confirmation data to your redirect page, you must enabl
 3. Click the checkbox to **Send booking confirmation data to redirect page**.
 4. Click **Save** to apply these settings to your booking page.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/0405ccc-custom_confimation_page_automatic_redirect_settings.png",
-        "custom confimation page automatic redirect settings.png",
-        2216
-      ],
-      "align": "center",
-      "caption": "Figure 1: Automatic redirect settings - Custom confirmation page"
-    }
-  ]
-}
-[/block]
-
+<Image title="custom confimation page automatic redirect settings.png" alt={2216} align="center" src="https://files.readme.io/0405ccc-custom_confimation_page_automatic_redirect_settings.png">
+  Figure 1: Automatic redirect settings - Custom confirmation page
+</Image>
 
 That’s it! 
 
@@ -83,22 +70,9 @@ The following table contains the parameter name and description of the fields se
 
 Custom fields for which the customer enters booking submission data will be added to the URL when booking confirmation data is sent to the redirect page. The custom field parameter name is the **Field name** as defined by the user (with spaces removed):
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/cd63a62-Booking_form_editor_-_Defining_the_field_name_for_a_Custom_field.png",
-        "Booking form editor - Defining the field name for a Custom field.png",
-        686
-      ],
-      "align": "center",
-      "caption": "Figure 2: Booking form editor - Defining the field name for a Custom field"
-    }
-  ]
-}
-[/block]
-
+<Image title="Booking form editor - Defining the field name for a Custom field.png" alt={686} align="center" src="https://files.readme.io/cd63a62-Booking_form_editor_-_Defining_the_field_name_for_a_Custom_field.png">
+  Figure 2: Booking form editor - Defining the field name for a Custom field
+</Image>
 
 <a target="_blank" href="https://help.oncehub.com/help/creating-and-editing-custom-fields">Learn more about creating and editing Custom fields.</a>
 
@@ -120,6 +94,6 @@ The following table contains the parameter name and description of the fields se
 
 The following constraints are important to keep in mind when redirecting booking confirmation data:
 
-- Booking confirmation data will only be sent to the redirect page when a booking is scheduled (not canceled, rescheduled, or reassigned).
-- OnceHub does not impose length limits for fields passed in the redirect URL. If the length of the query string exceeds the URL character limit, the URL will be truncated and some data may not be sent.
-- Booking confirmation data will not be sent to the redirect page if you are using a CRM record ID to <a target="_blank" href="https://help.oncehub.com/help/prepopulated-booking-forms">skip or prepopulate the booking form</a>, because this data is encrypted.
+* Booking confirmation data will only be sent to the redirect page when a booking is scheduled (not canceled, rescheduled, or reassigned).
+* OnceHub does not impose length limits for fields passed in the redirect URL. If the length of the query string exceeds the URL character limit, the URL will be truncated and some data may not be sent.
+* Booking confirmation data will not be sent to the redirect page if you are using a CRM record ID to <a target="_blank" href="https://help.oncehub.com/help/prepopulated-booking-forms">skip or prepopulate the booking form</a>, because this data is encrypted.
