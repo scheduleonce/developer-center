@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 link:
   new_tab: true
-  url: https://www.oncehub.com/contactus
+  url: https://oncehub.com/live-chat-support
 metadata:
   title: ''
   description: ''
