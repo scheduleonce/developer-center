@@ -25,33 +25,33 @@ The nested data object contains all of the booking information related to the bo
 
 ## List all bookings
 
-You can request all bookings by using the GET request **List all bookings**. This is usually requested with a [specific data range](https://developers.oncehub.com/docs/business-insights-from-your-booking-data), [booking owner](https://developers.oncehub.com/docs/filtering-your-report-data), or other query parameter in mind, filtered to your specific needs. 
+You can request all bookings by using the GET request **[List all bookings](https://developers.oncehub.com/reference/list-all-bookings#/)**. This is usually requested with a [specific data range](https://developers.oncehub.com/docs/business-insights-from-your-booking-data), [booking owner](https://developers.oncehub.com/docs/filtering-your-report-data), or other query parameter in mind, filtered to your specific needs.
 
 ## Get a single booking
 
-If you already have a specific booking ID from past data retrieval and your system requires full, expanded data on a specific booking, you can use the GET request **[Get a single booking](https://developers.oncehub.com/reference/get-a-single-booking)**. 
+If you already have a specific booking ID from past data retrieval and your system requires full, expanded data on a specific booking, you can use the GET request **[Get a single booking](https://developers.oncehub.com/reference/get-a-single-booking)**.
 
 You will need to indicate the booking ID using the **id** path parameter.
 
 ## Cancel a booking
 
-If you have a specific booking ID from past data retrieval, you can cancel a booking through the API, using a POST request. 
+If you have a specific booking ID from past data retrieval, you can cancel a booking through the API, using a POST request.
 
-You can also include a cancellation reason using string format, with parameter **cancellation\_reason**. If you'd like a cancellation email sent, use parameter **send\_cancellation\_email** in boolean format. These are optional parameters. 
+You can also include a cancellation reason using string format, with parameter `cancellation_reason`. If you'd like a cancellation email sent, use parameter `send_cancellation_email` in boolean format. These are optional parameters.
 
 ## Request a reschedule
 
-If you have a specific booking ID from past data retrieval, you can request the customer reschedule a booking through the API, using a POST request. 
+If you have a specific booking ID from past data retrieval, you can request the customer reschedule a booking through the API, using a POST request.
 
-You can also include a cancellation reason using string format, with parameter **reschedule\_reason**. This is an optional parameter.
+You can also include a cancellation reason using string format, with parameter `reschedule_reason`. This is an optional parameter.
 
 ## Set a booking as no-show
 
-If the customer did not attend the meeting, you can mark them as a no-show through a POST request. You will need to specify the exact booking ID. 
+If the customer did not attend the meeting, you can mark them as a no-show through a POST request. You will need to specify the exact booking ID.
 
 ## Sample booking object
 
-Here you can see a sample booking object, which gives an idea of the information you can receive upon request. 
+Here you can see a sample booking object, which gives an idea of the information you can receive upon request.
 
 ```json
 {
