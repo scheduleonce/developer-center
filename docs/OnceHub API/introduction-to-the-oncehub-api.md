@@ -16,7 +16,7 @@ Our OnceHub API is an advanced feature suitable for developers with scripting or
 
 ## What kind of data can I retrieve?
 
-The API offers two types of data for you to access: 
+The API offers two types of data for you to access:
 
 1. Data related to your bookings and conversations, including the booking creation time, appointment time, customer data, and more. You can use the [booking object](https://developers.oncehub.com/reference/the-booking-object) for this.
 
@@ -25,7 +25,8 @@ The API offers two types of data for you to access:
 * [User](https://developers.oncehub.com/reference/the-user-object)
 * [Event type](https://developers.oncehub.com/reference/the-event-type-object)
 * [Booking page](https://developers.oncehub.com/reference/the-booking-page-object)
-* [Master page](https://developers.oncehub.com/reference/the-master-page-object) 
+* [Master page](https://developers.oncehub.com/reference/the-master-page-object)
+* [Booking calendars](https://developers.oncehub.com/reference/the-booking-calendar-object)
 
 ## How do I filter the data?
 
