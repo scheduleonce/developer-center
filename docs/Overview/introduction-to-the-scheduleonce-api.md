@@ -14,7 +14,7 @@ next:
 
 Our API lets your application receive data from your OnceHub account.
 
-Based on REST principles, our API sends HTTP requests and returns data in JSON format. The API provides access to booking data such as meeting time, guest details, location, and up-to-date meeting status as well as the main setup objects, namely Users, Booking Pages, Master Pages and Event Types.
+Based on REST principles, our API sends HTTP requests and returns data in JSON format. The API provides access to booking data such as meeting time, guest details, location, and up-to-date meeting status as well as the main setup objects, namely Users, Booking Calendars, Booking Pages, Master Pages and Event Types.
 
 > 📘
 >
