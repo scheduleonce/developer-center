@@ -16,12 +16,13 @@ In your account, you have a number of objects you can configure, including:
 * Event types
 * Booking pages
 * Master pages
+* Booking calendars
 
 You can learn more about your current configuration on all these objects through the API.
 
 ## List all users, pages, or event types
 
-You may wish to retrieve a list of all **[users](https://developers.oncehub.com/reference/list-all-users)** in your account, all **[booking pages](https://developers.oncehub.com/reference/list-all-booking-pages)**, all **[master pages](https://developers.oncehub.com/reference/list-all-master-pages)**, or all **[event types](https://developers.oncehub.com/reference/list-all-event-types)**. 
+You may wish to retrieve a list of all **[users](https://developers.oncehub.com/reference/list-all-users)** in your account, all **[booking pages](https://developers.oncehub.com/reference/list-all-booking-pages)**, all **[master pages](https://developers.oncehub.com/reference/list-all-master-pages)**, all **[event types](https://developers.oncehub.com/reference/list-all-event-types)** or all \*\*[booking calendars](https://developers.oncehub.com/reference/list-all-booking-calendars) .
 
 Common use cases for retrieving all users include:
 
@@ -33,12 +34,13 @@ You may also wish to [route users to a specific page](https://developers.oncehub
 
 ## Get a single example
 
-If you already have a specific ID for an event type, booking page, master page, or user from past data retrieval and your system requires full, expanded data on that specific object, you can use the GET request. 
+If you already have a specific ID for an event type, booking page, master page, or user from past data retrieval and your system requires full, expanded data on that specific object, you can use the GET request.
 
 [Get a single booking page](https://developers.oncehub.com/reference/get-a-single-booking-page)\
-[Get a single event type](https://developers.oncehub.com/reference/get-a-single-event-type)\
-[Get a single master page](https://developers.oncehub.com/reference/get-a-single-master-page)\
+[Get a single event type](https://developers.oncehub.com/reference/get-a-single-event-type)
+[Get a single master page](https://developers.oncehub.com/reference/get-a-single-master-page)
 [Get a single user](https://developers.oncehub.com/reference/get-a-single-user)
+[Get a single booking calendar](https://developers.oncehub.com/reference/get-a-single-booking-calendar)
 
 You will need to indicate the ID using the **id** path parameter.
 
@@ -91,5 +93,20 @@ Sample user object:
   "last_name": "Hartie",
   "email": "AndreaHartie@example.com",
   "status": "active"
+}
+```
+
+Sample booking calendar:
+
+```json JSON
+{
+  "id": "BKC-LDJ878496X",
+  "object": "booking_calendar",
+  "subject": "Meeting with Gilad Goraly",
+  "host": "USR-HYPGJXN3A8",
+  "url": "https://oncehub.com/gilad15",
+  "name": "Gilad Goraly booking calendar",
+  "published": true,
+  "duration_minutes": 30
 }
 ```
