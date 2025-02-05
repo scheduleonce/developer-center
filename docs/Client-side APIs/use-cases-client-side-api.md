@@ -57,4 +57,4 @@ A robust and integrated guest profile is essential to effective marketing analyt
 
 Online scheduling presents a key opportunity to gather identifying information at the peak of the prospect’s interest. When a guest schedules a booking, they are more forthcoming with personal data, and are more likely to submit complete and accurate information than other modes of data collection.
 
-By applying our client-side libraries to your booking pages, you can capture meaningful information at a crucial point in the guest journey, when prospects are ready to engage.
+By applying our client-side libraries to your booking pages, you can capture meaningful information at a crucial point in the customer journey, when prospects are ready to engage.
