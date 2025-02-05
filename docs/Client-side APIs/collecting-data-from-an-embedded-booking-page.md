@@ -14,20 +14,18 @@ next:
 
 OnceHub allows you to collect booking confirmation data from an embedded booking page by adding a JavaScript function alongside the embed code in your website. The JavaScript function is executed every time a booking is successfully scheduled in your embedded booking page. When the function executes, a JSON data payload object containing booking confirmation data is sent to the parent page (the page in which the scheduling pane is embedded).
 
-This feature can be used to create a custom confirmation page, enable client-side integrations, or enrich customer data profiles, among other applications. [Learn more about use cases for collecting data from embedded booking pages](https://developers.oncehub.com/docs/use-cases-client-side-api) 
+This feature can be used to create a custom confirmation page, enable client-side integrations, or enrich customer data profiles, among other applications. [Learn more about use cases for collecting data from embedded booking pages](https://developers.oncehub.com/docs/use-cases-client-side-api)
 
 ## Set up data collection from an embedded booking page
 
-In order to start collecting data from an embedded booking page, you must first publish your Booking page using <a target="_blank" href="https://help.oncehub.com/help/website-embed">Website embed</a>. You can do this from the **ScheduleOnce > Share & Publish** section of your account. Simply copy the embed code generated for your selected Booking page, and paste it into your web page.
+In order to start collecting data from an embedded booking page, you must first publish your booking page using <a target="_blank" href="https://help.oncehub.com/help/website-embed">Website embed</a>. You can do this from the **ScheduleOnce > Share & Publish** section of your account. Simply copy the embed code generated for your selected booking page, and paste it into your web page.
 
-<Image title="website embed copy code.png" alt={1089} align="center" src="https://files.readme.io/d01b172-website_embed_copy_code.png">
-  Figure 1: Website embed
-</Image>
+<Image align="center" alt={1089} border={false} caption="Figure 1: Website embed" title="website embed copy code.png" src="https://files.readme.io/d01b172-website_embed_copy_code.png" />
 
 To implement the JavaScript data collection function, follow these steps:
 
-1. Implement the `SOAfterConfirmationFunction()` function by pasting the code into the page in which your scheduling pane is embedded (the parent page). It is recommended to paste this function before the booking page embed code, because the interpreters of some browsers do not support calling undefined functions. 
-2. Define the parameter name you wish the function to call (this will be the name of the JSON object returned when the function executes, containing customer booking data). The function takes one parameter. 
+1. Implement the `SOAfterConfirmationFunction()` function by pasting the code into the page in which your scheduling pane is embedded (the parent page). It is recommended to paste this function before the booking page embed code, because the interpreters of some browsers do not support calling undefined functions.
+2. Define the parameter name you wish the function to call (this will be the name of the JSON object returned when the function executes, containing customer booking data). The function takes one parameter.
 3. Implement the logic you wish to apply to the returned JSON object.
 
 The following is an example code snippet showing the implementation of the `SOAfterConfirmationFunction()` function and an embedded booking page:
