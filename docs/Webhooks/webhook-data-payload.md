@@ -10,15 +10,15 @@ metadata:
 next:
   description: ''
 ---
-## Sending the Webhook data payload
+## Sending the webhook data payload
 
-Whenever one of the defined booking lifecycle events configured for your Webhook subscription occurs in your OnceHub account, an HTTP POST message is triggered, which pushes the relevant booking data to your specified URL endpoint. 
+Whenever one of the defined booking lifecycle events configured for your webhook subscription occurs in your OnceHub account, an HTTP POST message is triggered, which pushes the relevant booking data to your specified URL endpoint.
 
 The data is sent as a JSON payload consisting of an outer event object, and an embedded data object that contains the relevant booking data.
 
 ## Event object
 
-The Webhook payload is sent in standard JSON format and contains an event object with the following information represented by key-value pairs (KVPs):
+The webhook payload is sent in standard JSON format and contains an event object with the following information represented by key-value pairs (KVPs):
 
 * A unique event ID
 * The booking lifecycle event that triggered the payload (e.g. `booking.scheduled`; `booking.canceled`; `booking.rescheduled`; etc.)
@@ -31,14 +31,14 @@ The Webhook payload is sent in standard JSON format and contains an event object
 The nested data object contains all of the booking information related to the booking lifecycle event that triggered the payload, including the following:
 
 * A booking object with a tracking ID
-* The booking subject, duration, status, creation time, start time, location, and Customer time zone
+* The booking subject, duration, status, creation time, start time, location, and guest time zone
 * Information about related cancellations or rescheduled bookings, when relevant
-* Customer data submitted in the Booking form, including name, phone, email, company, time zone, as well as Customer guests, note, and custom fields when relevant
-* Booking page, Master page, and Event type data
+* Guest data submitted in the booking form, including name, phone, email, company, time zone, as well as additional guests, note, and custom fields when relevant
+* Booking page, master page, and event type data
 
-## Sample Webhook payload
+## Sample webhook payload
 
-Below is a sample Webhook payload, containing example data from a scheduled booking. [Learn more about the data structure of the Webhook payload](https://developers.oncehub.com/reference/events) 
+Below is a sample webhook payload, containing example data from a scheduled booking. [Learn more about the data structure of the webhook payload](https://developers.oncehub.com/reference/events)
 
 ```json
 {
