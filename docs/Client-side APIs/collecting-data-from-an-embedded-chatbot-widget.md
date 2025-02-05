@@ -14,7 +14,7 @@ next:
 
 OnceHub allows you to collect various chatbot events data from an embedded chatbot widget by adding a JavaScript function alongside the embed code in your website. The JavaScript function is executed every time a significant event happens with your chatbot. When the function executes, a JSON data payload object containing the event data is sent to the parent page (the page in which the chatbot is embedded).
 
-This feature can be used to enable client-side integrations, or enrich customer data profiles, among other applications. [Learn more about use cases for collecting data from embedded chatbot widget](https://developers.oncehub.com/docs/use-cases-client-side-api) 
+This feature can be used to enable client-side integrations, or enrich guest data profiles, among other applications. [Learn more about use cases for collecting data from embedded chatbot widget](https://developers.oncehub.com/docs/use-cases-client-side-api)
 
 ## Set up data collection from an embedded chatbot
 
