@@ -15,7 +15,7 @@ next:
 The client-side libraries provide two different methods of extracting booking confirmation data from OnceHub at the time of scheduling:
 
 * [Redirecting booking confirmation data](https://developers.oncehub.com/docs/redirecting-booking-confirmation-data), via URL parameters (when using <a target="_blank" href="https://help.oncehub.com/help/automatic-redirect">Automatic redirect</a>), and
-* [Collecting data from an embedded Booking page](https://developers.oncehub.com/docs/collecting-data-from-an-embedded-booking-page), via JavaScript (when using <a target="_blank" href="https://help.oncehub.com/help/website-embed">Website embed</a>)
+* [Collecting data from an embedded booking page](https://developers.oncehub.com/docs/collecting-data-from-an-embedded-booking-page), via JavaScript (when using <a target="_blank" href="https://help.oncehub.com/help/website-embed">Website embed</a>)
 
 ## Apply our client-side libraries to your business processes
 
