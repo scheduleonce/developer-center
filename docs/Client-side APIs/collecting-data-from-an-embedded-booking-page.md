@@ -114,8 +114,8 @@ The JSON object returned to the parent page upon execution of the `SOAfterConfir
 | `CalendarEvent.VCS`         | *url*            | Files that can be downloaded and added to a calendar event.                                                                        |
 | `statusCode`                | *string*         | Error status: "1" = success; "0" = invalid request. Data can be accessed for a particular meeting only once from this api request. |
 | `Message`                   | *string*         | Error message. For a server error: "Something went wrong on server". All other cases return "null".                                |
-| `CustomerName`              | *string*         | The name provided by the Customer in the booking form.                                                                             |
-| `CustomerEmail`             | *string*         | The email provided by the Customer in the booking form.                                                                            |
+| `CustomerName`              | *string*         | The name provided by the customer in the booking form.                                                                             |
+| `CustomerEmail`             | *string*         | The email provided by the customer in the booking form.                                                                            |
 | `CustomerPhone`             | *string*         | The phone number provided by the customer in the booking form.                                                                     |
 | `EventTypeName`             | *string*         | The name of the service selected by the customer.                                                                                  |
 | `BookingId`                 | *array\[string]* | The ID of the booking. In case of a session package, multiple IDs could be returned.                                               |
