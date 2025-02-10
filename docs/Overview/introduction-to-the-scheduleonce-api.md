@@ -1,5 +1,5 @@
 ---
-title: Introduction to the OnceHub developer center
+title: Introduction to the OnceHub Developer Center
 excerpt: ''
 deprecated: false
 hidden: false
