@@ -1,5 +1,5 @@
 ---
-title: Reporting on booking activity
+title: Reporting on Booking Activity
 excerpt: ''
 deprecated: false
 hidden: false
@@ -12,44 +12,44 @@ next:
 ---
 The booking object allows you to retrieve booking data for every booking created or updated in your OnceHub account.
 
-## The booking object
+## The Booking Object
 
 The nested data object contains all of the booking information related to the booking lifecycle event, including the following:
 
 * A booking object with a tracking ID
 * The booking subject, duration, status, creation time, start time, location, and customer time zone
 * Information about related cancellations or rescheduled bookings, when relevant
-* Customer data submitted in the booking form, including name, phone, email, company, time zone, as well as customer guests, note, and custom fields when relevant
+* Visitor data submitted in the booking form, including name, phone, email, company, time zone, as well as additional guests, note, and custom fields when relevant
 * Booking page, master page, and event type data
 * UTM parameters used in the booking process
 
-## List all bookings
+## List All Bookings
 
 You can request all bookings by using the GET request **[List all bookings](https://developers.oncehub.com/reference/list-all-bookings#/)**. This is usually requested with a [specific data range](https://developers.oncehub.com/docs/business-insights-from-your-booking-data), [booking owner](https://developers.oncehub.com/docs/filtering-your-report-data), or other query parameter in mind, filtered to your specific needs.
 
-## Get a single booking
+## Get a Single Booking
 
 If you already have a specific booking ID from past data retrieval and your system requires full, expanded data on a specific booking, you can use the GET request **[Get a single booking](https://developers.oncehub.com/reference/get-a-single-booking)**.
 
 You will need to indicate the booking ID using the **id** path parameter.
 
-## Cancel a booking
+## Cancel a Booking
 
 If you have a specific booking ID from past data retrieval, you can cancel a booking through the API, using a POST request.
 
 You can also include a cancellation reason using string format, with parameter `cancellation_reason`. If you'd like a cancellation email sent, use parameter `send_cancellation_email` in boolean format. These are optional parameters.
 
-## Request a reschedule
+## Request a Reschedule
 
 If you have a specific booking ID from past data retrieval, you can request the customer reschedule a booking through the API, using a POST request.
 
 You can also include a cancellation reason using string format, with parameter `reschedule_reason`. This is an optional parameter.
 
-## Set a booking as no-show
+## Set Meetings as No-Show
 
 If the customer did not attend the meeting, you can mark them as a no-show through a POST request. You will need to specify the exact booking ID.
 
-## Sample booking object
+## Sample Booking Object
 
 Here you can see a sample booking object, which gives an idea of the information you can receive upon request.
 
@@ -121,6 +121,6 @@ Here you can see a sample booking object, which gives an idea of the information
 }
 ```
 
-## Filter the booking object
+## Filter the Booking Object
 
 If you'd like to narrow the scope of your data payload, you can use [query parameters](https://developers.oncehub.com/reference/list-all-bookings) (indicated in reference material as QUERY PARAMS) to request only relevant data.
