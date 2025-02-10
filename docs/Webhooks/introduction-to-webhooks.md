@@ -22,7 +22,7 @@ Multiple webhook subscriptions can be associated with the same OnceHub account. 
 
 An HTTP POST message is used to push relevant booking or conversation data to the webhook URL, and is triggered whenever the defined lifecycle event occurs. The data is sent as JSON key-value pairs (KVPs) to your receiving server when a booking lifecycle event occurs in your OnceHub account. For example, you can create a webhook that sends customer details whenever a new booking is scheduled.
 
-## Managing your webhooks
+## Managing Your Webhooks
 
 Webhook subscriptions can be created, deleted, and retrieved via the webhooks API. You can also view and delete your webhooks from the <a target="_blank" href="https://app.oncehub.com/integrations/api">API Integration</a> page. [Learn more about managing Webhook subscriptions](https://developers.oncehub.com/docs/managing-webhook-subscriptions)
 
