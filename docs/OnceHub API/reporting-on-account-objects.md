@@ -1,5 +1,5 @@
 ---
-title: Reporting on account objects
+title: Reporting on Account Objects
 excerpt: ''
 deprecated: false
 hidden: false
@@ -20,7 +20,7 @@ In your account, you have a number of objects you can configure, including:
 
 You can learn more about your current configuration on all these objects through the API.
 
-## List all users, pages, or event types
+## List all Users, Booking Pages, or Event Types
 
 You may wish to retrieve a list of all **[users](https://developers.oncehub.com/reference/list-all-users)** in your account, all **[booking pages](https://developers.oncehub.com/reference/list-all-booking-pages)**, all **[master pages](https://developers.oncehub.com/reference/list-all-master-pages)**, all **[event types](https://developers.oncehub.com/reference/list-all-event-types)** or all \*\*[booking calendars](https://developers.oncehub.com/reference/list-all-booking-calendars) .
 
@@ -32,9 +32,9 @@ Common use cases for retrieving all users include:
 
 You may also wish to [route users to a specific page](https://developers.oncehub.com/docs/using-the-oncehub-api#routing-to-a-specific-page) by employing logic in a drop-down menu or form.
 
-## Get a single example
+## Get a Single Object
 
-If you already have a specific ID for an event type, booking page, master page, or user from past data retrieval and your system requires full, expanded data on that specific object, you can use the GET request.
+If you already have a specific ID for an event type, booking page, booking calendar, master page, or user from past data retrieval and your system requires full, expanded data on that specific object, you can use the GET request.
 
 [Get a single booking page](https://developers.oncehub.com/reference/get-a-single-booking-page)\
 [Get a single event type](https://developers.oncehub.com/reference/get-a-single-event-type)
@@ -44,7 +44,7 @@ If you already have a specific ID for an event type, booking page, master page, 
 
 You will need to indicate the ID using the **id** path parameter.
 
-## Sample objects
+## Sample Objects
 
 Sample booking page object:
 
