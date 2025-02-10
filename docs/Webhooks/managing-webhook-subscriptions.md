@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-## Managing webhook subscriptions via the API
+## Managing Webhook Subscriptions via the API
 
 The Webhook API allows you to create, retrieve, and delete your webhook subscriptions.
 
@@ -20,7 +20,7 @@ You can retrieve a list of all webhook subscriptions associated with your accoun
 
 If for some reason you need to delete your webhook subscriptions, you can do so by sending a DELETE request to the **/webhooks** endpoint, along with the ID of the webhook you wish to delete. [Learn more about deleting Webhooks via the API](https://developers.oncehub.com/reference/delete-a-webhook)
 
-## Managing webhook subscriptions via the OnceHub application
+## Managing Webhook Subscriptions via the OnceHub Application
 
 Webhook subscriptions can also be managed by the account administrator via the OnceHub application.
 
