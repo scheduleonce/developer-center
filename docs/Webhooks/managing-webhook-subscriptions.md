@@ -1,5 +1,5 @@
 ---
-title: Managing webhook subscriptions
+title: Managing Webhook Subscriptions
 excerpt: ''
 deprecated: false
 hidden: false
