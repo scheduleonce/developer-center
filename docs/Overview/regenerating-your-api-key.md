@@ -1,5 +1,5 @@
 ---
-title: Regenerating your API key
+title: Regenerating Your API Key
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-## How to regenerate your API key
+## How to Regenerate Your API Key
 
 If you suspect that your secret API key has been compromised, you may wish to expire your existing API key and generate a new one.
 
@@ -18,7 +18,7 @@ You can do so by clicking on the Regenerate link on the <a target="_blank" href=
 
 <Image alt={3358} border={false} caption="Figure 1: API key - Regenerate link" title="API key - Regenerate link.png" src="https://files.readme.io/3d7e8b6-API_key_-_Regenerate_link.png" />
 
-## Effects of regenerating your API key
+## Effects of Regenerating Your API Key
 
 If an API key is regenerated, the old key will expire and can no longer be used for authentication. You will need to use the new key to access the API.
 
