@@ -1,5 +1,5 @@
 ---
-title: Webhook event triggers
+title: Webhook Event Triggers
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-## Booking lifecycle events
+## Booking Lifecycle Events
 
 When you create a webhook subscription, you must define the set of events that will trigger POST messages to your URL endpoint. These events represent the booking lifecycle scenarios you wish to receive notifications about. [Learn more about the event object sent in the webhook data payload](https://developers.oncehub.com/reference/events)
 
-## Specific and composite event triggers
+## Specific and Composite Event Triggers
 
 OnceHub provides two types of lifecycle [event triggers](https://developers.oncehub.com/reference/event-triggers): Specific and composite. Specific triggers are based on an **individual** event (e.g. a booking is scheduled, or a booking is canceled, or a conversation is closed). The composite `booking` event trigger includes **all** of the booking lifecycle event triggers.
 
@@ -38,7 +38,7 @@ The following is a list of booking lifecycle event triggers that are available t
 **Composite booking event triggers**\
 `booking` (includes all of the specific booking event triggers listed above)
 
-## Booking scenarios - Automatic booking
+## Booking Scenarios - Automatic Booking
 
 The following summarizes the various booking scenarios that will send a data payload to your server, when you are using Automatic booking.
 
@@ -60,7 +60,7 @@ The following summarizes the various booking scenarios that will send a data pay
 
 * You will receive a `booking.canceled` event when a booking is canceled by either the guest or the user.
 
-## Booking scenarios - Booking with approval
+## Booking Scenarios - Booking with Approval
 
 The following summarizes the various booking scenarios that will send a data payload to your server, when you are using Booking with approval.
 
@@ -85,7 +85,7 @@ The following summarizes the various booking scenarios that will send a data pay
 
 * You will receive a `booking.canceled` event when a booking is canceled by either the guest or the user.
 
-## Additional booking scenarios
+## Additional Booking Scenarios
 
 **After the scheduled meeting time has passed:**
 
@@ -100,7 +100,7 @@ The following summarizes the various booking scenarios that will send a data pay
 
 * Bookings scheduled as part of a Session package follow the same webhook event trigger rules as single bookings.
 
-## Passing events to the webhook object
+## Passing Events to the Webhook Object
 
 To set the booking lifecycle event triggers for your webhook subscription, you must pass an array of events in the body of the HTTP request. [Learn more about configuring event triggers when you create a Webhook subscription](https://developers.oncehub.com/reference/create-a-webhook)
 
@@ -114,7 +114,7 @@ The following is an example of a webhook object with two event triggers (`bookin
 }
 ```
 
-## Failed event triggers
+## Failed Event Triggers
 
 If for any reason your event trigger fails to post, OnceHub retries posting the failed event data at regular intervals.
 
