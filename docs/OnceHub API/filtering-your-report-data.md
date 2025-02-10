@@ -19,7 +19,7 @@ You can filter your requests using various query parameters, so you are retrievi
 * [User object](https://developers.oncehub.com/reference/list-all-users)
 * [Booking calendar object](https://developers.oncehub.com/reference/list-all-booking-calendars)
 
-## Popular examples
+## Popular Examples
 
 **status**: You may wish to evaluate all canceled bookings or no-shows, to spot trends.
 
@@ -29,4 +29,4 @@ You can filter your requests using various query parameters, so you are retrievi
 
 **event\_type**: Determine which event types are most popular by retrieving multiple event type reports and comparing them. Evaluate customer behavior for one event type in comparison to another (for instance, one event type is canceled more than others).
 
-**conversation**: Understand more about your customer's journey by confirming which bookings came from chats. If your booking came from a ChatOnce conversation, the payload will include its conversation ID.
+**conversation**: Understand more about your customer's journey by confirming which bookings came from chats. If your booking came from a chatbot conversation, the payload will include its conversation ID.
