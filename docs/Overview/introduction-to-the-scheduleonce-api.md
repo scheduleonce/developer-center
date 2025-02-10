@@ -28,7 +28,7 @@ Based on REST principles, our API sends HTTP requests and returns data in JSON f
 > * <a target="_blank" href="https://help.oncehub.com/help/login-integration">Login integration</a>
 > * <a target="_blank" href="https://help.oncehub.com/help/website-embed">Website integration</a>
 
-## Getting to know OnceHub
+## Getting to Know OnceHub
 
 Discover how OnceHub can benefit you and your customers.
 
