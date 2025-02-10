@@ -1,5 +1,5 @@
 ---
-title: Filtering your report data
+title: Filtering Your Report Data
 excerpt: ''
 deprecated: false
 hidden: false
