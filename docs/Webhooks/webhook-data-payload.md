@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-## Sending the webhook data payload
+## Sending the Webhook Data Payload
 
 Whenever one of the defined booking lifecycle events configured for your webhook subscription occurs in your OnceHub account, an HTTP POST message is triggered, which pushes the relevant booking data to your specified URL endpoint.
 
 The data is sent as a JSON payload consisting of an outer event object, and an embedded data object that contains the relevant booking data.
 
-## Event object
+## Event Object
 
 The webhook payload is sent in standard JSON format and contains an event object with the following information represented by key-value pairs (KVPs):
 
@@ -26,7 +26,7 @@ The webhook payload is sent in standard JSON format and contains an event object
 * The API version
 * A nested data object containing the relevant booking information
 
-## Data object
+## Data Object
 
 The nested data object contains all of the booking information related to the booking lifecycle event that triggered the payload, including the following:
 
@@ -36,7 +36,7 @@ The nested data object contains all of the booking information related to the bo
 * Guest data submitted in the booking form, including name, phone, email, company, time zone, as well as additional guests, note, and custom fields when relevant
 * Booking page, master page, and event type data
 
-## Sample webhook payload
+## Sample Webhook Payload
 
 Below is a sample webhook payload, containing example data from a scheduled booking. [Learn more about the data structure of the webhook payload](https://developers.oncehub.com/reference/events)
 
