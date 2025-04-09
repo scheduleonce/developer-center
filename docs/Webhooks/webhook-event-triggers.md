@@ -12,7 +12,7 @@ next:
 ---
 ## Booking Lifecycle Events
 
-When you create a webhook subscription, you must define the set of events that will trigger POST messages to your URL endpoint. These events represent the booking lifecycle scenarios you wish to receive notifications about. [Learn more about the event object sent in the webhook data payload](https://developers.oncehub.com/reference/events)
+When you create a webhook subscription, you must define the set of events that will trigger POST messages to your URL endpoint. These events represent the booking lifecycle scenarios you wish to receive notifications about. [Learn more about the event object sent in the webhook data payload](https://developers.oncehub.com/reference/event-triggers)
 
 ## Specific and Composite Event Triggers
 
