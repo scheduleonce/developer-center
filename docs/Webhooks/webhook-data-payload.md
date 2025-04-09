@@ -38,7 +38,7 @@ The nested data object contains all of the booking information related to the bo
 
 ## Sample Webhook Payload
 
-Below is a sample webhook payload, containing example data from a scheduled booking. [Learn more about the data structure of the webhook payload](https://developers.oncehub.com/reference/events)
+Below is a sample webhook payload, containing example data from a scheduled booking. [Learn more about the data structure of the webhook payload](https://developers.oncehub.com/reference/event-triggers)
 
 ```json
 {
