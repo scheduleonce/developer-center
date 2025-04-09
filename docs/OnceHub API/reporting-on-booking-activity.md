@@ -25,7 +25,7 @@ The nested data object contains all of the booking information related to the bo
 
 ## List All Bookings
 
-You can request all bookings by using the GET request **[List all bookings](https://developers.oncehub.com/reference/list-all-bookings#/)**. This is usually requested with a [specific data range](https://developers.oncehub.com/docs/business-insights-from-your-booking-data), [booking owner](https://developers.oncehub.com/docs/filtering-your-report-data), or other query parameter in mind, filtered to your specific needs.
+You can request all bookings by using the GET request **[List all bookings](https://developers.oncehub.com/reference/list-all-bookings#/)**. This is usually requested with a specific data range, [booking owner](https://developers.oncehub.com/docs/filtering-your-report-data), or other query parameter in mind, filtered to your specific needs.
 
 ## Get a Single Booking
 
