@@ -7,7 +7,7 @@ api:
 deprecated: false
 hidden: false
 metadata:
-  title: Create a one-time link for master page
+  title: Create a one-time link for a master page
   description: ''
   robots: index
 next:
