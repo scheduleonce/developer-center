@@ -73,7 +73,7 @@ fetchPeriodically();
 
 <!-- node@1-4 -->
 
-Notice that this recipe uses native fetch in Node.js
+Notice that this recipe uses native fetch in Node.js  
 This requires node version > 17.6.0 and at the time of writing this script, to run node with the flag `--experimental-fetch` on.
 
 Read more about fetch api [here](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
@@ -90,13 +90,15 @@ If you are running an older version of Node.js you can import [node-fetch](https
 
 <!-- node@6 -->
 
-You can set the initial time from which you want to fetch all bookings.
+You can set the initial time from which you want to fetch all bookings.  
 In this case, we are only fetching bookings that were updated since the script has started running.
 
 You can set 
+
 ```
 lastFetchTime = new Date(0)
 ```
+
 To get all bookings since the beginning.
 
 # Fetch all bookings periodically
