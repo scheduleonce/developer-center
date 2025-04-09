@@ -7,7 +7,7 @@ api:
 deprecated: false
 hidden: false
 metadata:
-  title: ''
+  title: Get a single contact
   description: ''
   robots: noindex
 next:
