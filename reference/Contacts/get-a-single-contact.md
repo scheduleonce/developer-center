@@ -8,7 +8,7 @@ deprecated: false
 hidden: false
 metadata:
   description: ''
-  robots: noindex
+  robots: index
 next:
   description: ''
 ---
