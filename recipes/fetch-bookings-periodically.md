@@ -1,7 +1,7 @@
 ---
 title: Fetch bookings periodically
 description: Recipe Description
-hidden: false
+hidden: true
 recipe:
   color: '#018FF4'
   icon: 🦉
