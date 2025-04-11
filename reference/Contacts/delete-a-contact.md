@@ -7,7 +7,6 @@ api:
 deprecated: false
 hidden: false
 metadata:
-  title: Delete a contact
   description: ''
   robots: index
 next:
