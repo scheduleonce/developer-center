@@ -4,7 +4,6 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: The
   robots: index
 next:
   description: ''
