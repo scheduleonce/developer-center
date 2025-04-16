@@ -1,5 +1,5 @@
 ---
-title: The conversation objects
+title: The conversation object
 deprecated: false
 hidden: false
 metadata:
