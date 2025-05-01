@@ -6,3 +6,10 @@ metadata:
   robots: index
 ---
 # List of supported events
+
+<br />
+
+| Event name | Fires when |
+| :--------- | :--------- |
+|            |            |
+|            |            |
