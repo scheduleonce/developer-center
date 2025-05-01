@@ -16,3 +16,32 @@ metadata:
 | `oncehub.widget.closed`         | Visitor closes the chatbot widget.                          |
 | `oncehub.widget.button_clicked` | Visitor clicks on a button during the chatbot conversation. |
 | `oncehub.conversation.started`  | Visitor starts interacting with the chatbot.                |
+
+# Events payloads
+
+## `oncehub.widget.loaded`
+
+Payload example:
+
+```json
+{  
+  "type": "oncehub.widget.loaded",  
+  "payload": {  
+    "bot_name": "example bot"  
+  }  
+}
+```
+
+## `oncehub.widget.opened`
+
+Payload example:
+
+```json
+{
+  "type": "oncehub.widget.opened",
+  "payload": {
+    "bot_name": "example bot",
+    "bot_id": "BOT-1234"
+  }
+}
+```
