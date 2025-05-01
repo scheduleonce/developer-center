@@ -45,3 +45,47 @@ Payload example:
   }
 }
 ```
+
+## `oncehub.widget.closed`
+
+Payload example:
+
+```json
+{
+  "type": "oncehub.widget.closed",
+  "payload": {
+    "bot_name": "example bot",
+    "bot_id": "BOT-1234"
+  }
+}
+```
+
+## `oncehub.widget.button_clicked`
+
+Payload example:
+
+```json
+{
+  "type": "oncehub.widget.button_clicked",
+  "payload": {
+    "bot_name": "example bot",
+    "bot_id": "BOT-1234",
+    "button_text": "confirm",
+    "interaction_label": "schedule"
+  }
+}
+```
+
+## `oncehub.conversation.started`
+
+Payload example:
+
+```json
+{
+  "type": "oncehub.conversation.started",
+  "payload": {
+    "bot_name": "example bot",
+    "bot_id": "BOT-1234"
+  }
+}
+```
