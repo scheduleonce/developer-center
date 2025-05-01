@@ -7,8 +7,6 @@ metadata:
 ---
 # List of supported events
 
-<br />
-
 | Event name                      | Fires when                                                  |
 | :------------------------------ | :---------------------------------------------------------- |
 | `oncehub.widget.loaded`         | Chatbot widget is first loaded, on page load.               |
