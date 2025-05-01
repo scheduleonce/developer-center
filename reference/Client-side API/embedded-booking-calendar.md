@@ -18,3 +18,14 @@ metadata:
 # Events payloads
 
 ## `oncehub.widget.loaded`
+
+Payload example:
+
+```javascript
+{  
+  "type": "oncehub.widget.loaded",  
+  "payload": {  
+    "bot_name": "example bot"  
+  }  
+}
+```
