@@ -9,7 +9,8 @@ metadata:
 
 <br />
 
-| Event name | Fires when |
-| :--------- | :--------- |
-|            |            |
-|            |            |
+| Event name                                    | Fires when |
+| :-------------------------------------------- | :--------- |
+| `oncehub.booking_calendar.loaded`             |            |
+| `oncehub.booking_calendar.time_slot_selected` |            |
+| `booking.scheduled`                           |            |
