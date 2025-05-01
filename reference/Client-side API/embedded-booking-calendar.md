@@ -13,4 +13,4 @@ metadata:
 | :-------------------------------------------- | :---------------------------------------------- |
 | `oncehub.booking_calendar.loaded`             | Booking calendar is first loaded, on page load. |
 | `oncehub.booking_calendar.time_slot_selected` | Visitor selects a time slot and confirms it.    |
-| `booking.scheduled`                           |                                                 |
+| `booking.scheduled`                           | Visitor completes the booking process.          |
