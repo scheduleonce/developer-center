@@ -38,22 +38,3 @@ window.addEventListener("message", function (e) {
 > 2. The event data includes a type field starting with oncehub..
 >
 > This filtering ensures you only process events specifically sent by Oncehub, preventing conflicts with other message events on your page. All client-side events dispatched by Oncehub consistently use the `oncehub.` prefix, making this check effective. Verifying the origin is also recommended for security and robustness.
-
-# List of supported events
-
-## Embedded chatbot widget
-
-| Event name                      | Fired when                                                  |
-| :------------------------------ | :---------------------------------------------------------- |
-| `oncehub.widget.loaded`         | Chatbot widget is first loaded, on page load.               |
-| `oncehub.widget.opened`         | Visitor clicks anywhere to interact with the chatbot.       |
-| `oncehub.widget.closed`         | Visitor closes the chatbot widget.                          |
-| `oncehub.widget.button_clicked` | Visitor clicks on a button during the chatbot conversation. |
-| `oncehub.conversation.started`  | Visitor starts interacting with the chatbot.                |
-
-## Embedded booking calendar
-
-| Event name | Fires when |
-| :--------- | :--------- |
-|            |            |
-|            |            |
