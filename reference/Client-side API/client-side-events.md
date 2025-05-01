@@ -52,3 +52,8 @@ window.addEventListener("message", function (e) {
 | `oncehub.conversation.started`  | Visitor starts interacting with the chatbot.                |
 
 ## Embedded booking calendar
+
+| Event name | Fires when |
+| :--------- | :--------- |
+|            |            |
+|            |            |
