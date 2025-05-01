@@ -7,8 +7,6 @@ metadata:
 ---
 # List of supported events
 
-<br />
-
 | Event name                                    | Fires when                                                                                  |
 | :-------------------------------------------- | :------------------------------------------------------------------------------------------ |
 | `oncehub.booking_calendar.loaded`             | Booking calendar is first loaded, on page load.                                             |
