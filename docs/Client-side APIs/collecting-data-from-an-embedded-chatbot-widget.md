@@ -113,7 +113,7 @@ The following table lists all the events that will be sent, when they are sent a
 
 ### `oncehub.widget.button_clicked`
 
-**Fired when**: Visitor clicks on an button during the chatbot conversation.
+**Fired when**: Visitor clicks on a button during the chatbot conversation.
 
 **Payload example**:
 
