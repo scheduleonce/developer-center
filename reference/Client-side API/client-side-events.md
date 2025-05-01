@@ -37,4 +37,6 @@ window.addEventListener("message", function (e) {
 > 1. The event originates from [https://oncehub.com](https://oncehub.com).
 > 2. The event data includes a type field starting with oncehub..
 >
-> This filtering ensures you only process events specifically sent by Oncehub, preventing conflicts with other message events on your page. All client-side events dispatched by Oncehub consistently use the `oncehub.` prefix, making this check effective. Verifying the origin is also recommended for security and robustness.
+> This filtering ensures you only process events specifically sent by Oncehub, preventing conflicts with other message events on your page.
+>
+> All client-side events dispatched by Oncehub consistently use the `oncehub.` prefix, making this check effective. Verifying the origin is also recommended for security and robustness.
