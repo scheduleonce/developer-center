@@ -9,7 +9,7 @@ metadata:
 
 <br />
 
-| Event name                      | Fired when                                                  |
+| Event name                      | Fires when                                                  |
 | :------------------------------ | :---------------------------------------------------------- |
 | `oncehub.widget.loaded`         | Chatbot widget is first loaded, on page load.               |
 | `oncehub.widget.opened`         | Visitor clicks anywhere to interact with the chatbot.       |
