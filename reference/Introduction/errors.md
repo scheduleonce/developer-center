@@ -69,3 +69,7 @@ Here are a few examples:
 ## Rate limits
 
 To ensure fair usage and maintain API stability, requests are rate-limited. You are permitted to make up to **200 requests per 5-minute** window.
+
+> 📘 Tip
+>
+> Avoid periodically fetching entire resource collections just to check for updates. This can quickly consume your rate limit allowance. Instead, utilize our [Webhooks](doc:event-triggers)  to receive notifications proactively when data changes, leading to more efficient integration.
