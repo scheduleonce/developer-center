@@ -68,9 +68,10 @@ Here are a few examples:
 
 ## Rate limits
 
-To ensure fair usage and maintain API stability, requests are subject to rate limiting based on both the account and the originating IP address:\
-**Per Account**: You are limited to **5 requests per second**.
-**Per IP Address**: You are limited to **200 requests per 5 minutes**.
+To ensure fair usage and maintain API stability, requests are subject to rate limiting based on both the account and the originating IP address:
+
+* **Per Account**: You are limited to **5 requests per second**.
+* **Per IP Address**: You are limited to **200 requests per 5 minutes**.
 
 > 📘 Tip
 >
