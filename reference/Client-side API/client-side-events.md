@@ -1,5 +1,5 @@
 ---
-title: Client side events
+title: Embed events
 deprecated: false
 hidden: false
 metadata:
