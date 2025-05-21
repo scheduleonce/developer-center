@@ -32,7 +32,7 @@ window.addEventListener("message", function (e) {
 
 > 📘 Note
 >
-> The OnceHub Event function in the example verifies two things:
+> The `oncehubEvent` function in the example verifies two things:
 >
 > 1. The event originates from [https://oncehub.com](https://oncehub.com).
 > 2. The event data includes a type field starting with `oncehub`.
