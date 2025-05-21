@@ -1,5 +1,5 @@
 ---
-title: Booking calendar events
+title: Embedded booking calendar events
 deprecated: false
 hidden: false
 metadata:
