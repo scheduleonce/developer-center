@@ -11,7 +11,7 @@ metadata:
 | :-------------------------------------------- | :------------------------------------------------------------------------------------------ |
 | `oncehub.booking_calendar.loaded`             | Booking calendar is first loaded, on page load.                                             |
 | `oncehub.booking_calendar.time_slot_selected` | Visitor selects a time slot and confirms it.                                                |
-| `booking.scheduled`                           | visitor successfully completes the final step of the booking, and the meeting is scheduled. |
+| `oncehub.booking.scheduled`                   | visitor successfully completes the final step of the booking, and the meeting is scheduled. |
 
 # Events payloads
 
