@@ -290,9 +290,14 @@ The following is an example of a conversation object.
       "internal_label": "",
       "question": "Meeting location",
       "value": "123 Office Street"
+    },
+    {
+      "id": "INT-3129F3D394",
+      "internal_label": null,
+      "question": "Attachments",
+      "value": "https://app.oncehub.com/download/attachment?trackingId=BKNG-3KM0HY2BF9SL"
     }
   ],
   "bookings": ["BKNG-3KM0HY2BF9SL"]
 }
-
 ```
