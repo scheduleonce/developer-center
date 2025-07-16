@@ -150,7 +150,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        If a text field is used to collect information about the size of the company where the contact works, this field can store the value.\
+        If a text field is used to collect information about the size of the company where the contact works, this field can store the value.
         If a number field is used, see the `employees` field.
       </td>
     </tr>
@@ -227,7 +227,7 @@ next:
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        `has_consent` 
+        `has_consent`
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -277,8 +277,8 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        If a number field is used to collect information about the size of the company where the contact works, this field can store the value.\
-        Currently a field of type *number* can only be populated using ChatOnce.\
+        If a number field is used to collect information about the size of the company where the contact works, this field can store the value.
+        Currently a field of type *number* can only be populated using ChatOnce.
         If a text field is used, see the `company_size` field.
       </td>
     </tr>
@@ -471,7 +471,16 @@ next:
   "form": null,
   "custom_fields": [
     { "name": "reason_for_contacting", "value": "I want to do business" },
-    { "name": "new_to_our_tool", "value": true }
+    { "name": "new_to_our_tool", "value": true },
+    {
+      "name": "attachments",
+      "value": [
+        {
+          "fileName": "BKNG-46K9MB0ZFTN5",
+          "link": "https://app.oncehub.com/download/attachment?trackingId=BKNG-46K9MB0ZFTN5"
+        }
+      ]
+    }
   ]
 }
 ```
