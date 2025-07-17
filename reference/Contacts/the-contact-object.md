@@ -364,6 +364,7 @@ next:
 
       <td style={{ textAlign: "left" }}>
         The time zone that the contact is based in. This is based of the last interaction they had with your OnceHub account (ScheduleOnce booking or ChatOnce conversation).
+        Displayed in [IANA timezone format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) .
       </td>
     </tr>
 
