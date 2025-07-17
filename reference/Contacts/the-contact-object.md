@@ -429,7 +429,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        *any*
       </td>
 
       <td style={{ textAlign: "left" }}>
