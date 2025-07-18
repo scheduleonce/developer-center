@@ -82,7 +82,17 @@ Payload example:
     },
     "booking_calendar": "BKC-03WJV0R52Z",
     "cancel_url": "https://oncehub.com/m/BKNG-3KM0HY2BF9SL/cancel",
-    "reschedule_url": "https://oncehub.com/m/BKNG-3KM0HY2BF9SL"
+    "reschedule_url": "https://oncehub.com/m/BKNG-3KM0HY2BF9SL",
+    "custom_fields": [
+      {
+        "name": "discussion_points",
+        "value": "Need support on new product"
+      },
+      {
+        "name": "meeting_reason",
+        "value": "Product demo"
+      }
+    ]
   }
 }
 ```
