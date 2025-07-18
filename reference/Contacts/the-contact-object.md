@@ -406,7 +406,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Any custom fields that have been added to the contact fields library for your account will be listed in the array of custom fields.
+        Any custom fields that have been added to the field library for the contact object type on your account will be listed in the array of custom fields.
       </td>
     </tr>
 
