@@ -264,7 +264,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        URL for cancelling and rescheduling the booking.  
+        URL for cancelling and rescheduling the booking.
 
         * At the moment, only being sent out in webhooks.
       </td>
@@ -602,7 +602,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Object containing captured values for the 5 standard [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters). Not included in booking webhooks at this time.  
+        Object containing captured values for the 5 standard [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters). Not included in booking webhooks at this time.
 
         * If no UTM params exist on the booking, object will return `null`
       </td>
@@ -614,7 +614,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        * string\_, [expandable](expanding-responses) 
+        * string\_, [expandable](expanding-responses)
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -646,7 +646,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        URL for cancelling the booking.  
+        URL for cancelling the booking.
 
         * Only sent for booking scheduled via booking calendars
       </td>
@@ -662,9 +662,51 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        URL for rescheduling the booking.  
+        URL for rescheduling the booking.
 
         * Only sent for booking scheduled via booking calendars
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `custom_fields`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *array of hash*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Any custom fields that have been added to the field library for the meeting object type on your account will be listed in the array of custom fields.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `custom_fields.name`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Name of the custom field.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `custom_fields.value`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *any*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Value of the custom field.
       </td>
     </tr>
   </tbody>
@@ -730,6 +772,16 @@ The booking object contains all of the relevant data about the booking. It inclu
   "contact": "CTC-262WER5NR9CG38",
   "booking_calendar": "BKC-03WJV0R52Z",
   "cancel_url": "https://oncehub.com/m/BKNG-3KM0HY2BF9SL/cancel",
-  "reschedule_url": "https://oncehub.com/m/BKNG-3KM0HY2BF9SL"
+  "reschedule_url": "https://oncehub.com/m/BKNG-3KM0HY2BF9SL",
+	"custom_fields": [
+    {
+      "name": "discussion_points",
+      "value": "Need support on new product"
+    },
+    {
+      "name": "meeting_reason",
+      "value": "Product demo"
+    }
+  ]
 }
 ```
