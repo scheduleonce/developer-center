@@ -55,7 +55,7 @@ Payload example:
 }
 ```
 
-## `booking.scheduled`
+## `oncehub.booking.scheduled`
 
 Payload example:
 
