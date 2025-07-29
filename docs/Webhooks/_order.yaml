@@ -2,5 +2,4 @@
 - using-webhooks
 - managing-webhook-subscriptions
 - webhook-signatures
-- use-cases-webhooks
 - authenticating-the-source-of-webhook-data
