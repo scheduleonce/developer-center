@@ -2,4 +2,3 @@
 - using-webhooks
 - managing-webhook-subscriptions
 - webhook-signatures
-- authenticating-the-source-of-webhook-data
