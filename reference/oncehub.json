@@ -4192,6 +4192,13 @@
                       "param": "overrides.date"
                     },
                     "summary": "Response 2"
+                  },
+                  "New Example": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Duplicate entry for day or date: 'Monday'",
+                      "param": "weekly"
+                    }
                   }
                 }
               }
