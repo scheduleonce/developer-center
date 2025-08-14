@@ -4,7 +4,7 @@ api:
   file: oncehub.json
   operationId: patch_users{id}scheduling-availability
 deprecated: false
-hidden: true
+hidden: false
 link:
   new_tab: false
 metadata:
