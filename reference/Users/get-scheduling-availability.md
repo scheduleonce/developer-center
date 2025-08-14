@@ -1,7 +1,7 @@
 ---
 title: The scheduling availability object
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
