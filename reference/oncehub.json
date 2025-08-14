@@ -4184,6 +4184,13 @@
                       "param": "weekly.working_hours.start_time"
                     },
                     "summary": "Response 1"
+                  },
+                  "New Example": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Date cannot be in the past: '2024-01-01'",
+                      "param": "overrides.date"
+                    }
                   }
                 }
               }
