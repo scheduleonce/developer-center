@@ -1,5 +1,5 @@
 ---
-title: Get scheduling availability
+title: The scheduling availability object
 deprecated: false
 hidden: true
 metadata:
