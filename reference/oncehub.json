@@ -3951,18 +3951,6 @@
         "parameters": []
       }
     },
-    "/new-endpoint-1": {
-      "get": {
-        "description": "",
-        "operationId": "get_new-endpoint-1",
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "parameters": []
-      }
-    },
     "/users/{id}/scheduling-availability": {
       "get": {
         "description": "",
@@ -3983,6 +3971,18 @@
             "description": "ID of the user"
           }
         ]
+      }
+    },
+    "/users/{id/scheduling-availability": {
+      "get": {
+        "description": "",
+        "operationId": "get_new-endpoint-1",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": []
       }
     }
   },
