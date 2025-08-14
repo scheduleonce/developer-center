@@ -3965,8 +3965,8 @@
                     "summary": "New Example",
                     "value": ""
                   },
-                  "New Example 1": {
-                    "summary": "New Example 1",
+                  "Result": {
+                    "summary": "Result",
                     "value": {
                       "object": "schedule",
                       "timezone": "America/New_York",
