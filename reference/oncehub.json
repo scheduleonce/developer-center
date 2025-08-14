@@ -3951,7 +3951,7 @@
         "parameters": []
       }
     },
-    "/new-endpoint-1": {
+    "/users/{id}/scheduling-availability": {
       "get": {
         "description": "",
         "operationId": "get_new-endpoint-1",
@@ -3960,7 +3960,16 @@
             "description": ""
           }
         },
-        "parameters": []
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ]
       }
     }
   },
