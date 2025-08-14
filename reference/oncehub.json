@@ -4192,11 +4192,29 @@
                               "end_time": {
                                 "type": "string",
                                 "description": "The end time of an availability slot for the override date in `HH:MM` format. Must be a multiple of 15 minutes and occur after the `start_time`."
+                              },
+                              "locations": {
+                                "type": "array",
+                                "description": "An array of location objects available for the time slot on the override date. Can be empty.",
+                                "items": {
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "description": "The type of location for the override slot. Valid options are: `in_person_by_host`, `online_dynamic_link`, `online_static_link`, `phone_by_guest`."
+                                    }
+                                  },
+                                  "type": "object",
+                                  "required": [
+                                    "type"
+                                  ]
+                                }
                               }
                             },
                             "type": "object",
                             "required": [
-                              "start_time"
+                              "start_time",
+                              "locations",
+                              "end_time"
                             ]
                           },
                           "description": "An array of time slot objects for the specific date. To make a user unavailable for the entire date, provide an empty array (`[]`). To **delete** an existing override for a date, set this value to `null`."
