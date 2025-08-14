@@ -4055,6 +4055,13 @@
             "content": {
               "application/json": {
                 "examples": {
+                  "New Example 1": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Received unknown parameter: start_date",
+                      "param": "start_date"
+                    }
+                  },
                   "Result 1": {
                     "value": {
                       "type": "invalid_request_error",
@@ -4062,14 +4069,6 @@
                       "param": "overrides_start_time"
                     },
                     "summary": "Result 1"
-                  },
-                  "Result": {
-                    "value": {
-                      "type": "invalid_request_error",
-                      "message": "Received unknown parameter: start_date",
-                      "param": "start_date"
-                    },
-                    "summary": "Result"
                   }
                 }
               }
