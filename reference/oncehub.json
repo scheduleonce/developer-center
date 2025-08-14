@@ -4203,6 +4203,22 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "New Example": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "You can set either online_dynamic_link or online_static_link",
+                      "param": "weekly.working_hours.locations"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "parameters": [
