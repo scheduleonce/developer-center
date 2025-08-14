@@ -1,5 +1,6 @@
 ---
 title: Get scheduling availability
+excerpt: Returns user's scheduling availability
 api:
   file: oncehub.json
   operationId: get_new-endpoint-1
