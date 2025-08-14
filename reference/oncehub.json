@@ -3957,7 +3957,98 @@
         "operationId": "get_new-endpoint-1",
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "New Example": {
+                    "summary": "New Example",
+                    "value": ""
+                  },
+                  "New Example 1": {
+                    "summary": "New Example 1",
+                    "value": {
+                      "object": "schedule",
+                      "timezone": "America/New_York",
+                      "weekly": [
+                        {
+                          "day": "Monday",
+                          "working_hours": [
+                            {
+                              "start_time": "09:00",
+                              "end_time": "12:00",
+                              "locations": [
+                                {
+                                  "type": "online_dynamic_link",
+                                  "value": "google_meet",
+                                  "id": null
+                                }
+                              ]
+                            },
+                            {
+                              "start_time": "13:00",
+                              "end_time": "17:00",
+                              "locations": [
+                                {
+                                  "type": "online_dynamic_link",
+                                  "value": "zoom",
+                                  "id": null
+                                },
+                                {
+                                  "type": "in_person_by_host",
+                                  "value": "123 Office Street, New York, NY",
+                                  "id": "ADD-K8E9X"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "day": "Wednesday",
+                          "working_hours": [
+                            {
+                              "start_time": "10:00",
+                              "end_time": "15:00",
+                              "locations": [
+                                {
+                                  "type": "online_static_link",
+                                  "value": "https://meet.example.com/team-meeting",
+                                  "id": null
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "overrides": [
+                        {
+                          "date": "2025-11-27",
+                          "day": "Thursday",
+                          "working_hours": []
+                        },
+                        {
+                          "date": "2025-12-24",
+                          "day": "Wednesday",
+                          "working_hours": [
+                            {
+                              "start_time": "09:00",
+                              "end_time": "12:00",
+                              "locations": [
+                                {
+                                  "type": "online_dynamic_link",
+                                  "value": "google_meet",
+                                  "id": null
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "parameters": [
