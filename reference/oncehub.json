@@ -4119,8 +4119,20 @@
                           "description": "The day of the week (e.g., \"Monday\", \"Tuesday\"). Must be a valid, case-sensitive day name. Duplicate days are not allowed."
                         },
                         "working_hours": {
-                          "type": "string",
-                          "description": "An array of time slot objects for the day. To clear all availability for a day, provide an empty array (`[]`). This field cannot be `null`. Time slots for a single day cannot overlap."
+                          "type": "array",
+                          "description": "An array of time slot objects for the day. To clear all availability for a day, provide an empty array (`[]`). This field cannot be `null`. Time slots for a single day cannot overlap.",
+                          "items": {
+                            "properties": {
+                              "start_time": {
+                                "type": "string",
+                                "description": "The start time of an availability slot in `HH:MM` format. The time must be a multiple of 15 minutes."
+                              }
+                            },
+                            "type": "object",
+                            "required": [
+                              "start_time"
+                            ]
+                          }
                         }
                       },
                       "type": "object",
