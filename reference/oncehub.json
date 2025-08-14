@@ -4185,12 +4185,13 @@
                     },
                     "summary": "Response 1"
                   },
-                  "New Example": {
+                  "Response 2": {
                     "value": {
                       "type": "invalid_request_error",
                       "message": "Date cannot be in the past: '2024-01-01'",
                       "param": "overrides.date"
-                    }
+                    },
+                    "summary": "Response 2"
                   }
                 }
               }
