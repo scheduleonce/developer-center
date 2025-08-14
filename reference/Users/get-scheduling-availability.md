@@ -31,3 +31,86 @@ Here is the general structure of the response:
 | `overrides.date`                       | *string*           | The specific date for the override in `YYYY-MM-DD` format.                                                                                                                                                                               |
 | `overrides.day`                        | *string*           | The day of the week that corresponds to the override date.                                                                                                                                                                               |
 | `overrides.working_hours`              | *array of objects* | The availability for the override date. The structure is identical to `weekly.working_hours`. An empty array means the user is unavailable for the entire day.                                                                           |
+
+## Sample object
+
+```json
+{
+  "object": "schedule",
+  "timezone": "America/New_York",
+  "weekly": [
+    {
+      "day": "Monday",
+      "working_hours": [
+        {
+          "start_time": "09:00",
+          "end_time": "12:00",
+          "locations": [
+            {
+              "type": "online_dynamic_link",
+              "value": "google_meet",
+              "id": null
+            }
+          ]
+        },
+        {
+          "start_time": "13:00",
+          "end_time": "17:00",
+          "locations": [
+            {
+              "type": "online_dynamic_link",
+              "value": "zoom",
+              "id": null
+            },
+            {
+              "type": "in_person_by_host",
+              "value": "123 Office Street, New York, NY",
+              "id": "ADD-K8E9X"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "working_hours": [
+        {
+          "start_time": "10:00",
+          "end_time": "15:00",
+          "locations": [
+            {
+              "type": "online_static_link",
+              "value": "https://meet.example.com/team-meeting",
+              "id": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "overrides": [
+    {
+      "date": "2025-11-27",
+      "day": "Thursday",
+      "working_hours": []
+    },
+    {
+      "date": "2025-12-24",
+      "day": "Wednesday",
+      "working_hours": [
+        {
+          "start_time": "09:00",
+          "end_time": "12:00",
+          "locations": [
+            {
+              "type": "online_dynamic_link",
+              "value": "google_meet",
+              "id": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
