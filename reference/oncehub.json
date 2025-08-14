@@ -4049,6 +4049,22 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "New Example 1": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Received unknown parameter: start_date",
+                      "param": "start_date"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "parameters": [
