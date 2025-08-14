@@ -11,4 +11,3 @@ link:
 metadata:
   robots: index
 ---
-s
