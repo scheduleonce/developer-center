@@ -4138,6 +4138,10 @@
                                     "type": {
                                       "type": "string",
                                       "description": "The type of location. Valid options are: `in_person_by_host`, `online_dynamic_link`, `online_static_link`, `phone_by_guest`. Duplicate types are not allowed within the same slot."
+                                    },
+                                    "id": {
+                                      "type": "string",
+                                      "description": "The unique identifier for a physical address. This field is required and only used when the type is `in_person_by_host`."
                                     }
                                   },
                                   "type": "object",
