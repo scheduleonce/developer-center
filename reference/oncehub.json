@@ -4184,8 +4184,20 @@
                         "working_hours": {
                           "type": "array",
                           "items": {
-                            "properties": {},
-                            "type": "object"
+                            "properties": {
+                              "start_time": {
+                                "type": "string",
+                                "description": "The start time of an availability slot for the override date in `HH:MM` format. The time must be a multiple of 15 minutes."
+                              },
+                              "end_time": {
+                                "type": "string",
+                                "description": "The end time of an availability slot for the override date in `HH:MM` format. Must be a multiple of 15 minutes and occur after the `start_time`."
+                              }
+                            },
+                            "type": "object",
+                            "required": [
+                              "start_time"
+                            ]
                           },
                           "description": "An array of time slot objects for the specific date. To make a user unavailable for the entire date, provide an empty array (`[]`). To **delete** an existing override for a date, set this value to `null`."
                         }
