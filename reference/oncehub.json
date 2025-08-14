@@ -4180,9 +4180,20 @@
                         "date": {
                           "type": "string",
                           "description": "The specific date for the override in `YYYY-MM-DD` format. The date cannot be in the past. Duplicate dates are not allowed."
+                        },
+                        "working_hours": {
+                          "type": "array",
+                          "items": {
+                            "properties": {},
+                            "type": "object"
+                          },
+                          "description": "An array of time slot objects for the specific date. To make a user unavailable for the entire date, provide an empty array (`[]`). To **delete** an existing override for a date, set this value to `null`."
                         }
                       },
-                      "type": "object"
+                      "type": "object",
+                      "required": [
+                        "working_hours"
+                      ]
                     },
                     "description": "An array of objects, each defining an exception for a specific date. Any date provided will have its override schedule completely overwritten."
                   }
