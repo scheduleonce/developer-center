@@ -4104,7 +4104,39 @@
             },
             "required": true
           }
-        ]
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "weekly": {
+                    "type": "array",
+                    "items": {
+                      "properties": {
+                        "day": {
+                          "type": "string",
+                          "description": "The day of the week (e.g., \"Monday\", \"Tuesday\"). Must be a valid, case-sensitive day name. Duplicate days are not allowed."
+                        },
+                        "working_hours": {
+                          "type": "string",
+                          "description": "An array of time slot objects for the day. To clear all availability for a day, provide an empty array (`[]`). This field cannot be `null`. Time slots for a single day cannot overlap."
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "day",
+                        "working_hours"
+                      ]
+                    },
+                    "description": "An array of objects, each defining the full availability for a specific day of the week. Any day provided will have its schedule completely overwritten."
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        }
       }
     },
     "/users/{id/scheduling-availability": {
