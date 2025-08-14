@@ -4201,6 +4201,14 @@
                                     "type": {
                                       "type": "string",
                                       "description": "The type of location for the override slot. Valid options are: `in_person_by_host`, `online_dynamic_link`, `online_static_link`, `phone_by_guest`."
+                                    },
+                                    "id": {
+                                      "type": "string",
+                                      "description": "The unique identifier for a physical address. This field is required and only used when the type is `in_person_by_host`."
+                                    },
+                                    "value": {
+                                      "type": "string",
+                                      "description": "The static URL for an online meeting. This field is required and only used when the type is `online_static_link`."
                                     }
                                   },
                                   "type": "object",
