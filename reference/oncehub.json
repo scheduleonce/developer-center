@@ -4176,6 +4176,14 @@
                       "param": "weekly.working_hours"
                     },
                     "summary": "Response"
+                  },
+                  "Response 1": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "start time should be multiple of 15: '09:05'",
+                      "param": "weekly.working_hours.start_time"
+                    },
+                    "summary": "Response 1"
                   }
                 }
               }
