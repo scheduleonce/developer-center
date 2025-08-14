@@ -4126,11 +4126,16 @@
                               "start_time": {
                                 "type": "string",
                                 "description": "The start time of an availability slot in `HH:MM` format. The time must be a multiple of 15 minutes."
+                              },
+                              "end_time": {
+                                "type": "string",
+                                "description": "The end time of an availability slot in `HH:MM` format. Must be a multiple of 15 minutes and occur after the start_time."
                               }
                             },
                             "type": "object",
                             "required": [
-                              "start_time"
+                              "start_time",
+                              "end_time"
                             ]
                           }
                         }
