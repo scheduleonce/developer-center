@@ -4086,6 +4086,25 @@
             "description": "ID of the user"
           }
         ]
+      },
+      "patch": {
+        "description": "",
+        "operationId": "patch_users{id}scheduling-availability",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ]
       }
     },
     "/users/{id/scheduling-availability": {
