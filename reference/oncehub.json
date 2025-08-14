@@ -4172,6 +4172,19 @@
                       ]
                     },
                     "description": "An array of objects, each defining the full availability for a specific day of the week. Any day provided will have its schedule completely overwritten."
+                  },
+                  "overrides": {
+                    "type": "array",
+                    "items": {
+                      "properties": {
+                        "date": {
+                          "type": "string",
+                          "description": "The specific date for the override in `YYYY-MM-DD` format. The date cannot be in the past. Duplicate dates are not allowed."
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "description": "An array of objects, each defining an exception for a specific date. Any date provided will have its override schedule completely overwritten."
                   }
                 },
                 "type": "object"
