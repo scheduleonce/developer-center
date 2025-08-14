@@ -4130,12 +4130,21 @@
                               "end_time": {
                                 "type": "string",
                                 "description": "The end time of an availability slot in `HH:MM` format. Must be a multiple of 15 minutes and occur after the start_time."
+                              },
+                              "locations": {
+                                "type": "array",
+                                "items": {
+                                  "properties": {},
+                                  "type": "object"
+                                },
+                                "description": "An array of location objects available for the time slot. Can be empty. You cannot mix `online_dynamic_link` and `online_static_link` types in the same slot."
                               }
                             },
                             "type": "object",
                             "required": [
                               "start_time",
-                              "end_time"
+                              "end_time",
+                              "locations"
                             ]
                           }
                         }
