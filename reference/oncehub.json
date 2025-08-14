@@ -4134,8 +4134,16 @@
                               "locations": {
                                 "type": "array",
                                 "items": {
-                                  "properties": {},
-                                  "type": "object"
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "description": "The type of location. Valid options are: `in_person_by_host`, `online_dynamic_link`, `online_static_link`, `phone_by_guest`. Duplicate types are not allowed within the same slot."
+                                    }
+                                  },
+                                  "type": "object",
+                                  "required": [
+                                    "type"
+                                  ]
                                 },
                                 "description": "An array of location objects available for the time slot. Can be empty. You cannot mix `online_dynamic_link` and `online_static_link` types in the same slot."
                               }
