@@ -4092,7 +4092,94 @@
         "operationId": "patch_users{id}scheduling-availability",
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Example": {
+                    "summary": "Example",
+                    "value": {
+                      "object": "schedule",
+                      "timezone": "America/New_York",
+                      "weekly": [
+                        {
+                          "day": "Monday",
+                          "working_hours": [
+                            {
+                              "start_time": "10:00",
+                              "end_time": "16:00",
+                              "locations": [
+                                {
+                                  "type": "online_dynamic_link",
+                                  "value": "zoom",
+                                  "id": null
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "day": "Wednesday",
+                          "working_hours": [
+                            {
+                              "start_time": "10:00",
+                              "end_time": "15:00",
+                              "locations": [
+                                {
+                                  "type": "online_static_link",
+                                  "value": "https://meet.example.com/team-meeting",
+                                  "id": null
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "day": "Saturday",
+                          "working_hours": []
+                        }
+                      ],
+                      "overrides": [
+                        {
+                          "date": "2025-12-25",
+                          "day": "Thursday",
+                          "working_hours": [
+                            {
+                              "start_time": "10:00",
+                              "end_time": "12:00",
+                              "locations": [
+                                {
+                                  "type": "online_dynamic_link",
+                                  "value": "google_meet",
+                                  "id": null
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Response": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "availability range is overlapping: '09:00-11:00'",
+                      "param": "weekly.working_hours"
+                    },
+                    "summary": "Response"
+                  }
+                }
+              }
+            }
           }
         },
         "parameters": [
