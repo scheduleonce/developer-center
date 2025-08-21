@@ -21,6 +21,7 @@ The user object contains the first name, last name and email of the users in you
 | `email`      | *string* | User's email.                                                                                                  |
 | `status`     | *string* | The status of the user. The user can have one of the following statuses: `active` or `invited`.                |
 | `role_name`  | *string* | The name of the role associated with the user, for example: `Administrator`, `Member`, `Team manager` .        |
+| `timezone`   | *string* | `America/New_York`                                                                                             |
 
 ## USER
 
