@@ -34,6 +34,6 @@ The user object contains the first name, last name and email of the users in you
   "email": "AndreaHartie@example.com",
   "status": "active",
   "role_name": "Member",
-  "timezone": "America/New_York"
+  "timezone": "America/Chicago"
 }
 ```
