@@ -37,7 +37,7 @@ Here is the general structure of the response:
 ```json
 {
   "object": "schedule",
-  "timezone": "America/New_York",
+  "timezone": "America/Chicago",
   "weekly": [
     {
       "day": "Monday",
