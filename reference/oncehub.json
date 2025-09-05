@@ -10,6 +10,25 @@
     }
   ],
   "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The category of the error. Common values are invalid_request_error and api_error."
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable description of what went wrong."
+          },
+          "param": {
+            "type": "string",
+            "description": "The request parameter that caused the error, if the error is related to a specific input."
+          }
+        }
+      }
+    },
     "securitySchemes": {
       "sec0": {
         "type": "apiKey",
@@ -61,17 +80,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "authentication_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid API key."
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -86,17 +95,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "authentication_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan."
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -290,21 +289,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "creation_time.gt cannot be later than creation_time.lt"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "creation_time.gt"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -629,21 +614,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such booking: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -988,21 +959,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such booking: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1017,21 +974,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Booking cannot be cancelled: '123'"
-                    },
-                    "params": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1046,17 +989,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Paid bookings cannot be canceled through this endpoint. Please login to OnceHub and use the Activity Stream to cancel paid bookings."
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1396,21 +1329,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such booking: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1425,21 +1344,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Booking cannot be cancelled: '123'"
-                    },
-                    "params": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1454,17 +1359,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Paid bookings can only be requested for reschedule in your OnceHub account. Log in and use the activity stream to submit a reschedule request for this booking."
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1789,21 +1684,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such booking: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1818,21 +1699,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Cannot update booking status to no_show: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1976,21 +1843,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such booking page: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2060,21 +1913,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Start time cannot be in the past."
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "start_time"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2089,17 +1928,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Time slots cannot be retrieved when the host doesn't have a seat assigned."
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2114,21 +1943,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Time slots cannot be retrieved from an unpublished booking calendar."
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2244,21 +2059,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "The selected start time is not available."
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "start_time"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2273,17 +2074,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Meeting cannot be scheduled when the host doesn't have a seat assigned."
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2298,21 +2089,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Meeting cannot be scheduled on an unpublished booking calendar."
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2377,21 +2154,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "Bad Request"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "This booking calendar does not allow creation of one time links: 'BKC-1234'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2406,21 +2169,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such booking calendar: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2575,21 +2324,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such booking page: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2707,21 +2442,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such event type: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2848,21 +2569,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such master page: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2927,21 +2634,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "Bad Request"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "This master page does not allow creation of one time links: 'BP-1234'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2956,21 +2649,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such master page: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -3117,21 +2796,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such user: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -3185,6 +2850,416 @@
             "description": "ID of the user"
           }
         ]
+      }
+    },
+    "/users/{id}/scheduling-availability": {
+      "get": {
+        "description": "",
+        "operationId": "get_new-endpoint-1",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "New Example": {
+                    "summary": "New Example",
+                    "value": ""
+                  },
+                  "Result": {
+                    "summary": "Result",
+                    "value": {
+                      "object": "schedule",
+                      "timezone": "America/Chicago",
+                      "weekly": [
+                        {
+                          "day": "Monday",
+                          "working_hours": [
+                            {
+                              "start_time": "09:00",
+                              "end_time": "12:00",
+                              "locations": [
+                                {
+                                  "type": "online_dynamic_link",
+                                  "value": "google_meet",
+                                  "id": null
+                                }
+                              ]
+                            },
+                            {
+                              "start_time": "13:00",
+                              "end_time": "17:00",
+                              "locations": [
+                                {
+                                  "type": "online_dynamic_link",
+                                  "value": "zoom",
+                                  "id": null
+                                },
+                                {
+                                  "type": "in_person_by_host",
+                                  "value": "123 Office Street, New York, NY",
+                                  "id": "ADD-K8E9X"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "day": "Wednesday",
+                          "working_hours": [
+                            {
+                              "start_time": "10:00",
+                              "end_time": "15:00",
+                              "locations": [
+                                {
+                                  "type": "online_static_link",
+                                  "value": "https://meet.example.com/team-meeting",
+                                  "id": null
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "overrides": [
+                        {
+                          "date": "2025-11-27",
+                          "day": "Thursday",
+                          "working_hours": []
+                        },
+                        {
+                          "date": "2025-12-24",
+                          "day": "Wednesday",
+                          "working_hours": [
+                            {
+                              "start_time": "09:00",
+                              "end_time": "12:00",
+                              "locations": [
+                                {
+                                  "type": "online_dynamic_link",
+                                  "value": "google_meet",
+                                  "id": null
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "New Example 1": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Received unknown parameter: start_date",
+                      "param": "start_date"
+                    }
+                  },
+                  "Result 1": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Invalid date format for overrides_start_time. Expected format: YYYY-MM-DD",
+                      "param": "overrides_start_time"
+                    },
+                    "summary": "Result 1"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ID of the user"
+          }
+        ]
+      },
+      "patch": {
+        "description": "",
+        "operationId": "patch_users{id}scheduling-availability",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Example": {
+                    "summary": "Example",
+                    "value": {
+                      "object": "schedule",
+                      "timezone": "America/Chicago",
+                      "weekly": [
+                        {
+                          "day": "Monday",
+                          "working_hours": [
+                            {
+                              "start_time": "10:00",
+                              "end_time": "16:00",
+                              "locations": [
+                                {
+                                  "type": "online_dynamic_link",
+                                  "value": "zoom",
+                                  "id": null
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "day": "Wednesday",
+                          "working_hours": [
+                            {
+                              "start_time": "10:00",
+                              "end_time": "15:00",
+                              "locations": [
+                                {
+                                  "type": "online_static_link",
+                                  "value": "https://meet.example.com/team-meeting",
+                                  "id": null
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "day": "Saturday",
+                          "working_hours": []
+                        }
+                      ],
+                      "overrides": [
+                        {
+                          "date": "2025-12-25",
+                          "day": "Thursday",
+                          "working_hours": [
+                            {
+                              "start_time": "10:00",
+                              "end_time": "12:00",
+                              "locations": [
+                                {
+                                  "type": "online_dynamic_link",
+                                  "value": "google_meet",
+                                  "id": null
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Response": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "availability range is overlapping: '09:00-11:00'",
+                      "param": "weekly.working_hours"
+                    },
+                    "summary": "Response"
+                  },
+                  "Response 1": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "start time should be multiple of 15: '09:05'",
+                      "param": "weekly.working_hours.start_time"
+                    },
+                    "summary": "Response 1"
+                  },
+                  "Response 2": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Date cannot be in the past: '2024-01-01'",
+                      "param": "overrides.date"
+                    },
+                    "summary": "Response 2"
+                  },
+                  "New Example": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Duplicate entry for day or date: 'Monday'",
+                      "param": "weekly"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "New Example": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "You can set either online_dynamic_link or online_static_link",
+                      "param": "weekly.working_hours.locations"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "weekly": {
+                    "type": "array",
+                    "items": {
+                      "properties": {
+                        "day": {
+                          "type": "string",
+                          "description": "The day of the week (e.g., \"Monday\", \"Tuesday\"). Must be a valid, case-sensitive day name. Duplicate days are not allowed."
+                        },
+                        "working_hours": {
+                          "type": "array",
+                          "description": "An array of time slot objects for the day. To clear all availability for a day, provide an empty array (`[]`). This field cannot be `null`. Time slots for a single day cannot overlap.",
+                          "items": {
+                            "properties": {
+                              "start_time": {
+                                "type": "string",
+                                "description": "The start time of an availability slot in `HH:MM` format. The time must be a multiple of 15 minutes."
+                              },
+                              "end_time": {
+                                "type": "string",
+                                "description": "The end time of an availability slot in `HH:MM` format. Must be a multiple of 15 minutes and occur after the start_time."
+                              },
+                              "locations": {
+                                "type": "array",
+                                "items": {
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "description": "The type of location. Valid options are: `in_person_by_host`, `online_dynamic_link`, `online_static_link`, `phone_by_guest`. Duplicate types are not allowed within the same slot."
+                                    },
+                                    "id": {
+                                      "type": "string",
+                                      "description": "The unique identifier for a physical address. This field is required and only used when the type is `in_person_by_host`."
+                                    },
+                                    "value": {
+                                      "type": "string",
+                                      "description": "The static URL for an online meeting. This field is required and only used when the type is `online_static_link`."
+                                    }
+                                  },
+                                  "type": "object",
+                                  "required": ["type"]
+                                },
+                                "description": "An array of location objects available for the time slot. Can be empty. You cannot mix `online_dynamic_link` and `online_static_link` types in the same slot."
+                              }
+                            },
+                            "type": "object",
+                            "required": ["start_time", "end_time", "locations"]
+                          }
+                        }
+                      },
+                      "type": "object",
+                      "required": ["day", "working_hours"]
+                    },
+                    "description": "An array of objects, each defining the full availability for a specific day of the week. Any day provided will have its schedule completely overwritten."
+                  },
+                  "overrides": {
+                    "type": "array",
+                    "items": {
+                      "properties": {
+                        "date": {
+                          "type": "string",
+                          "description": "The specific date for the override in `YYYY-MM-DD` format. The date cannot be in the past. Duplicate dates are not allowed."
+                        },
+                        "working_hours": {
+                          "type": "array",
+                          "items": {
+                            "properties": {
+                              "start_time": {
+                                "type": "string",
+                                "description": "The start time of an availability slot for the override date in `HH:MM` format. The time must be a multiple of 15 minutes."
+                              },
+                              "end_time": {
+                                "type": "string",
+                                "description": "The end time of an availability slot for the override date in `HH:MM` format. Must be a multiple of 15 minutes and occur after the `start_time`."
+                              },
+                              "locations": {
+                                "type": "array",
+                                "description": "An array of location objects available for the time slot on the override date. Can be empty.",
+                                "items": {
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "description": "The type of location for the override slot. Valid options are: `in_person_by_host`, `online_dynamic_link`, `online_static_link`, `phone_by_guest`."
+                                    },
+                                    "id": {
+                                      "type": "string",
+                                      "description": "The unique identifier for a physical address. This field is required and only used when the type is `in_person_by_host`."
+                                    },
+                                    "value": {
+                                      "type": "string",
+                                      "description": "The static URL for an online meeting. This field is required and only used when the type is `online_static_link`."
+                                    }
+                                  },
+                                  "type": "object",
+                                  "required": ["type"]
+                                }
+                              }
+                            },
+                            "type": "object",
+                            "required": ["start_time", "locations", "end_time"]
+                          },
+                          "description": "An array of time slot objects for the specific date. To make a user unavailable for the entire date, provide an empty array (`[]`). To **delete** an existing override for a date, set this value to `null`."
+                        }
+                      },
+                      "type": "object",
+                      "required": ["working_hours"]
+                    },
+                    "description": "An array of objects, each defining an exception for a specific date. Any date provided will have its override schedule completely overwritten."
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        }
       }
     },
     "/teams": {
@@ -3300,21 +3375,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such team: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -3423,21 +3484,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "creation_time.gt cannot be later than creation_time.lt"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "creation_time.gt"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -3555,21 +3602,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such contact: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -3629,21 +3662,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such contact: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -3746,21 +3765,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "A webhook subscription with this name already exists: 'New Bookings'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "name"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -3891,21 +3896,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such webhook: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -3965,21 +3956,7 @@
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such webhook: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
