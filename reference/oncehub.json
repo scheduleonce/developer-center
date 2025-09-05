@@ -3151,7 +3151,23 @@
         "operationId": "delete_users{id}",
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "ID of the user"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
           }
         },
         "parameters": [
@@ -3161,7 +3177,8 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "description": "ID of the user"
           }
         ]
       }
