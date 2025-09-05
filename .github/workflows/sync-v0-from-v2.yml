@@ -21,7 +21,7 @@ jobs:
     if: ${{ github.event.inputs.confirm == 'SYNC' }}
     steps:
       - name: Checkout v2.0.0
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: v2.0.0
           fetch-depth: 0
