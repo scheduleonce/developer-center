@@ -3145,6 +3145,25 @@
           }
         },
         "deprecated": false
+      },
+      "delete": {
+        "description": "",
+        "operationId": "delete_users{id}",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ]
       }
     },
     "/teams": {
