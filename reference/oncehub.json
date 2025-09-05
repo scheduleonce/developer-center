@@ -3170,6 +3170,15 @@
                     "id",
                     "deleted"
                   ]
+                },
+                "examples": {
+                  "New Example": {
+                    "summary": "New Example",
+                    "value": {
+                      "id": "USR-FSD423423",
+                      "deleted": true
+                    }
+                  }
                 }
               }
             }
