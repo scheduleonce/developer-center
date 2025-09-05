@@ -1,0 +1,66 @@
+name: Sync v0.0.0 from v2.0.0
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type SYNC to overwrite branch v0.0.0 with the current state of v2.0.0"
+        required: true
+        default: ""
+      create_backup_tag:
+        description: "true/false: create a backup tag of the existing v0.0.0 head before overwriting"
+        required: false
+        default: "true"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.confirm == 'SYNC' }}
+    steps:
+      - name: Checkout v2.0.0
+        uses: actions/checkout@v4
+        with:
+          ref: v2.0.0
+          fetch-depth: 0
+
+      - name: Determine current v0.0.0 head (if any)
+        id: old
+        run: |
+          if git ls-remote --exit-code origin refs/heads/v0.0.0 >/dev/null 2>&1; then
+            OLD_HEAD=$(git ls-remote origin refs/heads/v0.0.0 | cut -f1)
+            echo "old_commit=$OLD_HEAD" >> $GITHUB_OUTPUT
+          else
+            echo "old_commit=none" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create backup tag
+        if: ${{ steps.old.outputs.old_commit != 'none' && github.event.inputs.create_backup_tag == 'true' }}
+        run: |
+          TS=$(date -u +%Y%m%d-%H%M%S)
+          TAG="backup/v0.0.0-before-sync-${TS}"
+          git fetch origin v0.0.0 --depth=1
+          git tag "$TAG" ${{ steps.old.outputs.old_commit }}
+          git push origin "$TAG"
+          echo "Created backup tag $TAG -> ${{ steps.old.outputs.old_commit }}"
+
+      - name: Force update v0.0.0 from v2.0.0
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B v0.0.0
+          git push origin v0.0.0 --force
+          echo "new_commit=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Summary
+        run: |
+          echo "### Sync v0.0.0 from v2.0.0" >> $GITHUB_STEP_SUMMARY
+          echo "Triggered by: $GITHUB_ACTOR" >> $GITHUB_STEP_SUMMARY
+          echo "Old head: ${{ steps.old.outputs.old_commit }}" >> $GITHUB_STEP_SUMMARY
+          echo "New head: $(git rev-parse HEAD)" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.old.outputs.old_commit }}" != "none" ] && [ "${{ github.event.inputs.create_backup_tag }}" = "true" ]; then
+            echo "A backup tag beginning with backup/v0.0.0-before-sync- was created." >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "Branch v0.0.0 now exactly matches v2.0.0." >> $GITHUB_STEP_SUMMARY
