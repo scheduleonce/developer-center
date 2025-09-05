@@ -2185,10 +2185,7 @@
                         "x-readme-id": "1.1"
                       }
                     },
-                    "required": [
-                      "name",
-                      "email"
-                    ],
+                    "required": ["name", "email"],
                     "x-readme-id": "0.2"
                   },
                   "location": {
@@ -2210,11 +2207,7 @@
                     "x-readme-id": "0.3"
                   }
                 },
-                "required": [
-                  "start_time",
-                  "guest_time_zone",
-                  "booking_form"
-                ]
+                "required": ["start_time", "guest_time_zone", "booking_form"]
               }
             }
           }
@@ -3166,10 +3159,7 @@
                     }
                   },
                   "type": "object",
-                  "required": [
-                    "id",
-                    "deleted"
-                  ]
+                  "required": ["id", "deleted"]
                 },
                 "examples": {
                   "New Example": {
@@ -4334,27 +4324,18 @@
                                     }
                                   },
                                   "type": "object",
-                                  "required": [
-                                    "type"
-                                  ]
+                                  "required": ["type"]
                                 },
                                 "description": "An array of location objects available for the time slot. Can be empty. You cannot mix `online_dynamic_link` and `online_static_link` types in the same slot."
                               }
                             },
                             "type": "object",
-                            "required": [
-                              "start_time",
-                              "end_time",
-                              "locations"
-                            ]
+                            "required": ["start_time", "end_time", "locations"]
                           }
                         }
                       },
                       "type": "object",
-                      "required": [
-                        "day",
-                        "working_hours"
-                      ]
+                      "required": ["day", "working_hours"]
                     },
                     "description": "An array of objects, each defining the full availability for a specific day of the week. Any day provided will have its schedule completely overwritten."
                   },
@@ -4397,26 +4378,18 @@
                                     }
                                   },
                                   "type": "object",
-                                  "required": [
-                                    "type"
-                                  ]
+                                  "required": ["type"]
                                 }
                               }
                             },
                             "type": "object",
-                            "required": [
-                              "start_time",
-                              "locations",
-                              "end_time"
-                            ]
+                            "required": ["start_time", "locations", "end_time"]
                           },
                           "description": "An array of time slot objects for the specific date. To make a user unavailable for the entire date, provide an empty array (`[]`). To **delete** an existing override for a date, set this value to `null`."
                         }
                       },
                       "type": "object",
-                      "required": [
-                        "working_hours"
-                      ]
+                      "required": ["working_hours"]
                     },
                     "description": "An array of objects, each defining an exception for a specific date. Any date provided will have its override schedule completely overwritten."
                   }
