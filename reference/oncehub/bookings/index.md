@@ -1,0 +1,4 @@
+---
+title: /bookings
+hidden: false
+---
