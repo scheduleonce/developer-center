@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Deleted resources are usually still accessible after deletion in _redacted_ mode.
+Deleted resources are usually still accessible after deletion in _redacted_ mode:
 
 1. The deleted resource will not be returned in any list request.
 2. If the resource is requested specifically, it will be returned but will only contain the `id`, `object`, and an additional `deleted` field with the value of `true`.
