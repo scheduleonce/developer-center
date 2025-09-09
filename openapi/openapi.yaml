@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: oncehub
+  version: 2.0.0
+servers:
+  - url: 'https://api.oncehub.com/v2'
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: API-Key
+security:
+  - sec0: []
+paths:
+  /test:
+    $ref: paths/test.yaml
+  /bookings:
+    $ref: paths/bookings.yaml
+  '/bookings/{id}':
+    $ref: 'paths/bookings@{id}.yaml'
+  '/bookings/{id}/cancel':
+    $ref: 'paths/bookings@{id}@cancel.yaml'
+  '/bookings/{id}/request-reschedule':
+    $ref: 'paths/bookings@{id}@request-reschedule.yaml'
+  '/bookings/{id}/no-show':
+    $ref: 'paths/bookings@{id}@no-show.yaml'
+  /booking-calendars:
+    $ref: paths/booking-calendars.yaml
+  '/booking-calendars/{id}':
+    $ref: 'paths/booking-calendars@{id}.yaml'
+  '/booking-calendars/{id}/time-slots':
+    $ref: 'paths/booking-calendars@{id}@time-slots.yaml'
+  '/booking-calendars/{id}/schedule':
+    $ref: 'paths/booking-calendars@{id}@schedule.yaml'
+  '/booking-calendars/{id}/one-time-links':
+    $ref: 'paths/booking-calendars@{id}@one-time-links.yaml'
+  /booking-pages:
+    $ref: paths/booking-pages.yaml
+  '/booking-pages/{id}':
+    $ref: 'paths/booking-pages@{id}.yaml'
+  /event-types:
+    $ref: paths/event-types.yaml
+  '/event-types/{id}':
+    $ref: 'paths/event-types@{id}.yaml'
+  /master-pages:
+    $ref: paths/master-pages.yaml
+  '/master-pages/{id}':
+    $ref: 'paths/master-pages@{id}.yaml'
+  '/master-pages/{id}/one-time-links':
+    $ref: 'paths/master-pages@{id}@one-time-links.yaml'
+  /users:
+    $ref: paths/users.yaml
+  '/users/{id}':
+    $ref: 'paths/users@{id}.yaml'
+  /teams:
+    $ref: paths/teams.yaml
+  '/teams/{id}':
+    $ref: 'paths/teams@{id}.yaml'
+  /contacts:
+    $ref: paths/contacts.yaml
+  '/contacts/{id}':
+    $ref: 'paths/contacts@{id}.yaml'
+  /webhooks:
+    $ref: paths/webhooks.yaml
+  '/webhooks/{id}':
+    $ref: 'paths/webhooks@{id}.yaml'
+  /new-endpoint:
+    $ref: paths/new-endpoint.yaml
+  '/users/{id}/scheduling-availability':
+    $ref: 'paths/users@{id}@scheduling-availability.yaml'
+  '/users/{id/scheduling-availability':
+    $ref: 'paths/users@{id@scheduling-availability.yaml'
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: false
+x-readme-fauxas: true

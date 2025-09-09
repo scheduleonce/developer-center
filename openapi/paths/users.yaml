@@ -1,0 +1,47 @@
+get:
+  summary: List all users
+  description: Returns a list of all users in your account
+  operationId: list-all-users
+  parameters:
+    - name: email
+      in: query
+      description: Filter by the user's email address
+      schema:
+        type: string
+    - name: before
+      in: query
+      description: >-
+        A cursor for use in pagination. `before` is an object ID that defines
+        your place in the list. For instance, if you make a list request and
+        receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can
+        include `before=OBJ-XXXX` in order to fetch the previous page of the
+        list.
+      schema:
+        type: string
+    - name: after
+      in: query
+      description: >-
+        A cursor for use in pagination. `after` is an object ID that defines
+        your place in the list. For instance, if you make a list request and
+        receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can
+        include `after=OBJ-XXXX` in order to fetch the next page of the list.
+      schema:
+        type: string
+    - name: limit
+      in: query
+      description: >-
+        Determines the number of objects that will be returned on each page.
+        Defaults to 10 if not specified and has a maximum limit of 100 objects
+        per page.
+      schema:
+        type: string
+        default: '10'
+  responses:
+    '200':
+      description: '200'
+      content:
+        application/json:
+          examples:
+            Result:
+              value: "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"id\": \"USR-FSD423423\",\n      \"object\": \"user\",\n      \"first_name\": \"Andrea\",\n      \"last_name\": \"Hartie\",\n      \"email\": \"AndreaHartie@example.com\",\n      \"status\": \"active\",\n      \"role_name\": \"Member\",\n\t\t\t\"timezone\": \"America/Chicago\"\n    },\n    {...},\n    {...}\n  ]\n}\n"
+  deprecated: false

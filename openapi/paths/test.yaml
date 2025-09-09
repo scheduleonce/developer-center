@@ -1,0 +1,66 @@
+get:
+  summary: Validate API key
+  description: >-
+    Enter your API key in the headers section below and click on "Try it" to
+    test it.
+  operationId: validate-api-key
+  responses:
+    '200':
+      description: '200'
+      content:
+        application/json:
+          examples:
+            Result:
+              value: |-
+                {
+                  "message": "The API key is valid for account: admin@example.com"
+                }
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: 'The API key is valid for account: admin@example.com'
+    '401':
+      description: '401'
+      content:
+        application/json:
+          examples:
+            Result:
+              value: |-
+                {
+                  "type": "authentication_error",
+                  "message": "Invalid API key."
+                }
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: authentication_error
+              message:
+                type: string
+                example: Invalid API key.
+    '403':
+      description: '403'
+      content:
+        application/json:
+          examples:
+            Result:
+              value: |-
+                {
+                  "type": "authentication_error",
+                  "message": "Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan."
+                }
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: authentication_error
+              message:
+                type: string
+                example: >-
+                  Your account plan does not support API access. To use the
+                  ScheduleOnce API, you must upgrade to the Enterprise plan.
+  deprecated: false
