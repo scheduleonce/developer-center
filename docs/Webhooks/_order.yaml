@@ -1,6 +1,4 @@
 - introduction-to-webhooks
 - using-webhooks
 - managing-webhook-subscriptions
-- webhook-event-triggers
-- webhook-data-payload
-- use-cases-webhooks
+- webhook-signatures

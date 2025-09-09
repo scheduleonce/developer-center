@@ -1,8 +1,4 @@
-- webhooks
-- example-webhook-object
+- the-webhook-object
 - event-triggers
-- create-webhook
-- list-webhooks
-- get-webhook
-- delete-webhook
+- the-event-object
 - responding-to-a-webhook-request

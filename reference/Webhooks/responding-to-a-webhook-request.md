@@ -6,7 +6,7 @@ hidden: false
 metadata:
   title: ''
   description: ''
-  robots: noindex
+  robots: index
 next:
   description: ''
 ---
@@ -14,7 +14,7 @@ next:
 
 When you create a Webhook subscription, you must specify the URL endpoint that will receive the HTTP POST messages triggered by the defined event types.
 
-Your receiving server must be configured to receive the JSON event object. [Learn more about how to configure Webhook subscriptions](https://developers.oncehub.com/v1.0.0/docs/managing-webhook-subscriptions) 
+Your receiving server must be configured to receive the JSON event object. [Learn more about how to configure Webhook subscriptions](https://developers.oncehub.com/docs/managing-webhook-subscriptions) 
 
 ## Error codes
 

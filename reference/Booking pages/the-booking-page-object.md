@@ -1,15 +1,17 @@
 ---
-title: The booking page object (DRAFT)
+title: The booking page object
 excerpt: ''
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''
-  robots: noindex
+  robots: index
 next:
   description: ''
 ---
+The booking page object contains the customer facing name, internal label and URL for booking pages on your account and indicates whether the booking page is enabled to receive bookings. [Learn more about booking pages](https://help.oncehub.com/help/introduction-to-booking-pages)
+
 <Table align={["left","left","left"]}>
   <thead>
     <tr>
@@ -34,27 +36,112 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *String*
+        *string*
       </td>
 
       <td style={{ textAlign: "left" }}>
         String representing the object’s type. Objects of the same type share the same value. The type here is `booking_page`.
       </td>
     </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `id`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Unique identifier for the object.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `name`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The customer-facing name of the booking page.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `label`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The internal label of the booking page.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `url`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *url*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The URL of the booking page.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `active`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *boolean*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        True if this booking page is enabled and accepts bookings.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `timezone`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        *string*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The Booking page timezone. Displayed in [IANA timezone format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+      </td>
+    </tr>
   </tbody>
 </Table>
 
-The following is an example of a `booking_page` object.\
-The `booking_page` object contains all of the relevant booking page data including the booking page unique id, publicly visible name and the booking page link
+.
 
-```json Example booking page
+## BOOKING PAGE
+
+```json Sample booking page
 {
   "id": "BP-3F7JAWT4UA",
   "object": "booking_page",
-  "public_name": "Andrea Hartie",
-  "internal_label": "AndreaHartie",
-  "link": "https://go.oncehub.com/andreahartie",
-  "category": "Financial planning firm",
-  "time_zone_description": "(GMT-5) United States; Eastern time"
+  "name": "Andrea Hartie",
+  "label": "AndreaHartie",
+  "url": "https://go.oncehub.com/andreahartie",
+  "active": true,
+  "timezone": "America/Chicago"
 }
 ```

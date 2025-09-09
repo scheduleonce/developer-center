@@ -6,13 +6,17 @@ hidden: false
 metadata:
   title: ''
   description: ''
-  robots: noindex
+  robots: index
 next:
   description: ''
 ---
-## Supported event types
+## Supported events
 
-The following event types are supported. [Learn more about Webhook event triggers](https://developers.oncehub.com/v1.0.0/docs/webhook-event-triggers)
+The following events are supported. [Learn more about Webhook event triggers](https://developers.oncehub.com/docs/webhook-event-triggers)
+
+### Booking event triggers
+
+Webhooks for booking events will contain the [booking object](the-booking-object) in the data payload.
 
 <Table align={["left","left"]}>
   <thead>
@@ -34,7 +38,7 @@ The following event types are supported. [Learn more about Webhook event trigger
       </td>
 
       <td style={{ textAlign: "left" }}>
-        All booking lifecycle events
+        All booking lifecycle events.
       </td>
     </tr>
 
@@ -44,8 +48,8 @@ The following event types are supported. [Learn more about Webhook event trigger
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Customer schedules a booking\
-        User approves a booking requested by a Customer
+        Customer schedules a booking.\
+        User approves a booking requested by a Customer.
       </td>
     </tr>
 
@@ -55,8 +59,8 @@ The following event types are supported. [Learn more about Webhook event trigger
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Customer reschedules a booking on the same booking page\
-        Customer reschedules a booking following a request from the User to reschedule
+        Customer reschedules a booking on the same booking page.\
+        Customer reschedules a booking following a request from the User to reschedule.
       </td>
     </tr>
 
@@ -66,7 +70,7 @@ The following event types are supported. [Learn more about Webhook event trigger
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Customer cancels a booking and then reschedules on a different booking page
+        Customer cancels a booking and then reschedules on a different booking page.
       </td>
     </tr>
 
@@ -76,7 +80,7 @@ The following event types are supported. [Learn more about Webhook event trigger
       </td>
 
       <td style={{ textAlign: "left" }}>
-        User cancels and sends a request to the Customer to reschedule
+        User cancels and sends a request to the Customer to reschedule.
       </td>
     </tr>
 
@@ -86,7 +90,7 @@ The following event types are supported. [Learn more about Webhook event trigger
       </td>
 
       <td style={{ textAlign: "left" }}>
-        User or Customer cancels a booking
+        User or Customer cancels a booking.
       </td>
     </tr>
 
@@ -96,7 +100,7 @@ The following event types are supported. [Learn more about Webhook event trigger
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Booking end time has passed
+        Booking end time has passed.
       </td>
     </tr>
 
@@ -106,7 +110,68 @@ The following event types are supported. [Learn more about Webhook event trigger
       </td>
 
       <td style={{ textAlign: "left" }}>
-        User sets the completed booking to No-show
+        User sets the completed booking to No-show.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+### Conversation event triggers
+
+Webhooks for conversation events will contain the [conversation object](the-conversation-object) in the data payload.
+
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Event type
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Conversation scenario
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `conversation`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        All conversation lifecycle events.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `conversation.started`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Website visitor starts interacting with a chatbot.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `conversation.closed`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Website visitor reaches the end of the conversation flow.\
+        Website visitor starts a new conversation with a different chatbot.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        `conversation.abandoned`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Website visitor stops interacting with a bot for more than 10 minutes.
       </td>
     </tr>
   </tbody>
