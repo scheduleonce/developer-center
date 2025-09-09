@@ -10,8 +10,6 @@ metadata:
 next:
   description: ''
 ---
-<br />
-
 # **API Terms of Use**
 
 **Version:** 1.0 | **Last updated:** 08th Sep 2025
