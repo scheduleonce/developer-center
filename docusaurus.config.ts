@@ -1,7 +1,6 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-import type * as Redocusaurus from "redocusaurus";
 import type { ScalarOptions } from "@scalar/docusaurus";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -17,15 +16,16 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://scheduleonce.github.io", // GitHub Pages URL (organization or user site root)
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: "/developer-center/", // Repo name with trailing slash
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "scheduleonce", // GitHub org/user
+  projectName: "developer-center", // Repo name
+  deploymentBranch: "gh-pages",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -94,7 +94,7 @@ const config: Config = {
         route: "/scalar",
         showNavLink: true,
         configuration: {
-          url: "./openapi.json",
+          url: "/openapi.json", // Served from static/ root
         },
       } as ScalarOptions,
     ],
