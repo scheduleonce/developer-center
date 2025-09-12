@@ -38,6 +38,8 @@ const config: Config = {
     locales: ["en"],
   },
 
+  trailingSlash: true,
+
   presets: [
     [
       "classic",
@@ -94,7 +96,9 @@ const config: Config = {
         route: "/scalar",
         showNavLink: true,
         configuration: {
-          url: "/openapi.json", // Served from static/ root
+          // Some versions of @scalar/docusaurus expect 'spec.url'. Keep both for compatibility.
+          url: "/openapi.json",
+          spec: { url: "/openapi.json" },
         },
       } as ScalarOptions,
     ],
