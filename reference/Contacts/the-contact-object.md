@@ -122,7 +122,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-
+        The status of the contact. The contact can have one of the following statuses: `Qualified` , `Marketing qualified`, `Sales qualified` or `Disqualified`.
       </td>
     </tr>
 
@@ -378,11 +378,11 @@ next:
 
       <td style={{ textAlign: "left" }}>
         The time zone that the contact is based in. This is based of the last interaction they had with your OnceHub account (ScheduleOnce booking or ChatOnce conversation).
-        Displayed in 
+        Displayed in
 
         [IANA timezone format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
-         .
+        .
       </td>
     </tr>
 
