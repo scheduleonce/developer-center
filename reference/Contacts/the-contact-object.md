@@ -122,7 +122,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        The status of the contact. The contact can have one of the following statuses: `Qualified` , `Marketing qualified`, `Sales qualified` or `Disqualified`.
+        The status of the contact. The contact can have one of the following statuses: `Qualified` , `Marketing qualified`, `Sales qualified`,  `Disqualified` or `null`.
       </td>
     </tr>
 
