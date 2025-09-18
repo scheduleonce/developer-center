@@ -34,7 +34,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -48,7 +48,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -62,7 +62,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *datetime*
+        _datetime_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -76,7 +76,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *datetime*
+        _datetime_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -90,7 +90,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *datetime*
+        _datetime_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -104,7 +104,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -114,11 +114,25 @@ next:
 
     <tr>
       <td style={{ textAlign: "left" }}>
+        `status`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        _string_
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
         `company`
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -132,7 +146,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -146,7 +160,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -161,7 +175,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -175,7 +189,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -189,7 +203,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -203,7 +217,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -217,7 +231,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -231,7 +245,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *boolean*
+        _boolean_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -245,7 +259,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -259,7 +273,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -273,12 +287,12 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *number*
+        _number_
       </td>
 
       <td style={{ textAlign: "left" }}>
         If a number field is used to collect information about the size of the company where the contact works, this field can store the value.
-        Currently a field of type *number* can only be populated using ChatOnce.
+        Currently a field of type _number_ can only be populated using ChatOnce.
         If a text field is used, see the `company_size` field.
       </td>
     </tr>
@@ -289,7 +303,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -303,11 +317,11 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
-        The salutation given to the contact if no name has been provided for the contact yet. A typical value populated here will be *website visitor*.
+        The salutation given to the contact if no name has been provided for the contact yet. A typical value populated here will be _website visitor_.
       </td>
     </tr>
 
@@ -317,7 +331,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -331,7 +345,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -345,7 +359,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *boolean*
+        _boolean_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -359,12 +373,16 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
         The time zone that the contact is based in. This is based of the last interaction they had with your OnceHub account (ScheduleOnce booking or ChatOnce conversation).
-        Displayed in [IANA timezone format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) .
+        Displayed in 
+
+        [IANA timezone format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
+         .
       </td>
     </tr>
 
@@ -374,7 +392,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -388,7 +406,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -402,7 +420,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *array of hash*
+        _array of hash_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -416,7 +434,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -430,7 +448,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *any*
+        _any_
       </td>
 
       <td style={{ textAlign: "left" }}>
