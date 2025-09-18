@@ -3479,7 +3479,43 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"object\": \"contact\",\n  \"id\": \"CTC-J4FR05BKEW\",\n  \"creation_time\": \"2020-03-22T09:48:48Z\",\n  \"last_updated_time\": \"2020-03-22T09:48:48Z\",\n  \"last_interacted_time\": null,\n  \"owner\": \"USR-FSD423423\",\n  \"city\": \"Carrie Customer\",\n  \"company_size\": null,\n  \"company\": null,\n  \"country\": null,\n  \"email\": \"so.carrie.customer@gmail.com\",\n  \"employees\": 1,\n  \"first_name\": null,\n  \"has_consent\": null,\n  \"job_title\": null,\n  \"last_name\": null,\n  \"mobile_phone\": null,\n  \"phone\": null,\n  \"post_code\": null,\n  \"salutation\": null,\n  \"state\": null,\n  \"street_address\": null,\n  \"terms_of_sevice\": null,\n  \"timezone\": \"America/New_York\",\n  \"custom_fields\": [\n    { \"name\": \"resume\", \"value\": null },\n    { \"name\": \"contact_second_number\", \"value\": null }\n  ]\n}"
+                    "value": {
+                      "object": "contact",
+                      "id": "CTC-J4FR05BKEW",
+                      "creation_time": "2020-03-22T09:48:48Z",
+                      "last_updated_time": "2020-03-22T09:48:48Z",
+                      "last_interacted_time": "",
+                      "owner": "USR-FSD423423",
+                      "status": "Qualified",
+                      "city": "Carrie Customer",
+                      "company_size": null,
+                      "company": null,
+                      "country": null,
+                      "email": "so.carrie.customer@gmail.com",
+                      "employees": 1,
+                      "first_name": null,
+                      "has_consent": false,
+                      "job_title": null,
+                      "last_name": null,
+                      "mobile_phone": null,
+                      "phone": null,
+                      "post_code": null,
+                      "salutation": null,
+                      "state": null,
+                      "street_address": null,
+                      "terms_of_sevice": null,
+                      "timezone": "America/New_York",
+                      "custom_fields": [
+                        {
+                          "name": "resume",
+                          "value": null
+                        },
+                        {
+                          "name": "contact_second_number",
+                          "value": null
+                        }
+                      ]
+                    }
                   }
                 },
                 "schema": {
