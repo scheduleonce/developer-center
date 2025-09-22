@@ -7,29 +7,37 @@ metadata:
 ---
 # List of supported events
 
-| Event name                    | Fires when                                        |
-| :---------------------------- | :------------------------------------------------ |
-| `oncehub.form.loaded`         | Form is first loaded, on page load.               |
-| `oncehub.form.started`        | Visitor starts interacting with the form.         |
-| `oncehub.form.completed`      | Visitor completes the form.                       |
-| `oncehub.form.button_clicked` | Visitor clicks on a button somewhere on the form. |
+| Event name | Fires when |
+| --- | --- |
+| `oncehub.form.loaded` | Form is first loaded. |
+| `oncehub.form.started` | Visitor starts interacting with the form. |
+| `oncehub.form.button_clicked` | Visitor clicks on a button during the form submission process. |
+| `oncehub.form.completed` | Visitor successfully completes the form. |
 
 # Events payloads
 
 ## `oncehub.form.loaded`
 
+This event fires when the form is first loaded, before the user has interacted with it.
+
 Payload example:
 
 ```json
-{  
-  "type": "oncehub.form.loaded",  
-  "payload": {  
-    "bot_name": "example bot"  
-  }  
+{
+  "type": "oncehub.form.loaded",
+  "payload": {
+    "form_id": "BOT-1033739F74",
+    "form_name": "Example Form"
+  }
 }
 ```
 
 ## `oncehub.form.started`
+
+This event fires when the visitor begins interacting with the form. This trigger varies based on the form's welcome message setting:
+
+* **Title only:** The event fires when the visitor answers the first question.
+* **Welcome message card:** The event fires when the visitor clicks the "Get Started" button.
 
 Payload example:
 
@@ -37,27 +45,15 @@ Payload example:
 {
   "type": "oncehub.form.started",
   "payload": {
-    "bot_name": "example bot",
-    "bot_id": "BOT-1234"
-  }
-}
-```
-
-## `oncehub.form.completed`
-
-Payload example:
-
-```json
-{
-  "type": "oncehub.form.closed",
-  "payload": {
-    "bot_name": "example bot",
-    "bot_id": "BOT-1234"
+    "form_id": "BOT-1033739F74",
+    "form_name": "Example Form"
   }
 }
 ```
 
 ## `oncehub.form.button_clicked`
+
+This event fires whenever a visitor clicks a button within an interaction. The payload will include standard fields and may also contain custom fields if they have been mapped to the form question.
 
 Payload example:
 
@@ -65,12 +61,29 @@ Payload example:
 {
   "type": "oncehub.form.button_clicked",
   "payload": {
-    "bot_name": "example bot",
-    "bot_id": "BOT-1234",
-    "button_text": "confirm",
-    "interaction_label": "schedule"
+    "form_id": "BOT-1033739F74",
+    "form_name": "Example Form",
+    "button_text": "Next",
+    "interaction_label": "single_choice",
+    "booking_calendar_name": "Sales Team Calendar",
+    "question_text": "How many people are in your organization?",
+    "company_size": "100-500"
   }
 }
 ```
 
-<br />
+## `oncehub.form.completed`
+
+This event is triggered only when the form is successfully completed by the visitor.
+
+Payload example:
+
+```json
+{
+  "type": "oncehub.form.completed",
+  "payload": {
+    "form_id": "BOT-1033739F74",
+    "form_name": "Example Form"
+  }
+}
+```
