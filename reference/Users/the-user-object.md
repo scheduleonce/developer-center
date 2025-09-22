@@ -22,7 +22,7 @@ The user object contains the first name, last name and email of the users in you
 | `status`     | _string_ | The status of the user. The user can have one of the following statuses: `active` or `invited`.                    |
 | `role_name`  | _string_ | The name of the role associated with the user, for example: `Administrator`, `Member`, `Team manager` .            |
 | `timezone`   | _string_ | User's timezone. Displayed in [IANA timezone format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) |
-| `teams`      |          | The teams the user belongs to.                                                                                     |
+| `teams`      | _array_  | The teams the user belongs to.                                                                                     |
 
 ## USER
 
@@ -35,6 +35,7 @@ The user object contains the first name, last name and email of the users in you
   "email": "AndreaHartie@example.com",
   "status": "active",
   "role_name": "Member",
-  "timezone": "America/Chicago"
+  "timezone": "America/Chicago",
+  "teams": ["TM-GCJU8DLBTPY1"]
 }
 ```
