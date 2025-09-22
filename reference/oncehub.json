@@ -3033,7 +3033,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"id\": \"USR-FSD423423\",\n      \"object\": \"user\",\n      \"first_name\": \"Andrea\",\n      \"last_name\": \"Hartie\",\n      \"email\": \"AndreaHartie@example.com\",\n      \"status\": \"active\",\n      \"role_name\": \"Member\",\n\t\t\t\"timezone\": \"America/Chicago\"\n    },\n    {...},\n    {...}\n  ]\n}\n"
+                    "value": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"id\": \"USR-FSD423423\",\n      \"object\": \"user\",\n      \"first_name\": \"Andrea\",\n      \"last_name\": \"Hartie\",\n      \"email\": \"AndreaHartie@example.com\",\n      \"status\": \"active\",\n      \"role_name\": \"Member\",\n      \"timezone\": \"America/Chicago\",\n      \"teams\": [\"TM-GCJU8DLBTPY1\"]\n\n    },\n    {...},\n    {...}\n  ]\n}\n"
                   }
                 }
               }
