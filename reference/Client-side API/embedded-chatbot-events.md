@@ -24,7 +24,8 @@ Payload example:
 ```json
 {  
   "type": "oncehub.chatbot.loaded",  
-  "payload": {  
+  "payload": {
+    "bot_id": "BOT-1234",
     "bot_name": "example bot"  
   }  
 }
@@ -38,8 +39,8 @@ Payload example:
 {
   "type": "oncehub.chatbot.started",
   "payload": {
-    "bot_name": "example bot",
-    "bot_id": "BOT-1234"
+		"bot_id": "BOT-1234",
+    "bot_name": "example bot"
   }
 }
 ```
@@ -52,8 +53,8 @@ Payload example:
 {
   "type": "oncehub.chatbot.opened",
   "payload": {
-    "bot_name": "example bot",
-    "bot_id": "BOT-1234"
+		"bot_id": "BOT-1234",
+    "bot_name": "example bot"
   }
 }
 ```
@@ -66,8 +67,8 @@ Payload example:
 {
   "type": "oncehub.chatbot.closed",
   "payload": {
-    "bot_name": "example bot",
-    "bot_id": "BOT-1234"
+		"bot_id": "BOT-1234",
+    "bot_name": "example bot"
   }
 }
 ```
@@ -80,8 +81,8 @@ Payload example:
 {
   "type": "oncehub.chatbot.button_clicked",
   "payload": {
+		"bot_id": "BOT-1234",
     "bot_name": "example bot",
-    "bot_id": "BOT-1234",
     "button_text": "confirm",
     "interaction_label": "schedule"
   }
