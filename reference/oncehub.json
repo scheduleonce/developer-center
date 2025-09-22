@@ -3074,7 +3074,10 @@
                       "email": "AndreaHartie@example.com",
                       "status": "active",
                       "role_name": "Member",
-                      "timezone": "America/Chicago"
+                      "timezone": "America/Chicago",
+                      "teams": [
+                        "TM-GCJU8DLBTPY1"
+                      ]
                     }
                   }
                 },
