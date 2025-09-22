@@ -14,14 +14,15 @@ The user object contains the first name, last name and email of the users in you
 
 | Field        | Type     | Description                                                                                                        |
 | :----------- | :------- | :----------------------------------------------------------------------------------------------------------------- |
-| `object`     | *string* | String representing the object’s type. Objects of the same type share the same value. The type here is `user`.     |
-| `id`         | *string* | Unique identifier for the object.                                                                                  |
-| `first_name` | *string* | User's first name.                                                                                                 |
-| `last_name`  | *string* | User's last name.                                                                                                  |
-| `email`      | *string* | User's email.                                                                                                      |
-| `status`     | *string* | The status of the user. The user can have one of the following statuses: `active` or `invited`.                    |
-| `role_name`  | *string* | The name of the role associated with the user, for example: `Administrator`, `Member`, `Team manager` .            |
-| `timezone`   | *string* | User's timezone. Displayed in [IANA timezone format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) |
+| `object`     | _string_ | String representing the object’s type. Objects of the same type share the same value. The type here is `user`.     |
+| `id`         | _string_ | Unique identifier for the object.                                                                                  |
+| `first_name` | _string_ | User's first name.                                                                                                 |
+| `last_name`  | _string_ | User's last name.                                                                                                  |
+| `email`      | _string_ | User's email.                                                                                                      |
+| `status`     | _string_ | The status of the user. The user can have one of the following statuses: `active` or `invited`.                    |
+| `role_name`  | _string_ | The name of the role associated with the user, for example: `Administrator`, `Member`, `Team manager` .            |
+| `timezone`   | _string_ | User's timezone. Displayed in [IANA timezone format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) |
+| `teams`      |          | The teams the user belongs to.                                                                                     |
 
 ## USER
 
