@@ -3153,7 +3153,7 @@
         "description": "",
         "operationId": "delete_users{id}",
         "responses": {
-          "200": {
+          "204": {
             "description": "",
             "content": {
               "application/json": {
