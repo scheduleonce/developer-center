@@ -1,7 +1,7 @@
 ---
-title: Embedded chatbot widget events (COPY)
+title: Embedded form events
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
