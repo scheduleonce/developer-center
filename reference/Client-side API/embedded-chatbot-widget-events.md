@@ -1,5 +1,5 @@
 ---
-title: Embedded chatbot widget events
+title: Embedded chatbot events
 deprecated: false
 hidden: false
 metadata:
