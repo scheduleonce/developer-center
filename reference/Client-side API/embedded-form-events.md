@@ -7,12 +7,12 @@ metadata:
 ---
 # List of supported events
 
-| Event name                    | Fires when                                                  |
-| :---------------------------- | :---------------------------------------------------------- |
-| `oncehub.form.loaded`         | Chatbot widget is first loaded, on page load.               |
-| `oncehub.form.started`        | Visitor starts interacting with the chatbot.                |
-| `oncehub.form.completed`      | Visitor closes the chatbot widget.                          |
-| `oncehub.form.button_clicked` | Visitor clicks on a button during the chatbot conversation. |
+| Event name                    | Fires when                                        |
+| :---------------------------- | :------------------------------------------------ |
+| `oncehub.form.loaded`         | Form is first loaded, on page load.               |
+| `oncehub.form.started`        | Visitor starts interacting with the form.         |
+| `oncehub.form.completed`      | Visitor completes the form.                       |
+| `oncehub.form.button_clicked` | Visitor clicks on a button somewhere on the form. |
 
 # Events payloads
 
