@@ -16,26 +16,26 @@ metadata:
 
 # Events payloads
 
-## `oncehub.chatbot.loaded`
+## `oncehub.form.loaded`
 
 Payload example:
 
 ```json
 {  
-  "type": "oncehub.chatbot.loaded",  
+  "type": "oncehub.form.loaded",  
   "payload": {  
     "bot_name": "example bot"  
   }  
 }
 ```
 
-## `oncehub.chatbot.started`
+## `oncehub.form.started`
 
 Payload example:
 
 ```json
 {
-  "type": "oncehub.chatbot.started",
+  "type": "oncehub.form.started",
   "payload": {
     "bot_name": "example bot",
     "bot_id": "BOT-1234"
@@ -43,13 +43,13 @@ Payload example:
 }
 ```
 
-## `oncehub.chatbot.opened`
+## `oncehub.form.completed`
 
 Payload example:
 
 ```json
 {
-  "type": "oncehub.chatbot.opened",
+  "type": "oncehub.form.closed",
   "payload": {
     "bot_name": "example bot",
     "bot_id": "BOT-1234"
@@ -57,27 +57,13 @@ Payload example:
 }
 ```
 
-## `oncehub.chatbot.closed`
+## `oncehub.form.button_clicked`
 
 Payload example:
 
 ```json
 {
-  "type": "oncehub.chatbot.closed",
-  "payload": {
-    "bot_name": "example bot",
-    "bot_id": "BOT-1234"
-  }
-}
-```
-
-## `oncehub.chatbot.button_clicked`
-
-Payload example:
-
-```json
-{
-  "type": "oncehub.chatbot.button_clicked",
+  "type": "oncehub.form.button_clicked",
   "payload": {
     "bot_name": "example bot",
     "bot_id": "BOT-1234",
