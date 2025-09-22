@@ -10,8 +10,8 @@ metadata:
 | Event name                       | Fires when                                                  |
 | :------------------------------- | :---------------------------------------------------------- |
 | `oncehub.chatbot.loaded`         | Chatbot widget is first loaded, on page load.               |
-| `oncehub.chatbot.started`        | Visitor starts interacting with the chatbot.                |
 | `oncehub.chatbot.opened`         | Visitor clicks anywhere to interact with the chatbot.       |
+| `oncehub.chatbot.started`        | Visitor starts interacting with the chatbot.                |
 | `oncehub.chatbot.closed`         | Visitor closes the chatbot widget.                          |
 | `oncehub.chatbot.button_clicked` | Visitor clicks on a button during the chatbot conversation. |
 
@@ -31,6 +31,20 @@ Payload example:
 }
 ```
 
+## `oncehub.chatbot.opened`
+
+Payload example:
+
+```json
+{
+  "type": "oncehub.chatbot.opened",
+  "payload": {
+		"bot_id": "BOT-1234",
+    "bot_name": "example bot"
+  }
+}
+```
+
 ## `oncehub.chatbot.started`
 
 Payload example:
@@ -45,19 +59,7 @@ Payload example:
 }
 ```
 
-## `oncehub.chatbot.opened`
-
-Payload example:
-
-```json
-{
-  "type": "oncehub.chatbot.opened",
-  "payload": {
-		"bot_id": "BOT-1234",
-    "bot_name": "example bot"
-  }
-}
-```
+##
 
 ## `oncehub.chatbot.closed`
 
