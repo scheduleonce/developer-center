@@ -30,6 +30,20 @@ Payload example:
 }
 ```
 
+## `oncehub.chatbot.started`
+
+Payload example:
+
+```json
+{
+  "type": "oncehub.chatbot.started",
+  "payload": {
+    "bot_name": "example bot",
+    "bot_id": "BOT-1234"
+  }
+}
+```
+
 ## `oncehub.chatbot.opened`
 
 Payload example:
@@ -74,16 +88,4 @@ Payload example:
 }
 ```
 
-## `oncehub.chatbot.started`
-
-Payload example:
-
-```json
-{
-  "type": "oncehub.chatbot.started",
-  "payload": {
-    "bot_name": "example bot",
-    "bot_id": "BOT-1234"
-  }
-}
-```
+<br />
