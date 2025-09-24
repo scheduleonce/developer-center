@@ -1,7 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
+import { visit } from "unist-util-visit";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-import type { ScalarOptions } from "@scalar/docusaurus";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -46,61 +46,91 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          remarkPlugins: [
+            function legacyImage() {
+              return (tree: any) => {
+                visit(tree, (node: any) => {
+                  if (
+                    node.type === "mdxJsxFlowElement" &&
+                    node.name === "Image"
+                  ) {
+                    const srcAttr = node.attributes?.find(
+                      (a: any) => a.name === "src"
+                    );
+                    if (srcAttr) {
+                      const altAttr = node.attributes?.find(
+                        (a: any) => a.name === "alt"
+                      );
+                      const titleAttr = node.attributes?.find(
+                        (a: any) => a.name === "title"
+                      );
+                      node.type = "image";
+                      node.url = srcAttr.value;
+                      node.alt = String(altAttr?.value || "");
+                      node.title = titleAttr?.value;
+                      delete node.name;
+                      delete node.attributes;
+                    }
+                  }
+                });
+              };
+            },
+          ],
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-        },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ["rss", "atom"],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-          // Useful options to enforce blogging best practices
-          onInlineTags: "warn",
-          onInlineAuthors: "warn",
-          onUntruncatedBlogPosts: "warn",
         },
         theme: {
           customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
-    // [
-    //   "redocusaurus",
-    //   {
-    //     openapi: {
-    //       // Folder to scan for *.openapi.yaml files
-    //       path: "openapi",
-    //       routeBasePath: "/api",
-    //     },
-    //     specs: [],
-    //     // Theme Options for modifying how redoc renders them
-    //     theme: {
-    //       // Change with your site colors
-    //       primaryColor: "#1890ff",
-    //     },
-    //   },
-    // ] satisfies Redocusaurus.PresetEntry,
   ],
+  // Additional docs plugin instance for /reference path parity
   plugins: [
+    // Reference documentation (narrative + object model)
     [
-      "@scalar/docusaurus",
+      "@docusaurus/plugin-content-docs",
       {
-        label: "Scalar",
-        route: "/scalar",
-        showNavLink: true,
-        configuration: {
-          // Some versions of @scalar/docusaurus expect 'spec.url'. Keep both for compatibility.
-          url: "/openapi.json",
-          spec: { url: "/openapi.json" },
-        },
-      } as ScalarOptions,
+        id: "reference",
+        path: "reference",
+        routeBasePath: "reference",
+        sidebarPath: require.resolve("./sidebars.reference.ts"),
+        editUrl:
+          "https://github.com/scheduleonce/developer-center/tree/redocosaurus/reference/",
+        showLastUpdateTime: true,
+        remarkPlugins: [
+          function legacyImage() {
+            return (tree: any) => {
+              visit(tree, (node: any) => {
+                if (
+                  node.type === "mdxJsxFlowElement" &&
+                  node.name === "Image"
+                ) {
+                  const srcAttr = node.attributes?.find(
+                    (a: any) => a.name === "src"
+                  );
+                  if (srcAttr) {
+                    const altAttr = node.attributes?.find(
+                      (a: any) => a.name === "alt"
+                    );
+                    const titleAttr = node.attributes?.find(
+                      (a: any) => a.name === "title"
+                    );
+                    node.type = "image";
+                    node.url = srcAttr.value;
+                    node.alt = String(altAttr?.value || "");
+                    node.title = titleAttr?.value;
+                    delete node.name;
+                    delete node.attributes;
+                  }
+                }
+              });
+            };
+          },
+        ],
+      },
     ],
   ],
   themeConfig: {
@@ -115,11 +145,11 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          sidebarId: "docs",
           position: "left",
-          label: "Tutorial",
+          label: "Docs",
         },
-        { to: "/blog", label: "Blog", position: "left" },
+        { to: "/scalar/", label: "API Reference", position: "left" },
         {
           href: "https://github.com/facebook/docusaurus",
           label: "GitHub",
@@ -159,10 +189,6 @@ const config: Config = {
         {
           title: "More",
           items: [
-            {
-              label: "Blog",
-              to: "/blog",
-            },
             {
               label: "GitHub",
               href: "https://github.com/facebook/docusaurus",
