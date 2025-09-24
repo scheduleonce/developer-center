@@ -18,7 +18,7 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -27,4 +27,84 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Scalar theme alignment */
+.scalar-breakout .scalar-app {
+  /* Let Scalar follow base font/color vars */
+  --scalar-color-accent: var(--ifm-color-primary);
+  --scalar-color-background: var(--ifm-background-color);
+  --scalar-color-text: var(--ifm-font-color-base);
+}
+
+[data-theme="dark"] .scalar-breakout .scalar-app {
+  --scalar-color-background: var(--ifm-background-color);
+  --scalar-color-text: var(--ifm-font-color-base);
+}
+
+/* Enhanced Scalar variable mapping mirroring official plugin */
+.scalar-breakout .scalar-api-reference,
+.scalar-breakout .scalar-app {
+  --scalar-font: var(--ifm-font-family-base);
+  --scalar-font-code: var(--ifm-font-family-monospace);
+}
+
+html[data-theme="light"] .scalar-breakout .scalar-api-reference {
+  --scalar-color-1: var(--ifm-font-color-base);
+  --scalar-color-2: var(--ifm-color-emphasis-700);
+  --scalar-color-3: var(--ifm-color-emphasis-600);
+  --scalar-color-accent: var(--ifm-color-primary);
+  --scalar-background-1: var(--ifm-background-color);
+  --scalar-background-2: color-mix(
+    in srgb,
+    var(--ifm-background-color) 96%,
+    #000
+  );
+  --scalar-background-3: color-mix(
+    in srgb,
+    var(--ifm-background-color) 92%,
+    #000
+  );
+  --scalar-background-accent: var(
+    --ifm-menu-color-background-active,
+    rgba(0, 0, 0, 0.05)
+  );
+  --scalar-border-color: var(--ifm-color-emphasis-300);
+}
+
+html[data-theme="dark"] .scalar-breakout .scalar-api-reference {
+  --scalar-color-1: var(--ifm-font-color-base);
+  --scalar-color-2: var(--ifm-color-emphasis-600);
+  --scalar-color-3: var(--ifm-color-emphasis-400);
+  --scalar-color-accent: var(--ifm-color-primary);
+  --scalar-background-1: var(--ifm-background-color);
+  --scalar-background-2: color-mix(
+    in srgb,
+    var(--ifm-background-color) 94%,
+    #fff
+  );
+  --scalar-background-3: color-mix(
+    in srgb,
+    var(--ifm-background-color) 88%,
+    #fff
+  );
+  --scalar-background-accent: var(
+    --ifm-menu-color-background-active,
+    hsla(0, 0%, 100%, 0.05)
+  );
+  --scalar-border-color: var(--ifm-color-emphasis-200);
+}
+
+/* Sidebar alignment (optional overrides) */
+.scalar-breakout .scalar-api-reference .t-doc__sidebar {
+  --scalar-sidebar-background-1: var(--scalar-background-1);
+  --scalar-sidebar-item-hover-color: currentColor;
+  --scalar-sidebar-item-active-background: var(--scalar-background-accent);
+  --scalar-sidebar-border-color: var(--scalar-border-color);
+  --scalar-sidebar-color-1: var(--scalar-color-1);
+  --scalar-sidebar-color-2: var(--scalar-color-2);
+  --scalar-sidebar-color-active: var(--scalar-color-accent);
+  --scalar-sidebar-search-background: transparent;
+  --scalar-sidebar-search-border-color: var(--scalar-border-color);
+  --scalar-sidebar-search--color: var(--scalar-color-3);
 }

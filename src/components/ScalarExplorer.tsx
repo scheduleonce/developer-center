@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+// Removed color mode hook dependency; theming handled via global CSS variables.
 
 interface ScalarExplorerProps {
   primarySpecUrl?: string;
   fallbackSpecUrl?: string;
   className?: string;
+  configuration?: Record<string, any>;
 }
 
 declare global {
@@ -19,6 +21,7 @@ export const ScalarExplorer: React.FC<ScalarExplorerProps> = ({
   primarySpecUrl = DEFAULT_PRIMARY,
   fallbackSpecUrl = DEFAULT_FALLBACK,
   className,
+  configuration = {},
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [status, setStatus] = useState<"loading" | "mounted" | "error">(
@@ -101,6 +104,8 @@ export const ScalarExplorer: React.FC<ScalarExplorerProps> = ({
           spec: { url: specUrl },
           hideDownloadButton: false,
           hideDarkModeToggle: true,
+          layout: "modern",
+          ...configuration,
         });
         if (!cancelled) {
           setStatus("mounted");
@@ -122,11 +127,11 @@ export const ScalarExplorer: React.FC<ScalarExplorerProps> = ({
     return () => {
       cancelled = true;
     };
-  }, [primarySpecUrl, fallbackSpecUrl]);
+  }, [primarySpecUrl, fallbackSpecUrl, configuration]);
 
   return (
     <div
-      className={className}
+      className={["scalar-api-reference", className].filter(Boolean).join(" ")}
       style={{ minHeight: "75vh", position: "relative" }}
     >
       {status !== "mounted" && (
