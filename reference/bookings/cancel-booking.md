@@ -3,7 +3,7 @@ id: cancel-booking
 title: Cancel a booking
 description: Cancel a booking by ID
 operationId: cancel-booking
-slug: /reference/bookings/cancel-booking/
+slug: /bookings/cancel-booking/
 ---
 
 ## Returns

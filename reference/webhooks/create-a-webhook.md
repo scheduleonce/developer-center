@@ -3,7 +3,7 @@ id: create-a-webhook
 title: Create a webhook
 description: Creates a webhook subscription.
 operationId: create-a-webhook
-slug: /reference/webhooks/create-a-webhook/
+slug: /webhooks/create-a-webhook/
 ---
 
 ## Input parameters

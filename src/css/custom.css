@@ -29,27 +29,11 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-/* Scalar theme alignment */
-.scalar-breakout .scalar-app {
-  /* Let Scalar follow base font/color vars */
-  --scalar-color-accent: var(--ifm-color-primary);
-  --scalar-color-background: var(--ifm-background-color);
-  --scalar-color-text: var(--ifm-font-color-base);
-}
-
-[data-theme="dark"] .scalar-breakout .scalar-app {
-  --scalar-color-background: var(--ifm-background-color);
-  --scalar-color-text: var(--ifm-font-color-base);
-}
-
-/* Enhanced Scalar variable mapping mirroring official plugin */
-.scalar-breakout .scalar-api-reference,
-.scalar-breakout .scalar-app {
+/* Scalar theme alignment (no longer rely on absent .scalar-breakout wrapper) */
+.scalar-api-reference {
   --scalar-font: var(--ifm-font-family-base);
   --scalar-font-code: var(--ifm-font-family-monospace);
-}
-
-html[data-theme="light"] .scalar-breakout .scalar-api-reference {
+  /* Provide immediate light defaults so first paint (and revisits) are correct */
   --scalar-color-1: var(--ifm-font-color-base);
   --scalar-color-2: var(--ifm-color-emphasis-700);
   --scalar-color-3: var(--ifm-color-emphasis-600);
@@ -72,7 +56,8 @@ html[data-theme="light"] .scalar-breakout .scalar-api-reference {
   --scalar-border-color: var(--ifm-color-emphasis-300);
 }
 
-html[data-theme="dark"] .scalar-breakout .scalar-api-reference {
+html[data-theme="dark"] .scalar-api-reference,
+.scalar-api-reference.scalar-dark-mode {
   --scalar-color-1: var(--ifm-font-color-base);
   --scalar-color-2: var(--ifm-color-emphasis-600);
   --scalar-color-3: var(--ifm-color-emphasis-400);

@@ -1,7 +1,7 @@
 ---
 id: the-scheduling-availability-object
 title: The scheduling availability object
-slug: /reference/users/the-scheduling-availability-object/
+slug: /users/the-scheduling-availability-object/
 ---
 
 This API endpoint allows you to retrieve a user's complete scheduling availability. The response provides a comprehensive view of when a user is available to be booked, breaking their schedule down into two key parts:

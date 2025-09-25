@@ -2,7 +2,7 @@
 id: versioning
 title: Versioning
 description: ''
-slug: /reference/introduction/versioning/
+slug: /introduction/versioning/
 ---
 
 When updates are made to our API that are not compatible with the previous version, a new version is released.\

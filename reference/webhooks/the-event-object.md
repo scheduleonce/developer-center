@@ -2,7 +2,7 @@
 id: the-event-object
 title: The event object
 description: ''
-slug: /reference/webhooks/the-event-object/
+slug: /webhooks/the-event-object/
 ---
 
 The event object is sent in the webhook payload, in standard JSON format and contains a unique ID, the event that triggered the payload (e.g. `booking.scheduled`), the time the event occurred, the API version, and a nested data object. [Learn more about the event object and the webhook payload](https://developers.oncehub.com/docs/webhook-data-payload) 

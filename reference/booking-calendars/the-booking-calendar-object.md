@@ -2,7 +2,7 @@
 id: the-booking-calendar-object
 title: The booking calendar object
 description: ''
-slug: /reference/booking-calendars/the-booking-calendar-object/
+slug: /booking-calendars/the-booking-calendar-object/
 ---
 
 The booking calendar object contains the customer facing subject, internal name, URL for booking calendars on your account, meeting duration in minutes and indicates whether the booking calendar is published. [Learn more about booking calendars](https://help.oncehub.com/help/getting-started-with-booking-calendars)

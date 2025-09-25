@@ -2,7 +2,7 @@
 id: the-user-object
 title: The user object
 description: ''
-slug: /reference/users/the-user-object/
+slug: /users/the-user-object/
 ---
 
 The user object contains the first name, last name and email of the users in your account and contains a status which indicates if the user has signed in or is still in invited status.

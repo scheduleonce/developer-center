@@ -3,7 +3,7 @@ id: book-a-time-slot-for-a-booking-calendar
 title: Book a time slot
 description: Book a time from the available time slots
 operationId: book-a-time-slot-for-a-booking-calendar
-slug: /reference/booking-calendars/book-a-time-slot-for-a-booking-calendar/
+slug: /booking-calendars/book-a-time-slot-for-a-booking-calendar/
 ---
 
 > 📘 Notes

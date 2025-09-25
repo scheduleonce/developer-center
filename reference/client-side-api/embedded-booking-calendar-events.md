@@ -1,7 +1,7 @@
 ---
 id: embedded-booking-calendar-events
 title: Embedded booking calendar events
-slug: /reference/client-side-api/embedded-booking-calendar-events/
+slug: /client-side-api/embedded-booking-calendar-events/
 ---
 
 # List of supported events

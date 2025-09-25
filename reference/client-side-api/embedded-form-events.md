@@ -1,7 +1,7 @@
 ---
 id: embedded-form-events
 title: Embedded form events
-slug: /reference/client-side-api/embedded-form-events/
+slug: /client-side-api/embedded-form-events/
 ---
 
 # List of supported events

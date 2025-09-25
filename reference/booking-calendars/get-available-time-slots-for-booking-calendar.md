@@ -3,7 +3,7 @@ id: get-available-time-slots-for-booking-calendar
 title: Get available time slots for a booking calendar
 description: Returns a list of available time slots for a booking calendar
 operationId: get-available-time-slots-for-booking-calendar
-slug: /reference/booking-calendars/get-available-time-slots-for-booking-calendar/
+slug: /booking-calendars/get-available-time-slots-for-booking-calendar/
 ---
 
 > 📘 Notes

@@ -2,7 +2,7 @@
 id: event-triggers
 title: Event triggers
 description: ""
-slug: /reference/webhooks/event-triggers/
+slug: /webhooks/event-triggers/
 ---
 
 ## Supported events

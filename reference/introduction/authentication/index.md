@@ -2,7 +2,7 @@
 id: index
 title: Authentication
 description: ''
-slug: /reference/introduction/authentication/index/
+slug: /introduction/authentication/index/
 ---
 
 ## Your API key

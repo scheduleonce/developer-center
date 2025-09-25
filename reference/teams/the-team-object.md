@@ -2,7 +2,7 @@
 id: the-team-object
 title: The teams object
 description: ''
-slug: /reference/teams/the-team-object/
+slug: /teams/the-team-object/
 ---
 
 The team object contains the name of the teams in your account.

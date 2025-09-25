@@ -3,7 +3,7 @@ id: no-show
 title: Set a booking as no-show
 description: Update the booking status to no-show by ID
 operationId: no-show
-slug: /reference/bookings/no-show/
+slug: /bookings/no-show/
 ---
 
 ## Returns

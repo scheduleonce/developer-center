@@ -2,7 +2,7 @@
 id: the-event-type-object
 title: The event type object
 description: ''
-slug: /reference/event-types/the-event-type-object/
+slug: /event-types/the-event-type-object/
 ---
 
 The event type object contains the name and description of the event types created inside your account to allow the easy use of event type id's to filter when retrieving other objects, such as bookings. [Learn more about event types](https://help.oncehub.com/help/introduction-to-event-types)

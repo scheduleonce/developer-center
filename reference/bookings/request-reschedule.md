@@ -3,7 +3,7 @@ id: request-reschedule
 title: Request a reschedule
 description: Request to reschedule a booking by ID
 operationId: request-reschedule
-slug: /reference/bookings/request-reschedule/
+slug: /bookings/request-reschedule/
 ---
 
 ## Returns

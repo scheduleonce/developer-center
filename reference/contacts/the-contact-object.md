@@ -2,7 +2,7 @@
 id: the-contact-object
 title: The contact object
 description: ''
-slug: /reference/contacts/the-contact-object/
+slug: /contacts/the-contact-object/
 ---
 
 <Table align={["left","left","left"]}>

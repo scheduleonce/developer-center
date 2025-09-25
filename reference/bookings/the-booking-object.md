@@ -2,7 +2,7 @@
 id: the-booking-object
 title: The booking object
 description: ""
-slug: /reference/bookings/the-booking-object/
+slug: /bookings/the-booking-object/
 ---
 
 The booking object contains all of the relevant data about the booking. It includes booking data, booking lifecycle status, cancel/reschedule data (when relevant), booking form submission data, booking page, master page, and event type data.

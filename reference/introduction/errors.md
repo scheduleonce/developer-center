@@ -2,7 +2,7 @@
 id: errors
 title: Errors
 description: ''
-slug: /reference/introduction/errors/
+slug: /introduction/errors/
 ---
 
 ## Overview of error responses

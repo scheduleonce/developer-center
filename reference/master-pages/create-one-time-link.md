@@ -3,7 +3,7 @@ id: create-one-time-link
 title: Create a one-time link
 description: Creates a one time link for a master page
 operationId: create-one-time-link
-slug: /reference/master-pages/create-one-time-link/
+slug: /master-pages/create-one-time-link/
 ---
 
 > 📘 Note

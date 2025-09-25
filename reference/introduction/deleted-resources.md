@@ -2,7 +2,7 @@
 id: deleted-resources
 title: Deleted resources
 description: ''
-slug: /reference/introduction/deleted-resources/
+slug: /introduction/deleted-resources/
 ---
 
 Deleted resources are usually still accessible after deletion in *redacted* mode:

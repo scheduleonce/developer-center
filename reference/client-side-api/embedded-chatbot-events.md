@@ -1,7 +1,7 @@
 ---
 id: embedded-chatbot-events
 title: Embedded chatbot events
-slug: /reference/client-side-api/embedded-chatbot-events/
+slug: /client-side-api/embedded-chatbot-events/
 ---
 
 # List of supported events

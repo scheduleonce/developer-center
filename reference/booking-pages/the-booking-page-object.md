@@ -2,7 +2,7 @@
 id: the-booking-page-object
 title: The booking page object
 description: ''
-slug: /reference/booking-pages/the-booking-page-object/
+slug: /booking-pages/the-booking-page-object/
 ---
 
 The booking page object contains the customer facing name, internal label and URL for booking pages on your account and indicates whether the booking page is enabled to receive bookings. [Learn more about booking pages](https://help.oncehub.com/help/introduction-to-booking-pages)

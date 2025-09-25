@@ -2,7 +2,7 @@
 id: introduction
 title: Introduction
 description: ''
-slug: /reference/introduction/introduction/
+slug: /introduction/introduction/
 ---
 
 ## Welcome to the OnceHub API

@@ -1,7 +1,7 @@
 ---
 id: embed-events
 title: Embed events
-slug: /reference/client-side-api/embed-events/
+slug: /client-side-api/embed-events/
 ---
 
 Integrate OnceHub more deeply with your website by subscribing to client-side events from the embedded booking calendar or chatbot widget using JavaScript. These events function much like standard DOM events, notifying your code about important occurrences within the widget.

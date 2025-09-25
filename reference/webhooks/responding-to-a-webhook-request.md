@@ -2,7 +2,7 @@
 id: responding-to-a-webhook-request
 title: User-specified endpoint responses
 description: ''
-slug: /reference/webhooks/responding-to-a-webhook-request/
+slug: /webhooks/responding-to-a-webhook-request/
 ---
 
 ## Responding to a Webhook POST message

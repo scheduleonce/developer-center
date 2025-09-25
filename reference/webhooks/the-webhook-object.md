@@ -2,7 +2,7 @@
 id: the-webhook-object
 title: The webhook object
 description: ''
-slug: /reference/webhooks/the-webhook-object/
+slug: /webhooks/the-webhook-object/
 ---
 
 Webhook subscriptions are configured with a unique ID, User-provided name and POST URL, and an array of User-specified event triggers representing different booking lifecycle events.

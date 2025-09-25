@@ -2,7 +2,7 @@
 id: the-master-page-object
 title: The master page object
 description: ''
-slug: /reference/master-pages/the-master-page-object/
+slug: /master-pages/the-master-page-object/
 ---
 
 The master page object contains the name, label and URL for master pages on your account and indicates whether the master page is enabled to receive bookings. [Learn more about master pages](https://help.oncehub.com/help/introduction-to-master-pages)

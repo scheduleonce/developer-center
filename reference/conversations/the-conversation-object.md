@@ -1,7 +1,7 @@
 ---
 id: the-conversation-object
 title: The conversation object
-slug: /reference/conversations/the-conversation-object/
+slug: /conversations/the-conversation-object/
 ---
 
 ## The conversation object
@@ -162,7 +162,7 @@ _string_, [expandable](/reference/introduction/expanding-responses/)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*, [expandable](expanding-responses)
+        *string*, [expandable](/reference/introduction/expanding-responses/)
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -176,7 +176,7 @@ _string_, [expandable](/reference/introduction/expanding-responses/)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*, [expandable](expanding-responses)
+        *string*, [expandable](/reference/introduction/expanding-responses/)
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -190,7 +190,7 @@ _string_, [expandable](/reference/introduction/expanding-responses/)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*, [expandable](expanding-responses)
+        *string*, [expandable](/reference/introduction/expanding-responses/)
       </td>
 
       <td style={{ textAlign: "left" }}>

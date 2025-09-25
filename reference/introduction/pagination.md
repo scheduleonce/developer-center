@@ -2,7 +2,7 @@
 id: pagination
 title: Pagination
 description: ''
-slug: /reference/introduction/pagination/
+slug: /introduction/pagination/
 ---
 
 All API resources have support for bulk fetches via "list" API methods. For instance, you can list `bookings`, `booking-pages`, and list `event-types`. These list API methods share a common structure, using at least these three parameters: `limit`, `after`, and `before`.

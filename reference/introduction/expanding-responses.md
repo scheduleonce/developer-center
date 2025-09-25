@@ -2,7 +2,7 @@
 id: expanding-responses
 title: Expanding responses
 description: ''
-slug: /reference/introduction/expanding-responses/
+slug: /introduction/expanding-responses/
 ---
 
 By default, objects embedded in other objects are referenced by their object ID. For example, a booking contains a reference to the booking page:
