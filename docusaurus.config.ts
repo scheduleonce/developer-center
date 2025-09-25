@@ -87,15 +87,30 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  // Additional docs plugin instance for /reference path parity
   plugins: [
-    // Reference documentation (narrative + object model)
+    [
+      "@scalar/docusaurus",
+      {
+        label: "API Reference",
+        route: "/developer-center/reference", // Include baseUrl manually as suggested fix https://github.com/scalar/scalar/issues/6878
+        showNavLink: false, // We'll add our own navbar item for better control
+        configuration: {
+          spec: {
+            // url: "https://developers.oncehub.com/openapi/oncehub.json"
+            url: "/developer-center/openapi.json",
+          },
+          hideDownloadButton: true,
+          hideDarkModeToggle: true, // Let Docusaurus handle theme switching
+          theme: "alternate", // Use alternate theme for better Docusaurus integration
+        },
+      },
+    ],
     [
       "@docusaurus/plugin-content-docs",
       {
         id: "reference",
         path: "reference",
-        routeBasePath: "reference",
+        routeBasePath: "docs/reference",
         sidebarPath: require.resolve("./sidebars.reference.ts"),
         editUrl:
           "https://github.com/scheduleonce/developer-center/tree/redocosaurus/reference/",
@@ -149,7 +164,7 @@ const config: Config = {
           position: "left",
           label: "Docs",
         },
-        { to: "/scalar/", label: "API Reference", position: "left" },
+        { to: "/reference/", label: "API Reference", position: "left" },
         {
           href: "https://github.com/facebook/docusaurus",
           label: "GitHub",
