@@ -36,7 +36,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -50,7 +50,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -64,7 +64,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -78,7 +78,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -92,7 +92,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -106,7 +106,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *boolean*
+        _boolean_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -120,7 +120,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *datetime*
+        _datetime_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -134,7 +134,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *datetime*
+        _datetime_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -148,11 +148,15 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
-        The timezone selected by the customer when making the booking. Displayed in [IANA timezone format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+        The timezone selected by the customer when making the booking. Displayed in 
+
+        [IANA timezone format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
+        .
       </td>
     </tr>
 
@@ -162,7 +166,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *datetime*
+        _datetime_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -176,7 +180,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        * string\_, [expandable](expanding-responses)
+        * string_, [expandable](expanding-responses)
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -190,7 +194,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *integer*
+        _integer_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -204,7 +208,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *hash*
+        _hash_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -218,7 +222,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -232,7 +236,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -246,7 +250,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -260,7 +264,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -276,7 +280,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *hash*
+        _hash_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -290,7 +294,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -304,7 +308,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -318,7 +322,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -332,7 +336,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *array*
+        _array_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -346,11 +350,19 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *hash*
+        _hash_
       </td>
 
       <td style={{ textAlign: "left" }}>
-        The object containing information entered by the customer into the booking form. This will include any [system fields](https://help.oncehub.com/help/editing-system-fields) and [custom fields](https://help.oncehub.com/help/creating-and-editing-custom-fields) defined in your booking form.
+        The object containing information entered by the customer into the booking form. This will include any 
+
+        [system fields](https://help.oncehub.com/help/editing-system-fields)
+
+         and 
+
+        [custom fields](https://help.oncehub.com/help/creating-and-editing-custom-fields)
+
+         defined in your booking form.
       </td>
     </tr>
 
@@ -360,7 +372,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -374,7 +386,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -388,7 +400,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -402,7 +414,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -416,7 +428,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -430,7 +442,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -444,7 +456,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *array*
+        _array_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -458,7 +470,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *hash*
+        _hash_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -472,7 +484,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        * string\_, [expandable](expanding-responses)
+        * string_, [expandable](expanding-responses)
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -486,7 +498,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        * string\_, [expandable](expanding-responses)
+        * string_, [expandable](expanding-responses)
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -500,7 +512,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        * string\_, [expandable](expanding-responses)
+        * string_, [expandable](expanding-responses)
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -514,7 +526,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        * string\_, [expandable](expanding-responses)
+        * string_, [expandable](expanding-responses)
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -528,7 +540,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *hash*
+        _hash_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -542,7 +554,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -556,7 +568,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -570,7 +582,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -584,7 +596,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -594,11 +606,25 @@ The booking object contains all of the relevant data about the booking. It inclu
 
     <tr>
       <td style={{ textAlign: "left" }}>
+        `ics_url`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        _string_
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        A direct, publicly accessible URL that downloads an ICS (.ics) calendar file for the booking.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
         `utm_params`
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *hash*
+        _hash_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -614,7 +640,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        * string\_, [expandable](expanding-responses)
+        * string_, [expandable](expanding-responses)
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -628,7 +654,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -642,7 +668,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -658,7 +684,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -674,7 +700,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *array of hash*
+        _array of hash_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -688,7 +714,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *string*
+        _string_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -702,7 +728,7 @@ The booking object contains all of the relevant data about the booking. It inclu
       </td>
 
       <td style={{ textAlign: "left" }}>
-        *any*
+        _any_
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -756,6 +782,7 @@ The booking object contains all of the relevant data about the booking. It inclu
   "master_page": "MP-ZID28U5946",
   "event_type": "ET-7NC41GHIDZ",
   "conversation": "CVR-ZLS0AG3YXZTH",
+  "ics_url": "https://oncehub.com/api/bookings/ics/62ad3bdd-a09f-dfbdffbef389-axs01j",
   "external_calendar": {
     "type": "google",
     "name": "andrea.hartie@example.com",
