@@ -19,7 +19,9 @@ export const ScalarExplorer: React.FC<ScalarExplorerProps> = ({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const outerRef = useRef<HTMLDivElement | null>(null);
   const configRef = useRef(configuration);
-  const [status, setStatus] = useState<"loading" | "mounted" | "error">("loading");
+  const [status, setStatus] = useState<"loading" | "mounted" | "error">(
+    "loading"
+  );
   const [message, setMessage] = useState("Loading API reference...");
 
   // Decide which spec URL to use (primary vs fallback)
@@ -27,7 +29,10 @@ export const ScalarExplorer: React.FC<ScalarExplorerProps> = ({
     try {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), timeoutMs);
-      const res = await fetch(url, { method: "HEAD", signal: controller.signal });
+      const res = await fetch(url, {
+        method: "HEAD",
+        signal: controller.signal,
+      });
       clearTimeout(timeout);
       return res.ok;
     } catch {
@@ -57,7 +62,9 @@ export const ScalarExplorer: React.FC<ScalarExplorerProps> = ({
     const el = outerRef.current;
     if (!el) return;
     const style = getComputedStyle(el);
-    if (style.getPropertyValue("--scalar-background-1").trim() === "transparent") {
+    if (
+      style.getPropertyValue("--scalar-background-1").trim() === "transparent"
+    ) {
       const root = document.documentElement;
       const mode = root.getAttribute("data-theme");
       el.classList.toggle("scalar-dark-mode", mode === "dark");
@@ -74,12 +81,19 @@ export const ScalarExplorer: React.FC<ScalarExplorerProps> = ({
     const log = (...args: any[]) => console.debug("[ScalarExplorer]", ...args);
 
     const ensureScript = () => {
-      if (window.Scalar && window.Scalar.createApiReference) return Promise.resolve();
+      if (window.Scalar && window.Scalar.createApiReference)
+        return Promise.resolve();
       return new Promise<void>((resolve, reject) => {
-        const existing = document.querySelector<HTMLScriptElement>("script[data-scalar-cdn]");
+        const existing = document.querySelector<HTMLScriptElement>(
+          "script[data-scalar-cdn]"
+        );
         if (existing) {
           existing.addEventListener("load", () => resolve(), { once: true });
-          existing.addEventListener("error", () => reject(new Error("CDN script load error")), { once: true });
+          existing.addEventListener(
+            "error",
+            () => reject(new Error("CDN script load error")),
+            { once: true }
+          );
           return;
         }
         const script = document.createElement("script");
@@ -122,7 +136,9 @@ export const ScalarExplorer: React.FC<ScalarExplorerProps> = ({
         if (!cancelled) {
           console.debug("[ScalarExplorer] Mount error", e);
           setStatus("error");
-          setMessage("Failed to load API explorer. Check console/network and retry.");
+          setMessage(
+            "Failed to load API explorer. Check console/network and retry."
+          );
         }
       }
     };
@@ -154,9 +170,10 @@ export const ScalarExplorer: React.FC<ScalarExplorerProps> = ({
       reconcileThemeVars();
     };
     apply();
-    const observer = new MutationObserver(muts => {
+    const observer = new MutationObserver((muts) => {
       for (const m of muts) {
-        if (m.type === "attributes" && m.attributeName === "data-theme") apply();
+        if (m.type === "attributes" && m.attributeName === "data-theme")
+          apply();
       }
     });
     observer.observe(root, { attributes: true });
