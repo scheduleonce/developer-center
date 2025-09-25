@@ -117,6 +117,7 @@ slug: /conversations/the-conversation-object/
       <td style={{ textAlign: "left" }}>
 
 _string_, [expandable](/reference/introduction/expanding-responses/)
+
 </td>
 
       <td style={{ textAlign: "left" }}>
@@ -132,6 +133,7 @@ _string_, [expandable](/reference/introduction/expanding-responses/)
       <td style={{ textAlign: "left" }}>
 
 _string_, [expandable](/reference/introduction/expanding-responses/)
+
 </td>
 
       <td style={{ textAlign: "left" }}>
