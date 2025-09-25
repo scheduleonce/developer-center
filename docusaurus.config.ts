@@ -45,6 +45,8 @@ const config: Config = {
       "classic",
       {
         docs: {
+          path: "docs",
+          routeBasePath: "",
           sidebarPath: "./sidebars.ts",
           remarkPlugins: [
             function legacyImage() {
@@ -140,39 +142,39 @@ const config: Config = {
           title: "Docs",
           items: [
             {
-              label: "Tutorial",
-              to: "/docs/intro",
+              label: "Documentation",
+              to: "/",
             },
           ],
         },
         {
-          title: "Community",
+          title: "API",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
+              label: "API Reference",
+              to: "/reference/",
             },
             {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "X",
-              href: "https://x.com/docusaurus",
+              label: "Webhooks",
+              to: "/webhooks/introduction-to-webhooks/",
             },
           ],
         },
         {
-          title: "More",
+          title: "Support",
           items: [
             {
-              label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              label: "Developer Support",
+              to: "/developer-support/frequently-asked-questions/",
+            },
+            {
+              label: "Contact Us",
+              to: "/developer-support/contact-us/",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} OnceHub. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
