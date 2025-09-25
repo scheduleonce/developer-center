@@ -35,3 +35,22 @@
   --scalar-font: var(--ifm-font-family-base);
   --scalar-font-code: var(--ifm-font-family-monospace);
 }
+
+/* Navbar logo styling */
+.navbar__logo {
+  margin-right: 0.75rem;
+}
+
+.navbar__logo img {
+  border-radius: 4px;
+  object-fit: contain;
+  max-height: 32px;
+  width: auto; /* Let width scale naturally with height */
+}
+
+/* Ensure logo is properly sized and aligned */
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}

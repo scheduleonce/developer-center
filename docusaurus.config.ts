@@ -110,10 +110,13 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "My Site",
+      title: "", // Remove title to make logo more prominent
       logo: {
-        alt: "My Site Logo",
-        src: "img/logo.svg",
+        alt: "OnceHub Developer Center",
+        src: "img/logo-small.png",
+        href: "/", // Make logo clickable to home
+        target: "_self",
+        height: 32, // Set height, let width scale proportionally
       },
       items: [
         {
