@@ -1551,6 +1551,7 @@
                       "booking_page": "BP-X0LCRU5LES",
                       "master_page": "MP-ZID28U5946",
                       "event_type": "ET-7NC41GHIDZ",
+                      "ics_url": "https://oncehub.com/api/bookings/ics/62ad3bdd-a09f-dfbdffbef389-axs01j",
                       "external_calendar": {
                         "type": "google",
                         "name": "andrea.hartie@example.com",
