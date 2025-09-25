@@ -105,48 +105,6 @@ const config: Config = {
         },
       },
     ],
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        id: "reference",
-        path: "reference",
-        routeBasePath: "docs/reference",
-        sidebarPath: require.resolve("./sidebars.reference.ts"),
-        editUrl:
-          "https://github.com/scheduleonce/developer-center/tree/redocosaurus/reference/",
-        showLastUpdateTime: true,
-        remarkPlugins: [
-          function legacyImage() {
-            return (tree: any) => {
-              visit(tree, (node: any) => {
-                if (
-                  node.type === "mdxJsxFlowElement" &&
-                  node.name === "Image"
-                ) {
-                  const srcAttr = node.attributes?.find(
-                    (a: any) => a.name === "src"
-                  );
-                  if (srcAttr) {
-                    const altAttr = node.attributes?.find(
-                      (a: any) => a.name === "alt"
-                    );
-                    const titleAttr = node.attributes?.find(
-                      (a: any) => a.name === "title"
-                    );
-                    node.type = "image";
-                    node.url = srcAttr.value;
-                    node.alt = String(altAttr?.value || "");
-                    node.title = titleAttr?.value;
-                    delete node.name;
-                    delete node.attributes;
-                  }
-                }
-              });
-            };
-          },
-        ],
-      },
-    ],
   ],
   themeConfig: {
     // Replace with your project's social card
