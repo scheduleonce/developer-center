@@ -45,8 +45,7 @@ const config: Config = {
       "classic",
       {
         docs: {
-          path: "docs",
-          routeBasePath: "",
+          routeBasePath: "docs",
           sidebarPath: "./sidebars.ts",
           remarkPlugins: [
             function legacyImage() {
@@ -143,7 +142,7 @@ const config: Config = {
           items: [
             {
               label: "Documentation",
-              to: "/",
+              to: "/docs/",
             },
           ],
         },
@@ -156,7 +155,7 @@ const config: Config = {
             },
             {
               label: "Webhooks",
-              to: "/webhooks/introduction-to-webhooks/",
+              to: "/docs/webhooks/introduction-to-webhooks/",
             },
           ],
         },
@@ -165,11 +164,11 @@ const config: Config = {
           items: [
             {
               label: "Developer Support",
-              to: "/developer-support/frequently-asked-questions/",
+              to: "/docs/developer-support/frequently-asked-questions/",
             },
             {
               label: "Contact Us",
-              to: "/developer-support/contact-us/",
+              to: "/docs/developer-support/contact-us/",
             },
           ],
         },

@@ -1,8 +1,6 @@
 ---
-id: introduction-to-the-scheduleonce-api
-title: Introduction to the OnceHub Developer Center
-description: ''
-slug: /docs/overview/introduction-to-the-scheduleonce-api/
+sidebar_position: 1
+title: Introduction to the ScheduleOnce API
 ---
 
 ## Welcome to OnceHub!

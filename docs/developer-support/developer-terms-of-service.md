@@ -2,7 +2,7 @@
 id: developer-terms-of-service
 title: Developer terms of service
 description: ''
-slug: /docs/developer-support/developer-terms-of-service/
+slug: /developer-support/developer-terms-of-service/
 ---
 
 # **API Terms of Use**

@@ -2,7 +2,7 @@
 id: managing-webhook-subscriptions
 title: Managing Webhook Subscriptions
 description: ""
-slug: /docs/webhooks/managing-webhook-subscriptions/
+slug: /webhooks/managing-webhook-subscriptions/
 ---
 
 ## Managing Webhook Subscriptions via the API

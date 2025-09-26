@@ -2,7 +2,7 @@
 id: regenerating-your-api-key
 title: Regenerating Your API Key
 description: ""
-slug: /docs/overview/regenerating-your-api-key/
+slug: /overview/regenerating-your-api-key/
 ---
 
 ## How to Regenerate Your API Key

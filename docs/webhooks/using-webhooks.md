@@ -2,7 +2,7 @@
 id: using-webhooks
 title: Setting Up and Using Webhooks
 description: ''
-slug: /docs/webhooks/using-webhooks/
+slug: /webhooks/using-webhooks/
 ---
 
 ## What Can I Do With Webhooks?

@@ -2,7 +2,7 @@
 id: introduction-to-webhooks
 title: Introduction to Webhooks
 description: ""
-slug: /docs/webhooks/introduction-to-webhooks/
+slug: /webhooks/introduction-to-webhooks/
 ---
 
 ## What are Webhooks?

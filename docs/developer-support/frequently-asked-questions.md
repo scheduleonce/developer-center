@@ -2,7 +2,7 @@
 id: frequently-asked-questions
 title: FAQs
 description: Frequently asked questions
-slug: /docs/developer-support/frequently-asked-questions/
+slug: /developer-support/frequently-asked-questions/
 ---
 
 ## Why isn't my API key working?

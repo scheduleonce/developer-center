@@ -2,7 +2,7 @@
 id: webhook-signatures
 title: Webhook Signatures
 description: Verify the events that OnceHub sends to your webhook endpoints.
-slug: /docs/webhooks/webhook-signatures/
+slug: /webhooks/webhook-signatures/
 ---
 
 OnceHub can sign all webhook events sent to your endpoints with a signature. This signature appears in each event's `Oncehub-Signature` header. It allows you to verify that the events were sent by OnceHub rather than a third party.

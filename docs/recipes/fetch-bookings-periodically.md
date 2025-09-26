@@ -1,7 +1,7 @@
 ---
 id: fetch-bookings-periodically
 title: Fetch bookings periodically
-slug: /docs/recipes/fetch-bookings-periodically/
+slug: /recipes/fetch-bookings-periodically/
 ---
 
 ```node Node

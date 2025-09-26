@@ -1,8 +1,7 @@
 ---
-id: getting-your-api-key
+sidebar_position: 2
 title: Getting Your API Key
-description: ""
-slug: /docs/overview/getting-your-api-key/
+slug: /overview/getting-your-api-key/
 ---
 
 ## Get Started
