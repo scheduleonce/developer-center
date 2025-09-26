@@ -16,7 +16,8 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: "https://your-azure-static-web-app.azurestaticapps.net", // Update with your Azure Static Web App URL
+  // Use environment variable to determine deployment target
+  url: process.env.DOCUSAURUS_URL || "https://developers.oncehub.com", // Default to production
   // Set the /<baseUrl>/ pathname under which your site is served
   // For Azure Static Web Apps, use root path
   baseUrl: "/", // Root path for Azure Static Web App
