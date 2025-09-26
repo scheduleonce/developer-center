@@ -121,8 +121,7 @@ const config: Config = {
       },
       items: [
         {
-          type: "docSidebar",
-          sidebarId: "docs",
+          to: "/docs/overview/introduction-to-the-scheduleonce-api",
           position: "left",
           label: "Docs",
         },
@@ -142,7 +141,7 @@ const config: Config = {
           items: [
             {
               label: "Documentation",
-              to: "/docs/",
+              to: "/docs/overview/introduction-to-the-scheduleonce-api",
             },
           ],
         },
