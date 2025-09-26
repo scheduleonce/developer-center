@@ -60,11 +60,10 @@ async function fetchPeriodically() {
 }
 
 fetchPeriodically();
-
 ```
 
 ```json Response Example
-{"success":true}
+{ "success": true }
 ```
 
 # Import depenencies and declare constants
@@ -82,8 +81,6 @@ If you are running an older version of Node.js you can import [node-fetch](https
 
 <!-- node@3 -->
 
-
-
 # Change the initial fetch time
 
 <!-- node@6 -->
@@ -91,7 +88,7 @@ If you are running an older version of Node.js you can import [node-fetch](https
 You can set the initial time from which you want to fetch all bookings.  
 In this case, we are only fetching bookings that were updated since the script has started running.
 
-You can set 
+You can set
 
 ```
 lastFetchTime = new Date(0)

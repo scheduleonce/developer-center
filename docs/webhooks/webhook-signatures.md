@@ -7,9 +7,9 @@ slug: /webhooks/webhook-signatures/
 
 OnceHub can sign all webhook events sent to your endpoints with a signature. This signature appears in each event's `Oncehub-Signature` header. It allows you to verify that the events were sent by OnceHub rather than a third party.
 
-Before you can verify signatures, you need to retrieve your endpoint's secret from your OnceHub dashboard's webhooks settings in the [Webhook & API integration section](https://app.oncehub.com/integrations/api). Find the relevant webhook and click *View secret*.
+Before you can verify signatures, you need to retrieve your endpoint's secret from your OnceHub dashboard's webhooks settings in the [Webhook & API integration section](https://app.oncehub.com/integrations/api). Find the relevant webhook and click _View secret_.
 
-OnceHub generates a unique secret key for each endpoint separately. If the webhook was created in v2 of the API, each event will be signed with the secret. If you don't see the *View secret* option, this means you are using v1 of the API. Any new endpoints will be created using v2.
+OnceHub generates a unique secret key for each endpoint separately. If the webhook was created in v2 of the API, each event will be signed with the secret. If you don't see the _View secret_ option, this means you are using v1 of the API. Any new endpoints will be created using v2.
 
 ## Verifying Signatures
 
@@ -31,9 +31,9 @@ The value for the prefix `t` corresponds to the timestamp and `s` corresponds to
 
 The `signed_payload` string is created by concatenating:
 
-* The timestamp (as a string)
-* The character `.`
-* The actual JSON payload (i.e., the request body)
+- The timestamp (as a string)
+- The character `.`
+- The actual JSON payload (i.e., the request body)
 
 For example:
 
@@ -50,13 +50,15 @@ For example:
 Compute an HMAC with the SHA256 hash function. Use the endpoint’s signing secret as the key, and use the `signed_payload` string as the message.
 
 ```javascript Node.js
-const crypto = require('crypto');
+const crypto = require("crypto");
 
-const toBeSignedPayload = time + '.' + body
-const expected = crypto.createHmac('sha256', secret)
-.update(toBeSignedPayload)
-.digest("hex");
+const toBeSignedPayload = time + "." + body;
+const expected = crypto
+  .createHmac("sha256", secret)
+  .update(toBeSignedPayload)
+  .digest("hex");
 ```
+
 ```csharp
 using System;
 using System.Security.Cryptography;

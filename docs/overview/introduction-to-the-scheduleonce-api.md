@@ -15,19 +15,19 @@ Based on REST principles, our API sends HTTP requests and returns data in JSON f
 >
 > The <a target="_blank" href="https://help.oncehub.com/ ">OnceHub Support center</a> offers detailed information about other advanced features that let you pass external data through OnceHub, including:
 >
-> * <a target="_blank" href="https://help.oncehub.com/help/prepopulated-booking-forms">Prepopulated Booking forms</a>
-> * <a target="_blank" href="https://help.oncehub.com/help/introduction-to-webform-integration">Web form integration</a>
-> * <a target="_blank" href="https://help.oncehub.com/help/using-scheduleonce-with-source-tracking-utm-tags">Source tracking</a>
-> * <a target="_blank" href="https://help.oncehub.com/help/login-integration">Login integration</a>
-> * <a target="_blank" href="https://help.oncehub.com/help/website-embed">Website integration</a>
+> - <a target="_blank" href="https://help.oncehub.com/help/prepopulated-booking-forms">Prepopulated Booking forms</a>
+> - <a target="_blank" href="https://help.oncehub.com/help/introduction-to-webform-integration">Web form integration</a>
+> - <a target="_blank" href="https://help.oncehub.com/help/using-scheduleonce-with-source-tracking-utm-tags">Source tracking</a>
+> - <a target="_blank" href="https://help.oncehub.com/help/login-integration">Login integration</a>
+> - <a target="_blank" href="https://help.oncehub.com/help/website-embed">Website integration</a>
 
 ## Getting to Know OnceHub
 
 Discover how OnceHub can benefit you and your customers.
 
-* <a target="_blank" href="https://www.oncehub.com/scheduleonce">ScheduleOnce</a>: Fill up your funnel by automating mass scheduling of initial screenings and discovery calls to meet your specific business needs
+- <a target="_blank" href="https://www.oncehub.com/scheduleonce">ScheduleOnce</a>: Fill up your funnel by automating mass scheduling of initial screenings and discovery calls to meet your specific business needs
 
-* <a target="_blank" href="https://www.oncehub.com/chatonce">ChatOnce:</a> Add lead qualification and scheduling to your website that targets and qualifies visitors with chatbot conversations
+- <a target="_blank" href="https://www.oncehub.com/chatonce">ChatOnce:</a> Add lead qualification and scheduling to your website that targets and qualifies visitors with chatbot conversations
 
 ## Using the OnceHub API
 
