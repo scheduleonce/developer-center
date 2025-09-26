@@ -16,10 +16,10 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: "https://scheduleonce.github.io", // GitHub Pages URL (organization or user site root)
+  url: "https://your-azure-static-web-app.azurestaticapps.net", // Update with your Azure Static Web App URL
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/developer-center/", // Repo name with trailing slash
+  // For Azure Static Web Apps, use root path
+  baseUrl: "/", // Root path for Azure Static Web App
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -93,12 +93,12 @@ const config: Config = {
       "@scalar/docusaurus",
       {
         label: "API Reference",
-        route: "/developer-center/reference", // Include baseUrl manually as suggested fix https://github.com/scalar/scalar/issues/6878
+        route: "/reference", // Root path for Azure Static Web App
         showNavLink: false, // We'll add our own navbar item for better control
         configuration: {
           spec: {
             // url: "https://developers.oncehub.com/openapi/oncehub.json"
-            url: "/developer-center/openapi.json",
+            url: "/openapi.json",
           },
           hideDownloadButton: true,
           hideDarkModeToggle: true, // Let Docusaurus handle theme switching
@@ -109,12 +109,12 @@ const config: Config = {
   ],
   themeConfig: {
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "/img/docusaurus-social-card.jpg",
     navbar: {
       title: "", // Remove title to make logo more prominent
       logo: {
         alt: "OnceHub Developer Center",
-        src: "img/logo-small.png",
+        src: "/img/logo-small.png",
         href: "/", // Make logo clickable to home
         target: "_self",
         height: 32, // Set height, let width scale proportionally
