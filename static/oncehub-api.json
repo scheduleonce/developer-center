@@ -15,6 +15,12 @@
       "sec0": []
     }
   ],
+  "tags": [
+    {
+      "name": "Teams",
+      "description": "Manage teams and team memberships. Teams allow you to organize users into groups \nfor shared calendars, permissions, and resource management. Use these endpoints to \nretrieve team information and manage team-related operations.\n"
+    }
+  ],
   "paths": {
     "/test": {
       "get": {
@@ -3631,6 +3637,9 @@
     },
     "/teams": {
       "get": {
+        "tags": [
+          "Teams"
+        ],
         "summary": "List all teams",
         "description": "Returns a list of all teams in your account",
         "operationId": "list-all-teams",
@@ -3688,6 +3697,9 @@
     },
     "/teams/{id}": {
       "get": {
+        "tags": [
+          "Teams"
+        ],
         "summary": "Get a single team",
         "description": "Returns a single team by ID",
         "operationId": "get-a-single-team",

@@ -30,7 +30,6 @@ const config: Config = {
 
   onBrokenLinks: "throw",
 
-  // Markdown configuration for Docusaurus v4 compatibility
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: "warn",

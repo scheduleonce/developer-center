@@ -11,80 +11,82 @@ servers:
   - url: https://api.oncehub.com/v2
 security:
   - sec0: []
+tags:
+  - $ref: "./resources/teams/tag.yaml"
 paths:
   # Authentication
   /test:
-    $ref: "./paths/test.yaml#/test"
+    $ref: "./resources/authentication/endpoints.yaml#/test"
 
   # Bookings
   /bookings:
-    $ref: "./paths/bookings.yaml#/bookings"
+    $ref: "./resources/bookings/endpoints.yaml#/bookings"
   /bookings/{id}:
-    $ref: "./paths/bookings.yaml#/bookings--id"
+    $ref: "./resources/bookings/endpoints.yaml#/bookings--id"
   /bookings/{id}/cancel:
-    $ref: "./paths/bookings.yaml#/bookings--id--cancel"
+    $ref: "./resources/bookings/endpoints.yaml#/bookings--id--cancel"
   /bookings/{id}/request-reschedule:
-    $ref: "./paths/bookings.yaml#/bookings--id--request-reschedule"
+    $ref: "./resources/bookings/endpoints.yaml#/bookings--id--request-reschedule"
   /bookings/{id}/no-show:
-    $ref: "./paths/bookings.yaml#/bookings--id--no-show"
+    $ref: "./resources/bookings/endpoints.yaml#/bookings--id--no-show"
 
   # Booking Calendars
   /booking-calendars:
-    $ref: "./paths/booking-calendars.yaml#/booking-calendars"
+    $ref: "./resources/booking-calendars/endpoints.yaml#/booking-calendars"
   /booking-calendars/{id}:
-    $ref: "./paths/booking-calendars.yaml#/booking-calendars--id"
+    $ref: "./resources/booking-calendars/endpoints.yaml#/booking-calendars--id"
   /booking-calendars/{id}/time-slots:
-    $ref: "./paths/booking-calendars.yaml#/booking-calendars--id--time-slots"
+    $ref: "./resources/booking-calendars/endpoints.yaml#/booking-calendars--id--time-slots"
   /booking-calendars/{id}/schedule:
-    $ref: "./paths/booking-calendars.yaml#/booking-calendars--id--schedule"
+    $ref: "./resources/booking-calendars/endpoints.yaml#/booking-calendars--id--schedule"
   /booking-calendars/{id}/one-time-links:
-    $ref: "./paths/booking-calendars.yaml#/booking-calendars--id--one-time-links"
+    $ref: "./resources/booking-calendars/endpoints.yaml#/booking-calendars--id--one-time-links"
 
   # Booking Pages
   /booking-pages:
-    $ref: "./paths/booking-pages.yaml#/booking-pages"
+    $ref: "./resources/booking-pages/endpoints.yaml#/booking-pages"
   /booking-pages/{id}:
-    $ref: "./paths/booking-pages.yaml#/booking-pages--id"
+    $ref: "./resources/booking-pages/endpoints.yaml#/booking-pages--id"
 
   # Event Types
   /event-types:
-    $ref: "./paths/event-types.yaml#/event-types"
+    $ref: "./resources/event-types/endpoints.yaml#/event-types"
   /event-types/{id}:
-    $ref: "./paths/event-types.yaml#/event-types--id"
+    $ref: "./resources/event-types/endpoints.yaml#/event-types--id"
 
   # Master Pages
   /master-pages:
-    $ref: "./paths/master-pages.yaml#/master-pages"
+    $ref: "./resources/master-pages/endpoints.yaml#/master-pages"
   /master-pages/{id}:
-    $ref: "./paths/master-pages.yaml#/master-pages--id"
+    $ref: "./resources/master-pages/endpoints.yaml#/master-pages--id"
   /master-pages/{id}/one-time-links:
-    $ref: "./paths/master-pages.yaml#/master-pages--id--one-time-links"
+    $ref: "./resources/master-pages/endpoints.yaml#/master-pages--id--one-time-links"
 
   # Users
   /users:
-    $ref: "./paths/users.yaml#/users"
+    $ref: "./resources/users/endpoints.yaml#/users"
   /users/{id}:
-    $ref: "./paths/users.yaml#/users--id"
+    $ref: "./resources/users/endpoints.yaml#/users--id"
   /users/{id}/scheduling-availability:
-    $ref: "./paths/users.yaml#/users--id--scheduling-availability"
+    $ref: "./resources/users/endpoints.yaml#/users--id--scheduling-availability"
 
   # Teams
   /teams:
-    $ref: "./paths/teams.yaml#/teams"
+    $ref: "./resources/teams/endpoints.yaml#/teams"
   /teams/{id}:
-    $ref: "./paths/teams.yaml#/teams--id"
+    $ref: "./resources/teams/endpoints.yaml#/teams--id"
 
   # Contacts
   /contacts:
-    $ref: "./paths/contacts.yaml#/contacts"
+    $ref: "./resources/contacts/endpoints.yaml#/contacts"
   /contacts/{id}:
-    $ref: "./paths/contacts.yaml#/contacts--id"
+    $ref: "./resources/contacts/endpoints.yaml#/contacts--id"
 
   # Webhooks
   /webhooks:
-    $ref: "./paths/webhooks.yaml#/webhooks"
+    $ref: "./resources/webhooks/endpoints.yaml#/webhooks"
   /webhooks/{id}:
-    $ref: "./paths/webhooks.yaml#/webhooks--id"
+    $ref: "./resources/webhooks/endpoints.yaml#/webhooks--id"
 
 components:
   securitySchemes:

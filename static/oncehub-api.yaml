@@ -11,6 +11,12 @@ servers:
   - url: https://api.oncehub.com/v2
 security:
   - sec0: []
+tags:
+  - name: Teams
+    description: |
+      Manage teams and team memberships. Teams allow you to organize users into groups 
+      for shared calendars, permissions, and resource management. Use these endpoints to 
+      retrieve team information and manage team-related operations.
 paths:
   /test:
     get:
@@ -2736,6 +2742,8 @@ paths:
               type: object
   /teams:
     get:
+      tags:
+        - Teams
       summary: List all teams
       description: Returns a list of all teams in your account
       operationId: list-all-teams
@@ -2784,6 +2792,8 @@ paths:
       deprecated: false
   /teams/{id}:
     get:
+      tags:
+        - Teams
       summary: Get a single team
       description: Returns a single team by ID
       operationId: get-a-single-team

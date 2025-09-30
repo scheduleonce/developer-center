@@ -1,5 +1,7 @@
 teams:
   get:
+    tags:
+      - Teams
     summary: List all teams
     description: Returns a list of all teams in your account
     operationId: list-all-teams
@@ -32,10 +34,10 @@ teams:
           maximum limit of 100 objects per page.
         schema:
           type: string
-          default: '10'
+          default: "10"
     responses:
-      '200':
-        description: '200'
+      "200":
+        description: "200"
         content:
           application/json:
             examples:
@@ -56,6 +58,8 @@ teams:
     deprecated: false
 teams--id:
   get:
+    tags:
+      - Teams
     summary: Get a single team
     description: Returns a single team by ID
     operationId: get-a-single-team
@@ -67,8 +71,8 @@ teams--id:
           type: string
         required: true
     responses:
-      '200':
-        description: '200'
+      "200":
+        description: "200"
         content:
           application/json:
             examples:
@@ -91,8 +95,8 @@ teams--id:
                 name:
                   type: string
                   example: Sales
-      '404':
-        description: '404'
+      "404":
+        description: "404"
         content:
           application/json:
             examples:
@@ -111,7 +115,7 @@ teams--id:
                   example: invalid_request_error
                 message:
                   type: string
-                  example: 'No such team: ''123'''
+                  example: "No such team: '123'"
                 param:
                   type: string
                   example: id

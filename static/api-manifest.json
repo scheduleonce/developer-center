@@ -6,6 +6,6 @@
     "yaml": "oncehub-api.yaml",
     "json": "oncehub-api.json"
   },
-  "generated": "2025-09-30T11:48:49.316Z",
+  "generated": "2025-09-30T12:22:34.627Z",
   "source": "./openapi/index.yaml"
 }
