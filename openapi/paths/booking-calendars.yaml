@@ -1,64 +1,538 @@
-get:
-  summary: List all booking calendars
-  description: Returns a list of all booking calendars in your account
-  operationId: list-all-booking-calendars
-  parameters:
-    - name: host
-      in: query
-      description: Filter booking calendars hosted by this user ID or team ID
-      schema:
-        type: string
-    - name: before
-      in: query
-      description: >-
-        A cursor for use in pagination. `before` is an object ID that defines
-        your place in the list. For instance, if you make a list request and
-        receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can
-        include `before=OBJ-XXXX` in order to fetch the previous page of the
-        list.
-      schema:
-        type: string
-    - name: after
-      in: query
-      description: >-
-        A cursor for use in pagination. `after` is an object ID that defines
-        your place in the list. For instance, if you make a list request and
-        receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can
-        include `after=OBJ-XXXX` in order to fetch the next page of the list.
-      schema:
-        type: string
-    - name: limit
-      in: query
-      description: >-
-        Determines the number of objects that will be returned on each page.
-        Defaults to 10 if not specified and has a maximum limit of 100 objects
-        per page.
-      schema:
-        type: string
-        default: '10'
-  responses:
-    '200':
-      description: '200'
+booking-calendars:
+  get:
+    summary: List all booking calendars
+    description: Returns a list of all booking calendars in your account
+    operationId: list-all-booking-calendars
+    parameters:
+      - name: host
+        in: query
+        description: Filter booking calendars hosted by this user ID or team ID
+        schema:
+          type: string
+      - name: before
+        in: query
+        description: >-
+          A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if
+          you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include
+          `before=OBJ-XXXX` in order to fetch the previous page of the list.
+        schema:
+          type: string
+      - name: after
+        in: query
+        description: >-
+          A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if
+          you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include
+          `after=OBJ-XXXX` in order to fetch the next page of the list.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: >-
+          Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a
+          maximum limit of 100 objects per page.
+        schema:
+          type: string
+          default: '10'
+    responses:
+      '200':
+        description: '200'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "object": "list",
+                    "data": [
+                      {
+                        "object": "booking_calendar",
+                        "id": "BKC-LDJ878496X",
+                        "subject": "Meeting with Gilad Goraly",
+                        "host": "USR-HYPGJXN3A8",
+                        "url": "https://oncehub.com/gilad15",
+                        "name": "Gilad Goraly booking calendar",
+                        "published": true,
+                        "duration_minutes": 30
+                      }
+                      {...},
+                      {...}
+                    ]
+                  }
+    deprecated: false
+booking-calendars--id:
+  get:
+    summary: Get a single booking calendar
+    description: Returns a single booking calendar by ID
+    operationId: get-a-single-booking-calendar
+    parameters:
+      - name: id
+        in: path
+        description: ID of the booking calendar
+        schema:
+          type: string
+        required: true
+    responses:
+      '200':
+        description: '200'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "object": "booking_calendar",
+                    "id": "BKC-LDJ878496X",
+                    "subject": "Meeting with Gilad Goraly",
+                    "host": "USR-HYPGJXN3A8",
+                    "url": "https://oncehub.com/gilad15",
+                    "name": "Gilad Goraly booking calendar",
+                    "published": true,
+                    "duration_minutes": 30
+                  }
+            schema:
+              type: object
+              properties:
+                object:
+                  type: string
+                  example: booking_calendar
+                id:
+                  type: string
+                  example: BKC-LDJ878496X
+                subject:
+                  type: string
+                  example: Meeting with Gilad Goraly
+                host:
+                  type: string
+                  example: USR-HYPGJXN3A8
+                url:
+                  type: string
+                  example: https://oncehub.com/gilad15
+                name:
+                  type: string
+                  example: Gilad Goraly booking calendar
+                published:
+                  type: boolean
+                  example: true
+                  default: true
+                duration_minutes:
+                  type: integer
+                  example: 30
+                  default: 0
+      '404':
+        description: '404'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |
+                  {
+                    "type": "invalid_request_error",
+                    "message": "No such booking page: '123'",
+                    "param": "id"
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: 'No such booking page: ''123'''
+                param:
+                  type: string
+                  example: id
+    deprecated: false
+booking-calendars--id--time-slots:
+  get:
+    summary: Get available time slots for a booking calendar
+    description: Returns a list of available time slots for a booking calendar
+    operationId: get-available-time-slots-for-booking-calendar
+    parameters:
+      - name: start_time
+        in: query
+        required: false
+        description: >-
+          The date and time from which to begin checking for available slots. If not provided, the system defaults to
+          current time.
+        schema:
+          type: string
+          format: date-time
+          default: ''
+      - name: end_time
+        in: query
+        required: false
+        description: >-
+          The date and time up to which to check for available slots. If not provided, the system defaults to one week
+          from `start_time`.
+        schema:
+          type: string
+          format: date-time
+          default: ''
+      - name: id
+        in: path
+        description: ID of the booking calendar
+        schema:
+          type: string
+        required: true
+    responses:
+      '200':
+        description: '200'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |
+                  [
+                    {
+                      "start_time": "2024-12-02T06:30:00.000Z",
+                      "locations": [
+                        {
+                          "type": "virtual",
+                          "value": "google_meet",
+                          "id": null
+                        },
+                        {
+                          "type": "guest_phone",
+                          "value": "+12025550195",
+                          "id": null
+                        }
+                      ]
+                    },
+                    {
+                      "start_time": "2024-12-05T14:30:00.000Z",
+                      "locations": [
+                        {
+                          "type": "physical",
+                          "value": null,
+                          "id": "ADD-17SE9FWWOC"
+                        }
+                      ]
+                    },
+                    // ...
+                  ]
+      '400':
+        description: '400'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "type": "invalid_request_error",
+                    "message": "End time must be after the start time.",
+                    "param": "end_time"
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: Start time cannot be in the past.
+                param:
+                  type: string
+                  example: start_time
+      '402':
+        description: '402'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "type": "invalid_request_error",
+                    "message": "Time slots cannot be retrieved when the host doesn't have a seat assigned."
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: Time slots cannot be retrieved when the host doesn't have a seat assigned.
+      '422':
+        description: '422'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "type": "invalid_request_error",
+                    "message": "Time slots cannot be retrieved from an unpublished booking calendar.",
+                    "param": "id"
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: Time slots cannot be retrieved from an unpublished booking calendar.
+                param:
+                  type: string
+                  example: id
+    deprecated: false
+booking-calendars--id--schedule:
+  post:
+    summary: Book a time slot
+    description: Book a time from the available time slots
+    operationId: book-a-time-slot-for-a-booking-calendar
+    parameters:
+      - name: id
+        in: path
+        description: ID of the booking calendar
+        schema:
+          type: string
+        required: true
+    requestBody:
       content:
         application/json:
-          examples:
-            Result:
-              value: |-
-                {
-                  "object": "list",
-                  "data": [
-                    {
-                      "object": "booking_calendar",
-                      "id": "BKC-LDJ878496X",
-                      "subject": "Meeting with Gilad Goraly",
-                      "host": "USR-HYPGJXN3A8",
-                      "url": "https://oncehub.com/gilad15",
-                      "name": "Gilad Goraly booking calendar",
-                      "published": true,
-                      "duration_minutes": 30
-                    }
-                    {...},
-                    {...}
-                  ]
-                }
-  deprecated: false
+          schema:
+            type: object
+            properties:
+              start_time:
+                type: string
+                format: date-time
+                description: The date and time of the time slot
+                x-readme-id: '0.0'
+              guest_time_zone:
+                type: string
+                description: >-
+                  The guest's timezone in [IANA timezone
+                  format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+                x-readme-id: '0.1'
+              booking_form:
+                type: object
+                description: An object containing information about the guest
+                properties:
+                  name:
+                    type: string
+                    description: Name of the guest
+                    x-readme-id: '1.0'
+                  email:
+                    type: string
+                    description: Email of the guest
+                    x-readme-id: '1.1'
+                  phone:
+                    type: string
+                    description: Phone of the guest
+                  string_custom_field:
+                    type: string
+                    description: >-
+                      A placeholder for a custom field that accepts a single text value. Replace `string_custom_field`
+                      with the `mapped_field_name` of your Text or Single-Select Picklist question.
+                  array_custom_field:
+                    type: array
+                    items:
+                      type: string
+                    description: >-
+                      A placeholder for a custom field that accepts multiple values. Replace `array_custom_field` with
+                      the mapped_field_name of your Multi-Select Picklist question. The value must be an array of
+                      strings.
+                required:
+                  - name
+                  - email
+                x-readme-id: '0.2'
+              location:
+                properties:
+                  type:
+                    type: string
+                    description: >-
+                      Use `physical` for in-person meetings, `virtual` for online meetings, or `guest_phone` for phone
+                      calls.
+                    x-readme-id: '1.0'
+                  value:
+                    type: string
+                    description: >-
+                      For virtual meetings, specify one of the following: `google_meet`, `microsoft_teams`,
+                      `gotomeeting`, `webex`, or `zoom`. For phone calls, use the guest's phone number in E164 format.
+                      For in-person meetings, use the location's address ID (e.g., `ADD-1234`).
+                    x-readme-id: '1.1'
+                required: []
+                type: object
+                description: The meeting location object. This field is optional; if omitted, a virtual location will be selected.
+                x-readme-id: '0.3'
+            required:
+              - start_time
+              - guest_time_zone
+              - booking_form
+    responses:
+      '200':
+        description: '200'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "id": "BKNG-J4FR05BKEWEX"
+                  }
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: BKNG-J4FR05BKEWEX
+      '400':
+        description: '400'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "type": "invalid_request_error",
+                    "message": "Required fields are missing.",
+                    "param": "booking_form"
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: The selected start time is not available.
+                param:
+                  type: string
+                  example: start_time
+      '402':
+        description: '402'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "type": "invalid_request_error",
+                    "message": "Meeting cannot be scheduled when the host doesn't have a seat assigned."
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: Meeting cannot be scheduled when the host doesn't have a seat assigned.
+      '422':
+        description: '422'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "type": "invalid_request_error",
+                    "message": "Meeting cannot be scheduled on an unpublished booking calendar.",
+                    "param": "id"
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: Meeting cannot be scheduled on an unpublished booking calendar.
+                param:
+                  type: string
+                  example: id
+    deprecated: false
+booking-calendars--id--one-time-links:
+  post:
+    summary: Create a one-time link
+    description: Creates a one time link for a booking calendar
+    operationId: booking-calendars-create-a-one-time-link
+    parameters:
+      - name: id
+        in: path
+        description: ID of the booking calendar
+        schema:
+          type: string
+        required: true
+    responses:
+      '200':
+        description: '200'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "id": "QUHVEKLPD93M",
+                    "url": "https://oncehub.com/.QUHVEKLPD93M",
+                    "creation_time": "2024-06-18T14:28:19Z"
+                  }
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: QUHVEKLPD93M
+                url:
+                  type: string
+                  example: https://oncehub.com/.QUHVEKLPD93M
+                creation_time:
+                  type: string
+                  example: '2024-06-18T14:28:19Z'
+      '400':
+        description: '400'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "type": "Bad Request",
+                    "message": "This booking calendar does not allow creation of one time links: 'BKC-1234'",
+                    "param": "id"
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: Bad Request
+                message:
+                  type: string
+                  example: 'This booking calendar does not allow creation of one time links: ''BKC-1234'''
+                param:
+                  type: string
+                  example: id
+      '404':
+        description: '404'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |
+                  {
+                    "type": "invalid_request_error",
+                    "message": "No such booking calendar: '123'",
+                    "param": "id"
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: 'No such booking calendar: ''123'''
+                param:
+                  type: string
+                  example: id
+    deprecated: false

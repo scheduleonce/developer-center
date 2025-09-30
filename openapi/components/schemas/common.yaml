@@ -1,0 +1,14 @@
+components:
+  schemas:
+    # Common schema definitions will be added here as needed
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+        code:
+          type: string
+          description: Error code
+      required:
+        - message

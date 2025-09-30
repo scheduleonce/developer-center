@@ -99,7 +99,7 @@ const config: Config = {
         configuration: {
           spec: {
             // url: "https://developers.oncehub.com/openapi/oncehub.json"
-            url: "/openapi.json",
+            url: "/oncehub-api.yaml",
           },
           hideDownloadButton: true,
           hideDarkModeToggle: true, // Let Docusaurus handle theme switching

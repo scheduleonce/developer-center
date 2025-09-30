@@ -1,0 +1,192 @@
+# Common HTTP Response definitions
+
+# Success Responses
+Success:
+  description: Successful operation
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          success:
+            type: boolean
+            example: true
+
+Created:
+  description: Resource created successfully
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          id:
+            type: string
+            description: ID of the created resource
+          success:
+            type: boolean
+            example: true
+
+Deleted:
+  description: Resource deleted successfully
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          id:
+            type: string
+            description: ID of the deleted resource
+          deleted:
+            type: boolean
+            example: true
+
+# Error Responses
+BadRequest:
+  description: Bad Request - Invalid request parameters
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          type:
+            type: string
+            example: "bad_request_error"
+          message:
+            type: string
+            example: "Invalid request parameters"
+          details:
+            type: object
+            description: Additional error details
+        required: [type, message]
+
+Unauthorized:
+  description: Unauthorized - Invalid or missing API key
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          type:
+            type: string
+            example: "authentication_error"
+          message:
+            type: string
+            example: "Invalid API key"
+        required: [type, message]
+
+Forbidden:
+  description: Forbidden - Account plan does not support this feature
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          type:
+            type: string
+            example: "authentication_error"
+          message:
+            type: string
+            example: "Your account plan does not support API access. To use the OnceHub API, you must upgrade to the Enterprise plan."
+        required: [type, message]
+
+NotFound:
+  description: Not Found - Resource does not exist
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          type:
+            type: string
+            example: "not_found_error"
+          message:
+            type: string
+            example: "Resource not found"
+        required: [type, message]
+
+Conflict:
+  description: Conflict - Resource conflict or business rule violation
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          type:
+            type: string
+            example: "conflict_error"
+          message:
+            type: string
+            example: "Resource conflict or operation not allowed"
+        required: [type, message]
+
+UnprocessableEntity:
+  description: Unprocessable Entity - Request validation failed
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          type:
+            type: string
+            example: "validation_error"
+          message:
+            type: string
+            example: "Request validation failed"
+          errors:
+            type: array
+            items:
+              type: object
+              properties:
+                field:
+                  type: string
+                  example: "email"
+                code:
+                  type: string
+                  example: "required"
+                message:
+                  type: string
+                  example: "Email is required"
+        required: [type, message]
+
+PaymentRequired:
+  description: Payment Required - Feature requires paid plan
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          type:
+            type: string
+            example: "payment_required_error"
+          message:
+            type: string
+            example: "This feature requires a paid plan"
+        required: [type, message]
+
+# Pagination Response Wrapper
+PaginatedResponse:
+  description: Paginated list response
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          data:
+            type: array
+            description: Array of resources
+          pagination:
+            type: object
+            properties:
+              before:
+                type: string
+                nullable: true
+                description: Cursor for previous page
+              after:
+                type: string
+                nullable: true
+                description: Cursor for next page
+              has_more:
+                type: boolean
+                description: Whether there are more results
+            required: [has_more]
+        required: [data, pagination]

@@ -1,7 +1,0 @@
-get:
-  description: ''
-  operationId: get_new-endpoint
-  responses:
-    '200':
-      description: ''
-  parameters: []

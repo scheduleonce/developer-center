@@ -1,0 +1,112 @@
+openapi: 3.1.0
+info:
+  title: OnceHub API
+  version: 2.0.0
+  description: |
+    The OnceHub API allows you to manage bookings, calendars, users, and other scheduling resources programmatically.
+
+    ## Authentication
+    All API requests require an API key to be passed in the `API-Key` header.
+servers:
+  - url: https://api.oncehub.com/v2
+security:
+  - sec0: []
+paths:
+  # Authentication
+  /test:
+    $ref: "./paths/test.yaml#/test"
+
+  # Bookings
+  /bookings:
+    $ref: "./paths/bookings.yaml#/bookings"
+  /bookings/{id}:
+    $ref: "./paths/bookings.yaml#/bookings--id"
+  /bookings/{id}/cancel:
+    $ref: "./paths/bookings.yaml#/bookings--id--cancel"
+  /bookings/{id}/request-reschedule:
+    $ref: "./paths/bookings.yaml#/bookings--id--request-reschedule"
+  /bookings/{id}/no-show:
+    $ref: "./paths/bookings.yaml#/bookings--id--no-show"
+
+  # Booking Calendars
+  /booking-calendars:
+    $ref: "./paths/booking-calendars.yaml#/booking-calendars"
+  /booking-calendars/{id}:
+    $ref: "./paths/booking-calendars.yaml#/booking-calendars--id"
+  /booking-calendars/{id}/time-slots:
+    $ref: "./paths/booking-calendars.yaml#/booking-calendars--id--time-slots"
+  /booking-calendars/{id}/schedule:
+    $ref: "./paths/booking-calendars.yaml#/booking-calendars--id--schedule"
+  /booking-calendars/{id}/one-time-links:
+    $ref: "./paths/booking-calendars.yaml#/booking-calendars--id--one-time-links"
+
+  # Booking Pages
+  /booking-pages:
+    $ref: "./paths/booking-pages.yaml#/booking-pages"
+  /booking-pages/{id}:
+    $ref: "./paths/booking-pages.yaml#/booking-pages--id"
+
+  # Event Types
+  /event-types:
+    $ref: "./paths/event-types.yaml#/event-types"
+  /event-types/{id}:
+    $ref: "./paths/event-types.yaml#/event-types--id"
+
+  # Master Pages
+  /master-pages:
+    $ref: "./paths/master-pages.yaml#/master-pages"
+  /master-pages/{id}:
+    $ref: "./paths/master-pages.yaml#/master-pages--id"
+  /master-pages/{id}/one-time-links:
+    $ref: "./paths/master-pages.yaml#/master-pages--id--one-time-links"
+
+  # Users
+  /users:
+    $ref: "./paths/users.yaml#/users"
+  /users/{id}:
+    $ref: "./paths/users.yaml#/users--id"
+  /users/{id}/scheduling-availability:
+    $ref: "./paths/users.yaml#/users--id--scheduling-availability"
+
+  # Teams
+  /teams:
+    $ref: "./paths/teams.yaml#/teams"
+  /teams/{id}:
+    $ref: "./paths/teams.yaml#/teams--id"
+
+  # Contacts
+  /contacts:
+    $ref: "./paths/contacts.yaml#/contacts"
+  /contacts/{id}:
+    $ref: "./paths/contacts.yaml#/contacts--id"
+
+  # Webhooks
+  /webhooks:
+    $ref: "./paths/webhooks.yaml#/webhooks"
+  /webhooks/{id}:
+    $ref: "./paths/webhooks.yaml#/webhooks--id"
+
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: API-Key
+  responses:
+    Unauthorized:
+      $ref: "./components/responses/errors.yaml#/Unauthorized"
+    Forbidden:
+      $ref: "./components/responses/errors.yaml#/Forbidden"
+    NotFound:
+      $ref: "./components/responses/errors.yaml#/NotFound"
+    BadRequest:
+      $ref: "./components/responses/errors.yaml#/BadRequest"
+  parameters:
+    Id:
+      $ref: "./components/parameters/common.yaml#/Id"
+    Before:
+      $ref: "./components/parameters/common.yaml#/Before"
+    After:
+      $ref: "./components/parameters/common.yaml#/After"
+    Limit:
+      $ref: "./components/parameters/common.yaml#/Limit"

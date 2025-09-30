@@ -1,59 +1,118 @@
-get:
-  summary: List all teams
-  description: Returns a list of all teams in your account
-  operationId: list-all-teams
-  parameters:
-    - name: user
-      in: query
-      description: Return all teams that the provided user is a member of.
-      schema:
-        type: string
-    - name: before
-      in: query
-      description: >-
-        A cursor for use in pagination. `before` is an object ID that defines
-        your place in the list. For instance, if you make a list request and
-        receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can
-        include `before=OBJ-XXXX` in order to fetch the previous page of the
-        list.
-      schema:
-        type: string
-    - name: after
-      in: query
-      description: >-
-        A cursor for use in pagination. `after` is an object ID that defines
-        your place in the list. For instance, if you make a list request and
-        receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can
-        include `after=OBJ-XXXX` in order to fetch the next page of the list.
-      schema:
-        type: string
-    - name: limit
-      in: query
-      description: >-
-        Determines the number of objects that will be returned on each page.
-        Defaults to 10 if not specified and has a maximum limit of 100 objects
-        per page.
-      schema:
-        type: string
-        default: '10'
-  responses:
-    '200':
-      description: '200'
-      content:
-        application/json:
-          examples:
-            Result:
-              value: |
-                {
-                  "object": "list",
-                  "data": [
-                    {
-                      "object": "team",
-                      "id": "TM-GCJU8DLBTPY1",
-                      "name": "Sales"
-                    },
-                    {...},
-                    {...}
-                  ]
-                }
-  deprecated: false
+teams:
+  get:
+    summary: List all teams
+    description: Returns a list of all teams in your account
+    operationId: list-all-teams
+    parameters:
+      - name: user
+        in: query
+        description: Return all teams that the provided user is a member of.
+        schema:
+          type: string
+      - name: before
+        in: query
+        description: >-
+          A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if
+          you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include
+          `before=OBJ-XXXX` in order to fetch the previous page of the list.
+        schema:
+          type: string
+      - name: after
+        in: query
+        description: >-
+          A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if
+          you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include
+          `after=OBJ-XXXX` in order to fetch the next page of the list.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: >-
+          Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a
+          maximum limit of 100 objects per page.
+        schema:
+          type: string
+          default: '10'
+    responses:
+      '200':
+        description: '200'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |
+                  {
+                    "object": "list",
+                    "data": [
+                      {
+                        "object": "team",
+                        "id": "TM-GCJU8DLBTPY1",
+                        "name": "Sales"
+                      },
+                      {...},
+                      {...}
+                    ]
+                  }
+    deprecated: false
+teams--id:
+  get:
+    summary: Get a single team
+    description: Returns a single team by ID
+    operationId: get-a-single-team
+    parameters:
+      - name: id
+        in: path
+        description: ID of the team.
+        schema:
+          type: string
+        required: true
+    responses:
+      '200':
+        description: '200'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "object": "team",
+                    "id": "TM-GCJU8DLBTPY1",
+                    "name": "Sales"
+                  }
+            schema:
+              type: object
+              properties:
+                object:
+                  type: string
+                  example: team
+                id:
+                  type: string
+                  example: TM-GCJU8DLBTPY1
+                name:
+                  type: string
+                  example: Sales
+      '404':
+        description: '404'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |
+                  {
+                    "type": "invalid_request_error",
+                    "message": "No such team: '123'",
+                    "param": "id"
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: 'No such team: ''123'''
+                param:
+                  type: string
+                  example: id
+    deprecated: false

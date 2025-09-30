@@ -1,57 +1,133 @@
-get:
-  summary: List all booking pages
-  description: Returns a list of all booking pages in your account
-  operationId: list-all-booking-pages
-  parameters:
-    - name: master_page
-      in: query
-      description: Filter booking pages that are associated with this master page ID
-      schema:
-        type: string
-    - name: event_type
-      in: query
-      description: Filter booking pages that are associated with this event type ID
-      schema:
-        type: string
-    - name: user
-      in: query
-      description: Filter booking pages owned by this user ID
-      schema:
-        type: string
-    - name: before
-      in: query
-      description: >-
-        A cursor for use in pagination. `before` is an object ID that defines
-        your place in the list. For instance, if you make a list request and
-        receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can
-        include `before=OBJ-XXXX` in order to fetch the previous page of the
-        list.
-      schema:
-        type: string
-    - name: after
-      in: query
-      description: >-
-        A cursor for use in pagination. `after` is an object ID that defines
-        your place in the list. For instance, if you make a list request and
-        receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can
-        include `after=OBJ-XXXX` in order to fetch the next page of the list.
-      schema:
-        type: string
-    - name: limit
-      in: query
-      description: >-
-        Determines the number of objects that will be returned on each page.
-        Defaults to 10 if not specified and has a maximum limit of 100 objects
-        per page.
-      schema:
-        type: string
-        default: '10'
-  responses:
-    '200':
-      description: '200'
-      content:
-        application/json:
-          examples:
-            Result:
-              value: "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"id\": \"BP-3F7JAWT4UA\",\n      \"object\": \"booking_page\",\n      \"name\": \"Andrea Hartie\",\n      \"label\": \"AndreaHartie\",\n      \"url\": \"https://go.oncehub.com/andreahartie\",\n      \"active\": true,\n      \"timezone\": \"America/Chicago\"\n\t\t},\n    {...},\n    {...}\n  ]\n}"
-  deprecated: false
+booking-pages:
+  get:
+    summary: List all booking pages
+    description: Returns a list of all booking pages in your account
+    operationId: list-all-booking-pages
+    parameters:
+      - name: master_page
+        in: query
+        description: Filter booking pages that are associated with this master page ID
+        schema:
+          type: string
+      - name: event_type
+        in: query
+        description: Filter booking pages that are associated with this event type ID
+        schema:
+          type: string
+      - name: user
+        in: query
+        description: Filter booking pages owned by this user ID
+        schema:
+          type: string
+      - name: before
+        in: query
+        description: >-
+          A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if
+          you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include
+          `before=OBJ-XXXX` in order to fetch the previous page of the list.
+        schema:
+          type: string
+      - name: after
+        in: query
+        description: >-
+          A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if
+          you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include
+          `after=OBJ-XXXX` in order to fetch the next page of the list.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: >-
+          Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a
+          maximum limit of 100 objects per page.
+        schema:
+          type: string
+          default: '10'
+    responses:
+      '200':
+        description: '200'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"id\": \"BP-3F7JAWT4UA\",\n      \"object\": \"booking_page\",\n      \"name\": \"Andrea Hartie\",\n      \"label\": \"AndreaHartie\",\n      \"url\": \"https://go.oncehub.com/andreahartie\",\n      \"active\": true,\n      \"timezone\": \"America/Chicago\"\n\t\t},\n    {...},\n    {...}\n  ]\n}"
+    deprecated: false
+booking-pages--id:
+  get:
+    summary: Get a single booking page
+    description: Returns a single booking page by ID
+    operationId: get-a-single-booking-page
+    parameters:
+      - name: id
+        in: path
+        description: ID of the booking page
+        schema:
+          type: string
+        required: true
+    responses:
+      '200':
+        description: '200'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "id": "BP-3F7JAWT4UA",
+                    "object": "booking_page",
+                    "name": "Andrea Hartie",
+                    "label": "AndreaHartie",
+                    "url": "https://go.oncehub.com/andreahartie",
+                    "active": true,
+                    "timezone": "America/Chicago"
+                  }
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: BP-3F7JAWT4UA
+                object:
+                  type: string
+                  example: booking_page
+                name:
+                  type: string
+                  example: Andrea Hartie
+                label:
+                  type: string
+                  example: AndreaHartie
+                url:
+                  type: string
+                  example: https://go.oncehub.com/andreahartie
+                active:
+                  type: boolean
+                  example: true
+                  default: true
+                timezone:
+                  type: string
+                  example: America/Chicago
+      '404':
+        description: '404'
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |
+                  {
+                    "type": "invalid_request_error",
+                    "message": "No such booking page: '123'",
+                    "param": "id"
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: 'No such booking page: ''123'''
+                param:
+                  type: string
+                  example: id
+    deprecated: false

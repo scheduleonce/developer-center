@@ -1,0 +1,11 @@
+{
+  "name": "OnceHub API",
+  "version": "2.0.0",
+  "description": "OnceHub API for managing bookings, calendars, and scheduling resources",
+  "files": {
+    "yaml": "oncehub-api.yaml",
+    "json": "oncehub-api.json"
+  },
+  "generated": "2025-09-30T11:48:49.316Z",
+  "source": "./openapi/index.yaml"
+}
