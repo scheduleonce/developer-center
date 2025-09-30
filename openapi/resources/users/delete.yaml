@@ -1,0 +1,36 @@
+users--id:
+  delete:
+    tags:
+      - "Users"
+    description: ""
+    operationId: delete_users{id}
+    responses:
+      "204":
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                id:
+                  type: string
+                  description: ID of the user
+                deleted:
+                  type: string
+                  description: A boolean flag, always `true`, confirming the deletion was successful.
+              type: object
+              required:
+                - id
+                - deleted
+            examples:
+              New Example:
+                summary: New Example
+                value:
+                  id: USR-FSD423423
+                  deleted: true
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: ID of the user

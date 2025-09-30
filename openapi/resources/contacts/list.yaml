@@ -1,0 +1,133 @@
+contacts:
+  get:
+    tags:
+      - "Contacts"
+    summary: List all contacts
+    description: List all contacts in your account
+    operationId: list-all-contacts
+    parameters:
+      - name: email
+        in: query
+        description: Filter by the contact's email address
+        schema:
+          type: string
+      - name: creation_time.lt
+        in: query
+        description: Return contacts with creation time less than the given date.
+        schema:
+          type: string
+          format: date
+      - name: last_updated_time.gt
+        in: query
+        description: Return contacts with last updated time greater than the given date.
+        schema:
+          type: string
+          format: date
+      - name: last_updated_time.lt
+        in: query
+        description: Return contacts with last updated time less than the given date.
+        schema:
+          type: string
+          format: date
+      - name: before
+        in: query
+        description: >-
+          A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if
+          you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include
+          `before=OBJ-XXXX` in order to fetch the previous page of the list.
+        schema:
+          type: string
+      - name: creation_time.gt
+        in: query
+        description: Return contacts with creation time greater than the given date.
+        schema:
+          type: string
+          format: date
+      - name: after
+        in: query
+        description: >-
+          A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if
+          you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include
+          `after=OBJ-XXXX` in order to fetch the next page of the list.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: >-
+          Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a
+          maximum limit of 100 objects per page.
+        schema:
+          type: integer
+          format: int32
+          default: 10
+    responses:
+      "200":
+        description: "200"
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "object": "list",
+                    "data": [
+                      {
+                        "object": "contact",
+                        "id": "CTC-J4FR05BKEW",
+                        "creation_time": "2020-03-22T09:48:48Z",
+                        "last_updated_time": "2020-03-22T09:48:48Z",
+                        "last_interacted_time": "",
+                        "owner": "USR-FSD423423",
+                        "status": "Qualified",
+                        "city": "Carrie Customer",
+                        "company_size": null,
+                        "company": null,
+                        "country": null,
+                        "email": "so.carrie.customer@gmail.com",
+                        "employees": 1,
+                        "first_name": null,
+                        "has_consent": false,
+                        "job_title": null,
+                        "last_name": null,
+                        "mobile_phone": null,
+                        "phone": null,
+                        "post_code": null,
+                        "salutation": null,
+                        "state": null,
+                        "street_address": null,
+                        "terms_of_sevice": null,
+                        "timezone": "America/New_York",
+                        "custom_fields": [
+                          { "name": "resume", "value": null },
+                          { "name": "contact_second_number", "value": null }
+                        ]
+                      }
+                      {...},
+                      {...}
+                    ]
+                  }
+      "400":
+        description: "400"
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "type": "invalid_request_error",
+                    "message": "last_updated_time.gt cannot be later than last_updated_time.lt",
+                    "param": "last_updated_time.gt"
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: creation_time.gt cannot be later than creation_time.lt
+                param:
+                  type: string
+                  example: creation_time.gt
+    deprecated: false

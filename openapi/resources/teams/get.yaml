@@ -1,0 +1,64 @@
+teams--id:
+  get:
+    tags:
+      - Teams
+    summary: Get a single team
+    description: Returns a single team by ID
+    operationId: get-a-single-team
+    parameters:
+      - name: id
+        in: path
+        description: ID of the team.
+        schema:
+          type: string
+        required: true
+    responses:
+      "200":
+        description: "200"
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "object": "team",
+                    "id": "TM-GCJU8DLBTPY1",
+                    "name": "Sales"
+                  }
+            schema:
+              type: object
+              properties:
+                object:
+                  type: string
+                  example: team
+                id:
+                  type: string
+                  example: TM-GCJU8DLBTPY1
+                name:
+                  type: string
+                  example: Sales
+      "404":
+        description: "404"
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |
+                  {
+                    "type": "invalid_request_error",
+                    "message": "No such team: '123'",
+                    "param": "id"
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: "No such team: '123'"
+                param:
+                  type: string
+                  example: id
+    deprecated: false

@@ -1,191 +1,18 @@
-users:
-  get:
-    summary: List all users
-    description: Returns a list of all users in your account
-    operationId: list-all-users
-    parameters:
-      - name: email
-        in: query
-        description: Filter by the user's email address
-        schema:
-          type: string
-      - name: before
-        in: query
-        description: >-
-          A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if
-          you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include
-          `before=OBJ-XXXX` in order to fetch the previous page of the list.
-        schema:
-          type: string
-      - name: after
-        in: query
-        description: >-
-          A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if
-          you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include
-          `after=OBJ-XXXX` in order to fetch the next page of the list.
-        schema:
-          type: string
-      - name: limit
-        in: query
-        description: >-
-          Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a
-          maximum limit of 100 objects per page.
-        schema:
-          type: string
-          default: '10'
-    responses:
-      '200':
-        description: '200'
-        content:
-          application/json:
-            examples:
-              Result:
-                value: |
-                  {
-                    "object": "list",
-                    "data": [
-                      {
-                        "id": "USR-FSD423423",
-                        "object": "user",
-                        "first_name": "Andrea",
-                        "last_name": "Hartie",
-                        "email": "AndreaHartie@example.com",
-                        "status": "active",
-                        "role_name": "Member",
-                        "timezone": "America/Chicago",
-                        "teams": ["TM-GCJU8DLBTPY1"]
-
-                      },
-                      {...},
-                      {...}
-                    ]
-                  }
-    deprecated: false
-users--id:
-  get:
-    summary: Get a single user
-    description: Returns a single user by ID
-    operationId: get-a-single-user
-    parameters:
-      - name: id
-        in: path
-        description: ID of the user
-        schema:
-          type: string
-        required: true
-    responses:
-      '200':
-        description: '200'
-        content:
-          application/json:
-            examples:
-              Result:
-                value:
-                  id: USR-FSD423423
-                  object: user
-                  first_name: Andrea
-                  last_name: Hartie
-                  email: AndreaHartie@example.com
-                  status: active
-                  role_name: Member
-                  timezone: America/Chicago
-                  teams:
-                    - TM-GCJU8DLBTPY1
-            schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: USR-FSD423423
-                object:
-                  type: string
-                  example: user
-                first_name:
-                  type: string
-                  example: Andrea
-                last_name:
-                  type: string
-                  example: Hartie
-                email:
-                  type: string
-                  example: AndreaHartie@example.com
-                status:
-                  type: string
-                  example: active
-                role_name:
-                  type: string
-                  example: Member
-      '404':
-        description: '404'
-        content:
-          application/json:
-            examples:
-              Result:
-                value: |
-                  {
-                    "type": "invalid_request_error",
-                    "message": "No such user: '123'",
-                    "param": "id"
-                  }
-            schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: 'No such user: ''123'''
-                param:
-                  type: string
-                  example: id
-    deprecated: false
-  delete:
-    description: ''
-    operationId: delete_users{id}
-    responses:
-      '204':
-        description: ''
-        content:
-          application/json:
-            schema:
-              properties:
-                id:
-                  type: string
-                  description: ID of the user
-                deleted:
-                  type: string
-                  description: A boolean flag, always `true`, confirming the deletion was successful.
-              type: object
-              required:
-                - id
-                - deleted
-            examples:
-              New Example:
-                summary: New Example
-                value:
-                  id: USR-FSD423423
-                  deleted: true
-    parameters:
-      - in: path
-        name: id
-        schema:
-          type: string
-        required: true
-        description: ID of the user
 users--id--scheduling-availability:
   get:
-    description: ''
+    tags:
+      - "Users"
+    description: ""
     operationId: get_user_scheduling_availability
     responses:
-      '200':
-        description: ''
+      "200":
+        description: ""
         content:
           application/json:
             examples:
               New Example:
                 summary: New Example
-                value: ''
+                value: ""
               Result:
                 summary: Result
                 value:
@@ -194,14 +21,14 @@ users--id--scheduling-availability:
                   weekly:
                     - day: Monday
                       working_hours:
-                        - start_time: '09:00'
-                          end_time: '12:00'
+                        - start_time: "09:00"
+                          end_time: "12:00"
                           locations:
                             - type: online_dynamic_link
                               value: google_meet
                               id: null
-                        - start_time: '13:00'
-                          end_time: '17:00'
+                        - start_time: "13:00"
+                          end_time: "17:00"
                           locations:
                             - type: online_dynamic_link
                               value: zoom
@@ -211,26 +38,26 @@ users--id--scheduling-availability:
                               id: ADD-K8E9X
                     - day: Wednesday
                       working_hours:
-                        - start_time: '10:00'
-                          end_time: '15:00'
+                        - start_time: "10:00"
+                          end_time: "15:00"
                           locations:
                             - type: online_static_link
                               value: https://meet.example.com/team-meeting
                               id: null
                   overrides:
-                    - date: '2025-11-27'
+                    - date: "2025-11-27"
                       day: Thursday
                       working_hours: []
-                    - date: '2025-12-24'
+                    - date: "2025-12-24"
                       day: Wednesday
                       working_hours:
-                        - start_time: '09:00'
-                          end_time: '12:00'
+                        - start_time: "09:00"
+                          end_time: "12:00"
                           locations:
                             - type: online_dynamic_link
                               value: google_meet
                               id: null
-      '400':
+      "400":
         description: Bad Request
         content:
           application/json:
@@ -238,12 +65,12 @@ users--id--scheduling-availability:
               New Example 1:
                 value:
                   type: invalid_request_error
-                  message: 'Received unknown parameter: start_date'
+                  message: "Received unknown parameter: start_date"
                   param: start_date
               Result 1:
                 value:
                   type: invalid_request_error
-                  message: 'Invalid date format for overrides_start_time. Expected format: YYYY-MM-DD'
+                  message: "Invalid date format for overrides_start_time. Expected format: YYYY-MM-DD"
                   param: overrides_start_time
                 summary: Result 1
     parameters:
@@ -254,11 +81,13 @@ users--id--scheduling-availability:
         required: true
         description: ID of the user
   patch:
-    description: ''
+    tags:
+      - "Users"
+    description: ""
     operationId: patch_users{id}scheduling-availability
     responses:
-      '200':
-        description: ''
+      "200":
+        description: ""
         content:
           application/json:
             examples:
@@ -270,16 +99,16 @@ users--id--scheduling-availability:
                   weekly:
                     - day: Monday
                       working_hours:
-                        - start_time: '10:00'
-                          end_time: '16:00'
+                        - start_time: "10:00"
+                          end_time: "16:00"
                           locations:
                             - type: online_dynamic_link
                               value: zoom
                               id: null
                     - day: Wednesday
                       working_hours:
-                        - start_time: '10:00'
-                          end_time: '15:00'
+                        - start_time: "10:00"
+                          end_time: "15:00"
                           locations:
                             - type: online_static_link
                               value: https://meet.example.com/team-meeting
@@ -287,16 +116,16 @@ users--id--scheduling-availability:
                     - day: Saturday
                       working_hours: []
                   overrides:
-                    - date: '2025-12-25'
+                    - date: "2025-12-25"
                       day: Thursday
                       working_hours:
-                        - start_time: '10:00'
-                          end_time: '12:00'
+                        - start_time: "10:00"
+                          end_time: "12:00"
                           locations:
                             - type: online_dynamic_link
                               value: google_meet
                               id: null
-      '400':
+      "400":
         description: Bad Request
         content:
           application/json:
@@ -304,27 +133,27 @@ users--id--scheduling-availability:
               Response:
                 value:
                   type: invalid_request_error
-                  message: 'availability range is overlapping: ''09:00-11:00'''
+                  message: "availability range is overlapping: '09:00-11:00'"
                   param: weekly.working_hours
                 summary: Response
               Response 1:
                 value:
                   type: invalid_request_error
-                  message: 'start time should be multiple of 15: ''09:05'''
+                  message: "start time should be multiple of 15: '09:05'"
                   param: weekly.working_hours.start_time
                 summary: Response 1
               Response 2:
                 value:
                   type: invalid_request_error
-                  message: 'Date cannot be in the past: ''2024-01-01'''
+                  message: "Date cannot be in the past: '2024-01-01'"
                   param: overrides.date
                 summary: Response 2
               New Example:
                 value:
                   type: invalid_request_error
-                  message: 'Duplicate entry for day or date: ''Monday'''
+                  message: "Duplicate entry for day or date: 'Monday'"
                   param: weekly
-      '422':
+      "422":
         description: Unprocessable Entity
         content:
           application/json:
@@ -475,11 +304,11 @@ users--id--scheduling-availability:
             type: object
 users--id--scheduling-availability-alt:
   get:
-    description: ''
+    description: ""
     operationId: get_user_scheduling_availability_alt
     responses:
-      '200':
-        description: ''
+      "200":
+        description: ""
     parameters:
       - in: path
         name: id

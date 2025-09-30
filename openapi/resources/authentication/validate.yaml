@@ -1,5 +1,7 @@
 test:
   get:
+    tags:
+      - "Authentication"
     summary: Validate API key
     description: Enter your API key in the headers section below and click on "Try it" to test it.
     operationId: validate-api-key

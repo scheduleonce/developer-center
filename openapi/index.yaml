@@ -4,20 +4,25 @@ info:
   version: 2.0.0
   description: |
     The OnceHub API allows you to manage bookings, calendars, users, and other scheduling resources programmatically.
-
-    ## Authentication
-    All API requests require an API key to be passed in the `API-Key` header.
 servers:
   - url: https://api.oncehub.com/v2
 security:
   - sec0: []
 tags:
   - $ref: "./resources/bookings/tag.yaml"
+  - $ref: "./resources/booking-calendars/tag.yaml"
+  - $ref: "./resources/booking-pages/tag.yaml"
+  - $ref: "./resources/contacts/tag.yaml"
+  - $ref: "./resources/event-types/tag.yaml"
+  - $ref: "./resources/master-pages/tag.yaml"
   - $ref: "./resources/teams/tag.yaml"
+  - $ref: "./resources/users/tag.yaml"
+  - $ref: "./resources/webhooks/tag.yaml"
+  - $ref: "./resources/authentication/tag.yaml"
 paths:
   # Authentication
   /test:
-    $ref: "./resources/authentication/endpoints.yaml#/test"
+    $ref: "./resources/authentication/validate.yaml#/test"
 
   # Bookings
   /bookings:
@@ -33,61 +38,73 @@ paths:
 
   # Booking Calendars
   /booking-calendars:
-    $ref: "./resources/booking-calendars/endpoints.yaml#/booking-calendars"
+    $ref: "./resources/booking-calendars/list.yaml#/booking-calendars"
   /booking-calendars/{id}:
-    $ref: "./resources/booking-calendars/endpoints.yaml#/booking-calendars--id"
+    $ref: "./resources/booking-calendars/get.yaml#/booking-calendars--id"
   /booking-calendars/{id}/time-slots:
-    $ref: "./resources/booking-calendars/endpoints.yaml#/booking-calendars--id--time-slots"
+    $ref: "./resources/booking-calendars/time-slots.yaml#/booking-calendars--id--time-slots"
   /booking-calendars/{id}/schedule:
-    $ref: "./resources/booking-calendars/endpoints.yaml#/booking-calendars--id--schedule"
+    $ref: "./resources/booking-calendars/schedule.yaml#/booking-calendars--id--schedule"
   /booking-calendars/{id}/one-time-links:
-    $ref: "./resources/booking-calendars/endpoints.yaml#/booking-calendars--id--one-time-links"
+    $ref: "./resources/booking-calendars/one-time-links.yaml#/booking-calendars--id--one-time-links"
 
   # Booking Pages
   /booking-pages:
-    $ref: "./resources/booking-pages/endpoints.yaml#/booking-pages"
+    $ref: "./resources/booking-pages/list.yaml#/booking-pages"
   /booking-pages/{id}:
-    $ref: "./resources/booking-pages/endpoints.yaml#/booking-pages--id"
+    $ref: "./resources/booking-pages/get.yaml#/booking-pages--id"
 
   # Event Types
   /event-types:
-    $ref: "./resources/event-types/endpoints.yaml#/event-types"
+    $ref: "./resources/event-types/list.yaml#/event-types"
   /event-types/{id}:
-    $ref: "./resources/event-types/endpoints.yaml#/event-types--id"
+    $ref: "./resources/event-types/get.yaml#/event-types--id"
 
   # Master Pages
   /master-pages:
-    $ref: "./resources/master-pages/endpoints.yaml#/master-pages"
+    $ref: "./resources/master-pages/list.yaml#/master-pages"
   /master-pages/{id}:
-    $ref: "./resources/master-pages/endpoints.yaml#/master-pages--id"
+    $ref: "./resources/master-pages/get.yaml#/master-pages--id"
   /master-pages/{id}/one-time-links:
-    $ref: "./resources/master-pages/endpoints.yaml#/master-pages--id--one-time-links"
+    $ref: "./resources/master-pages/one-time-links.yaml#/master-pages--id--one-time-links"
 
   # Users
   /users:
-    $ref: "./resources/users/endpoints.yaml#/users"
+    $ref: "./resources/users/list.yaml#/users"
   /users/{id}:
-    $ref: "./resources/users/endpoints.yaml#/users--id"
+    get:
+      $ref: "./resources/users/get.yaml#/users--id/get"
+    delete:
+      $ref: "./resources/users/delete.yaml#/users--id/delete"
   /users/{id}/scheduling-availability:
-    $ref: "./resources/users/endpoints.yaml#/users--id--scheduling-availability"
+    $ref: "./resources/users/scheduling-availability.yaml#/users--id--scheduling-availability"
 
   # Teams
   /teams:
-    $ref: "./resources/teams/endpoints.yaml#/teams"
+    $ref: "./resources/teams/list.yaml#/teams"
   /teams/{id}:
-    $ref: "./resources/teams/endpoints.yaml#/teams--id"
+    $ref: "./resources/teams/get.yaml#/teams--id"
 
   # Contacts
   /contacts:
-    $ref: "./resources/contacts/endpoints.yaml#/contacts"
+    $ref: "./resources/contacts/list.yaml#/contacts"
   /contacts/{id}:
-    $ref: "./resources/contacts/endpoints.yaml#/contacts--id"
+    get:
+      $ref: "./resources/contacts/get.yaml#/contacts--id/get"
+    delete:
+      $ref: "./resources/contacts/delete.yaml#/contacts--id/delete"
 
   # Webhooks
   /webhooks:
-    $ref: "./resources/webhooks/endpoints.yaml#/webhooks"
+    post:
+      $ref: "./resources/webhooks/create.yaml#/webhooks/post"
+    get:
+      $ref: "./resources/webhooks/list.yaml#/webhooks/get"
   /webhooks/{id}:
-    $ref: "./resources/webhooks/endpoints.yaml#/webhooks--id"
+    get:
+      $ref: "./resources/webhooks/get.yaml#/webhooks--id/get"
+    delete:
+      $ref: "./resources/webhooks/delete.yaml#/webhooks--id/delete"
 
 components:
   securitySchemes:

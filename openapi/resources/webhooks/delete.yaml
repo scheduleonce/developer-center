@@ -1,0 +1,61 @@
+webhooks--id:
+  delete:
+    tags:
+      - "Webhooks"
+    summary: Delete a webhook
+    description: Deletes a single webhook subscription by ID.
+    operationId: delete-a-webhook
+    parameters:
+      - name: id
+        in: path
+        description: ID of the webhook
+        schema:
+          type: string
+        required: true
+    responses:
+      "200":
+        description: "200"
+        content:
+          application/json:
+            examples:
+              Example response:
+                value: |-
+                  {
+                    "id": "WHK-7JD9LBVZTQ",
+                    "deleted": true
+                  }
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: WHK-7JD9LBVZTQ
+                deleted:
+                  type: boolean
+                  example: true
+                  default: true
+      "404":
+        description: "404"
+        content:
+          application/json:
+            examples:
+              Result:
+                value: |-
+                  {
+                    "type": "invalid_request_error",
+                    "message": "No such webhook: '123'",
+                    "param": "id"
+                  }
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: invalid_request_error
+                message:
+                  type: string
+                  example: "No such webhook: '123'"
+                param:
+                  type: string
+                  example: id
+    deprecated: false

@@ -3,7 +3,7 @@
   "info": {
     "title": "OnceHub API",
     "version": "2.0.0",
-    "description": "The OnceHub API allows you to manage bookings, calendars, users, and other scheduling resources programmatically.\n\n## Authentication\nAll API requests require an API key to be passed in the `API-Key` header.\n"
+    "description": "The OnceHub API allows you to manage bookings, calendars, users, and other scheduling resources programmatically.\n"
   },
   "servers": [
     {
@@ -21,13 +21,48 @@
       "description": "Manage booking appointments and their lifecycle. Bookings represent scheduled meetings \nbetween contacts and users. Use these endpoints to list, retrieve, and perform actions \non bookings such as canceling, requesting reschedules, or marking as no-show.\n"
     },
     {
+      "name": "Booking Calendars",
+      "description": "Manage booking calendars and their availability. Booking calendars define available \ntime slots for appointments and can be used to schedule meetings. Use these endpoints \nto list calendars, retrieve availability, schedule appointments, and create one-time \nbooking links.\n"
+    },
+    {
+      "name": "Booking Pages",
+      "description": "Manage booking pages for your account. Booking pages are public-facing pages where \ncustomers can schedule appointments. Each booking page is associated with specific \nevent types and users, allowing for customized scheduling experiences.\n"
+    },
+    {
+      "name": "Contacts",
+      "description": "Manage contact information and relationships. Contacts represent people who have \nscheduled or may schedule appointments through your booking pages. Use these endpoints \nto list contacts, retrieve contact details, and manage contact records.\n"
+    },
+    {
+      "name": "Event Types",
+      "description": "Manage event type configurations and settings. Event types define the structure and \nbehavior of different types of appointments, including duration, availability rules, \nand booking forms. Use these endpoints to list and retrieve event type configurations.\n"
+    },
+    {
+      "name": "Master Pages",
+      "description": "Manage master page configurations and settings. Master pages serve as templates \nthat define the overall structure and branding for booking pages. Use these endpoints \nto list master pages, retrieve master page details, and create one-time booking links.\n"
+    },
+    {
       "name": "Teams",
       "description": "Manage teams and team memberships. Teams allow you to organize users into groups \nfor shared calendars, permissions, and resource management. Use these endpoints to \nretrieve team information and manage team-related operations.\n"
+    },
+    {
+      "name": "Users",
+      "description": "Manage user accounts and their properties. Users represent team members who can \nschedule appointments, manage calendars, and access the OnceHub platform. Use these \nendpoints to list users, retrieve user details, manage user accounts, and check \nscheduling availability.\n"
+    },
+    {
+      "name": "Webhooks",
+      "description": "Manage webhook subscriptions to receive real-time notifications for booking lifecycle events."
+    },
+    {
+      "name": "Authentication",
+      "description": "Validate API credentials and manage authentication for OnceHub API access. All API requests require an API key to be passed in the `API-Key` header."
     }
   ],
   "paths": {
     "/test": {
       "get": {
+        "tags": [
+          "Authentication"
+        ],
         "summary": "Validate API key",
         "description": "Enter your API key in the headers section below and click on \"Try it\" to test it.",
         "operationId": "validate-api-key",
@@ -1864,6 +1899,9 @@
     },
     "/booking-calendars": {
       "get": {
+        "tags": [
+          "Booking Calendars"
+        ],
         "summary": "List all booking calendars",
         "description": "Returns a list of all booking calendars in your account",
         "operationId": "list-all-booking-calendars",
@@ -1921,6 +1959,9 @@
     },
     "/booking-calendars/{id}": {
       "get": {
+        "tags": [
+          "Booking Calendars"
+        ],
         "summary": "Get a single booking calendar",
         "description": "Returns a single booking calendar by ID",
         "operationId": "get-a-single-booking-calendar",
@@ -2022,6 +2063,9 @@
     },
     "/booking-calendars/{id}/time-slots": {
       "get": {
+        "tags": [
+          "Booking Calendars"
+        ],
         "summary": "Get available time slots for a booking calendar",
         "description": "Returns a list of available time slots for a booking calendar",
         "operationId": "get-available-time-slots-for-booking-calendar",
@@ -2160,7 +2204,10 @@
     },
     "/booking-calendars/{id}/schedule": {
       "post": {
-        "summary": "Book a time slot",
+        "tags": [
+          "Booking Calendars"
+        ],
+        "summary": "Schedule an appointment",
         "description": "Book a time from the available time slots",
         "operationId": "book-a-time-slot-for-a-booking-calendar",
         "parameters": [
@@ -2366,7 +2413,10 @@
     },
     "/booking-calendars/{id}/one-time-links": {
       "post": {
-        "summary": "Create a one-time link",
+        "tags": [
+          "Booking Calendars"
+        ],
+        "summary": "Create a one-time booking link",
         "description": "Creates a one time link for a booking calendar",
         "operationId": "booking-calendars-create-a-one-time-link",
         "parameters": [
@@ -2474,6 +2524,9 @@
     },
     "/booking-pages": {
       "get": {
+        "tags": [
+          "Booking Pages"
+        ],
         "summary": "List all booking pages",
         "description": "Returns a list of all booking pages in your account",
         "operationId": "list-all-booking-pages",
@@ -2547,6 +2600,9 @@
     },
     "/booking-pages/{id}": {
       "get": {
+        "tags": [
+          "Booking Pages"
+        ],
         "summary": "Get a single booking page",
         "description": "Returns a single booking page by ID",
         "operationId": "get-a-single-booking-page",
@@ -2643,6 +2699,9 @@
     },
     "/event-types": {
       "get": {
+        "tags": [
+          "Event Types"
+        ],
         "summary": "List all event types",
         "description": "Returns a list of all event types in your account",
         "operationId": "list-all-event-types",
@@ -2692,6 +2751,9 @@
     },
     "/event-types/{id}": {
       "get": {
+        "tags": [
+          "Event Types"
+        ],
         "summary": "Get a single event type",
         "description": "Returns a single event type by ID",
         "operationId": "get-a-single-event-type",
@@ -2775,6 +2837,9 @@
     },
     "/master-pages": {
       "get": {
+        "tags": [
+          "Master Pages"
+        ],
         "summary": "List all master pages",
         "description": "Returns a list of all master pages in your account",
         "operationId": "list-all-master-pages",
@@ -2824,6 +2889,9 @@
     },
     "/master-pages/{id}": {
       "get": {
+        "tags": [
+          "Master Pages"
+        ],
         "summary": "Get a single master page",
         "description": "Returns a single master page by ID",
         "operationId": "get-a-single-master-page",
@@ -2916,7 +2984,10 @@
     },
     "/master-pages/{id}/one-time-links": {
       "post": {
-        "summary": "Create a one-time link",
+        "tags": [
+          "Master Pages"
+        ],
+        "summary": "Create a one-time booking link",
         "description": "Creates a one time link for a master page",
         "operationId": "create-one-time-link",
         "parameters": [
@@ -3024,6 +3095,9 @@
     },
     "/users": {
       "get": {
+        "tags": [
+          "Users"
+        ],
         "summary": "List all users",
         "description": "Returns a list of all users in your account",
         "operationId": "list-all-users",
@@ -3081,6 +3155,9 @@
     },
     "/users/{id}": {
       "get": {
+        "tags": [
+          "Users"
+        ],
         "summary": "Get a single user",
         "description": "Returns a single user by ID",
         "operationId": "get-a-single-user",
@@ -3186,6 +3263,9 @@
         "deprecated": false
       },
       "delete": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "operationId": "delete_users{id}",
         "responses": {
@@ -3238,6 +3318,9 @@
     },
     "/users/{id}/scheduling-availability": {
       "get": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "operationId": "get_user_scheduling_availability",
         "responses": {
@@ -3373,6 +3456,9 @@
         ]
       },
       "patch": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "operationId": "patch_users{id}scheduling-availability",
         "responses": {
@@ -3798,6 +3884,9 @@
     },
     "/contacts": {
       "get": {
+        "tags": [
+          "Contacts"
+        ],
         "summary": "List all contacts",
         "description": "List all contacts in your account",
         "operationId": "list-all-contacts",
@@ -3921,6 +4010,9 @@
     },
     "/contacts/{id}": {
       "get": {
+        "tags": [
+          "Contacts"
+        ],
         "summary": "Get a single contact",
         "description": "Get a single contact",
         "operationId": "get-a-single-contact",
@@ -4087,6 +4179,9 @@
         "deprecated": false
       },
       "delete": {
+        "tags": [
+          "Contacts"
+        ],
         "summary": "Delete a contact",
         "description": "Delete a contact",
         "operationId": "delete-a-contact",
@@ -4163,6 +4258,9 @@
     },
     "/webhooks": {
       "post": {
+        "tags": [
+          "Webhooks"
+        ],
         "summary": "Create a webhook",
         "description": "Creates a webhook subscription.",
         "operationId": "create-a-webhook",
@@ -4278,6 +4376,9 @@
         "deprecated": false
       },
       "get": {
+        "tags": [
+          "Webhooks"
+        ],
         "summary": "List all webhooks",
         "description": "Returns a list of your webhook subscriptions, sorted by creation date.",
         "operationId": "list-all-webhooks",
@@ -4327,6 +4428,9 @@
     },
     "/webhooks/{id}": {
       "get": {
+        "tags": [
+          "Webhooks"
+        ],
         "summary": "Get a single webhook",
         "description": "Returns a single webhook subscription by ID.",
         "operationId": "get-a-single-webhook",
@@ -4423,6 +4527,9 @@
         "deprecated": false
       },
       "delete": {
+        "tags": [
+          "Webhooks"
+        ],
         "summary": "Delete a webhook",
         "description": "Deletes a single webhook subscription by ID.",
         "operationId": "delete-a-webhook",
