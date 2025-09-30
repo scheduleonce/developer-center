@@ -12,6 +12,7 @@ servers:
 security:
   - sec0: []
 tags:
+  - $ref: "./resources/bookings/tag.yaml"
   - $ref: "./resources/teams/tag.yaml"
 paths:
   # Authentication
@@ -20,15 +21,15 @@ paths:
 
   # Bookings
   /bookings:
-    $ref: "./resources/bookings/endpoints.yaml#/bookings"
+    $ref: "./resources/bookings/list.yaml#/bookings"
   /bookings/{id}:
-    $ref: "./resources/bookings/endpoints.yaml#/bookings--id"
+    $ref: "./resources/bookings/get.yaml#/bookings--id"
   /bookings/{id}/cancel:
-    $ref: "./resources/bookings/endpoints.yaml#/bookings--id--cancel"
+    $ref: "./resources/bookings/cancel.yaml#/bookings--id--cancel"
   /bookings/{id}/request-reschedule:
-    $ref: "./resources/bookings/endpoints.yaml#/bookings--id--request-reschedule"
+    $ref: "./resources/bookings/reschedule.yaml#/bookings--id--request-reschedule"
   /bookings/{id}/no-show:
-    $ref: "./resources/bookings/endpoints.yaml#/bookings--id--no-show"
+    $ref: "./resources/bookings/no-show.yaml#/bookings--id--no-show"
 
   # Booking Calendars
   /booking-calendars:

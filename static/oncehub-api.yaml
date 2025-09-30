@@ -12,6 +12,11 @@ servers:
 security:
   - sec0: []
 tags:
+  - name: Bookings
+    description: |
+      Manage booking appointments and their lifecycle. Bookings represent scheduled meetings 
+      between contacts and users. Use these endpoints to list, retrieve, and perform actions 
+      on bookings such as canceling, requesting reschedules, or marking as no-show.
   - name: Teams
     description: |
       Manage teams and team memberships. Teams allow you to organize users into groups 
@@ -83,6 +88,8 @@ paths:
       deprecated: false
   /bookings:
     get:
+      tags:
+        - Bookings
       summary: List all bookings
       description: Returns a list all bookings in the account
       operationId: list-all-bookings
@@ -223,6 +230,8 @@ paths:
       deprecated: false
   /bookings/{id}:
     get:
+      tags:
+        - Bookings
       summary: Get a single booking
       description: Returns a single booking by ID
       operationId: get-a-single-booking
@@ -473,6 +482,8 @@ paths:
       deprecated: false
   /bookings/{id}/cancel:
     post:
+      tags:
+        - Bookings
       summary: Cancel a booking
       description: Cancel a booking by ID
       operationId: cancel-booking
@@ -780,6 +791,8 @@ paths:
       deprecated: false
   /bookings/{id}/request-reschedule:
     post:
+      tags:
+        - Bookings
       summary: Request a reschedule
       description: Request to reschedule a booking by ID
       operationId: request-reschedule
@@ -1083,6 +1096,8 @@ paths:
       deprecated: false
   /bookings/{id}/no-show:
     post:
+      tags:
+        - Bookings
       summary: Set a booking as no-show
       description: Update the booking status to no-show by ID
       operationId: no-show
