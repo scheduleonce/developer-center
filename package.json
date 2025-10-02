@@ -5,6 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "dev": "npm run openapi:watch & npm start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -19,6 +20,7 @@
     "openapi:build-yaml": "node scripts/build-openapi.js --yaml",
     "openapi:build-json": "node scripts/build-openapi.js --json",
     "openapi:preview": "redocly preview-docs openapi/index.yaml",
+    "openapi:watch": "node scripts/build-openapi.js --watch",
     "openapi:serve": "redocly preview-docs static/oncehub-api.yaml",
     "openapi:bundle": "redocly bundle openapi/index.yaml --output static/oncehub-api.yaml",
     "prebuild": "npm run openapi:build"

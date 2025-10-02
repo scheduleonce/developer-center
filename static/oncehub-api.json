@@ -17,6 +17,10 @@
   ],
   "tags": [
     {
+      "name": "Authentication",
+      "description": "Validate API credentials and manage authentication for OnceHub API access. All API requests require an API key to be passed in the `API-Key` header."
+    },
+    {
       "name": "Bookings",
       "description": "Manage booking appointments and their lifecycle. Bookings represent scheduled meetings \nbetween contacts and users. Use these endpoints to list, retrieve, and perform actions \non bookings such as canceling, requesting reschedules, or marking as no-show.\n"
     },
@@ -51,10 +55,6 @@
     {
       "name": "Webhooks",
       "description": "Manage webhook subscriptions to receive real-time notifications for booking lifecycle events."
-    },
-    {
-      "name": "Authentication",
-      "description": "Validate API credentials and manage authentication for OnceHub API access. All API requests require an API key to be passed in the `API-Key` header."
     }
   ],
   "paths": {

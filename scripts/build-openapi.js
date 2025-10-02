@@ -114,26 +114,7 @@ function validateSource() {
   }
 }
 
-function generateManifest() {
-  console.log("📝 Generating API manifest...");
 
-  const manifest = {
-    name: "OnceHub API",
-    version: "2.0.0",
-    description:
-      "OnceHub API for managing bookings, calendars, and scheduling resources",
-    files: {
-      yaml: "oncehub-api.yaml",
-      json: "oncehub-api.json",
-    },
-    generated: new Date().toISOString(),
-    source: SOURCE_FILE,
-  };
-
-  const manifestPath = path.join(OUTPUT_DIR, "api-manifest.json");
-  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
-  console.log(`✅ Manifest created: ${manifestPath}`);
-}
 
 async function build() {
   try {
@@ -149,21 +130,15 @@ async function build() {
     await convertToJson(bundledSpec);
     console.log();
 
-    // Generate manifest
-    generateManifest();
-    console.log();
-
     console.log("🎉 Build completed successfully!");
     console.log();
     console.log("📂 Generated files:");
     console.log(`   ${OUTPUT_YAML}`);
     console.log(`   ${OUTPUT_JSON}`);
-    console.log(`   ${path.join(OUTPUT_DIR, "api-manifest.json")}`);
     console.log();
     console.log("🌐 Usage:");
     console.log("   YAML: /oncehub-api.yaml");
     console.log("   JSON: /oncehub-api.json");
-    console.log("   Manifest: /api-manifest.json");
   } catch (error) {
     console.error("❌ Build failed:", error.message);
     process.exit(1);
@@ -178,8 +153,54 @@ if (process.argv.includes("--help") || process.argv.includes("-h")) {
   console.log("  node scripts/build-openapi.js           # Build all formats");
   console.log("  node scripts/build-openapi.js --yaml    # Build YAML only");
   console.log("  node scripts/build-openapi.js --json    # Build JSON only");
+  console.log(
+    "  node scripts/build-openapi.js --watch   # Watch for changes and rebuild"
+  );
   console.log("  node scripts/build-openapi.js --help    # Show this help");
   process.exit(0);
+}
+
+async function watchAndBuild() {
+  console.log("👀 Watching OpenAPI files for changes...");
+  console.log("   Press Ctrl+C to stop watching");
+  console.log();
+
+  // Build once initially
+  try {
+    await build();
+  } catch (err) {
+    console.error("❌ Initial build failed:", err.message);
+  }
+
+  // Watch for changes
+  const watcher = fs.watch(
+    "./openapi",
+    { recursive: true },
+    async (eventType, filename) => {
+      if (
+        filename &&
+        (filename.endsWith(".yaml") ||
+          filename.endsWith(".yml") ||
+          filename.endsWith(".json"))
+      ) {
+        console.log(`\n🔄 File changed: ${filename}`);
+        console.log("📄 Rebuilding...");
+        try {
+          await build();
+          console.log("✅ Rebuild completed");
+        } catch (err) {
+          console.error("❌ Rebuild failed:", err.message);
+        }
+      }
+    }
+  );
+
+  // Handle graceful shutdown
+  process.on("SIGINT", () => {
+    console.log("\n🛑 Stopping file watcher...");
+    watcher.close();
+    process.exit(0);
+  });
 }
 
 if (process.argv.includes("--yaml")) {
@@ -194,6 +215,8 @@ if (process.argv.includes("--yaml")) {
       console.error("❌ JSON build failed:", err.message);
       process.exit(1);
     });
+} else if (process.argv.includes("--watch")) {
+  watchAndBuild();
 } else {
   build();
 }
