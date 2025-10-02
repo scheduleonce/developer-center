@@ -9,6 +9,7 @@ servers:
 security:
   - sec0: []
 tags:
+  - $ref: "./resources/authentication/tag.yaml"
   - $ref: "./resources/bookings/tag.yaml"
   - $ref: "./resources/booking-calendars/tag.yaml"
   - $ref: "./resources/booking-pages/tag.yaml"
@@ -18,7 +19,6 @@ tags:
   - $ref: "./resources/teams/tag.yaml"
   - $ref: "./resources/users/tag.yaml"
   - $ref: "./resources/webhooks/tag.yaml"
-  - $ref: "./resources/authentication/tag.yaml"
 paths:
   # Authentication
   /test:
