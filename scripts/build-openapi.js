@@ -114,8 +114,6 @@ function validateSource() {
   }
 }
 
-
-
 async function build() {
   try {
     console.log("🚀 Building OnceHub OpenAPI Specification");
