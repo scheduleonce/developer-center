@@ -127,7 +127,7 @@ const config: Config = {
       },
       items: [
         {
-          to: "/docs/overview/introduction-to-the-scheduleonce-api",
+          to: "/docs/overview/introduction",
           position: "left",
           label: "Docs",
         },
@@ -147,7 +147,7 @@ const config: Config = {
           items: [
             {
               label: "Documentation",
-              to: "/docs/overview/introduction-to-the-scheduleonce-api",
+              to: "/docs/overview/introduction",
             },
           ],
         },

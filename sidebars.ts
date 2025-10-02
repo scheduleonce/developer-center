@@ -19,12 +19,17 @@ const sidebars: SidebarsConfig = {
       label: "Overview",
       link: {
         type: "doc",
-        id: "overview/introduction-to-the-scheduleonce-api",
+        id: "overview/introduction",
       },
       items: [
-        "overview/introduction-to-the-scheduleonce-api",
-        "overview/getting-your-api-key",
-        "overview/regenerating-your-api-key",
+        "overview/introduction",
+        "overview/authentication",
+        "overview/error-handling",
+        "overview/expanding-responses",
+        "overview/pagination",
+        "overview/request-ids",
+        "overview/api-versioning",
+        "overview/deleted-resources",
       ],
     },
     {
