@@ -44,9 +44,9 @@ Content-Type: application/json
 
 If the API key passed to an endpoint is not recognized, you will receive an error message to help you troubleshoot the issue and successfully authenticate your request. [Learn more about error responses](/docs/overview/error-handling)
 
-## Validating Your API Key
+## Testing Your API Key
 
-You can validate your API key using the **/test** endpoint. [Learn more about validating your API key](/reference/#tag/authentication/get/test)
+Once you have your API key, you can test it by making a simple request to our [validation endpoint](/reference/#tag/authentication/get/test). This endpoint will confirm that your API key is valid and active.
 
 ## Regenerating Your API Key
 
@@ -78,3 +78,7 @@ Your API key carries many privileges, so be sure to keep it secret! Do not share
 - **Environment variables**: Store your API key in environment variables or secure configuration files
 - **Regular rotation**: Consider rotating your API key periodically for enhanced security
 - **Monitor usage**: Keep track of your API usage to detect any unauthorized access
+
+```
+
+```
