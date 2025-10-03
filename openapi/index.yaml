@@ -143,6 +143,10 @@ components:
       $ref: "./components/schemas/contact.yaml#/Contact"
     ContactList:
       $ref: "./components/schemas/contact.yaml#/ContactList"
+    BookingPage:
+      $ref: "./components/schemas/booking-page.yaml#/BookingPage"
+    BookingPageList:
+      $ref: "./components/schemas/booking-page.yaml#/BookingPageList"
   responses:
     Unauthorized:
       $ref: "./components/responses/errors.yaml#/Unauthorized"

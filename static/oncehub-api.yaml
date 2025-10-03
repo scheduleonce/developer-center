@@ -1034,9 +1034,8 @@ paths:
           description: '200'
           content:
             application/json:
-              examples:
-                Result:
-                  value: "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"id\": \"BP-3F7JAWT4UA\",\n      \"object\": \"booking_page\",\n      \"name\": \"Andrea Hartie\",\n      \"label\": \"AndreaHartie\",\n      \"url\": \"https://go.oncehub.com/andreahartie\",\n      \"active\": true,\n      \"timezone\": \"America/Chicago\"\n\t\t},\n    {...},\n    {...}\n  ]\n}"
+              schema:
+                $ref: '#/components/schemas/BookingPageList'
       deprecated: false
   /booking-pages/{id}:
     get:
@@ -1057,67 +1056,20 @@ paths:
           description: '200'
           content:
             application/json:
-              examples:
-                Result:
-                  value: |-
-                    {
-                      "id": "BP-3F7JAWT4UA",
-                      "object": "booking_page",
-                      "name": "Andrea Hartie",
-                      "label": "AndreaHartie",
-                      "url": "https://go.oncehub.com/andreahartie",
-                      "active": true,
-                      "timezone": "America/Chicago"
-                    }
               schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    example: BP-3F7JAWT4UA
-                  object:
-                    type: string
-                    example: booking_page
-                  name:
-                    type: string
-                    example: Andrea Hartie
-                  label:
-                    type: string
-                    example: AndreaHartie
-                  url:
-                    type: string
-                    example: https://go.oncehub.com/andreahartie
-                  active:
-                    type: boolean
-                    example: true
-                    default: true
-                  timezone:
-                    type: string
-                    example: America/Chicago
+                $ref: '#/components/schemas/BookingPage'
         '404':
           description: '404'
           content:
             application/json:
               examples:
                 Result:
-                  value: |
-                    {
-                      "type": "invalid_request_error",
-                      "message": "No such booking page: '123'",
-                      "param": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'No such booking page: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'No such booking page: ''123'''
-                  param:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
       deprecated: false
   /event-types:
     get:
@@ -3345,6 +3297,52 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Contact'
+        has_more:
+          type: boolean
+          description: Whether there are more items available
+          example: false
+    BookingPage:
+      type: object
+      properties:
+        object:
+          type: string
+          description: String representing the object's type
+          example: booking_page
+        id:
+          type: string
+          description: Unique identifier for the object
+          example: BP-3F7JAWT4UA
+        name:
+          type: string
+          description: The customer-facing name of the booking page
+          example: Andrea Hartie
+        label:
+          type: string
+          description: The internal label of the booking page
+          example: AndreaHartie
+        url:
+          type: string
+          format: uri
+          description: The URL of the booking page
+          example: https://go.oncehub.com/andreahartie
+        active:
+          type: boolean
+          description: True if this booking page is enabled and accepts bookings
+          example: true
+        timezone:
+          type: string
+          description: The Booking page timezone. Displayed in IANA timezone format.
+          example: America/Chicago
+    BookingPageList:
+      type: object
+      properties:
+        object:
+          type: string
+          example: list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingPage'
         has_more:
           type: boolean
           description: Whether there are more items available

@@ -50,7 +50,6 @@ booking-pages:
         description: "200"
         content:
           application/json:
-            examples:
-              Result:
-                value: "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"id\": \"BP-3F7JAWT4UA\",\n      \"object\": \"booking_page\",\n      \"name\": \"Andrea Hartie\",\n      \"label\": \"AndreaHartie\",\n      \"url\": \"https://go.oncehub.com/andreahartie\",\n      \"active\": true,\n      \"timezone\": \"America/Chicago\"\n\t\t},\n    {...},\n    {...}\n  ]\n}"
+            schema:
+              $ref: "../../components/schemas/booking-page.yaml#/BookingPageList"
     deprecated: false
