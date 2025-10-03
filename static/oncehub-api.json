@@ -2728,50 +2728,8 @@
             "description": "200",
             "content": {
               "application/json": {
-                "examples": {
-                  "Example response": {
-                    "value": "{\n  \"object\": \"webhook\",\n  \"id\": \"WHK-7JD9LBVZTQ\",\n  \"api_version\": \"v2\",\n  \"name\": \"New booking webhook\",\n  \"url\": \"https://mywebsite.com/webhooks/booking\",\n  \"events\": [\"booking.completed\", \"booking.rescheduled\"],\n  \"creation_time\": \"2020-09-06T20:57:17.467Z\",\n  \"secret\": \"d7686b8c83f04913929079aeae40189e\"\n}"
-                  }
-                },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "object": {
-                      "type": "string",
-                      "example": "webhook"
-                    },
-                    "id": {
-                      "type": "string",
-                      "example": "WHK-7JD9LBVZTQ"
-                    },
-                    "api_version": {
-                      "type": "string",
-                      "example": "v2"
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "New booking webhook"
-                    },
-                    "url": {
-                      "type": "string",
-                      "example": "https://mywebsite.com/webhooks/booking"
-                    },
-                    "events": {
-                      "type": "array",
-                      "items": {
-                        "type": "string",
-                        "example": "booking.completed"
-                      }
-                    },
-                    "creation_time": {
-                      "type": "string",
-                      "example": "2020-09-06T20:57:17.467Z"
-                    },
-                    "secret": {
-                      "type": "string",
-                      "example": "d7686b8c83f04913929079aeae40189e"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             }
@@ -2782,25 +2740,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"A webhook subscription with this name already exists: 'New Bookings'\",\n  \"param\": \"name\"\n}"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "A webhook subscription with this name already exists: 'New Bookings'",
+                      "param": "name"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "A webhook subscription with this name already exists: 'New Bookings'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "name"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2817,29 +2765,13 @@
         "operationId": "list-all-webhooks",
         "parameters": [
           {
-            "name": "before",
-            "in": "query",
-            "description": "A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Before"
           },
           {
-            "name": "after",
-            "in": "query",
-            "description": "A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/After"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.",
-            "schema": {
-              "type": "string",
-              "default": "10"
-            }
+            "$ref": "#/components/parameters/Limit"
           }
         ],
         "responses": {
@@ -2847,10 +2779,8 @@
             "description": "200",
             "content": {
               "application/json": {
-                "examples": {
-                  "Example response": {
-                    "value": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"object\": \"webhook\",\n      \"id\": \"WHK-7JD9LBVZTQ\",\n      \"api_version\": \"v2\",\n      \"name\": \"New booking webhook\",\n      \"url\": \"https://mywebsite.com/webhooks/booking\",\n      \"events\": [\"booking.completed\", \"booking.rescheduled\"],\n      \"creation_time\": \"2020-09-06T20:57:17.467Z\"\n    },\n    {...},\n    {...}\n  ]\n}\n"
-                  }
+                "schema": {
+                  "$ref": "#/components/schemas/WebhookList"
                 }
               }
             }
@@ -2883,46 +2813,8 @@
             "description": "200",
             "content": {
               "application/json": {
-                "examples": {
-                  "Example response": {
-                    "value": "{\n  \"object\": \"webhook\",\n  \"id\": \"WHK-7JD9LBVZTQ\",\n  \"api_version\": \"v2\",\n  \"name\": \"New booking webhook\",\n  \"url\": \"https://mywebsite.com/webhooks/booking\",\n  \"events\": [\"booking.completed\", \"booking.rescheduled\"],\n  \"creation_time\": \"2020-09-06T20:57:17.467Z\"\n}"
-                  }
-                },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "object": {
-                      "type": "string",
-                      "example": "webhook"
-                    },
-                    "id": {
-                      "type": "string",
-                      "example": "WHK-7JD9LBVZTQ"
-                    },
-                    "api_version": {
-                      "type": "string",
-                      "example": "v2"
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "New booking webhook"
-                    },
-                    "url": {
-                      "type": "string",
-                      "example": "https://mywebsite.com/webhooks/booking"
-                    },
-                    "events": {
-                      "type": "array",
-                      "items": {
-                        "type": "string",
-                        "example": "booking.completed"
-                      }
-                    },
-                    "creation_time": {
-                      "type": "string",
-                      "example": "2020-09-06T20:57:17.467Z"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Webhook"
                 }
               }
             }
@@ -2933,25 +2825,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"No such webhook: '123'\",\n  \"param\": \"id\"\n}\n"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "No such webhook: '123'",
+                      "param": "id"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such webhook: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2982,24 +2864,8 @@
             "description": "200",
             "content": {
               "application/json": {
-                "examples": {
-                  "Example response": {
-                    "value": "{\n  \"id\": \"WHK-7JD9LBVZTQ\",\n  \"deleted\": true\n}"
-                  }
-                },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string",
-                      "example": "WHK-7JD9LBVZTQ"
-                    },
-                    "deleted": {
-                      "type": "boolean",
-                      "example": true,
-                      "default": true
-                    }
-                  }
+                  "$ref": "#/components/schemas/DeletedObject"
                 }
               }
             }
@@ -3010,25 +2876,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"No such webhook: '123'\",\n  \"param\": \"id\"\n}"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "No such webhook: '123'",
+                      "param": "id"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such webhook: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -4405,6 +4261,77 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/EventType"
+            }
+          },
+          "has_more": {
+            "type": "boolean",
+            "description": "Whether there are more items available",
+            "example": false
+          }
+        }
+      },
+      "Webhook": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "description": "String representing the object's type",
+            "example": "webhook"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the webhook",
+            "example": "WHK-7JD9LBVZTQ"
+          },
+          "api_version": {
+            "type": "string",
+            "description": "The API version used for the webhook",
+            "example": "v2"
+          },
+          "name": {
+            "type": "string",
+            "description": "Unique name for your webhook subscription",
+            "example": "New booking webhook"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL for receiving POST messages from OnceHub",
+            "example": "https://mywebsite.com/webhooks/booking"
+          },
+          "events": {
+            "type": "array",
+            "description": "Booking lifecycle events that trigger the webhook",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "booking.completed",
+              "booking.rescheduled"
+            ]
+          },
+          "creation_time": {
+            "type": "string",
+            "description": "The time when the webhook was created",
+            "example": "2020-09-06T20:57:17.467Z"
+          },
+          "secret": {
+            "type": "string",
+            "description": "Secret key for webhook signature verification",
+            "example": "d7686b8c83f04913929079aeae40189e"
+          }
+        }
+      },
+      "WebhookList": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "example": "list"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Webhook"
             }
           },
           "has_more": {
