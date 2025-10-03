@@ -1,0 +1,47 @@
+post:
+  tags:
+    - "Webhooks"
+  summary: Booking Completed Event
+  description: Triggered when a booking is completed.
+  operationId: webhook-booking-completed
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            event:
+              type: string
+              example: booking.completed
+            data:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: BKG-XYZ123
+                status:
+                  type: string
+                  example: completed
+                booking_page_id:
+                  type: string
+                  example: BP-ABC789
+                start_time:
+                  type: string
+                  format: date-time
+                  example: "2024-01-15T10:00:00Z"
+                end_time:
+                  type: string
+                  format: date-time
+                  example: "2024-01-15T11:00:00Z"
+                contact:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: John Doe
+                    email:
+                      type: string
+                      example: john.doe@example.com
+  responses:
+    "200":
+      description: Webhook received successfully
