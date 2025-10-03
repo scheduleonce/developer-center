@@ -1236,54 +1236,17 @@ paths:
       description: Returns a list of all users in your account
       operationId: list-all-users
       parameters:
-        - name: email
-          in: query
-          description: Filter by the user's email address
-          schema:
-            type: string
-        - name: before
-          in: query
-          description: A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.
-          schema:
-            type: string
-        - name: after
-          in: query
-          description: A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description: Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.
-          schema:
-            type: string
-            default: '10'
+        - $ref: '#/components/parameters/Email'
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Limit'
       responses:
         '200':
           description: '200'
           content:
             application/json:
-              examples:
-                Result:
-                  value: |
-                    {
-                      "object": "list",
-                      "data": [
-                        {
-                          "id": "USR-FSD423423",
-                          "object": "user",
-                          "first_name": "Andrea",
-                          "last_name": "Hartie",
-                          "email": "AndreaHartie@example.com",
-                          "status": "active",
-                          "role_name": "Member",
-                          "timezone": "America/Chicago",
-                          "teams": ["TM-GCJU8DLBTPY1"]
-
-                        },
-                        {...},
-                        {...}
-                      ]
-                    }
+              schema:
+                $ref: '#/components/schemas/UserList'
       deprecated: false
   /users/{id}:
     get:
@@ -1304,103 +1267,54 @@ paths:
           description: '200'
           content:
             application/json:
-              examples:
-                Result:
-                  value:
-                    id: USR-FSD423423
-                    object: user
-                    first_name: Andrea
-                    last_name: Hartie
-                    email: AndreaHartie@example.com
-                    status: active
-                    role_name: Member
-                    timezone: America/Chicago
-                    teams:
-                      - TM-GCJU8DLBTPY1
               schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    example: USR-FSD423423
-                  object:
-                    type: string
-                    example: user
-                  first_name:
-                    type: string
-                    example: Andrea
-                  last_name:
-                    type: string
-                    example: Hartie
-                  email:
-                    type: string
-                    example: AndreaHartie@example.com
-                  status:
-                    type: string
-                    example: active
-                  role_name:
-                    type: string
-                    example: Member
+                $ref: '#/components/schemas/User'
         '404':
           description: '404'
           content:
             application/json:
               examples:
                 Result:
-                  value: |
-                    {
-                      "type": "invalid_request_error",
-                      "message": "No such user: '123'",
-                      "param": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'No such user: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'No such user: ''123'''
-                  param:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
       deprecated: false
     delete:
       tags:
         - Users
-      description: ''
-      operationId: delete_users{id}
-      responses:
-        '204':
-          description: ''
-          content:
-            application/json:
-              schema:
-                properties:
-                  id:
-                    type: string
-                    description: ID of the user
-                  deleted:
-                    type: string
-                    description: A boolean flag, always `true`, confirming the deletion was successful.
-                type: object
-                required:
-                  - id
-                  - deleted
-              examples:
-                New Example:
-                  summary: New Example
-                  value:
-                    id: USR-FSD423423
-                    deleted: true
+      summary: Delete a user
+      description: Deletes a single user by ID.
+      operationId: delete-a-user
       parameters:
-        - in: path
-          name: id
+        - name: id
+          in: path
+          description: ID of the user
           schema:
             type: string
           required: true
-          description: ID of the user
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeletedObject'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value:
+                    type: invalid_request_error
+                    message: 'No such user: ''123'''
+                    param: id
+              schema:
+                $ref: '#/components/schemas/Error'
+      deprecated: false
   /users/{id}/scheduling-availability:
     get:
       tags:
@@ -3115,6 +3029,66 @@ components:
           type: boolean
           description: Whether there are more items available
           example: false
+    User:
+      type: object
+      properties:
+        object:
+          type: string
+          description: String representing the object's type. Objects of the same type share the same value. The type here is user.
+          example: user
+        id:
+          type: string
+          description: Unique identifier for the object.
+          example: USR-FSD423423
+        first_name:
+          type: string
+          description: User's first name.
+          example: Andrea
+        last_name:
+          type: string
+          description: User's last name.
+          example: Hartie
+        email:
+          type: string
+          format: email
+          description: User's email.
+          example: AndreaHartie@example.com
+        status:
+          type: string
+          description: The status of the user. The user can have one of the following statuses - active or invited.
+          enum:
+            - active
+            - invited
+          example: active
+        role_name:
+          type: string
+          description: The name of the role associated with the user, for example - Administrator, Member, Team manager.
+          example: Member
+        timezone:
+          type: string
+          description: User's timezone. Displayed in IANA timezone format
+          example: America/Chicago
+        teams:
+          type: array
+          description: The teams the user belongs to.
+          items:
+            type: string
+          example:
+            - TM-GCJU8DLBTPY1
+    UserList:
+      type: object
+      properties:
+        object:
+          type: string
+          example: list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        has_more:
+          type: boolean
+          description: Whether there are more items available
+          example: false
     Error:
       type: object
       properties:
@@ -3228,3 +3202,11 @@ components:
         maximum: 100
         default: 10
       example: 25
+    Email:
+      name: email
+      in: query
+      description: Filter by email address
+      schema:
+        type: string
+        format: email
+      example: user@example.com

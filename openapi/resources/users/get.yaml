@@ -17,65 +17,18 @@ users--id:
         description: "200"
         content:
           application/json:
-            examples:
-              Result:
-                value:
-                  id: USR-FSD423423
-                  object: user
-                  first_name: Andrea
-                  last_name: Hartie
-                  email: AndreaHartie@example.com
-                  status: active
-                  role_name: Member
-                  timezone: America/Chicago
-                  teams:
-                    - TM-GCJU8DLBTPY1
             schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: USR-FSD423423
-                object:
-                  type: string
-                  example: user
-                first_name:
-                  type: string
-                  example: Andrea
-                last_name:
-                  type: string
-                  example: Hartie
-                email:
-                  type: string
-                  example: AndreaHartie@example.com
-                status:
-                  type: string
-                  example: active
-                role_name:
-                  type: string
-                  example: Member
+              $ref: "../../components/schemas/user.yaml#/User"
       "404":
         description: "404"
         content:
           application/json:
             examples:
               Result:
-                value: |
-                  {
-                    "type": "invalid_request_error",
-                    "message": "No such user: '123'",
-                    "param": "id"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "No such user: '123'"
+                  param: id
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: "No such user: '123'"
-                param:
-                  type: string
-                  example: id
+              $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false
