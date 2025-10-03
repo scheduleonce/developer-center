@@ -516,7 +516,14 @@ paths:
       tags:
         - Booking Calendars
       summary: Get available time slots for a booking calendar
-      description: Returns a list of available time slots for a booking calendar
+      description: |
+        Returns a list of available time slots for a booking calendar
+
+        > [!note]
+        > Notes On Using This Endpoint
+        > * All datetime strings are [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) in full form. For example, `2024-11-29T09:30:00.000Z`.
+        > * All datetime strings are in UTC.
+        > * The difference between `start_time` and `end_time` must be less than or equal to 30 days.
       operationId: get-available-time-slots-for-booking-calendar
       parameters:
         - name: start_time
@@ -650,8 +657,27 @@ paths:
     post:
       tags:
         - Booking Calendars
-      summary: Schedule an appointment
-      description: Book a time from the available time slots
+      summary: Book a time slot
+      description: |
+        Book a time from the available time slots
+
+        > [!note]
+        > Notes On Using This Endpoint
+        > * This endpoint is designed to be used with the "Get available time slots" endpoint. First, retrieve available time slots for a specific time range, and then use this endpoint to book one of those slots.
+        > * You can only select a location from those offered within the available time slots.
+        > * This endpoint doesn't support booking calendars with required custom fields.
+        > * All datetime strings are [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) in full form. For example, `2024-11-29T09:30:00.000Z`.
+
+        > [!tip]
+        > Using Custom Fields  
+        > In addition to the standard fields, you can pass your own data by including custom key-value pairs within the `booking_form` object in the request body.
+        >
+        > * **Field Name (Key)**: The key for each custom field must exactly match the mapped field name of the corresponding question configured in your Booking page's form settings.
+        > * **Field Value**: The data type of the value must match the question's type:
+        >   * For Text and Picklist (single-select) questions, provide a string.
+        >   * For Picklist (multi-select) questions, provide an array of strings.
+        >
+        > Please note that for picklist fields, any values that do not match a pre-configured option will be ignored by the system during booking.
       operationId: book-a-time-slot-for-a-booking-calendar
       parameters:
         - name: id
@@ -810,8 +836,12 @@ paths:
     post:
       tags:
         - Booking Calendars
-      summary: Create a one-time booking link
-      description: Creates a one time link for a booking calendar
+      summary: Create a one-time link
+      description: |
+        Creates a one time link for a booking calendar
+
+        > [!note]
+        > One-time links are only available for published booking calendars.
       operationId: booking-calendars-create-a-one-time-link
       parameters:
         - name: id

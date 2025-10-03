@@ -3,7 +3,14 @@ booking-calendars--id--time-slots:
     tags:
       - "Booking Calendars"
     summary: Get available time slots for a booking calendar
-    description: Returns a list of available time slots for a booking calendar
+    description: |
+      Returns a list of available time slots for a booking calendar
+
+      > [!note]
+      > Notes On Using This Endpoint
+      > * All datetime strings are [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) in full form. For example, `2024-11-29T09:30:00.000Z`.
+      > * All datetime strings are in UTC.
+      > * The difference between `start_time` and `end_time` must be less than or equal to 30 days.
     operationId: get-available-time-slots-for-booking-calendar
     parameters:
       - name: start_time

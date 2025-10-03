@@ -2,8 +2,12 @@ booking-calendars--id--one-time-links:
   post:
     tags:
       - "Booking Calendars"
-    summary: Create a one-time booking link
-    description: Creates a one time link for a booking calendar
+    summary: Create a one-time link
+    description: |
+      Creates a one time link for a booking calendar
+
+      > [!note]
+      > One-time links are only available for published booking calendars.
     operationId: booking-calendars-create-a-one-time-link
     parameters:
       - name: id
