@@ -31,7 +31,7 @@ bookings--id--cancel:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Booking"
+              $ref: "../../components/schemas/booking.yaml#/Booking"
       "404":
         description: "404"
         content:

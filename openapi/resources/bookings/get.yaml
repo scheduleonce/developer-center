@@ -82,7 +82,7 @@ bookings--id:
                     - name: meeting_reason
                       value: Product demo
             schema:
-              $ref: "#/components/schemas/Booking"
+              $ref: "../../components/schemas/booking.yaml#/Booking"
       "404":
         description: "404"
         content:

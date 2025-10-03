@@ -1,0 +1,149 @@
+Contact:
+  type: object
+  properties:
+    object:
+      type: string
+      description: String representing the object's type
+      example: contact
+    id:
+      type: string
+      description: Unique identifier for the contact
+      example: CTC-J4FR05BKEW
+    creation_time:
+      type: string
+      format: date-time
+      description: The date and time when the contact was created
+      example: "2020-03-22T09:48:48Z"
+    last_updated_time:
+      type: string
+      format: date-time
+      description: The date and time the contact was last updated
+      example: "2020-03-22T09:48:48Z"
+    last_interacted_time:
+      type: string
+      format: date-time
+      nullable: true
+      description: The date and time of the last interaction with the contact
+      example: null
+    owner:
+      type: string
+      description: The ID of the owner of the contact
+      example: USR-FSD423423
+    status:
+      type: string
+      description: The status of the contact
+      example: Qualified
+    city:
+      type: string
+      nullable: true
+      description: City of the contact
+      example: New York
+    company_size:
+      type: string
+      nullable: true
+      description: Size of the contact's company
+      example: null
+    company:
+      type: string
+      nullable: true
+      description: Company name
+      example: null
+    country:
+      type: string
+      nullable: true
+      description: Country of the contact
+      example: null
+    email:
+      type: string
+      description: Email address of the contact
+      example: carrie.customer@gmail.com
+    employees:
+      type: integer
+      description: Number of employees
+      example: 1
+    first_name:
+      type: string
+      nullable: true
+      description: First name of the contact
+      example: null
+    has_consent:
+      type: boolean
+      description: Whether the contact has given consent
+      example: false
+    job_title:
+      type: string
+      nullable: true
+      description: Job title of the contact
+      example: null
+    last_name:
+      type: string
+      nullable: true
+      description: Last name of the contact
+      example: null
+    mobile_phone:
+      type: string
+      nullable: true
+      description: Mobile phone number
+      example: null
+    phone:
+      type: string
+      nullable: true
+      description: Phone number
+      example: null
+    post_code:
+      type: string
+      nullable: true
+      description: Postal code
+      example: null
+    salutation:
+      type: string
+      nullable: true
+      description: Salutation
+      example: null
+    state:
+      type: string
+      nullable: true
+      description: State or province
+      example: null
+    street_address:
+      type: string
+      nullable: true
+      description: Street address
+      example: null
+    terms_of_sevice:
+      type: boolean
+      nullable: true
+      description: Whether terms of service were accepted
+      example: null
+    timezone:
+      type: string
+      description: Timezone of the contact
+      example: America/New_York
+    custom_fields:
+      type: array
+      description: Custom fields associated with the contact
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+            example: resume
+          value:
+            description: Value of the custom field
+            nullable: true
+            example: null
+
+ContactList:
+  type: object
+  properties:
+    object:
+      type: string
+      example: list
+    data:
+      type: array
+      items:
+        $ref: '#/Contact'
+    has_more:
+      type: boolean
+      description: Whether there are more items available
+      example: false

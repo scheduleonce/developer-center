@@ -51,60 +51,7 @@ contacts--id:
                     - name: contact_second_number
                       value: null
             schema:
-              type: object
-              properties:
-                object:
-                  type: string
-                  example: contact
-                id:
-                  type: string
-                  example: CTC-J4FR05BKEW
-                creation_time:
-                  type: string
-                  example: "2020-03-22T09:48:48Z"
-                last_updated_time:
-                  type: string
-                  example: "2020-03-22T09:48:48Z"
-                last_interacted_time: {}
-                owner:
-                  type: string
-                  example: USR-FSD423423
-                city:
-                  type: string
-                  example: Carrie Customer
-                company_size: {}
-                company: {}
-                country: {}
-                email:
-                  type: string
-                  example: so.carrie.customer@gmail.com
-                employees:
-                  type: integer
-                  example: 1
-                  default: 0
-                first_name: {}
-                has_consent: {}
-                job_title: {}
-                last_name: {}
-                mobile_phone: {}
-                phone: {}
-                post_code: {}
-                salutation: {}
-                state: {}
-                street_address: {}
-                terms_of_sevice: {}
-                timezone:
-                  type: string
-                  example: America/New_York
-                custom_fields:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      name:
-                        type: string
-                        example: resume
-                      value: {}
+              $ref: "../../components/schemas/contact.yaml#/Contact"
       "404":
         description: "404"
         content:

@@ -1,14 +1,26 @@
-components:
-  schemas:
-    # Common schema definitions will be added here as needed
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Error message
-        code:
-          type: string
-          description: Error code
-      required:
-        - message
+Error:
+  type: object
+  properties:
+    message:
+      type: string
+      description: Error message
+    code:
+      type: string
+      description: Error code
+  required:
+    - message
+
+DeletedObject:
+  type: object
+  properties:
+    id:
+      type: string
+      description: ID of the deleted object
+      example: OBJ-123ABC
+    deleted:
+      type: boolean
+      description: Whether the object was deleted
+      example: true
+  required:
+    - id
+    - deleted
