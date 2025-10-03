@@ -40,19 +40,6 @@ teams:
         description: "200"
         content:
           application/json:
-            examples:
-              Result:
-                value: |
-                  {
-                    "object": "list",
-                    "data": [
-                      {
-                        "object": "team",
-                        "id": "TM-GCJU8DLBTPY1",
-                        "name": "Sales"
-                      },
-                      {...},
-                      {...}
-                    ]
-                  }
+            schema:
+              $ref: "../../components/schemas/team.yaml#/TeamList"
     deprecated: false

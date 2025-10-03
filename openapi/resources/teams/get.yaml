@@ -17,48 +17,18 @@ teams--id:
         description: "200"
         content:
           application/json:
-            examples:
-              Result:
-                value: |-
-                  {
-                    "object": "team",
-                    "id": "TM-GCJU8DLBTPY1",
-                    "name": "Sales"
-                  }
             schema:
-              type: object
-              properties:
-                object:
-                  type: string
-                  example: team
-                id:
-                  type: string
-                  example: TM-GCJU8DLBTPY1
-                name:
-                  type: string
-                  example: Sales
+              $ref: "../../components/schemas/team.yaml#/Team"
       "404":
         description: "404"
         content:
           application/json:
             examples:
               Result:
-                value: |
-                  {
-                    "type": "invalid_request_error",
-                    "message": "No such team: '123'",
-                    "param": "id"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "No such team: '123'"
+                  param: id
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: "No such team: '123'"
-                param:
-                  type: string
-                  example: id
+              $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false
