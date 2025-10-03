@@ -94,21 +94,14 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"authentication_error\",\n  \"message\": \"Invalid API key.\"\n}"
+                    "value": {
+                      "type": "authentication_error",
+                      "message": "Invalid API key."
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "authentication_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid API key."
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -119,21 +112,14 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"authentication_error\",\n  \"message\": \"Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan.\"\n}"
+                    "value": {
+                      "type": "authentication_error",
+                      "message": "Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan."
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "authentication_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan."
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
