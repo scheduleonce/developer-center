@@ -124,7 +124,7 @@ bookings:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/BookingList"
+              $ref: "#/components/schemas/booking.yaml#/BookingList"
       "400":
         description: "400"
         content:
