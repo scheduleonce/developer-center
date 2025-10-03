@@ -134,6 +134,11 @@ components:
       type: apiKey
       in: header
       name: API-Key
+  schemas:
+    Booking:
+      $ref: "./components/schemas/booking.yaml#/Booking"
+    BookingList:
+      $ref: "./components/schemas/booking.yaml#/BookingList"
   responses:
     Unauthorized:
       $ref: "./components/responses/errors.yaml#/Unauthorized"
