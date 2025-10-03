@@ -6,30 +6,9 @@ event-types:
     description: Returns a list of all event types in your account
     operationId: list-all-event-types
     parameters:
-      - name: before
-        in: query
-        description: >-
-          A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if
-          you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include
-          `before=OBJ-XXXX` in order to fetch the previous page of the list.
-        schema:
-          type: string
-      - name: after
-        in: query
-        description: >-
-          A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if
-          you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include
-          `after=OBJ-XXXX` in order to fetch the next page of the list.
-        schema:
-          type: string
-      - name: limit
-        in: query
-        description: >-
-          Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a
-          maximum limit of 100 objects per page.
-        schema:
-          type: string
-          default: "10"
+      - $ref: "../../components/parameters/common.yaml#/Before"
+      - $ref: "../../components/parameters/common.yaml#/After"
+      - $ref: "../../components/parameters/common.yaml#/Limit"
     responses:
       "200":
         description: "200"

@@ -262,29 +262,13 @@
             }
           },
           {
-            "name": "before",
-            "in": "query",
-            "description": "A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Before"
           },
           {
-            "name": "after",
-            "in": "query",
-            "description": "A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/After"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.",
-            "schema": {
-              "type": "string",
-              "default": "10"
-            }
+            "$ref": "#/components/parameters/Limit"
           },
           {
             "name": "booking_calendar",
@@ -1340,29 +1324,13 @@
             }
           },
           {
-            "name": "before",
-            "in": "query",
-            "description": "A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Before"
           },
           {
-            "name": "after",
-            "in": "query",
-            "description": "A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/After"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.",
-            "schema": {
-              "type": "string",
-              "default": "10"
-            }
+            "$ref": "#/components/parameters/Limit"
           }
         ],
         "responses": {
@@ -1443,29 +1411,13 @@
         "operationId": "list-all-event-types",
         "parameters": [
           {
-            "name": "before",
-            "in": "query",
-            "description": "A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Before"
           },
           {
-            "name": "after",
-            "in": "query",
-            "description": "A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/After"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.",
-            "schema": {
-              "type": "string",
-              "default": "10"
-            }
+            "$ref": "#/components/parameters/Limit"
           }
         ],
         "responses": {
@@ -2459,29 +2411,13 @@
             }
           },
           {
-            "name": "before",
-            "in": "query",
-            "description": "A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Before"
           },
           {
-            "name": "after",
-            "in": "query",
-            "description": "A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/After"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.",
-            "schema": {
-              "type": "string",
-              "default": "10"
-            }
+            "$ref": "#/components/parameters/Limit"
           }
         ],
         "responses": {
@@ -2597,14 +2533,6 @@
             }
           },
           {
-            "name": "before",
-            "in": "query",
-            "description": "A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "creation_time.gt",
             "in": "query",
             "description": "Return contacts with creation time greater than the given date.",
@@ -2614,22 +2542,13 @@
             }
           },
           {
-            "name": "after",
-            "in": "query",
-            "description": "A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Before"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
+            "$ref": "#/components/parameters/After"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
           }
         ],
         "responses": {
@@ -4607,36 +4526,42 @@
       "Id": {
         "name": "id",
         "in": "path",
-        "description": "Resource ID",
         "required": true,
+        "description": "The unique identifier for the resource",
         "schema": {
           "type": "string"
-        }
+        },
+        "example": "RSRC-ABC123DEF456"
       },
       "Before": {
         "name": "before",
         "in": "query",
-        "description": "A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.",
+        "description": "A cursor for use in pagination. `before` is an object ID that defines your place in the list.\nFor instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`,\nyour subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.\n",
         "schema": {
           "type": "string"
-        }
+        },
+        "example": "OBJ-PREV123"
       },
       "After": {
         "name": "after",
         "in": "query",
-        "description": "A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.",
+        "description": "A cursor for use in pagination. `after` is an object ID that defines your place in the list.\nFor instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`,\nyour subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.\n",
         "schema": {
           "type": "string"
-        }
+        },
+        "example": "OBJ-NEXT456"
       },
       "Limit": {
         "name": "limit",
         "in": "query",
-        "description": "Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.",
+        "description": "Determines the number of objects that will be returned on each page.\nDefaults to 10 if not specified and has a maximum limit of 100 objects per page.\n",
         "schema": {
-          "type": "string",
-          "default": "10"
-        }
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 10
+        },
+        "example": 25
       }
     }
   }

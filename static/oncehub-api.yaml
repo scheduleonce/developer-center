@@ -200,22 +200,9 @@ paths:
           description: A comma separated list of fields that you want to [expand](https://developers.oncehub.com/v2.0.0/reference#expanding-responses). Possible values are `booking_page`, `master_page`, `event_type`, `owner`.
           schema:
             type: string
-        - name: before
-          in: query
-          description: A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.
-          schema:
-            type: string
-        - name: after
-          in: query
-          description: A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description: Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.
-          schema:
-            type: string
-            default: '10'
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Limit'
         - name: booking_calendar
           in: query
           required: false
@@ -1013,22 +1000,9 @@ paths:
           description: Filter booking pages owned by this user ID
           schema:
             type: string
-        - name: before
-          in: query
-          description: A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.
-          schema:
-            type: string
-        - name: after
-          in: query
-          description: A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description: Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.
-          schema:
-            type: string
-            default: '10'
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Limit'
       responses:
         '200':
           description: '200'
@@ -1079,22 +1053,9 @@ paths:
       description: Returns a list of all event types in your account
       operationId: list-all-event-types
       parameters:
-        - name: before
-          in: query
-          description: A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.
-          schema:
-            type: string
-        - name: after
-          in: query
-          description: A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description: Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.
-          schema:
-            type: string
-            default: '10'
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Limit'
       responses:
         '200':
           description: '200'
@@ -1802,22 +1763,9 @@ paths:
           description: Return all teams that the provided user is a member of.
           schema:
             type: string
-        - name: before
-          in: query
-          description: A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.
-          schema:
-            type: string
-        - name: after
-          in: query
-          description: A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description: Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.
-          schema:
-            type: string
-            default: '10'
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Limit'
       responses:
         '200':
           description: '200'
@@ -1891,29 +1839,15 @@ paths:
           schema:
             type: string
             format: date
-        - name: before
-          in: query
-          description: A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.
-          schema:
-            type: string
         - name: creation_time.gt
           in: query
           description: Return contacts with creation time greater than the given date.
           schema:
             type: string
             format: date
-        - name: after
-          in: query
-          description: A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description: Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.
-          schema:
-            type: integer
-            format: int32
-            default: 10
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Limit'
       responses:
         '200':
           description: '200'
@@ -3394,26 +3328,40 @@ components:
     Id:
       name: id
       in: path
-      description: Resource ID
       required: true
+      description: The unique identifier for the resource
       schema:
         type: string
+      example: RSRC-ABC123DEF456
     Before:
       name: before
       in: query
-      description: A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.
+      description: |
+        A cursor for use in pagination. `before` is an object ID that defines your place in the list.
+        For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`,
+        your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.
       schema:
         type: string
+      example: OBJ-PREV123
     After:
       name: after
       in: query
-      description: A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.
+      description: |
+        A cursor for use in pagination. `after` is an object ID that defines your place in the list.
+        For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`,
+        your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.
       schema:
         type: string
+      example: OBJ-NEXT456
     Limit:
       name: limit
       in: query
-      description: Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.
+      description: |
+        Determines the number of objects that will be returned on each page.
+        Defaults to 10 if not specified and has a maximum limit of 100 objects per page.
       schema:
-        type: string
-        default: '10'
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 10
+      example: 25
