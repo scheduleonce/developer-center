@@ -159,6 +159,10 @@ components:
       $ref: "./components/schemas/webhook.yaml#/Webhook"
     WebhookList:
       $ref: "./components/schemas/webhook.yaml#/WebhookList"
+    BookingCalendar:
+      $ref: "./components/schemas/booking-calendar.yaml#/BookingCalendar"
+    BookingCalendarList:
+      $ref: "./components/schemas/booking-calendar.yaml#/BookingCalendarList"
   responses:
     Unauthorized:
       $ref: "./components/responses/errors.yaml#/Unauthorized"

@@ -683,29 +683,13 @@
             }
           },
           {
-            "name": "before",
-            "in": "query",
-            "description": "A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-XXXX`, your subsequent call can include `before=OBJ-XXXX` in order to fetch the previous page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/Before"
           },
           {
-            "name": "after",
-            "in": "query",
-            "description": "A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/After"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Determines the number of objects that will be returned on each page. Defaults to 10 if not specified and has a maximum limit of 100 objects per page.",
-            "schema": {
-              "type": "string",
-              "default": "10"
-            }
+            "$ref": "#/components/parameters/Limit"
           }
         ],
         "responses": {
@@ -713,10 +697,8 @@
             "description": "200",
             "content": {
               "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"object\": \"booking_calendar\",\n      \"id\": \"BKC-LDJ878496X\",\n      \"subject\": \"Meeting with Gilad Goraly\",\n      \"host\": \"USR-HYPGJXN3A8\",\n      \"url\": \"https://oncehub.com/gilad15\",\n      \"name\": \"Gilad Goraly booking calendar\",\n      \"published\": true,\n      \"duration_minutes\": 30\n    }\n    {...},\n    {...}\n  ]\n}"
-                  }
+                "schema": {
+                  "$ref": "#/components/schemas/BookingCalendarList"
                 }
               }
             }
@@ -749,49 +731,8 @@
             "description": "200",
             "content": {
               "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": "{\n  \"object\": \"booking_calendar\",\n  \"id\": \"BKC-LDJ878496X\",\n  \"subject\": \"Meeting with Gilad Goraly\",\n  \"host\": \"USR-HYPGJXN3A8\",\n  \"url\": \"https://oncehub.com/gilad15\",\n  \"name\": \"Gilad Goraly booking calendar\",\n  \"published\": true,\n  \"duration_minutes\": 30\n}"
-                  }
-                },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "object": {
-                      "type": "string",
-                      "example": "booking_calendar"
-                    },
-                    "id": {
-                      "type": "string",
-                      "example": "BKC-LDJ878496X"
-                    },
-                    "subject": {
-                      "type": "string",
-                      "example": "Meeting with Gilad Goraly"
-                    },
-                    "host": {
-                      "type": "string",
-                      "example": "USR-HYPGJXN3A8"
-                    },
-                    "url": {
-                      "type": "string",
-                      "example": "https://oncehub.com/gilad15"
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "Gilad Goraly booking calendar"
-                    },
-                    "published": {
-                      "type": "boolean",
-                      "example": true,
-                      "default": true
-                    },
-                    "duration_minutes": {
-                      "type": "integer",
-                      "example": 30,
-                      "default": 0
-                    }
-                  }
+                  "$ref": "#/components/schemas/BookingCalendar"
                 }
               }
             }
@@ -802,25 +743,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"No such booking page: '123'\",\n  \"param\": \"id\"\n}\n"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "No such booking calendar: '123'",
+                      "param": "id"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such booking page: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -4332,6 +4263,72 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Webhook"
+            }
+          },
+          "has_more": {
+            "type": "boolean",
+            "description": "Whether there are more items available",
+            "example": false
+          }
+        }
+      },
+      "BookingCalendar": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "description": "String representing the object's type. Objects of the same type share the same value. The type here is booking_calendar.",
+            "example": "booking_calendar"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the object.",
+            "example": "BKC-LDJ878496X"
+          },
+          "host": {
+            "type": "string",
+            "description": "The user id / team id of the booking calendar meeting host. Additional attendees are not included.",
+            "example": "USR-HYPGJXN3A8"
+          },
+          "name": {
+            "type": "string",
+            "description": "The internal label / name of the booking calendar.",
+            "example": "Gilad Goraly booking calendar"
+          },
+          "subject": {
+            "type": "string",
+            "description": "The customer-facing subject of the booking calendar.",
+            "example": "Meeting with Gilad Goraly"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL of the booking calendar.",
+            "example": "https://oncehub.com/gilad15"
+          },
+          "published": {
+            "type": "boolean",
+            "description": "True if this booking calendar is enabled and accepts bookings.",
+            "example": true
+          },
+          "duration_minutes": {
+            "type": "number",
+            "description": "Meeting duration in minutes.",
+            "example": 30
+          }
+        }
+      },
+      "BookingCalendarList": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "example": "list"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BookingCalendar"
             }
           },
           "has_more": {
