@@ -151,6 +151,10 @@ components:
       $ref: "./components/schemas/team.yaml#/Team"
     TeamList:
       $ref: "./components/schemas/team.yaml#/TeamList"
+    EventType:
+      $ref: "./components/schemas/event-type.yaml#/EventType"
+    EventTypeList:
+      $ref: "./components/schemas/event-type.yaml#/EventTypeList"
   responses:
     Unauthorized:
       $ref: "./components/responses/errors.yaml#/Unauthorized"

@@ -35,20 +35,6 @@ event-types:
         description: "200"
         content:
           application/json:
-            examples:
-              Result:
-                value: |-
-                  {
-                    "object": "list",
-                    "data": [
-                      {
-                        "id": "ET-7I7PKDTFJS",
-                        "object": "event_type",
-                        "name": "Live demo",
-                        "description": "Schedule a live demo with us for an in-depth look at our enterprise solutions."
-                      },
-                      {...},
-                      {...}
-                    ]
-                  }
+            schema:
+              $ref: "../../components/schemas/event-type.yaml#/EventTypeList"
     deprecated: false
