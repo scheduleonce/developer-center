@@ -107,12 +107,26 @@ paths:
       $ref: "./resources/webhooks/delete.yaml#/webhooks--id/delete"
 
 webhooks:
-  booking.completed:
-    $ref: "./webhooks/booking-completed.yaml"
+  booking.scheduled:
+    $ref: "./webhooks/booking-scheduled.yaml"
   booking.rescheduled:
     $ref: "./webhooks/booking-rescheduled.yaml"
-  booking.cancelled:
-    $ref: "./webhooks/booking-cancelled.yaml"
+  booking.canceled_then_rescheduled:
+    $ref: "./webhooks/booking-canceled-then-rescheduled.yaml"
+  booking.canceled_reschedule_requested:
+    $ref: "./webhooks/booking-canceled-reschedule-requested.yaml"
+  booking.canceled:
+    $ref: "./webhooks/booking-canceled.yaml"
+  booking.completed:
+    $ref: "./webhooks/booking-completed.yaml"
+  booking.no_show:
+    $ref: "./webhooks/booking-no-show.yaml"
+  conversation.started:
+    $ref: "./webhooks/conversation-started.yaml"
+  conversation.closed:
+    $ref: "./webhooks/conversation-closed.yaml"
+  conversation.abandoned:
+    $ref: "./webhooks/conversation-abandoned.yaml"
 
 components:
   securitySchemes:

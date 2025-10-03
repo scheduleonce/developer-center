@@ -1,9 +1,9 @@
 post:
   tags:
     - "Webhooks"
-  summary: Booking Completed Event
-  description: Triggered when booking end time has passed.
-  operationId: webhook-booking-completed
+  summary: Conversation Started Event
+  description: Triggered when website visitor starts interacting with a chatbot.
+  operationId: webhook-conversation-started
   requestBody:
     content:
       application/json:
@@ -26,24 +26,21 @@ post:
             type:
               type: string
               description: The type of the event
-              example: booking.completed
+              example: conversation.started
             api_version:
               type: string
               description: The OnceHub API version used to render the data object
               example: v2
             data:
               type: object
-              description: The booking object containing relevant data associated with the event
+              description: The conversation object containing relevant data associated with the event
               properties:
                 object:
                   type: string
-                  example: booking
+                  example: conversation
                 id:
                   type: string
-                  example: BKNG-J4FR05BKEWEX
-                status:
-                  type: string
-                  example: completed
+                  example: CONV-ABC123XYZ
   responses:
     "200":
       description: Webhook received successfully

@@ -2,7 +2,10 @@ post:
   tags:
     - "Webhooks"
   summary: Booking Rescheduled Event
-  description: Triggered when a booking is rescheduled.
+  description: |
+    Triggered when:
+    - Customer reschedules a booking on the same booking page
+    - Customer reschedules a booking following a request from the User to reschedule
   operationId: webhook-booking-rescheduled
   requestBody:
     content:
@@ -10,26 +13,40 @@ post:
         schema:
           type: object
           properties:
-            event:
+            id:
               type: string
+              description: Unique alphanumeric identifier for the event object
+              example: EVNT-KN56U3YL7C
+            object:
+              type: string
+              description: String representing the object's type
+              example: event
+            creation_time:
+              type: string
+              format: date-time
+              description: The time the event object was created
+              example: "2020-03-22T09:49:12Z"
+            type:
+              type: string
+              description: The type of the event
               example: booking.rescheduled
+            api_version:
+              type: string
+              description: The OnceHub API version used to render the data object
+              example: v2
             data:
               type: object
+              description: The booking object containing relevant data associated with the event
               properties:
+                object:
+                  type: string
+                  example: booking
                 id:
                   type: string
-                  example: BKG-XYZ123
+                  example: BKNG-J4FR05BKEWEX
                 status:
                   type: string
-                  example: rescheduled
-                previous_start_time:
-                  type: string
-                  format: date-time
-                  example: "2024-01-15T10:00:00Z"
-                new_start_time:
-                  type: string
-                  format: date-time
-                  example: "2024-01-16T14:00:00Z"
+                  example: scheduled
   responses:
     "200":
       description: Webhook received successfully

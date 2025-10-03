@@ -1,9 +1,12 @@
 post:
   tags:
     - "Webhooks"
-  summary: Booking Completed Event
-  description: Triggered when booking end time has passed.
-  operationId: webhook-booking-completed
+  summary: Booking Scheduled Event
+  description: |
+    Triggered when:
+    - Customer schedules a booking
+    - User approves a booking requested by a Customer
+  operationId: webhook-booking-scheduled
   requestBody:
     content:
       application/json:
@@ -26,7 +29,7 @@ post:
             type:
               type: string
               description: The type of the event
-              example: booking.completed
+              example: booking.scheduled
             api_version:
               type: string
               description: The OnceHub API version used to render the data object
@@ -43,7 +46,7 @@ post:
                   example: BKNG-J4FR05BKEWEX
                 status:
                   type: string
-                  example: completed
+                  example: scheduled
   responses:
     "200":
       description: Webhook received successfully

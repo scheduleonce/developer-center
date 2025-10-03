@@ -1,9 +1,9 @@
 post:
   tags:
     - "Webhooks"
-  summary: Booking Completed Event
-  description: Triggered when booking end time has passed.
-  operationId: webhook-booking-completed
+  summary: Booking Canceled Then Rescheduled Event
+  description: Triggered when Customer cancels a booking and then reschedules on a different booking page.
+  operationId: webhook-booking-canceled-then-rescheduled
   requestBody:
     content:
       application/json:
@@ -26,7 +26,7 @@ post:
             type:
               type: string
               description: The type of the event
-              example: booking.completed
+              example: booking.canceled_then_rescheduled
             api_version:
               type: string
               description: The OnceHub API version used to render the data object
@@ -43,7 +43,7 @@ post:
                   example: BKNG-J4FR05BKEWEX
                 status:
                   type: string
-                  example: completed
+                  example: scheduled
   responses:
     "200":
       description: Webhook received successfully

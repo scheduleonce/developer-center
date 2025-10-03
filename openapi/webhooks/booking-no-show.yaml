@@ -1,9 +1,9 @@
 post:
   tags:
     - "Webhooks"
-  summary: Booking Completed Event
-  description: Triggered when booking end time has passed.
-  operationId: webhook-booking-completed
+  summary: Booking No-Show Event
+  description: Triggered when User sets the completed booking to No-show.
+  operationId: webhook-booking-no-show
   requestBody:
     content:
       application/json:
@@ -26,7 +26,7 @@ post:
             type:
               type: string
               description: The type of the event
-              example: booking.completed
+              example: booking.no_show
             api_version:
               type: string
               description: The OnceHub API version used to render the data object

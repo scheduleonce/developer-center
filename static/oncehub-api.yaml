@@ -3542,51 +3542,56 @@ paths:
                     example: id
       deprecated: false
 webhooks:
-  booking.completed:
+  booking.scheduled:
     post:
       tags:
         - Webhooks
-      summary: Booking Completed Event
-      description: Triggered when a booking is completed.
-      operationId: webhook-booking-completed
+      summary: Booking Scheduled Event
+      description: |
+        Triggered when:
+        - Customer schedules a booking
+        - User approves a booking requested by a Customer
+      operationId: webhook-booking-scheduled
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                event:
+                id:
                   type: string
-                  example: booking.completed
+                  description: Unique alphanumeric identifier for the event object
+                  example: EVNT-KN56U3YL7C
+                object:
+                  type: string
+                  description: String representing the object's type
+                  example: event
+                creation_time:
+                  type: string
+                  format: date-time
+                  description: The time the event object was created
+                  example: '2020-03-22T09:49:12Z'
+                type:
+                  type: string
+                  description: The type of the event
+                  example: booking.scheduled
+                api_version:
+                  type: string
+                  description: The OnceHub API version used to render the data object
+                  example: v2
                 data:
                   type: object
+                  description: The booking object containing relevant data associated with the event
                   properties:
+                    object:
+                      type: string
+                      example: booking
                     id:
                       type: string
-                      example: BKG-XYZ123
+                      example: BKNG-J4FR05BKEWEX
                     status:
                       type: string
-                      example: completed
-                    booking_page_id:
-                      type: string
-                      example: BP-ABC789
-                    start_time:
-                      type: string
-                      format: date-time
-                      example: '2024-01-15T10:00:00Z'
-                    end_time:
-                      type: string
-                      format: date-time
-                      example: '2024-01-15T11:00:00Z'
-                    contact:
-                      type: object
-                      properties:
-                        name:
-                          type: string
-                          example: John Doe
-                        email:
-                          type: string
-                          example: john.doe@example.com
+                      example: scheduled
       responses:
         '200':
           description: Webhook received successfully
@@ -3595,7 +3600,10 @@ webhooks:
       tags:
         - Webhooks
       summary: Booking Rescheduled Event
-      description: Triggered when a booking is rescheduled.
+      description: |
+        Triggered when:
+        - Customer reschedules a booking on the same booking page
+        - Customer reschedules a booking following a request from the User to reschedule
       operationId: webhook-booking-rescheduled
       requestBody:
         content:
@@ -3603,57 +3611,434 @@ webhooks:
             schema:
               type: object
               properties:
-                event:
+                id:
                   type: string
+                  description: Unique alphanumeric identifier for the event object
+                  example: EVNT-KN56U3YL7C
+                object:
+                  type: string
+                  description: String representing the object's type
+                  example: event
+                creation_time:
+                  type: string
+                  format: date-time
+                  description: The time the event object was created
+                  example: '2020-03-22T09:49:12Z'
+                type:
+                  type: string
+                  description: The type of the event
                   example: booking.rescheduled
+                api_version:
+                  type: string
+                  description: The OnceHub API version used to render the data object
+                  example: v2
                 data:
                   type: object
+                  description: The booking object containing relevant data associated with the event
                   properties:
+                    object:
+                      type: string
+                      example: booking
                     id:
                       type: string
-                      example: BKG-XYZ123
+                      example: BKNG-J4FR05BKEWEX
                     status:
                       type: string
-                      example: rescheduled
-                    previous_start_time:
-                      type: string
-                      format: date-time
-                      example: '2024-01-15T10:00:00Z'
-                    new_start_time:
-                      type: string
-                      format: date-time
-                      example: '2024-01-16T14:00:00Z'
+                      example: scheduled
       responses:
         '200':
           description: Webhook received successfully
-  booking.cancelled:
+  booking.canceled_then_rescheduled:
     post:
       tags:
         - Webhooks
-      summary: Booking Cancelled Event
-      description: Triggered when a booking is cancelled.
-      operationId: webhook-booking-cancelled
+      summary: Booking Canceled Then Rescheduled Event
+      description: Triggered when Customer cancels a booking and then reschedules on a different booking page.
+      operationId: webhook-booking-canceled-then-rescheduled
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                event:
+                id:
                   type: string
-                  example: booking.cancelled
+                  description: Unique alphanumeric identifier for the event object
+                  example: EVNT-KN56U3YL7C
+                object:
+                  type: string
+                  description: String representing the object's type
+                  example: event
+                creation_time:
+                  type: string
+                  format: date-time
+                  description: The time the event object was created
+                  example: '2020-03-22T09:49:12Z'
+                type:
+                  type: string
+                  description: The type of the event
+                  example: booking.canceled_then_rescheduled
+                api_version:
+                  type: string
+                  description: The OnceHub API version used to render the data object
+                  example: v2
                 data:
                   type: object
+                  description: The booking object containing relevant data associated with the event
                   properties:
+                    object:
+                      type: string
+                      example: booking
                     id:
                       type: string
-                      example: BKG-XYZ123
+                      example: BKNG-J4FR05BKEWEX
                     status:
                       type: string
-                      example: cancelled
-                    cancellation_reason:
+                      example: scheduled
+      responses:
+        '200':
+          description: Webhook received successfully
+  booking.canceled_reschedule_requested:
+    post:
+      tags:
+        - Webhooks
+      summary: Booking Canceled Reschedule Requested Event
+      description: Triggered when User cancels and sends a request to the Customer to reschedule.
+      operationId: webhook-booking-canceled-reschedule-requested
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: Unique alphanumeric identifier for the event object
+                  example: EVNT-KN56U3YL7C
+                object:
+                  type: string
+                  description: String representing the object's type
+                  example: event
+                creation_time:
+                  type: string
+                  format: date-time
+                  description: The time the event object was created
+                  example: '2020-03-22T09:49:12Z'
+                type:
+                  type: string
+                  description: The type of the event
+                  example: booking.canceled_reschedule_requested
+                api_version:
+                  type: string
+                  description: The OnceHub API version used to render the data object
+                  example: v2
+                data:
+                  type: object
+                  description: The booking object containing relevant data associated with the event
+                  properties:
+                    object:
                       type: string
-                      example: Customer request
+                      example: booking
+                    id:
+                      type: string
+                      example: BKNG-J4FR05BKEWEX
+                    status:
+                      type: string
+                      example: canceled
+      responses:
+        '200':
+          description: Webhook received successfully
+  booking.canceled:
+    post:
+      tags:
+        - Webhooks
+      summary: Booking Canceled Event
+      description: Triggered when User or Customer cancels a booking.
+      operationId: webhook-booking-canceled
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: Unique alphanumeric identifier for the event object
+                  example: EVNT-KN56U3YL7C
+                object:
+                  type: string
+                  description: String representing the object's type
+                  example: event
+                creation_time:
+                  type: string
+                  format: date-time
+                  description: The time the event object was created
+                  example: '2020-03-22T09:49:12Z'
+                type:
+                  type: string
+                  description: The type of the event
+                  example: booking.canceled
+                api_version:
+                  type: string
+                  description: The OnceHub API version used to render the data object
+                  example: v2
+                data:
+                  type: object
+                  description: The booking object containing relevant data associated with the event
+                  properties:
+                    object:
+                      type: string
+                      example: booking
+                    id:
+                      type: string
+                      example: BKNG-J4FR05BKEWEX
+                    status:
+                      type: string
+                      example: canceled
+      responses:
+        '200':
+          description: Webhook received successfully
+  booking.completed:
+    post:
+      tags:
+        - Webhooks
+      summary: Booking Completed Event
+      description: Triggered when booking end time has passed.
+      operationId: webhook-booking-completed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: Unique alphanumeric identifier for the event object
+                  example: EVNT-KN56U3YL7C
+                object:
+                  type: string
+                  description: String representing the object's type
+                  example: event
+                creation_time:
+                  type: string
+                  format: date-time
+                  description: The time the event object was created
+                  example: '2020-03-22T09:49:12Z'
+                type:
+                  type: string
+                  description: The type of the event
+                  example: booking.completed
+                api_version:
+                  type: string
+                  description: The OnceHub API version used to render the data object
+                  example: v2
+                data:
+                  type: object
+                  description: The booking object containing relevant data associated with the event
+                  properties:
+                    object:
+                      type: string
+                      example: booking
+                    id:
+                      type: string
+                      example: BKNG-J4FR05BKEWEX
+                    status:
+                      type: string
+                      example: completed
+      responses:
+        '200':
+          description: Webhook received successfully
+  booking.no_show:
+    post:
+      tags:
+        - Webhooks
+      summary: Booking No-Show Event
+      description: Triggered when User sets the completed booking to No-show.
+      operationId: webhook-booking-no-show
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: Unique alphanumeric identifier for the event object
+                  example: EVNT-KN56U3YL7C
+                object:
+                  type: string
+                  description: String representing the object's type
+                  example: event
+                creation_time:
+                  type: string
+                  format: date-time
+                  description: The time the event object was created
+                  example: '2020-03-22T09:49:12Z'
+                type:
+                  type: string
+                  description: The type of the event
+                  example: booking.no_show
+                api_version:
+                  type: string
+                  description: The OnceHub API version used to render the data object
+                  example: v2
+                data:
+                  type: object
+                  description: The booking object containing relevant data associated with the event
+                  properties:
+                    object:
+                      type: string
+                      example: booking
+                    id:
+                      type: string
+                      example: BKNG-J4FR05BKEWEX
+                    status:
+                      type: string
+                      example: completed
+      responses:
+        '200':
+          description: Webhook received successfully
+  conversation.started:
+    post:
+      tags:
+        - Webhooks
+      summary: Conversation Started Event
+      description: Triggered when website visitor starts interacting with a chatbot.
+      operationId: webhook-conversation-started
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: Unique alphanumeric identifier for the event object
+                  example: EVNT-KN56U3YL7C
+                object:
+                  type: string
+                  description: String representing the object's type
+                  example: event
+                creation_time:
+                  type: string
+                  format: date-time
+                  description: The time the event object was created
+                  example: '2020-03-22T09:49:12Z'
+                type:
+                  type: string
+                  description: The type of the event
+                  example: conversation.started
+                api_version:
+                  type: string
+                  description: The OnceHub API version used to render the data object
+                  example: v2
+                data:
+                  type: object
+                  description: The conversation object containing relevant data associated with the event
+                  properties:
+                    object:
+                      type: string
+                      example: conversation
+                    id:
+                      type: string
+                      example: CONV-ABC123XYZ
+      responses:
+        '200':
+          description: Webhook received successfully
+  conversation.closed:
+    post:
+      tags:
+        - Webhooks
+      summary: Conversation Closed Event
+      description: |
+        Triggered when:
+        - Website visitor reaches the end of the conversation flow
+        - Website visitor starts a new conversation with a different chatbot
+      operationId: webhook-conversation-closed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: Unique alphanumeric identifier for the event object
+                  example: EVNT-KN56U3YL7C
+                object:
+                  type: string
+                  description: String representing the object's type
+                  example: event
+                creation_time:
+                  type: string
+                  format: date-time
+                  description: The time the event object was created
+                  example: '2020-03-22T09:49:12Z'
+                type:
+                  type: string
+                  description: The type of the event
+                  example: conversation.closed
+                api_version:
+                  type: string
+                  description: The OnceHub API version used to render the data object
+                  example: v2
+                data:
+                  type: object
+                  description: The conversation object containing relevant data associated with the event
+                  properties:
+                    object:
+                      type: string
+                      example: conversation
+                    id:
+                      type: string
+                      example: CONV-ABC123XYZ
+      responses:
+        '200':
+          description: Webhook received successfully
+  conversation.abandoned:
+    post:
+      tags:
+        - Webhooks
+      summary: Conversation Abandoned Event
+      description: Triggered when website visitor stops interacting with a bot for more than 10 minutes.
+      operationId: webhook-conversation-abandoned
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: Unique alphanumeric identifier for the event object
+                  example: EVNT-KN56U3YL7C
+                object:
+                  type: string
+                  description: String representing the object's type
+                  example: event
+                creation_time:
+                  type: string
+                  format: date-time
+                  description: The time the event object was created
+                  example: '2020-03-22T09:49:12Z'
+                type:
+                  type: string
+                  description: The type of the event
+                  example: conversation.abandoned
+                api_version:
+                  type: string
+                  description: The OnceHub API version used to render the data object
+                  example: v2
+                data:
+                  type: object
+                  description: The conversation object containing relevant data associated with the event
+                  properties:
+                    object:
+                      type: string
+                      example: conversation
+                    id:
+                      type: string
+                      example: CONV-ABC123XYZ
       responses:
         '200':
           description: Webhook received successfully
