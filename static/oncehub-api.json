@@ -820,25 +820,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"End time must be after the start time.\",\n  \"param\": \"end_time\"\n}"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "End time must be after the start time.",
+                      "param": "end_time"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Start time cannot be in the past."
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "start_time"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -849,21 +839,14 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"Time slots cannot be retrieved when the host doesn't have a seat assigned.\"\n}"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Time slots cannot be retrieved when the host doesn't have a seat assigned."
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Time slots cannot be retrieved when the host doesn't have a seat assigned."
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -874,25 +857,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"Time slots cannot be retrieved from an unpublished booking calendar.\",\n  \"param\": \"id\"\n}"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Time slots cannot be retrieved from an unpublished booking calendar.",
+                      "param": "id"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Time slots cannot be retrieved from an unpublished booking calendar."
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1029,25 +1002,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"Required fields are missing.\",\n  \"param\": \"booking_form\"\n}"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Required fields are missing.",
+                      "param": "booking_form"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "The selected start time is not available."
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "start_time"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1058,21 +1021,14 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"Meeting cannot be scheduled when the host doesn't have a seat assigned.\"\n}"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Meeting cannot be scheduled when the host doesn't have a seat assigned."
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Meeting cannot be scheduled when the host doesn't have a seat assigned."
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1083,25 +1039,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"Meeting cannot be scheduled on an unpublished booking calendar.\",\n  \"param\": \"id\"\n}"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Meeting cannot be scheduled on an unpublished booking calendar.",
+                      "param": "id"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Meeting cannot be scheduled on an unpublished booking calendar."
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1165,25 +1111,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"Bad Request\",\n  \"message\": \"This booking calendar does not allow creation of one time links: 'BKC-1234'\",\n  \"param\": \"id\"\n}"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "This booking calendar does not allow creation of one time links: 'BKC-1234'",
+                      "param": "id"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "Bad Request"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "This booking calendar does not allow creation of one time links: 'BKC-1234'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1194,25 +1130,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"No such booking calendar: '123'\",\n  \"param\": \"id\"\n}\n"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "No such booking calendar: '123'",
+                      "param": "id"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such booking calendar: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }

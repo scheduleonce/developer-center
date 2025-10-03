@@ -126,66 +126,33 @@ booking-calendars--id--schedule:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "type": "invalid_request_error",
-                    "message": "Required fields are missing.",
-                    "param": "booking_form"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "Required fields are missing."
+                  param: booking_form
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: The selected start time is not available.
-                param:
-                  type: string
-                  example: start_time
+              $ref: "../../components/schemas/common.yaml#/Error"
       "402":
         description: "402"
         content:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "type": "invalid_request_error",
-                    "message": "Meeting cannot be scheduled when the host doesn't have a seat assigned."
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "Meeting cannot be scheduled when the host doesn't have a seat assigned."
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: Meeting cannot be scheduled when the host doesn't have a seat assigned.
+              $ref: "../../components/schemas/common.yaml#/Error"
       "422":
         description: "422"
         content:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "type": "invalid_request_error",
-                    "message": "Meeting cannot be scheduled on an unpublished booking calendar.",
-                    "param": "id"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "Meeting cannot be scheduled on an unpublished booking calendar."
+                  param: id
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: Meeting cannot be scheduled on an unpublished booking calendar.
-                param:
-                  type: string
-                  example: id
+              $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false

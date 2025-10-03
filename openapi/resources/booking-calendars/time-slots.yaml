@@ -81,66 +81,33 @@ booking-calendars--id--time-slots:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "type": "invalid_request_error",
-                    "message": "End time must be after the start time.",
-                    "param": "end_time"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "End time must be after the start time."
+                  param: end_time
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: Start time cannot be in the past.
-                param:
-                  type: string
-                  example: start_time
+              $ref: "../../components/schemas/common.yaml#/Error"
       "402":
         description: "402"
         content:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "type": "invalid_request_error",
-                    "message": "Time slots cannot be retrieved when the host doesn't have a seat assigned."
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "Time slots cannot be retrieved when the host doesn't have a seat assigned."
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: Time slots cannot be retrieved when the host doesn't have a seat assigned.
+              $ref: "../../components/schemas/common.yaml#/Error"
       "422":
         description: "422"
         content:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "type": "invalid_request_error",
-                    "message": "Time slots cannot be retrieved from an unpublished booking calendar.",
-                    "param": "id"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "Time slots cannot be retrieved from an unpublished booking calendar."
+                  param: id
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: Time slots cannot be retrieved from an unpublished booking calendar.
-                param:
-                  type: string
-                  example: id
+              $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false
