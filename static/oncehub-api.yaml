@@ -243,24 +243,12 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |
-                    {
-                      "type": "invalid_request_error",
-                      "message": "last_updated_time.gt cannot be later than last_updated_time.lt",
-                      "param": "last_updated_time.gt"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: last_updated_time.gt cannot be later than last_updated_time.lt
+                    param: last_updated_time.gt
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: creation_time.gt cannot be later than creation_time.lt
-                  param:
-                    type: string
-                    example: creation_time.gt
+                $ref: '#/components/schemas/Error'
       deprecated: false
   /bookings/{id}:
     get:
@@ -281,70 +269,6 @@ paths:
           description: '200'
           content:
             application/json:
-              examples:
-                Result:
-                  value:
-                    object: booking
-                    id: BKNG-J4FR05BKEWEX
-                    tracking_id: D36E0002
-                    subject: Live demo
-                    status: scheduled
-                    creation_time: '2020-03-22T09:48:48Z'
-                    starting_time: '2020-03-22T04:30:00Z'
-                    customer_timezone: America/New_York
-                    last_updated_time: '2020-03-22T09:48:48Z'
-                    owner: USR-FSD423423
-                    duration_minutes: 60
-                    virtual_conferencing:
-                      join_url: https://meet.google.com/izv-daci-fyi
-                    location_description: 123 Office Street
-                    rescheduled_booking_id: BKNG-J4FR05BKEWEX
-                    cancel_reschedule_information:
-                      reason: Change in schedule
-                      actioned_by: user
-                      user_id: USR-FSD423423
-                    attendees:
-                      - andrea.hartie@example.com
-                      - carrie.customer@gmail.com
-                    form_submission:
-                      name: Carrie Customer
-                      email: carrie.customer@gmail.com
-                      phone: null
-                      mobile_phone: 1-2025550195
-                      note: I want to discuss whether your product can work for our office.
-                      company: null
-                      guests: []
-                      custom_fields:
-                        - name: Title
-                          value: Executive Assistant
-                        - name: Office size
-                          value: 30-50 people
-                        - name: Industry
-                          value: Lawnscaping services
-                    booking_page: BP-X0LCRU5LES
-                    master_page: MP-ZID28U5946
-                    event_type: ET-7NC41GHIDZ
-                    ics_url: https://oncehub.com/api/bookings/ics/62ad3bdd-a09f-dfbdffbef389-axs01j
-                    external_calendar:
-                      type: google
-                      name: andrea.hartie@example.com
-                      id: andrea.hartie@example.com
-                      event_id: 8kvu74dda8kcv0gmmlm3folrhc
-                    utm_params:
-                      source: facebook
-                      medium: social
-                      campaign: null
-                      term: null
-                      content: null
-                    contact: CTC-262WER5NR9CG38
-                    booking_calendar: BKC-03WJV0R52Z
-                    cancel_url: https://oncehub.com/m/BKNG-3KM0HY2BF9SL/cancel
-                    reschedule_url: https://oncehub.com/m/BKNG-3KM0HY2BF9SL
-                    custom_fields:
-                      - name: discussion_points
-                        value: Need support on new product
-                      - name: meeting_reason
-                        value: Product demo
               schema:
                 $ref: '#/components/schemas/Booking'
         '404':
@@ -353,24 +277,12 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |
-                    {
-                      "type": "invalid_request_error",
-                      "message": "No such booking: '123'",
-                      "param": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'No such booking: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'No such booking: ''123'''
-                  param:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
       deprecated: false
   /bookings/{id}/cancel:
     post:
@@ -412,68 +324,35 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |
-                    {
-                      "type": "invalid_request_error",
-                      "message": "No such booking: '123'",
-                      "param": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'No such booking: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'No such booking: ''123'''
-                  param:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
         '409':
           description: '409'
           content:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "type": "invalid_request_error",
-                      "message": "Booking cannot be cancelled: '123'",
-                      "params": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'Booking cannot be cancelled: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'Booking cannot be cancelled: ''123'''
-                  params:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
         '422':
           description: '422'
           content:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "type": "invalid_request_error",
-                      "message": "Paid bookings cannot be canceled through this endpoint. Please login to OnceHub and use the Activity Stream to cancel paid bookings."
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: Paid bookings cannot be canceled through this endpoint. Please login to OnceHub and use the Activity Stream to cancel paid bookings.
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: Paid bookings cannot be canceled through this endpoint. Please login to OnceHub and use the Activity Stream to cancel paid bookings.
+                $ref: '#/components/schemas/Error'
       deprecated: false
   /bookings/{id}/request-reschedule:
     post:
@@ -511,68 +390,35 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |
-                    {
-                      "type": "invalid_request_error",
-                      "message": "No such booking: '123'",
-                      "param": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'No such booking: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'No such booking: ''123'''
-                  param:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
         '409':
           description: '409'
           content:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "type": "invalid_request_error",
-                      "message": "Booking cannot be cancelled: '123'",
-                      "params": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'Booking cannot be cancelled: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'Booking cannot be cancelled: ''123'''
-                  params:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
         '422':
           description: '422'
           content:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "type": "invalid_request_error",
-                      "message": "Paid bookings can only be requested for reschedule in your OnceHub account. Log in and use the activity stream to submit a reschedule request for this booking."
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: Paid bookings can only be requested for reschedule in your OnceHub account. Log in and use the activity stream to submit a reschedule request for this booking.
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: Paid bookings can only be requested for reschedule in your OnceHub account. Log in and use the activity stream to submit a reschedule request for this booking.
+                $ref: '#/components/schemas/Error'
       deprecated: false
   /bookings/{id}/no-show:
     post:
@@ -601,48 +447,24 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |
-                    {
-                      "type": "invalid_request_error",
-                      "message": "No such booking: '123'",
-                      "param": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'No such booking: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'No such booking: ''123'''
-                  param:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
         '409':
           description: '409'
           content:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "type": "invalid_request_error",
-                      "message": "Cannot update booking status to no_show: '123'",
-                      "param": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'Cannot update booking status to no_show: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'Cannot update booking status to no_show: ''123'''
-                  param:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
       deprecated: false
   /booking-calendars:
     get:
@@ -2236,47 +2058,6 @@ paths:
           description: '200'
           content:
             application/json:
-              examples:
-                Result:
-                  value: |-
-                    {
-                      "object": "list",
-                      "data": [
-                        {
-                          "object": "contact",
-                          "id": "CTC-J4FR05BKEW",
-                          "creation_time": "2020-03-22T09:48:48Z",
-                          "last_updated_time": "2020-03-22T09:48:48Z",
-                          "last_interacted_time": "",
-                          "owner": "USR-FSD423423",
-                          "status": "Qualified",
-                          "city": "Carrie Customer",
-                          "company_size": null,
-                          "company": null,
-                          "country": null,
-                          "email": "so.carrie.customer@gmail.com",
-                          "employees": 1,
-                          "first_name": null,
-                          "has_consent": false,
-                          "job_title": null,
-                          "last_name": null,
-                          "mobile_phone": null,
-                          "phone": null,
-                          "post_code": null,
-                          "salutation": null,
-                          "state": null,
-                          "street_address": null,
-                          "terms_of_sevice": null,
-                          "timezone": "America/New_York",
-                          "custom_fields": [
-                            { "name": "resume", "value": null },
-                            { "name": "contact_second_number", "value": null }
-                          ]
-                        }
-                        {...},
-                        {...}
-                      ]
-                    }
               schema:
                 $ref: '#/components/schemas/ContactList'
         '400':
@@ -2285,24 +2066,12 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "type": "invalid_request_error",
-                      "message": "last_updated_time.gt cannot be later than last_updated_time.lt",
-                      "param": "last_updated_time.gt"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: last_updated_time.gt cannot be later than last_updated_time.lt
+                    param: last_updated_time.gt
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: creation_time.gt cannot be later than creation_time.lt
-                  param:
-                    type: string
-                    example: creation_time.gt
+                $ref: '#/components/schemas/Error'
       deprecated: false
   /contacts/{id}:
     get:
@@ -2323,39 +2092,6 @@ paths:
           description: '200'
           content:
             application/json:
-              examples:
-                Result:
-                  value:
-                    object: contact
-                    id: CTC-J4FR05BKEW
-                    creation_time: '2020-03-22T09:48:48Z'
-                    last_updated_time: '2020-03-22T09:48:48Z'
-                    last_interacted_time: ''
-                    owner: USR-FSD423423
-                    status: Qualified
-                    city: Carrie Customer
-                    company_size: null
-                    company: null
-                    country: null
-                    email: so.carrie.customer@gmail.com
-                    employees: 1
-                    first_name: null
-                    has_consent: false
-                    job_title: null
-                    last_name: null
-                    mobile_phone: null
-                    phone: null
-                    post_code: null
-                    salutation: null
-                    state: null
-                    street_address: null
-                    terms_of_sevice: null
-                    timezone: America/New_York
-                    custom_fields:
-                      - name: resume
-                        value: null
-                      - name: contact_second_number
-                        value: null
               schema:
                 $ref: '#/components/schemas/Contact'
         '404':
@@ -2364,24 +2100,12 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "type": "invalid_request_error",
-                      "message": "No such contact: '123'",
-                      "param": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'No such contact: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'No such contact: ''123'''
-                  param:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
       deprecated: false
     delete:
       tags:
@@ -2401,47 +2125,20 @@ paths:
           description: '200'
           content:
             application/json:
-              examples:
-                Result:
-                  value: |-
-                    {
-                      "id": "CTC-J4FR05BKEW",
-                      "deleted": true
-                    }
               schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    example: CTC-J4FR05BKEW
-                  deleted:
-                    type: boolean
-                    example: true
-                    default: true
+                $ref: '#/components/schemas/DeletedObject'
         '404':
           description: '404'
           content:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "type": "invalid_request_error",
-                      "message": "No such contact: '123'",
-                      "param": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'No such contact: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'No such contact: ''123'''
-                  param:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
       deprecated: false
   /webhooks:
     post:
@@ -3652,6 +3349,43 @@ components:
           type: boolean
           description: Whether there are more items available
           example: false
+    Error:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The type of error returned
+          enum:
+            - authentication_error
+            - invalid_request_error
+            - rate_limit_error
+            - api_error
+          example: invalid_request_error
+        message:
+          type: string
+          description: A human-readable message providing more details about the error
+          example: 'No such booking: ''123'''
+        param:
+          type: string
+          description: If the error is parameter-specific, the parameter related to the error
+          example: id
+      required:
+        - type
+        - message
+    DeletedObject:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of the deleted object
+          example: OBJ-123ABC
+        deleted:
+          type: boolean
+          description: Whether the object was deleted
+          example: true
+      required:
+        - id
+        - deleted
   responses:
     Unauthorized:
       description: 401 - Unauthorized
@@ -3659,66 +3393,34 @@ components:
         application/json:
           examples:
             Result:
-              value: |-
-                {
-                  "type": "authentication_error",
-                  "message": "Invalid API key."
-                }
+              value:
+                type: authentication_error
+                message: Invalid API key.
           schema:
-            type: object
-            properties:
-              type:
-                type: string
-                example: authentication_error
-              message:
-                type: string
-                example: Invalid API key.
+            $ref: '#/components/schemas/Error'
     Forbidden:
       description: 403 - Forbidden
       content:
         application/json:
           examples:
             Result:
-              value: |-
-                {
-                  "type": "authentication_error", 
-                  "message": "Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan."
-                }
+              value:
+                type: authentication_error
+                message: Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan.
           schema:
-            type: object
-            properties:
-              type:
-                type: string
-                example: authentication_error
-              message:
-                type: string
-                example: Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan.
+            $ref: '#/components/schemas/Error'
     NotFound:
       description: 404 - Not Found
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              type:
-                type: string
-                example: not_found_error
-              message:
-                type: string
-                example: Resource not found.
+            $ref: '#/components/schemas/Error'
     BadRequest:
       description: 400 - Bad Request
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              type:
-                type: string
-                example: bad_request_error
-              message:
-                type: string
-                example: Invalid request parameters.
+            $ref: '#/components/schemas/Error'
   parameters:
     Id:
       name: id

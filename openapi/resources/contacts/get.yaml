@@ -17,39 +17,6 @@ contacts--id:
         description: "200"
         content:
           application/json:
-            examples:
-              Result:
-                value:
-                  object: contact
-                  id: CTC-J4FR05BKEW
-                  creation_time: "2020-03-22T09:48:48Z"
-                  last_updated_time: "2020-03-22T09:48:48Z"
-                  last_interacted_time: ""
-                  owner: USR-FSD423423
-                  status: Qualified
-                  city: Carrie Customer
-                  company_size: null
-                  company: null
-                  country: null
-                  email: so.carrie.customer@gmail.com
-                  employees: 1
-                  first_name: null
-                  has_consent: false
-                  job_title: null
-                  last_name: null
-                  mobile_phone: null
-                  phone: null
-                  post_code: null
-                  salutation: null
-                  state: null
-                  street_address: null
-                  terms_of_sevice: null
-                  timezone: America/New_York
-                  custom_fields:
-                    - name: resume
-                      value: null
-                    - name: contact_second_number
-                      value: null
             schema:
               $ref: "../../components/schemas/contact.yaml#/Contact"
       "404":
@@ -58,22 +25,10 @@ contacts--id:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "type": "invalid_request_error",
-                    "message": "No such contact: '123'",
-                    "param": "id"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "No such contact: '123'"
+                  param: id
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: "No such contact: '123'"
-                param:
-                  type: string
-                  example: id
+              $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false

@@ -131,22 +131,10 @@ bookings:
           application/json:
             examples:
               Result:
-                value: |
-                  {
-                    "type": "invalid_request_error",
-                    "message": "last_updated_time.gt cannot be later than last_updated_time.lt",
-                    "param": "last_updated_time.gt"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "last_updated_time.gt cannot be later than last_updated_time.lt"
+                  param: last_updated_time.gt
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: creation_time.gt cannot be later than creation_time.lt
-                param:
-                  type: string
-                  example: creation_time.gt
+              $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false

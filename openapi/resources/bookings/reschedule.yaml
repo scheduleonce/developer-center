@@ -34,68 +34,33 @@ bookings--id--request-reschedule:
           application/json:
             examples:
               Result:
-                value: |
-                  {
-                    "type": "invalid_request_error",
-                    "message": "No such booking: '123'",
-                    "param": "id"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "No such booking: '123'"
+                  param: id
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: "No such booking: '123'"
-                param:
-                  type: string
-                  example: id
+              $ref: "../../components/schemas/common.yaml#/Error"
       "409":
         description: "409"
         content:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "type": "invalid_request_error",
-                    "message": "Booking cannot be cancelled: '123'",
-                    "params": "id"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "Booking cannot be cancelled: '123'"
+                  param: id
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: "Booking cannot be cancelled: '123'"
-                params:
-                  type: string
-                  example: id
+              $ref: "../../components/schemas/common.yaml#/Error"
       "422":
         description: "422"
         content:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "type": "invalid_request_error",
-                    "message": "Paid bookings can only be requested for reschedule in your OnceHub account. Log in and use the activity stream to submit a reschedule request for this booking."
-                  }
+                value:
+                  type: invalid_request_error
+                  message: Paid bookings can only be requested for reschedule in your OnceHub account. Log in and use the activity stream to submit a reschedule request for this booking.
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: >-
-                    Paid bookings can only be requested for reschedule in your OnceHub account. Log in and use the
-                    activity stream to submit a reschedule request for this booking.
+              $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false

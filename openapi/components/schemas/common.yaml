@@ -1,13 +1,25 @@
 Error:
   type: object
   properties:
+    type:
+      type: string
+      description: The type of error returned
+      enum:
+        - authentication_error
+        - invalid_request_error
+        - rate_limit_error
+        - api_error
+      example: invalid_request_error
     message:
       type: string
-      description: Error message
-    code:
+      description: A human-readable message providing more details about the error
+      example: "No such booking: '123'"
+    param:
       type: string
-      description: Error code
+      description: If the error is parameter-specific, the parameter related to the error
+      example: id
   required:
+    - type
     - message
 
 DeletedObject:

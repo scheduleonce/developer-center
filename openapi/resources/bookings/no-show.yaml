@@ -25,46 +25,22 @@ bookings--id--no-show:
           application/json:
             examples:
               Result:
-                value: |
-                  {
-                    "type": "invalid_request_error",
-                    "message": "No such booking: '123'",
-                    "param": "id"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "No such booking: '123'"
+                  param: id
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: "No such booking: '123'"
-                param:
-                  type: string
-                  example: id
+              $ref: "../../components/schemas/common.yaml#/Error"
       "409":
         description: "409"
         content:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "type": "invalid_request_error",
-                    "message": "Cannot update booking status to no_show: '123'",
-                    "param": "id"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "Cannot update booking status to no_show: '123'"
+                  param: id
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: "Cannot update booking status to no_show: '123'"
-                param:
-                  type: string
-                  example: id
+              $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false

@@ -4,20 +4,11 @@ Unauthorized:
     application/json:
       examples:
         Result:
-          value: |-
-            {
-              "type": "authentication_error",
-              "message": "Invalid API key."
-            }
+          value:
+            type: authentication_error
+            message: Invalid API key.
       schema:
-        type: object
-        properties:
-          type:
-            type: string
-            example: authentication_error
-          message:
-            type: string
-            example: Invalid API key.
+        $ref: "../schemas/common.yaml#/Error"
 
 Forbidden:
   description: "403 - Forbidden"
@@ -25,45 +16,22 @@ Forbidden:
     application/json:
       examples:
         Result:
-          value: |-
-            {
-              "type": "authentication_error", 
-              "message": "Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan."
-            }
+          value:
+            type: authentication_error
+            message: Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan.
       schema:
-        type: object
-        properties:
-          type:
-            type: string
-            example: authentication_error
-          message:
-            type: string
-            example: Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan.
+        $ref: "../schemas/common.yaml#/Error"
 
 NotFound:
   description: "404 - Not Found"
   content:
     application/json:
       schema:
-        type: object
-        properties:
-          type:
-            type: string
-            example: not_found_error
-          message:
-            type: string
-            example: Resource not found.
+        $ref: "../schemas/common.yaml#/Error"
 
 BadRequest:
   description: "400 - Bad Request"
   content:
     application/json:
       schema:
-        type: object
-        properties:
-          type:
-            type: string
-            example: bad_request_error
-          message:
-            type: string
-            example: Invalid request parameters.
+        $ref: "../schemas/common.yaml#/Error"
