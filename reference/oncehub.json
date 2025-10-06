@@ -1892,7 +1892,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"object\": \"booking_calendar\",\n      \"id\": \"BKC-LDJ878496X\",\n      \"subject\": \"Meeting with Gilad Goraly\",\n      \"host\": \"USR-HYPGJXN3A8\",\n      \"url\": \"https://oncehub.com/gilad15\",\n      \"name\": \"Gilad Goraly booking calendar\",\n      \"published\": true,\n      \"duration_minutes\": 30\n    }\n    {...},\n    {...}\n  ]\n}"
+                    "value": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"object\": \"booking_calendar\",\n      \"id\": \"BKC-LDJ878496X\",\n      \"subject\": \"Meeting with Andrea Hartie\",\n      \"host\": \"USR-HYPGJXN3A8\",\n      \"url\": \"https://oncehub.com/andreahartie\",\n      \"name\": \"Andrea Hartie booking calendar\",\n      \"published\": true,\n      \"duration_minutes\": 30\n    }\n    {...},\n    {...}\n  ]\n}"
                   }
                 }
               }
