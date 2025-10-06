@@ -2,7 +2,8 @@ users--id--scheduling-availability:
   get:
     tags:
       - "Users"
-    description: ""
+    summary: Get scheduling availability
+    description: Returns the scheduling availability for a user
     operationId: get_user_scheduling_availability
     responses:
       "200":
@@ -10,9 +11,6 @@ users--id--scheduling-availability:
         content:
           application/json:
             examples:
-              New Example:
-                summary: New Example
-                value: ""
               Result:
                 summary: Result
                 value:
@@ -73,6 +71,8 @@ users--id--scheduling-availability:
                   message: "Invalid date format for overrides_start_time. Expected format: YYYY-MM-DD"
                   param: overrides_start_time
                 summary: Result 1
+            schema:
+              $ref: "../../components/schemas/common.yaml#/Error"
     parameters:
       - in: path
         name: id
@@ -83,7 +83,8 @@ users--id--scheduling-availability:
   patch:
     tags:
       - "Users"
-    description: ""
+    summary: Update scheduling availability
+    description: Updates the scheduling availability for a user
     operationId: patch_users{id}scheduling-availability
     responses:
       "200":
@@ -153,6 +154,8 @@ users--id--scheduling-availability:
                   type: invalid_request_error
                   message: "Duplicate entry for day or date: 'Monday'"
                   param: weekly
+            schema:
+              $ref: "../../components/schemas/common.yaml#/Error"
       "422":
         description: Unprocessable Entity
         content:
@@ -163,6 +166,8 @@ users--id--scheduling-availability:
                   type: invalid_request_error
                   message: You can set either online_dynamic_link or online_static_link
                   param: weekly.working_hours.locations
+            schema:
+              $ref: "../../components/schemas/common.yaml#/Error"
     parameters:
       - in: path
         name: id

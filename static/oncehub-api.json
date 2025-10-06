@@ -1451,25 +1451,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"No such master page: '123'\",\n  \"param\": \"id\"\n}\n"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "No such master page: '123'",
+                      "param": "id"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such master page: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1533,25 +1523,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"Bad Request\",\n  \"message\": \"This master page is deleted: 'BP-EHM6JU50Q3'\",\n  \"param\": \"id\"\n}"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "This master page is deleted: 'BP-EHM6JU50Q3'",
+                      "param": "id"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "Bad Request"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "This master page does not allow creation of one time links: 'BP-1234'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1562,25 +1542,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"No such master page: '123'\",\n  \"param\": \"id\"\n}\n"
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "No such master page: '123'",
+                      "param": "id"
+                    }
                   }
                 },
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "invalid_request_error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No such master page: '123'"
-                    },
-                    "param": {
-                      "type": "string",
-                      "example": "id"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1735,7 +1705,8 @@
         "tags": [
           "Users"
         ],
-        "description": "",
+        "summary": "Get scheduling availability",
+        "description": "Returns the scheduling availability for a user",
         "operationId": "get_user_scheduling_availability",
         "responses": {
           "200": {
@@ -1743,10 +1714,6 @@
             "content": {
               "application/json": {
                 "examples": {
-                  "New Example": {
-                    "summary": "New Example",
-                    "value": ""
-                  },
                   "Result": {
                     "summary": "Result",
                     "value": {
@@ -1852,6 +1819,9 @@
                     },
                     "summary": "Result 1"
                   }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -1873,7 +1843,8 @@
         "tags": [
           "Users"
         ],
-        "description": "",
+        "summary": "Update scheduling availability",
+        "description": "Updates the scheduling availability for a user",
         "operationId": "patch_users{id}scheduling-availability",
         "responses": {
           "200": {
@@ -1985,6 +1956,9 @@
                       "param": "weekly"
                     }
                   }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2001,6 +1975,9 @@
                       "param": "weekly.working_hours.locations"
                     }
                   }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }

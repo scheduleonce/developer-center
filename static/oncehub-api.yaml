@@ -1043,24 +1043,12 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |
-                    {
-                      "type": "invalid_request_error",
-                      "message": "No such master page: '123'",
-                      "param": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'No such master page: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'No such master page: ''123'''
-                  param:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
       deprecated: false
   /master-pages/{id}/one-time-links:
     post:
@@ -1107,48 +1095,24 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "type": "Bad Request",
-                      "message": "This master page is deleted: 'BP-EHM6JU50Q3'",
-                      "param": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'This master page is deleted: ''BP-EHM6JU50Q3'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: Bad Request
-                  message:
-                    type: string
-                    example: 'This master page does not allow creation of one time links: ''BP-1234'''
-                  param:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
         '404':
           description: '404'
           content:
             application/json:
               examples:
                 Result:
-                  value: |
-                    {
-                      "type": "invalid_request_error",
-                      "message": "No such master page: '123'",
-                      "param": "id"
-                    }
+                  value:
+                    type: invalid_request_error
+                    message: 'No such master page: ''123'''
+                    param: id
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: invalid_request_error
-                  message:
-                    type: string
-                    example: 'No such master page: ''123'''
-                  param:
-                    type: string
-                    example: id
+                $ref: '#/components/schemas/Error'
       deprecated: false
   /users:
     get:
@@ -1241,7 +1205,8 @@ paths:
     get:
       tags:
         - Users
-      description: ''
+      summary: Get scheduling availability
+      description: Returns the scheduling availability for a user
       operationId: get_user_scheduling_availability
       responses:
         '200':
@@ -1249,9 +1214,6 @@ paths:
           content:
             application/json:
               examples:
-                New Example:
-                  summary: New Example
-                  value: ''
                 Result:
                   summary: Result
                   value:
@@ -1312,6 +1274,8 @@ paths:
                     message: 'Invalid date format for overrides_start_time. Expected format: YYYY-MM-DD'
                     param: overrides_start_time
                   summary: Result 1
+              schema:
+                $ref: '#/components/schemas/Error'
       parameters:
         - in: path
           name: id
@@ -1322,7 +1286,8 @@ paths:
     patch:
       tags:
         - Users
-      description: ''
+      summary: Update scheduling availability
+      description: Updates the scheduling availability for a user
       operationId: patch_users{id}scheduling-availability
       responses:
         '200':
@@ -1392,6 +1357,8 @@ paths:
                     type: invalid_request_error
                     message: 'Duplicate entry for day or date: ''Monday'''
                     param: weekly
+              schema:
+                $ref: '#/components/schemas/Error'
         '422':
           description: Unprocessable Entity
           content:
@@ -1402,6 +1369,8 @@ paths:
                     type: invalid_request_error
                     message: You can set either online_dynamic_link or online_static_link
                     param: weekly.working_hours.locations
+              schema:
+                $ref: '#/components/schemas/Error'
       parameters:
         - in: path
           name: id

@@ -43,46 +43,22 @@ master-pages--id--one-time-links:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "type": "Bad Request",
-                    "message": "This master page is deleted: 'BP-EHM6JU50Q3'",
-                    "param": "id"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "This master page is deleted: 'BP-EHM6JU50Q3'"
+                  param: id
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: Bad Request
-                message:
-                  type: string
-                  example: "This master page does not allow creation of one time links: 'BP-1234'"
-                param:
-                  type: string
-                  example: id
+              $ref: "../../components/schemas/common.yaml#/Error"
       "404":
         description: "404"
         content:
           application/json:
             examples:
               Result:
-                value: |
-                  {
-                    "type": "invalid_request_error",
-                    "message": "No such master page: '123'",
-                    "param": "id"
-                  }
+                value:
+                  type: invalid_request_error
+                  message: "No such master page: '123'"
+                  param: id
             schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: invalid_request_error
-                message:
-                  type: string
-                  example: "No such master page: '123'"
-                param:
-                  type: string
-                  example: id
+              $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false
