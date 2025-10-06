@@ -16,3 +16,7 @@ next:
 > 📘 Note
 >
 > One-time links are only available for published booking calendars.
+
+<Callout icon="🚧">
+  One-time links that haven't been consumed will be automatically deleted after one year.
+</Callout>
