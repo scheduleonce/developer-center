@@ -35,3 +35,15 @@ BadRequest:
     application/json:
       schema:
         $ref: "../schemas/common.yaml#/Error"
+
+TooManyRequests:
+  description: "429 - Too Many Requests"
+  content:
+    application/json:
+      examples:
+        Result:
+          value:
+            type: rate_limit_error
+            message: Request rate limit exceeded
+      schema:
+        $ref: "../schemas/common.yaml#/Error"
