@@ -4100,18 +4100,18 @@
           "name": {
             "type": "string",
             "description": "The internal label / name of the booking calendar.",
-            "example": "Gilad Goraly booking calendar"
+            "example": "Andrea Hartie booking calendar"
           },
           "subject": {
             "type": "string",
             "description": "The customer-facing subject of the booking calendar.",
-            "example": "Meeting with Gilad Goraly"
+            "example": "Meeting with Andrea Hartie"
           },
           "url": {
             "type": "string",
             "format": "uri",
             "description": "The URL of the booking calendar.",
-            "example": "https://oncehub.com/gilad15"
+            "example": "https://oncehub.com/andreahartie"
           },
           "published": {
             "type": "boolean",
