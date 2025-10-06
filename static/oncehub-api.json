@@ -3396,9 +3396,17 @@
             "example": "2020-03-22T09:48:48Z"
           },
           "owner": {
-            "type": "string",
-            "description": "The ID of the owner of the booking. This is the User who originally accepted the booking, and remains unchanged even if the booking was reassigned to a new booking page.",
-            "example": "USR-FSD423423"
+            "description": "The ID of the owner of the booking. This is the User who originally accepted the booking, and remains unchanged even if the booking was reassigned to a new booking page.\n\n**Expandable**: Use `expand=owner` to include the full User object.\n",
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "User ID (when not expanded)",
+                "example": "USR-FSD423423"
+              },
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
           },
           "duration_minutes": {
             "type": "integer",
@@ -3527,25 +3535,68 @@
             }
           },
           "booking_page": {
-            "type": "string",
-            "description": "The ID of the booking page used to make the booking.",
-            "example": "BP-X0LCRU5LES"
+            "description": "The ID of the booking page used to make the booking.\n\n**Expandable**: Use `expand=booking_page` to include the full BookingPage object.\n",
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Booking page ID (when not expanded)",
+                "example": "BP-X0LCRU5LES"
+              },
+              {
+                "$ref": "#/components/schemas/BookingPage"
+              }
+            ]
           },
           "master_page": {
-            "type": "string",
-            "description": "The ID of the master booking page used to make the booking.",
-            "example": "MP-ZID28U5946"
+            "description": "The ID of the master booking page used to make the booking.\n\n**Expandable**: Use `expand=master_page` to include the full MasterPage object.\n",
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Master page ID (when not expanded)",
+                "example": "MP-ZID28U5946"
+              },
+              {
+                "$ref": "#/components/schemas/MasterPage"
+              },
+              {
+                "type": "null",
+                "description": "No master page associated"
+              }
+            ]
           },
           "event_type": {
-            "type": "string",
-            "description": "The ID of the service selected by customer.",
-            "example": "ET-7NC41GHIDZ"
+            "description": "The ID of the service selected by customer.\n\n**Expandable**: Use `expand=event_type` to include the full EventType object.\n",
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Event type ID (when not expanded)",
+                "example": "ET-7NC41GHIDZ"
+              },
+              {
+                "$ref": "#/components/schemas/EventType"
+              },
+              {
+                "type": "null",
+                "description": "No event type associated"
+              }
+            ]
           },
           "conversation": {
-            "type": "string",
-            "nullable": true,
-            "description": "The ID of the conversation that this booking was scheduled from, null if the booking did not come from a conversation.",
-            "example": "CVR-ZLS0AG3YXZTH"
+            "description": "The ID of the conversation that this booking was scheduled from, null if the booking did not come from a conversation.\n\n**Expandable**: Use `expand=conversation` to include the full Conversation object.\n",
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Conversation ID (when not expanded)",
+                "example": "CVR-ZLS0AG3YXZTH"
+              },
+              {
+                "$ref": "#/components/schemas/Conversation"
+              },
+              {
+                "type": "null",
+                "description": "No conversation associated"
+              }
+            ]
           },
           "external_calendar": {
             "type": "object",
@@ -3617,9 +3668,17 @@
             }
           },
           "contact": {
-            "type": "string",
-            "description": "The ID of the contact the booking was scheduled with.",
-            "example": "CTC-262WER5NR9CG38"
+            "description": "The ID of the contact the booking was scheduled with.\n\n**Expandable**: Use `expand=contact` to include the full Contact object.\n",
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Contact ID (when not expanded)",
+                "example": "CTC-262WER5NR9CG38"
+              },
+              {
+                "$ref": "#/components/schemas/Contact"
+              }
+            ]
           },
           "booking_calendar": {
             "type": "string",
@@ -4254,6 +4313,160 @@
           "type",
           "message"
         ]
+      },
+      "MasterPage": {
+        "type": "object",
+        "description": "The master page object contains the name, label and URL for master pages on your account and indicates whether the master page is enabled to receive bookings.\n",
+        "properties": {
+          "object": {
+            "type": "string",
+            "description": "String representing the object's type. Objects of the same type share the same value. The type here is master_page.",
+            "example": "master_page"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the object.",
+            "example": "MP-73E6RHFU77"
+          },
+          "name": {
+            "type": "string",
+            "description": "The customer facing name of the master page.",
+            "example": "Star Software LLC"
+          },
+          "label": {
+            "type": "string",
+            "description": "The internal label of the master page.",
+            "example": "Dana"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL of the master page.",
+            "example": "https://go.oncehub.com/dana"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "True if this master page is enabled and accepts bookings.",
+            "example": true,
+            "default": true
+          }
+        }
+      },
+      "Conversation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique alphanumeric identifier for the object. The prefix of the Conversation ID is CVR-.",
+            "example": "CVR-022EAEA41C"
+          },
+          "object": {
+            "type": "string",
+            "description": "String representing the object's type. Objects of the same type share the same value. The value here is conversation.",
+            "example": "conversation"
+          },
+          "creation_time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date and time the conversation was created.",
+            "example": "2021-07-13T12:28:24Z"
+          },
+          "initiated_by": {
+            "type": "string",
+            "description": "Either bot (auto reach out) or contact (website visitor clicked on a CTA).",
+            "enum": [
+              "bot",
+              "contact"
+            ],
+            "example": "contact"
+          },
+          "last_updated_time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date and time the conversation was last updated.",
+            "example": "2021-07-13T12:33:54Z"
+          },
+          "last_interacted_time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date and time of the last conversation interaction.",
+            "example": "2021-07-13T12:33:54Z"
+          },
+          "contact": {
+            "type": "string",
+            "description": "The contact / customer involved in this conversation.\n\n**Expandable**: Use `expand=contact` to include the full Contact object.\n",
+            "example": "CTC-9QEG09XXYN"
+          },
+          "owner": {
+            "type": "string",
+            "description": "The owner (user object) of the conversation.\n\n**Expandable**: Use `expand=owner` to include the full User object.\n",
+            "example": "USR-GNSBE50D6A"
+          },
+          "status": {
+            "type": "string",
+            "description": "The status of the conversation. Can be one of the following:\n- `started` - The website visitor has responded with a first message and the conversation is active from this point.\n- `closed` - The conversation has been closed, this can be done by the conversation ending with a last message, or the visitor starting a different conversation.\n- `abandoned` - If there is no response from the visitor for more than 10 minutes the conversation is ended in an abandoned state.\n",
+            "enum": [
+              "started",
+              "closed",
+              "abandoned"
+            ],
+            "example": "closed"
+          },
+          "bot": {
+            "type": "string",
+            "description": "The bot that facilitated the conversation.\n\n**Expandable**: Use `expand=bot` to include the full Bot object.\n",
+            "example": "BOT-62774A40FB"
+          },
+          "website": {
+            "type": "string",
+            "description": "The website this conversation was triggered on.\n\n**Expandable**: Use `expand=website` to include the full Website object.\n",
+            "example": "WEB-B1D45D12BB"
+          },
+          "audience": {
+            "type": "string",
+            "nullable": true,
+            "description": "The audience associated with this conversation.\n\n**Expandable**: Use `expand=audience` to include the full Audience object.\n",
+            "example": null
+          },
+          "answers": {
+            "type": "array",
+            "description": "Answers to the questions asked during the conversation.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique identifier for the interaction.",
+                  "example": "INT-5D22DCBE36"
+                },
+                "internal_label": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Internal label for the question.",
+                  "example": ""
+                },
+                "question": {
+                  "type": "string",
+                  "description": "The question asked during the conversation.",
+                  "example": "Full name"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The answer provided by the contact.",
+                  "example": "Carrie Customer"
+                }
+              }
+            }
+          },
+          "bookings": {
+            "type": "array",
+            "description": "Bookings that are associated to the conversation.",
+            "items": {
+              "type": "string",
+              "example": "BKNG-3KM0HY2BF9SL"
+            }
+          }
+        }
       },
       "DeletedObject": {
         "type": "object",
