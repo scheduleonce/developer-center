@@ -16,3 +16,7 @@ next:
 > 📘 Note
 >
 > One-time links are only available for Master pages using [Rule-based assignment](https://help.oncehub.com/help/rule-based-assignment) with [Dynamic rules](https://help.oncehub.com/help/rule-based-assignment-dynamic-rules).
+
+<Callout icon="🚧">
+  One-time links that haven't been consumed will be automatically deleted after one year.
+</Callout>
