@@ -8,6 +8,9 @@ booking-calendars--id--one-time-links:
 
       > [!note]
       > One-time links are only available for published booking calendars.
+
+      > [!important]
+      > One-time links that haven't been consumed will be automatically deleted after one year.
     operationId: booking-calendars-create-a-one-time-link
     parameters:
       - name: id
