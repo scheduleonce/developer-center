@@ -50,7 +50,44 @@ const config: Config = {
     [
       "classic",
       {
-        docs: false, // Disable default docs, we'll use multiple instances
+        docs: {
+          // Single docs plugin with multiple sidebars for product separation
+          path: "docs",
+          routeBasePath: "docs",
+          sidebarPath: "./sidebars.ts",
+          editUrl:
+            "https://github.com/scheduleonce/developer-center/tree/main/",
+          remarkPlugins: [
+            function legacyImage() {
+              return (tree: any) => {
+                visit(tree, (node: any) => {
+                  if (
+                    node.type === "mdxJsxFlowElement" &&
+                    node.name === "Image"
+                  ) {
+                    const srcAttr = node.attributes?.find(
+                      (a: any) => a.name === "src"
+                    );
+                    if (srcAttr) {
+                      const altAttr = node.attributes?.find(
+                        (a: any) => a.name === "alt"
+                      );
+                      const titleAttr = node.attributes?.find(
+                        (a: any) => a.name === "title"
+                      );
+                      node.type = "image";
+                      node.url = srcAttr.value;
+                      node.alt = String(altAttr?.value || "");
+                      node.title = titleAttr?.value;
+                      delete node.name;
+                      delete node.attributes;
+                    }
+                  }
+                });
+              };
+            },
+          ],
+        },
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -58,90 +95,6 @@ const config: Config = {
     ],
   ],
   plugins: [
-    // Booking Calendars Documentation (current/recommended product)
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        id: "booking-calendars",
-        path: "docs",
-        routeBasePath: "docs/booking-calendars",
-        sidebarPath: "./sidebars.ts",
-        editUrl:
-          "https://github.com/scheduleonce/developer-center/tree/main/",
-        remarkPlugins: [
-          function legacyImage() {
-            return (tree: any) => {
-              visit(tree, (node: any) => {
-                if (
-                  node.type === "mdxJsxFlowElement" &&
-                  node.name === "Image"
-                ) {
-                  const srcAttr = node.attributes?.find(
-                    (a: any) => a.name === "src"
-                  );
-                  if (srcAttr) {
-                    const altAttr = node.attributes?.find(
-                      (a: any) => a.name === "alt"
-                    );
-                    const titleAttr = node.attributes?.find(
-                      (a: any) => a.name === "title"
-                    );
-                    node.type = "image";
-                    node.url = srcAttr.value;
-                    node.alt = String(altAttr?.value || "");
-                    node.title = titleAttr?.value;
-                    delete node.name;
-                    delete node.attributes;
-                  }
-                }
-              });
-            };
-          },
-        ],
-      },
-    ],
-    // Booking Pages Documentation (legacy product)
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        id: "booking-pages",
-        path: "docs",
-        routeBasePath: "docs/booking-pages",
-        sidebarPath: "./sidebars.ts",
-        editUrl:
-          "https://github.com/scheduleonce/developer-center/tree/main/",
-        remarkPlugins: [
-          function legacyImage() {
-            return (tree: any) => {
-              visit(tree, (node: any) => {
-                if (
-                  node.type === "mdxJsxFlowElement" &&
-                  node.name === "Image"
-                ) {
-                  const srcAttr = node.attributes?.find(
-                    (a: any) => a.name === "src"
-                  );
-                  if (srcAttr) {
-                    const altAttr = node.attributes?.find(
-                      (a: any) => a.name === "alt"
-                    );
-                    const titleAttr = node.attributes?.find(
-                      (a: any) => a.name === "title"
-                    );
-                    node.type = "image";
-                    node.url = srcAttr.value;
-                    node.alt = String(altAttr?.value || "");
-                    node.title = titleAttr?.value;
-                    delete node.name;
-                    delete node.attributes;
-                  }
-                }
-              });
-            };
-          },
-        ],
-      },
-    ],
     // Booking Calendars API Reference
     [
       "@scalar/docusaurus",
@@ -193,19 +146,10 @@ const config: Config = {
       },
       items: [
         {
-          type: "dropdown",
-          label: "Docs",
+          type: "docSidebar",
+          sidebarId: "tutorialSidebar",
+          label: "Documentation",
           position: "left",
-          items: [
-            {
-              to: "/docs/booking-calendars/shared/overview/introduction",
-              label: "Booking Calendars",
-            },
-            {
-              to: "/docs/booking-pages/shared/overview/introduction",
-              label: "Booking Pages (Legacy)",
-            },
-          ],
         },
         {
           type: "dropdown",
@@ -218,7 +162,7 @@ const config: Config = {
             },
             {
               to: "/reference/booking-pages/",
-              label: "Booking Pages API (Legacy)",
+              label: "Booking Pages API (Classic)",
             },
           ],
         },
@@ -236,12 +180,8 @@ const config: Config = {
           title: "Docs",
           items: [
             {
-              label: "Booking Calendars",
-              to: "/docs/booking-calendars/shared/overview/introduction",
-            },
-            {
-              label: "Booking Pages (Legacy)",
-              to: "/docs/booking-pages/shared/overview/introduction",
+              label: "Documentation",
+              to: "/docs/overview/introduction",
             },
           ],
         },
@@ -253,12 +193,8 @@ const config: Config = {
               to: "/reference/booking-calendars/",
             },
             {
-              label: "Booking Pages API",
+              label: "Booking Pages API (Classic)",
               to: "/reference/booking-pages/",
-            },
-            {
-              label: "Webhooks",
-              to: "/docs/booking-calendars/shared/webhooks/introduction-to-webhooks/",
             },
           ],
         },
@@ -267,11 +203,11 @@ const config: Config = {
           items: [
             {
               label: "Developer Support",
-              to: "/docs/booking-calendars/shared/developer-support/frequently-asked-questions/",
+              to: "/docs/developer-support/frequently-asked-questions",
             },
             {
               label: "Contact Us",
-              to: "/docs/booking-calendars/shared/developer-support/contact-us/",
+              to: "/docs/developer-support/contact-us",
             },
           ],
         },

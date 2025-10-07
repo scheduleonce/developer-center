@@ -1,8 +1,0 @@
-# Booking Pages Product Documentation (Legacy)
-
-This folder will contain documentation specific to the Booking Pages product.
-
-Currently, all documentation is shared between products and located in the `shared/` directory.
-Add product-specific guides, tutorials, or API usage examples here as needed.
-
-**Note:** Booking Pages is a legacy product. We recommend using Booking Calendars for new implementations.

@@ -33,6 +33,10 @@
       "description": "Manage contact information and relationships. Contacts represent people who have \nscheduled or may schedule appointments through your booking pages. Use these endpoints \nto list contacts, retrieve contact details, and manage contact records.\n"
     },
     {
+      "name": "Event Types",
+      "description": "Manage event type configurations and settings. Event types define the structure and \nbehavior of different types of appointments, including duration, availability rules, \nand booking forms. Use these endpoints to list and retrieve event type configurations.\n"
+    },
+    {
       "name": "Master Pages",
       "description": "Manage master page configurations and settings. Master pages serve as templates \nthat define the overall structure and branding for booking pages. Use these endpoints \nto list master pages, retrieve master page details, and create one-time booking links.\n"
     },
@@ -670,6 +674,93 @@
                     "value": {
                       "type": "invalid_request_error",
                       "message": "No such booking page: '123'",
+                      "param": "id"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/event-types": {
+      "get": {
+        "tags": [
+          "Event Types"
+        ],
+        "summary": "List all event types",
+        "description": "Returns a list of all event types in your account",
+        "operationId": "list-all-event-types",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Before"
+          },
+          {
+            "$ref": "#/components/parameters/After"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventTypeList"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/event-types/{id}": {
+      "get": {
+        "tags": [
+          "Event Types"
+        ],
+        "summary": "Get a single event type",
+        "description": "Returns a single event type by ID",
+        "operationId": "get-a-single-event-type",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the event type",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventType"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "404",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "No such event type: '123'",
                       "param": "id"
                     }
                   }
@@ -3366,6 +3457,51 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Team"
+            }
+          },
+          "has_more": {
+            "type": "boolean",
+            "description": "Whether there are more items available",
+            "example": false
+          }
+        }
+      },
+      "EventType": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "description": "String representing the object's type",
+            "example": "event_type"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the event type",
+            "example": "ET-7I7PKDTFJS"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the event type",
+            "example": "Live demo"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the event type",
+            "example": "Schedule a live demo with us for an in-depth look at our enterprise solutions."
+          }
+        }
+      },
+      "EventTypeList": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "example": "list"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventType"
             }
           },
           "has_more": {

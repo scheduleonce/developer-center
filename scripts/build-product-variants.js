@@ -23,8 +23,7 @@ const PRODUCT_RESOURCES = {
   'booking-calendars': {
     // Product-specific resources
     specific: [
-      'booking-calendars',
-      'event-types'
+      'booking-calendars'
     ],
     // Shared resources available to both products
     shared: [
@@ -38,14 +37,16 @@ const PRODUCT_RESOURCES = {
     // Resources to exclude
     exclude: [
       'booking-pages',
-      'master-pages'
+      'master-pages',
+      'event-types'
     ]
   },
   'booking-pages': {
     // Product-specific resources
     specific: [
       'booking-pages',
-      'master-pages'
+      'master-pages',
+      'event-types'
     ],
     // Shared resources available to both products
     shared: [
@@ -58,8 +59,7 @@ const PRODUCT_RESOURCES = {
     ],
     // Resources to exclude
     exclude: [
-      'booking-calendars',
-      'event-types'
+      'booking-calendars'
     ]
   }
 };
@@ -285,9 +285,64 @@ async function build() {
   }
 }
 
+/**
+ * Watch mode - rebuild variants when OpenAPI files change
+ */
+async function watchAndBuild() {
+  console.log('👀 Watching OpenAPI files for changes...');
+  console.log('   (Product variants will rebuild when source files change)');
+  console.log('   Press Ctrl+C to stop watching');
+  console.log();
+
+  // Build once initially
+  try {
+    await build();
+  } catch (err) {
+    console.error('❌ Initial build failed:', err.message);
+  }
+
+  // Watch for changes in the openapi directory and the bundled master spec
+  const watcher = fs.watch(
+    './openapi',
+    { recursive: true },
+    async (eventType, filename) => {
+      if (
+        filename &&
+        (filename.endsWith('.yaml') ||
+          filename.endsWith('.yml') ||
+          filename.endsWith('.json'))
+      ) {
+        console.log(`\n🔄 OpenAPI file changed: ${filename}`);
+        console.log('📄 Rebuilding product variants...');
+        try {
+          // First rebuild the master spec
+          const { build: buildMaster } = require('./build-openapi.js');
+          await buildMaster();
+          // Then rebuild variants
+          await build();
+          console.log('✅ Rebuild completed');
+        } catch (err) {
+          console.error('❌ Rebuild failed:', err.message);
+        }
+      }
+    }
+  );
+
+  // Handle graceful shutdown
+  process.on('SIGINT', () => {
+    console.log('\n🛑 Stopping file watcher...');
+    watcher.close();
+    process.exit(0);
+  });
+}
+
 // Run the build
 if (require.main === module) {
-  build();
+  if (process.argv.includes('--watch')) {
+    watchAndBuild();
+  } else {
+    build();
+  }
 }
 
 module.exports = { build, generateProductSpec, filterPathsForProduct };

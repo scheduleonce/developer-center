@@ -21,7 +21,7 @@
     "openapi:build-json": "node scripts/build-openapi.js --json",
     "openapi:build-variants": "node scripts/build-product-variants.js",
     "openapi:preview": "redocly preview-docs openapi/index.yaml",
-    "openapi:watch": "node scripts/build-openapi.js --watch",
+    "openapi:watch": "node scripts/build-product-variants.js --watch",
     "openapi:serve": "redocly preview-docs static/oncehub-api.yaml",
     "openapi:bundle": "redocly bundle openapi/index.yaml --output static/oncehub-api.yaml",
     "prebuild": "npm run openapi:build && npm run openapi:build-variants"
