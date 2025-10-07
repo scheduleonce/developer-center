@@ -2,12 +2,12 @@
 
 /**
  * OpenAPI Product Variants Build Script
- * 
+ *
  * Generates product-specific OpenAPI specifications:
  * - booking-calendars-api.yaml/json (Booking Calendars product)
  * - booking-pages-api.yaml/json (Booking Pages product - legacy)
- * 
- * Both variants include shared resources (authentication, bookings, contacts, 
+ *
+ * Both variants include shared resources (authentication, bookings, contacts,
  * users, teams, webhooks) but exclude each other's product-specific endpoints.
  */
 
@@ -20,48 +20,36 @@ const OUTPUT_DIR = "./static";
 
 // Define which resources belong to which product
 const PRODUCT_RESOURCES = {
-  'booking-calendars': {
+  "booking-calendars": {
     // Product-specific resources
-    specific: [
-      'booking-calendars'
-    ],
+    specific: ["booking-calendars"],
     // Shared resources available to both products
     shared: [
-      'authentication',
-      'bookings',
-      'contacts',
-      'users',
-      'teams',
-      'webhooks'
+      "authentication",
+      "bookings",
+      "contacts",
+      "users",
+      "teams",
+      "webhooks",
     ],
     // Resources to exclude
-    exclude: [
-      'booking-pages',
-      'master-pages',
-      'event-types'
-    ]
+    exclude: ["booking-pages", "master-pages", "event-types"],
   },
-  'booking-pages': {
+  "booking-pages": {
     // Product-specific resources
-    specific: [
-      'booking-pages',
-      'master-pages',
-      'event-types'
-    ],
+    specific: ["booking-pages", "master-pages", "event-types"],
     // Shared resources available to both products
     shared: [
-      'authentication',
-      'bookings',
-      'contacts',
-      'users',
-      'teams',
-      'webhooks'
+      "authentication",
+      "bookings",
+      "contacts",
+      "users",
+      "teams",
+      "webhooks",
     ],
     // Resources to exclude
-    exclude: [
-      'booking-calendars'
-    ]
-  }
+    exclude: ["booking-calendars"],
+  },
 };
 
 /**
@@ -71,13 +59,13 @@ function filterPathsForProduct(paths, productConfig) {
   const filtered = {};
   const allowedPrefixes = [
     ...productConfig.specific,
-    ...productConfig.shared
-  ].map(resource => `/${resource}`);
+    ...productConfig.shared,
+  ].map((resource) => `/${resource}`);
 
   for (const [path, pathItem] of Object.entries(paths)) {
     // Check if path starts with any allowed prefix
-    const isAllowed = allowedPrefixes.some(prefix => path.startsWith(prefix));
-    
+    const isAllowed = allowedPrefixes.some((prefix) => path.startsWith(prefix));
+
     if (isAllowed) {
       filtered[path] = pathItem;
     }
@@ -90,20 +78,20 @@ function filterPathsForProduct(paths, productConfig) {
  * Filter tags based on product configuration
  */
 function filterTagsForProduct(tags, productConfig) {
-  const allowedResources = [
-    ...productConfig.specific,
-    ...productConfig.shared
-  ];
+  const allowedResources = [...productConfig.specific, ...productConfig.shared];
 
-  return tags.filter(tag => {
+  return tags.filter((tag) => {
     // Handle both direct tags and $ref tags
     if (tag.$ref) {
-      const tagName = tag.$ref.split('/')[2]; // Extract resource name from path
+      const tagName = tag.$ref.split("/")[2]; // Extract resource name from path
       return allowedResources.includes(tagName);
     }
     // For direct tag objects, check the name
-    return tag.name && allowedResources.some(resource => 
-      tag.name.toLowerCase().includes(resource.replace('-', ' '))
+    return (
+      tag.name &&
+      allowedResources.some((resource) =>
+        tag.name.toLowerCase().includes(resource.replace("-", " "))
+      )
     );
   });
 }
@@ -113,9 +101,9 @@ function filterTagsForProduct(tags, productConfig) {
  */
 function filterSchemasForProduct(schemas, productConfig) {
   const filtered = {};
-  
+
   // Common schemas that should be included in all products
-  const commonSchemas = ['Error', 'DeletedObject', 'Conversation'];
+  const commonSchemas = ["Error", "DeletedObject", "Conversation"];
 
   for (const [schemaName, schema] of Object.entries(schemas)) {
     // Always include common schemas
@@ -125,19 +113,23 @@ function filterSchemasForProduct(schemas, productConfig) {
     }
 
     // Check if schema should be excluded based on product
-    const isExcluded = productConfig.exclude.some(resource => {
+    const isExcluded = productConfig.exclude.some((resource) => {
       // Convert resource name to singular PascalCase
       // e.g., "booking-pages" -> "BookingPage", "master-pages" -> "MasterPage"
-      const resourceSingular = resource.endsWith('s') ? resource.slice(0, -1) : resource;
+      const resourceSingular = resource.endsWith("s")
+        ? resource.slice(0, -1)
+        : resource;
       const resourcePascalCase = resourceSingular
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join('');
-      
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join("");
+
       // Check if schema name matches the excluded resource
       // e.g., "BookingPage", "BookingPageList", "MasterPage", "MasterPageList"
-      return schemaName === resourcePascalCase || 
-             schemaName === `${resourcePascalCase}List`;
+      return (
+        schemaName === resourcePascalCase ||
+        schemaName === `${resourcePascalCase}List`
+      );
     });
 
     if (!isExcluded) {
@@ -153,20 +145,20 @@ function filterSchemasForProduct(schemas, productConfig) {
  */
 function generateProductSpec(masterSpec, product, productConfig) {
   console.log(`\n📦 Generating ${product} variant...`);
-  
+
   // Deep clone the master spec
   const productSpec = JSON.parse(JSON.stringify(masterSpec));
 
   // Update info based on product
-  if (product === 'booking-calendars') {
-    productSpec.info.title = 'OnceHub Booking Calendars API';
+  if (product === "booking-calendars") {
+    productSpec.info.title = "OnceHub Booking Calendars API";
     productSpec.info.description = `
 The OnceHub Booking Calendars API allows you to manage bookings, calendars, event types, and scheduling resources programmatically.
 
 **Note:** This documentation is for the Booking Calendars product. Booking Calendars is our current and recommended scheduling solution.
     `.trim();
-  } else if (product === 'booking-pages') {
-    productSpec.info.title = 'OnceHub Booking Pages API';
+  } else if (product === "booking-pages") {
+    productSpec.info.title = "OnceHub Booking Pages API";
     productSpec.info.description = `
 The OnceHub Booking Pages API allows you to manage bookings, booking pages, master pages, and scheduling resources programmatically.
 
@@ -176,7 +168,9 @@ The OnceHub Booking Pages API allows you to manage bookings, booking pages, mast
 
   // Filter paths
   productSpec.paths = filterPathsForProduct(masterSpec.paths, productConfig);
-  console.log(`   ✓ Filtered paths: ${Object.keys(productSpec.paths).length} endpoints`);
+  console.log(
+    `   ✓ Filtered paths: ${Object.keys(productSpec.paths).length} endpoints`
+  );
 
   // Filter tags
   if (productSpec.tags) {
@@ -190,7 +184,11 @@ The OnceHub Booking Pages API allows you to manage bookings, booking pages, mast
       masterSpec.components.schemas,
       productConfig
     );
-    console.log(`   ✓ Filtered schemas: ${Object.keys(productSpec.components.schemas).length} schemas`);
+    console.log(
+      `   ✓ Filtered schemas: ${
+        Object.keys(productSpec.components.schemas).length
+      } schemas`
+    );
   }
 
   return productSpec;
@@ -206,19 +204,19 @@ function writeSpecFiles(spec, product) {
   // Write YAML
   const yamlContent = yaml.dump(spec, {
     lineWidth: -1, // Don't wrap lines
-    noRefs: true,  // Don't use YAML references
-    indent: 2
+    noRefs: true, // Don't use YAML references
+    indent: 2,
   });
-  fs.writeFileSync(yamlPath, yamlContent, 'utf8');
-  
+  fs.writeFileSync(yamlPath, yamlContent, "utf8");
+
   const yamlStats = fs.statSync(yamlPath);
   console.log(`   ✓ YAML written: ${yamlPath}`);
   console.log(`     Size: ${(yamlStats.size / 1024).toFixed(1)} KB`);
 
   // Write JSON
   const jsonContent = JSON.stringify(spec, null, 2);
-  fs.writeFileSync(jsonPath, jsonContent, 'utf8');
-  
+  fs.writeFileSync(jsonPath, jsonContent, "utf8");
+
   const jsonStats = fs.statSync(jsonPath);
   console.log(`   ✓ JSON written: ${jsonPath}`);
   console.log(`     Size: ${(jsonStats.size / 1024).toFixed(1)} KB`);
@@ -229,8 +227,8 @@ function writeSpecFiles(spec, product) {
  */
 async function build() {
   try {
-    console.log('🚀 Building OpenAPI Product Variants');
-    console.log('=====================================');
+    console.log("🚀 Building OpenAPI Product Variants");
+    console.log("=====================================");
 
     // Ensure output directory exists
     if (!fs.existsSync(OUTPUT_DIR)) {
@@ -238,48 +236,51 @@ async function build() {
     }
 
     // First, check if bundled master spec exists
-    const masterYamlPath = path.join(OUTPUT_DIR, 'oncehub-api.yaml');
-    
+    const masterYamlPath = path.join(OUTPUT_DIR, "oncehub-api.yaml");
+
     if (!fs.existsSync(masterYamlPath)) {
-      console.log('⚠️  Master bundled spec not found. Building it first...');
-      const { build: buildMaster } = require('./build-openapi.js');
+      console.log("⚠️  Master bundled spec not found. Building it first...");
+      const { build: buildMaster } = require("./build-openapi.js");
       await buildMaster();
       console.log();
     }
 
     // Load the bundled master spec (which has all $refs resolved)
-    console.log('📖 Loading bundled master specification...');
-    const masterYaml = fs.readFileSync(masterYamlPath, 'utf8');
+    console.log("📖 Loading bundled master specification...");
+    const masterYaml = fs.readFileSync(masterYamlPath, "utf8");
     const masterSpec = yaml.load(masterYaml);
-    console.log(`   ✓ Master spec loaded: ${Object.keys(masterSpec.paths).length} total endpoints`);
+    console.log(
+      `   ✓ Master spec loaded: ${
+        Object.keys(masterSpec.paths).length
+      } total endpoints`
+    );
 
     // Generate Booking Calendars variant
     const bookingCalendarsSpec = generateProductSpec(
       masterSpec,
-      'booking-calendars',
-      PRODUCT_RESOURCES['booking-calendars']
+      "booking-calendars",
+      PRODUCT_RESOURCES["booking-calendars"]
     );
-    writeSpecFiles(bookingCalendarsSpec, 'booking-calendars');
+    writeSpecFiles(bookingCalendarsSpec, "booking-calendars");
 
     // Generate Booking Pages variant
     const bookingPagesSpec = generateProductSpec(
       masterSpec,
-      'booking-pages',
-      PRODUCT_RESOURCES['booking-pages']
+      "booking-pages",
+      PRODUCT_RESOURCES["booking-pages"]
     );
-    writeSpecFiles(bookingPagesSpec, 'booking-pages');
+    writeSpecFiles(bookingPagesSpec, "booking-pages");
 
-    console.log('\n🎉 Product variants generated successfully!');
-    console.log('\n📂 Generated files:');
-    console.log('   Booking Calendars:');
-    console.log('     - /booking-calendars-api.yaml');
-    console.log('     - /booking-calendars-api.json');
-    console.log('   Booking Pages (legacy):');
-    console.log('     - /booking-pages-api.yaml');
-    console.log('     - /booking-pages-api.json');
-
+    console.log("\n🎉 Product variants generated successfully!");
+    console.log("\n📂 Generated files:");
+    console.log("   Booking Calendars:");
+    console.log("     - /booking-calendars-api.yaml");
+    console.log("     - /booking-calendars-api.json");
+    console.log("   Booking Pages (legacy):");
+    console.log("     - /booking-pages-api.yaml");
+    console.log("     - /booking-pages-api.json");
   } catch (error) {
-    console.error('❌ Build failed:', error.message);
+    console.error("❌ Build failed:", error.message);
     console.error(error.stack);
     process.exit(1);
   }
@@ -289,48 +290,48 @@ async function build() {
  * Watch mode - rebuild variants when OpenAPI files change
  */
 async function watchAndBuild() {
-  console.log('👀 Watching OpenAPI files for changes...');
-  console.log('   (Product variants will rebuild when source files change)');
-  console.log('   Press Ctrl+C to stop watching');
+  console.log("👀 Watching OpenAPI files for changes...");
+  console.log("   (Product variants will rebuild when source files change)");
+  console.log("   Press Ctrl+C to stop watching");
   console.log();
 
   // Build once initially
   try {
     await build();
   } catch (err) {
-    console.error('❌ Initial build failed:', err.message);
+    console.error("❌ Initial build failed:", err.message);
   }
 
   // Watch for changes in the openapi directory and the bundled master spec
   const watcher = fs.watch(
-    './openapi',
+    "./openapi",
     { recursive: true },
     async (eventType, filename) => {
       if (
         filename &&
-        (filename.endsWith('.yaml') ||
-          filename.endsWith('.yml') ||
-          filename.endsWith('.json'))
+        (filename.endsWith(".yaml") ||
+          filename.endsWith(".yml") ||
+          filename.endsWith(".json"))
       ) {
         console.log(`\n🔄 OpenAPI file changed: ${filename}`);
-        console.log('📄 Rebuilding product variants...');
+        console.log("📄 Rebuilding product variants...");
         try {
           // First rebuild the master spec
-          const { build: buildMaster } = require('./build-openapi.js');
+          const { build: buildMaster } = require("./build-openapi.js");
           await buildMaster();
           // Then rebuild variants
           await build();
-          console.log('✅ Rebuild completed');
+          console.log("✅ Rebuild completed");
         } catch (err) {
-          console.error('❌ Rebuild failed:', err.message);
+          console.error("❌ Rebuild failed:", err.message);
         }
       }
     }
   );
 
   // Handle graceful shutdown
-  process.on('SIGINT', () => {
-    console.log('\n🛑 Stopping file watcher...');
+  process.on("SIGINT", () => {
+    console.log("\n🛑 Stopping file watcher...");
     watcher.close();
     process.exit(0);
   });
@@ -338,7 +339,7 @@ async function watchAndBuild() {
 
 // Run the build
 if (require.main === module) {
-  if (process.argv.includes('--watch')) {
+  if (process.argv.includes("--watch")) {
     watchAndBuild();
   } else {
     build();
