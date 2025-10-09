@@ -2461,7 +2461,23 @@
             }
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hide_url_params ": {
+                    "type": "boolean",
+                    "description": "When set to `true`, the API generates a short one-time-use link with no visible query parameters.",
+                    "default": "false"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/booking-pages": {
