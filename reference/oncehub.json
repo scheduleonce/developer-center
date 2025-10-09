@@ -2502,7 +2502,7 @@
                   "utm_params": {
                     "type": "object",
                     "properties": {},
-                    "description": "Object containing captured values for the 5 standard [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters)."
+                    "description": "Object containing captured values for the 5 standard [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters)"
                   }
                 }
               }
