@@ -46,7 +46,7 @@ If the API key passed to an endpoint is not recognized, you will receive an erro
 
 ## Testing Your API Key
 
-Once you have your API key, you can test it by making a simple request to our [validation endpoint](/reference/#tag/authentication/get/test). This endpoint will confirm that your API key is valid and active.
+Once you have your API key, you can test it by making a simple request to our [validation endpoint](/reference/booking-calendars/#tag/authentication/get/test). This endpoint will confirm that your API key is valid and active.
 
 ## Regenerating Your API Key
 
