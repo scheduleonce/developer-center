@@ -2111,30 +2111,11 @@ components:
           description: '**BOOKING CALENDARS ONLY** A direct, publicly accessible URL that downloads an ICS (.ics) calendar file for the booking.'
           example: https://oncehub.com/api/bookings/ics/62ad3bdd-a09f-dfbdffbef389-axs01j
         utm_params:
-          type: object
-          nullable: true
-          description: Object containing captured values for the 5 standard UTM parameters. Not included in booking webhooks at this time. If no UTM params exist on the booking, object will return null.
-          properties:
-            source:
-              type: string
+          allOf:
+            - $ref: '#/components/schemas/UtmParams'
+            - type: object
               nullable: true
-              example: facebook
-            medium:
-              type: string
-              nullable: true
-              example: social
-            campaign:
-              type: string
-              nullable: true
-              example: null
-            term:
-              type: string
-              nullable: true
-              example: null
-            content:
-              type: string
-              nullable: true
-              example: null
+              description: Not included in booking webhooks at this time. If no UTM params exist on the booking, object will return null.
         contact:
           description: |
             The ID of the contact the booking was scheduled with.
@@ -2770,6 +2751,30 @@ components:
           items:
             type: string
             example: BKNG-3KM0HY2BF9SL
+    UtmParams:
+      type: object
+      description: Object containing captured values for the 5 standard [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters).
+      properties:
+        source:
+          type: string
+          description: Identifies which site sent the traffic
+          example: facebook
+        medium:
+          type: string
+          description: Identifies what type of link was used
+          example: social
+        campaign:
+          type: string
+          description: Identifies a specific product promotion or strategic campaign
+          example: webinar_signup
+        term:
+          type: string
+          description: Identifies search terms
+          example: online+meeting+scheduler
+        content:
+          type: string
+          description: Identifies what specifically was clicked to bring the user to the site
+          example: logolink
     BookingForm:
       type: object
       description: An object containing information about the guest

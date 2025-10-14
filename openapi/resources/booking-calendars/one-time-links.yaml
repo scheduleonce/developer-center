@@ -32,8 +32,7 @@ booking-calendars--id--one-time-links:
               booking_form:
                 $ref: "../../components/schemas/booking-form.yaml#/BookingForm"
               utm_params:
-                type: object
-                description: Object containing captured values for the 5 standard [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters).
+                $ref: "../../components/schemas/utm-params.yaml#/UtmParams"
     responses:
       "200":
         description: "200"
