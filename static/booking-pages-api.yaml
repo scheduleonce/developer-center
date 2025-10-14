@@ -77,19 +77,31 @@ paths:
             type: string
         - name: booking_page
           in: query
-          description: Only return bookings that were created from the booking page with the provided ID.
+          description: |
+            **BOOKING PAGES ONLY**
+
+            Only return bookings that were created from the booking page with the provided ID.
           schema:
             type: string
+          x-product: booking-pages
         - name: master_page
           in: query
-          description: Only return bookings that were created from the master page with the provided ID.
+          description: |
+            **BOOKING PAGES ONLY**
+
+            Only return bookings that were created from the master page with the provided ID.
           schema:
             type: string
+          x-product: booking-pages
         - name: event_type
           in: query
-          description: Only return bookings that were created using the event type with the provided ID.
+          description: |
+            **BOOKING PAGES ONLY**
+
+            Only return bookings that were created using the event type with the provided ID.
           schema:
             type: string
+          x-product: booking-pages
         - name: creation_time.gt
           in: query
           description: Return bookings with creation time greater than the given date.
@@ -137,17 +149,25 @@ paths:
         - name: booking_calendar
           in: query
           required: false
-          description: Only return bookings that were created from the booking calendar with the provided ID.
+          description: |
+            **BOOKING CALENDARS ONLY**
+
+            Only return bookings that were created from the booking calendar with the provided ID.
           schema:
             type: string
             default: ''
+          x-product: booking-calendars
         - name: host
           in: query
           required: false
-          description: Only return bookings hosted or co-hosted by a user with a specific user ID.
+          description: |
+            **BOOKING CALENDARS ONLY**
+
+            Only return bookings hosted or co-hosted by a user with a specific user ID.
           schema:
             type: string
             default: ''
+          x-product: booking-calendars
       responses:
         '200':
           description: '200'
