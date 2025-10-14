@@ -2498,6 +2498,9 @@
                       }
                     },
                     "description": "An object containing information about the guest"
+                  },
+                  "utm_params": {
+                    "type": "string"
                   }
                 }
               }
