@@ -2504,10 +2504,7 @@
                     },
                     "description": "An object containing information about the guest"
                   }
-                },
-                "required": [
-                  "utm_params"
-                ]
+                }
               }
             }
           }
