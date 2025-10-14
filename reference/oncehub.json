@@ -2473,11 +2473,6 @@
                     "description": "When set to `true`, the API generates a short one-time-use link with no visible query parameters.",
                     "default": "false"
                   },
-                  "utm_params": {
-                    "type": "object",
-                    "properties": {},
-                    "description": "Object containing captured values for the 5 standard [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters). "
-                  },
                   "booking_form": {
                     "type": "object",
                     "properties": {
