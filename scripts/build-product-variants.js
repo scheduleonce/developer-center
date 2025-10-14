@@ -102,12 +102,39 @@ function filterTagsForProduct(tags, productConfig) {
 function filterSchemasForProduct(schemas, productConfig) {
   const filtered = {};
 
-  // Common schemas that should be included in all products
-  const commonSchemas = ["Error", "DeletedObject", "Conversation"];
+  // Schemas that should be included in all products with ALL their fields intact
+  // These represent shared resources that contain fields from multiple products
+  const sharedSchemas = [
+    "Error",
+    "DeletedObject",
+    "Conversation",
+    "Booking",
+    "BookingList",
+  ];
+
+  // Schemas that are referenced by shared schemas and should be included to avoid broken $refs
+  const referencedSchemas = [
+    "BookingPage",
+    "BookingPageList",
+    "MasterPage",
+    "MasterPageList",
+    "EventType",
+    "EventTypeList",
+    "BookingCalendar",
+    "BookingCalendarList",
+    "User",
+    "Contact",
+  ];
 
   for (const [schemaName, schema] of Object.entries(schemas)) {
-    // Always include common schemas
-    if (commonSchemas.includes(schemaName)) {
+    // Always include shared schemas with all their fields intact
+    if (sharedSchemas.includes(schemaName)) {
+      filtered[schemaName] = schema;
+      continue;
+    }
+
+    // Always include referenced schemas to avoid broken $refs
+    if (referencedSchemas.includes(schemaName)) {
       filtered[schemaName] = schema;
       continue;
     }
@@ -168,14 +195,10 @@ The OnceHub Booking Pages API allows you to manage bookings, booking pages, mast
 
   // Filter paths
   productSpec.paths = filterPathsForProduct(masterSpec.paths, productConfig);
-  console.log(
-    `   ✓ Filtered paths: ${Object.keys(productSpec.paths).length} endpoints`
-  );
 
   // Filter tags
   if (productSpec.tags) {
     productSpec.tags = filterTagsForProduct(masterSpec.tags, productConfig);
-    console.log(`   ✓ Filtered tags: ${productSpec.tags.length} tags`);
   }
 
   // Filter schemas in components
@@ -185,9 +208,9 @@ The OnceHub Booking Pages API allows you to manage bookings, booking pages, mast
       productConfig
     );
     console.log(
-      `   ✓ Filtered schemas: ${
-        Object.keys(productSpec.components.schemas).length
-      } schemas`
+      `   ✓ ${Object.keys(productSpec.components.schemas).length} schemas, ${
+        Object.keys(productSpec.paths).length
+      } endpoints`
     );
   }
 
@@ -210,16 +233,17 @@ function writeSpecFiles(spec, product) {
   fs.writeFileSync(yamlPath, yamlContent, "utf8");
 
   const yamlStats = fs.statSync(yamlPath);
-  console.log(`   ✓ YAML written: ${yamlPath}`);
-  console.log(`     Size: ${(yamlStats.size / 1024).toFixed(1)} KB`);
 
   // Write JSON
   const jsonContent = JSON.stringify(spec, null, 2);
   fs.writeFileSync(jsonPath, jsonContent, "utf8");
 
   const jsonStats = fs.statSync(jsonPath);
-  console.log(`   ✓ JSON written: ${jsonPath}`);
-  console.log(`     Size: ${(jsonStats.size / 1024).toFixed(1)} KB`);
+  console.log(
+    `   ✓ Generated: ${(yamlStats.size / 1024).toFixed(1)}KB YAML, ${(
+      jsonStats.size / 1024
+    ).toFixed(1)}KB JSON`
+  );
 }
 
 /**
@@ -246,14 +270,9 @@ async function build() {
     }
 
     // Load the bundled master spec (which has all $refs resolved)
-    console.log("📖 Loading bundled master specification...");
+    console.log("📖 Loading master specification...");
     const masterYaml = fs.readFileSync(masterYamlPath, "utf8");
     const masterSpec = yaml.load(masterYaml);
-    console.log(
-      `   ✓ Master spec loaded: ${
-        Object.keys(masterSpec.paths).length
-      } total endpoints`
-    );
 
     // Generate Booking Calendars variant
     const bookingCalendarsSpec = generateProductSpec(
@@ -271,14 +290,7 @@ async function build() {
     );
     writeSpecFiles(bookingPagesSpec, "booking-pages");
 
-    console.log("\n🎉 Product variants generated successfully!");
-    console.log("\n📂 Generated files:");
-    console.log("   Booking Calendars:");
-    console.log("     - /booking-calendars-api.yaml");
-    console.log("     - /booking-calendars-api.json");
-    console.log("   Booking Pages (legacy):");
-    console.log("     - /booking-pages-api.yaml");
-    console.log("     - /booking-pages-api.json");
+    console.log("\n✅ Product variants generated successfully!");
   } catch (error) {
     console.error("❌ Build failed:", error.message);
     console.error(error.stack);

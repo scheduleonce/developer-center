@@ -95,6 +95,8 @@ const config: Config = {
     ],
   ],
   plugins: [
+    // Product Badge Enhancement Plugin
+    "./src/plugins/productBadgePlugin.js",
     // Booking Calendars API Reference
     [
       "@scalar/docusaurus",
@@ -109,11 +111,12 @@ const config: Config = {
           },
           hideDownloadButton: true,
           hideDarkModeToggle: true,
+          hideModels: true,
           theme: "alternate",
         },
       },
     ],
-    // Booking Pages API Reference (legacy)
+    // Booking Pages API Reference (Classic)
     [
       "@scalar/docusaurus",
       {
@@ -127,6 +130,7 @@ const config: Config = {
           },
           hideDownloadButton: true,
           hideDarkModeToggle: true,
+          hideModels: true,
           theme: "alternate",
         },
       },

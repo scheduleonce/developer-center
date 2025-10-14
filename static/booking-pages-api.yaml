@@ -2026,35 +2026,29 @@ components:
                     description: Value of the custom field.
                     example: Executive Assistant
         booking_page:
-          description: |
-            The ID of the booking page used to make the booking.
-
-            **Expandable**: Use `expand=booking_page` to include the full BookingPage object.
+          x-product: booking-pages
+          description: 'The ID of the booking page used to make the booking. **Expandable**: Use `expand=booking_page` to include the full BookingPage object.'
           oneOf:
             - type: string
-              description: Booking page ID (when not expanded)
+              description: '**BOOKING PAGES ONLY** Booking page ID (when not expanded)'
               example: BP-X0LCRU5LES
             - $ref: '#/components/schemas/BookingPage'
         master_page:
-          description: |
-            The ID of the master booking page used to make the booking.
-
-            **Expandable**: Use `expand=master_page` to include the full MasterPage object.
+          x-product: booking-pages
+          description: 'The ID of the master booking page used to make the booking. **Expandable**: Use `expand=master_page` to include the full MasterPage object.'
           oneOf:
             - type: string
-              description: Master page ID (when not expanded)
+              description: '**BOOKING PAGES ONLY** Master page ID (when not expanded)'
               example: MP-ZID28U5946
             - $ref: '#/components/schemas/MasterPage'
             - type: 'null'
               description: No master page associated
         event_type:
-          description: |
-            The ID of the service selected by customer.
-
-            **Expandable**: Use `expand=event_type` to include the full EventType object.
+          x-product: booking-pages
+          description: 'The ID of the service selected by customer. **Expandable**: Use `expand=event_type` to include the full EventType object.'
           oneOf:
             - type: string
-              description: Event type ID (when not expanded)
+              description: '**BOOKING PAGES ONLY** Event type ID (when not expanded)'
               example: ET-7NC41GHIDZ
             - $ref: '#/components/schemas/EventType'
             - type: 'null'
@@ -2097,8 +2091,9 @@ components:
               description: The id of the booking event that was created in the external calendar.
               example: 8kvu74dda8kcv0gmmlm3folrhc
         ics_url:
+          x-product: booking-calendars
           type: string
-          description: A direct, publicly accessible URL that downloads an ICS (.ics) calendar file for the booking.
+          description: '**BOOKING CALENDARS ONLY** A direct, publicly accessible URL that downloads an ICS (.ics) calendar file for the booking.'
           example: https://oncehub.com/api/bookings/ics/62ad3bdd-a09f-dfbdffbef389-axs01j
         utm_params:
           type: object
@@ -2136,16 +2131,19 @@ components:
               example: CTC-262WER5NR9CG38
             - $ref: '#/components/schemas/Contact'
         booking_calendar:
+          x-product: booking-calendars
           type: string
-          description: The ID of the booking calendar used to make this booking.
+          description: '**BOOKING CALENDARS ONLY** The ID of the booking calendar used to make this booking.'
           example: BKC-03WJV0R52Z
         cancel_url:
+          x-product: booking-calendars
           type: string
-          description: URL for cancelling the booking. Only sent for booking scheduled via booking calendars.
+          description: '**BOOKING CALENDARS ONLY** URL for cancelling the booking. Only sent for bookings scheduled via booking calendars.'
           example: https://oncehub.com/m/BKNG-3KM0HY2BF9SL/cancel
         reschedule_url:
+          x-product: booking-calendars
           type: string
-          description: URL for rescheduling the booking. Only sent for booking scheduled via booking calendars.
+          description: '**BOOKING CALENDARS ONLY** URL for rescheduling the booking. Only sent for bookings scheduled via booking calendars.'
           example: https://oncehub.com/m/BKNG-3KM0HY2BF9SL
         custom_fields:
           type: array
@@ -2479,6 +2477,56 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Webhook'
+        has_more:
+          type: boolean
+          description: Whether there are more items available
+          example: false
+    BookingCalendar:
+      type: object
+      properties:
+        object:
+          type: string
+          description: String representing the object's type. Objects of the same type share the same value. The type here is booking_calendar.
+          example: booking_calendar
+        id:
+          type: string
+          description: Unique identifier for the object.
+          example: BKC-LDJ878496X
+        host:
+          type: string
+          description: The user id / team id of the booking calendar meeting host. Additional attendees are not included.
+          example: USR-HYPGJXN3A8
+        name:
+          type: string
+          description: The internal label / name of the booking calendar.
+          example: Andrea Hartie booking calendar
+        subject:
+          type: string
+          description: The customer-facing subject of the booking calendar.
+          example: Meeting with Andrea Hartie
+        url:
+          type: string
+          format: uri
+          description: The URL of the booking calendar.
+          example: https://oncehub.com/andreahartie
+        published:
+          type: boolean
+          description: True if this booking calendar is enabled and accepts bookings.
+          example: true
+        duration_minutes:
+          type: number
+          description: Meeting duration in minutes.
+          example: 30
+    BookingCalendarList:
+      type: object
+      properties:
+        object:
+          type: string
+          example: list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookingCalendar'
         has_more:
           type: boolean
           description: Whether there are more items available

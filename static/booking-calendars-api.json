@@ -3027,11 +3027,12 @@
             }
           },
           "booking_page": {
-            "description": "The ID of the booking page used to make the booking.\n\n**Expandable**: Use `expand=booking_page` to include the full BookingPage object.\n",
+            "x-product": "booking-pages",
+            "description": "The ID of the booking page used to make the booking. **Expandable**: Use `expand=booking_page` to include the full BookingPage object.",
             "oneOf": [
               {
                 "type": "string",
-                "description": "Booking page ID (when not expanded)",
+                "description": "**BOOKING PAGES ONLY** Booking page ID (when not expanded)",
                 "example": "BP-X0LCRU5LES"
               },
               {
@@ -3040,11 +3041,12 @@
             ]
           },
           "master_page": {
-            "description": "The ID of the master booking page used to make the booking.\n\n**Expandable**: Use `expand=master_page` to include the full MasterPage object.\n",
+            "x-product": "booking-pages",
+            "description": "The ID of the master booking page used to make the booking. **Expandable**: Use `expand=master_page` to include the full MasterPage object.",
             "oneOf": [
               {
                 "type": "string",
-                "description": "Master page ID (when not expanded)",
+                "description": "**BOOKING PAGES ONLY** Master page ID (when not expanded)",
                 "example": "MP-ZID28U5946"
               },
               {
@@ -3057,11 +3059,12 @@
             ]
           },
           "event_type": {
-            "description": "The ID of the service selected by customer.\n\n**Expandable**: Use `expand=event_type` to include the full EventType object.\n",
+            "x-product": "booking-pages",
+            "description": "The ID of the service selected by customer. **Expandable**: Use `expand=event_type` to include the full EventType object.",
             "oneOf": [
               {
                 "type": "string",
-                "description": "Event type ID (when not expanded)",
+                "description": "**BOOKING PAGES ONLY** Event type ID (when not expanded)",
                 "example": "ET-7NC41GHIDZ"
               },
               {
@@ -3123,8 +3126,9 @@
             }
           },
           "ics_url": {
+            "x-product": "booking-calendars",
             "type": "string",
-            "description": "A direct, publicly accessible URL that downloads an ICS (.ics) calendar file for the booking.",
+            "description": "**BOOKING CALENDARS ONLY** A direct, publicly accessible URL that downloads an ICS (.ics) calendar file for the booking.",
             "example": "https://oncehub.com/api/bookings/ics/62ad3bdd-a09f-dfbdffbef389-axs01j"
           },
           "utm_params": {
@@ -3173,18 +3177,21 @@
             ]
           },
           "booking_calendar": {
+            "x-product": "booking-calendars",
             "type": "string",
-            "description": "The ID of the booking calendar used to make this booking.",
+            "description": "**BOOKING CALENDARS ONLY** The ID of the booking calendar used to make this booking.",
             "example": "BKC-03WJV0R52Z"
           },
           "cancel_url": {
+            "x-product": "booking-calendars",
             "type": "string",
-            "description": "URL for cancelling the booking. Only sent for booking scheduled via booking calendars.",
+            "description": "**BOOKING CALENDARS ONLY** URL for cancelling the booking. Only sent for bookings scheduled via booking calendars.",
             "example": "https://oncehub.com/m/BKNG-3KM0HY2BF9SL/cancel"
           },
           "reschedule_url": {
+            "x-product": "booking-calendars",
             "type": "string",
-            "description": "URL for rescheduling the booking. Only sent for booking scheduled via booking calendars.",
+            "description": "**BOOKING CALENDARS ONLY** URL for rescheduling the booking. Only sent for bookings scheduled via booking calendars.",
             "example": "https://oncehub.com/m/BKNG-3KM0HY2BF9SL"
           },
           "custom_fields": {
@@ -3413,6 +3420,67 @@
           }
         }
       },
+      "BookingPage": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "description": "String representing the object's type",
+            "example": "booking_page"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the object",
+            "example": "BP-3F7JAWT4UA"
+          },
+          "name": {
+            "type": "string",
+            "description": "The customer-facing name of the booking page",
+            "example": "Andrea Hartie"
+          },
+          "label": {
+            "type": "string",
+            "description": "The internal label of the booking page",
+            "example": "AndreaHartie"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL of the booking page",
+            "example": "https://go.oncehub.com/andreahartie"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "True if this booking page is enabled and accepts bookings",
+            "example": true
+          },
+          "timezone": {
+            "type": "string",
+            "description": "The Booking page timezone. Displayed in IANA timezone format.",
+            "example": "America/Chicago"
+          }
+        }
+      },
+      "BookingPageList": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "example": "list"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BookingPage"
+            }
+          },
+          "has_more": {
+            "type": "boolean",
+            "description": "Whether there are more items available",
+            "example": false
+          }
+        }
+      },
       "Team": {
         "type": "object",
         "properties": {
@@ -3444,6 +3512,51 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Team"
+            }
+          },
+          "has_more": {
+            "type": "boolean",
+            "description": "Whether there are more items available",
+            "example": false
+          }
+        }
+      },
+      "EventType": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "description": "String representing the object's type",
+            "example": "event_type"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the event type",
+            "example": "ET-7I7PKDTFJS"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the event type",
+            "example": "Live demo"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the event type",
+            "example": "Schedule a live demo with us for an in-depth look at our enterprise solutions."
+          }
+        }
+      },
+      "EventTypeList": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "example": "list"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventType"
             }
           },
           "has_more": {
@@ -3699,6 +3812,44 @@
           "type",
           "message"
         ]
+      },
+      "MasterPage": {
+        "type": "object",
+        "description": "The master page object contains the name, label and URL for master pages on your account and indicates whether the master page is enabled to receive bookings.\n",
+        "properties": {
+          "object": {
+            "type": "string",
+            "description": "String representing the object's type. Objects of the same type share the same value. The type here is master_page.",
+            "example": "master_page"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the object.",
+            "example": "MP-73E6RHFU77"
+          },
+          "name": {
+            "type": "string",
+            "description": "The customer facing name of the master page.",
+            "example": "Star Software LLC"
+          },
+          "label": {
+            "type": "string",
+            "description": "The internal label of the master page.",
+            "example": "Dana"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL of the master page.",
+            "example": "https://go.oncehub.com/dana"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "True if this master page is enabled and accepts bookings.",
+            "example": true,
+            "default": true
+          }
+        }
       },
       "Conversation": {
         "type": "object",

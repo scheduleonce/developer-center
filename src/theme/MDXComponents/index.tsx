@@ -55,11 +55,7 @@ const components = {
   Table,
 };
 
-// Debug log to ensure override is applied
-if (typeof window !== "undefined") {
-  // eslint-disable-next-line no-console
-  console.log("[MDXComponents override] Image component registered");
-}
+// Image component override registered
 
 export default components;
 export { components as MDXComponents };
