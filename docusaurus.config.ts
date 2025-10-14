@@ -102,7 +102,7 @@ const config: Config = {
       "@scalar/docusaurus",
       {
         id: "booking-calendars-api",
-        label: "Booking Calendars API",
+        label: "Booking Calendars",
         route: "/reference/booking-calendars",
         showNavLink: false,
         configuration: {
@@ -121,7 +121,7 @@ const config: Config = {
       "@scalar/docusaurus",
       {
         id: "booking-pages-api",
-        label: "Booking Pages API",
+        label: "Booking Pages",
         route: "/reference/booking-pages",
         showNavLink: false,
         configuration: {
@@ -162,11 +162,11 @@ const config: Config = {
           items: [
             {
               to: "/reference/booking-calendars/",
-              label: "Booking Calendars API",
+              label: "Booking Calendars",
             },
             {
               to: "/reference/booking-pages/",
-              label: "Booking Pages API (Classic)",
+              label: "Booking Pages (Classic)",
             },
           ],
         },
@@ -193,11 +193,11 @@ const config: Config = {
           title: "API",
           items: [
             {
-              label: "Booking Calendars API",
+              label: "Booking Calendars",
               to: "/reference/booking-calendars/",
             },
             {
-              label: "Booking Pages API (Classic)",
+              label: "Booking Pages (Classic)",
               to: "/reference/booking-pages/",
             },
           ],
