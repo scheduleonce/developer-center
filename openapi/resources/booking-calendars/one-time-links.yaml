@@ -19,6 +19,21 @@ booking-calendars--id--one-time-links:
         schema:
           type: string
         required: true
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              hide_url_params:
+                type: boolean
+                description: When set to `true`, the API generates a short one-time-use link with no visible query parameters.
+                default: false
+              booking_form:
+                $ref: "../../components/schemas/booking-form.yaml#/BookingForm"
+              utm_params:
+                type: object
+                description: Object containing captured values for the 5 standard [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters).
     responses:
       "200":
         description: "200"
@@ -51,7 +66,7 @@ booking-calendars--id--one-time-links:
             examples:
               Result:
                 value:
-                  type: invalid_request_error
+                  type: "invalid_request_error"
                   message: "This booking calendar does not allow creation of one time links: 'BKC-1234'"
                   param: id
             schema:

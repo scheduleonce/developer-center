@@ -49,36 +49,17 @@ booking-calendars--id--schedule:
                   format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
                 x-readme-id: "0.1"
               booking_form:
-                type: object
-                description: An object containing information about the guest
-                properties:
-                  name:
-                    type: string
-                    description: Name of the guest
-                    x-readme-id: "1.0"
-                  email:
-                    type: string
-                    description: Email of the guest
-                    x-readme-id: "1.1"
-                  phone:
-                    type: string
-                    description: Phone of the guest
-                  string_custom_field:
-                    type: string
-                    description: >-
-                      A placeholder for a custom field that accepts a single text value. Replace `string_custom_field`
-                      with the `mapped_field_name` of your Text or Single-Select Picklist question.
-                  array_custom_field:
-                    type: array
-                    items:
-                      type: string
-                    description: >-
-                      A placeholder for a custom field that accepts multiple values. Replace `array_custom_field` with
-                      the mapped_field_name of your Multi-Select Picklist question. The value must be an array of
-                      strings.
-                required:
-                  - name
-                  - email
+                allOf:
+                  - $ref: "../../components/schemas/booking-form.yaml#/BookingForm"
+                  - type: object
+                    properties:
+                      name:
+                        type: string
+                      email:
+                        type: string
+                    required:
+                      - name
+                      - email
                 x-readme-id: "0.2"
               location:
                 properties:
