@@ -78,8 +78,7 @@ paths:
         - name: booking_page
           in: query
           description: |
-            **BOOKING PAGES ONLY**
-
+            **BOOKING PAGES ONLY**  
             Only return bookings that were created from the booking page with the provided ID.
           schema:
             type: string
@@ -87,8 +86,7 @@ paths:
         - name: master_page
           in: query
           description: |
-            **BOOKING PAGES ONLY**
-
+            **BOOKING PAGES ONLY**  
             Only return bookings that were created from the master page with the provided ID.
           schema:
             type: string
@@ -96,8 +94,7 @@ paths:
         - name: event_type
           in: query
           description: |
-            **BOOKING PAGES ONLY**
-
+            **BOOKING PAGES ONLY**  
             Only return bookings that were created using the event type with the provided ID.
           schema:
             type: string
@@ -150,8 +147,7 @@ paths:
           in: query
           required: false
           description: |
-            **BOOKING CALENDARS ONLY**
-
+            **BOOKING CALENDARS ONLY**  
             Only return bookings that were created from the booking calendar with the provided ID.
           schema:
             type: string
@@ -161,8 +157,7 @@ paths:
           in: query
           required: false
           description: |
-            **BOOKING CALENDARS ONLY**
-
+            **BOOKING CALENDARS ONLY**  
             Only return bookings hosted or co-hosted by a user with a specific user ID.
           schema:
             type: string

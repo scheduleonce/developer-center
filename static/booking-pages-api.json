@@ -90,7 +90,7 @@
           {
             "name": "booking_page",
             "in": "query",
-            "description": "**BOOKING PAGES ONLY**\n\nOnly return bookings that were created from the booking page with the provided ID.\n",
+            "description": "**BOOKING PAGES ONLY**  \nOnly return bookings that were created from the booking page with the provided ID.\n",
             "schema": {
               "type": "string"
             },
@@ -99,7 +99,7 @@
           {
             "name": "master_page",
             "in": "query",
-            "description": "**BOOKING PAGES ONLY**\n\nOnly return bookings that were created from the master page with the provided ID.\n",
+            "description": "**BOOKING PAGES ONLY**  \nOnly return bookings that were created from the master page with the provided ID.\n",
             "schema": {
               "type": "string"
             },
@@ -108,7 +108,7 @@
           {
             "name": "event_type",
             "in": "query",
-            "description": "**BOOKING PAGES ONLY**\n\nOnly return bookings that were created using the event type with the provided ID.\n",
+            "description": "**BOOKING PAGES ONLY**  \nOnly return bookings that were created using the event type with the provided ID.\n",
             "schema": {
               "type": "string"
             },
@@ -189,7 +189,7 @@
             "name": "booking_calendar",
             "in": "query",
             "required": false,
-            "description": "**BOOKING CALENDARS ONLY**\n\nOnly return bookings that were created from the booking calendar with the provided ID.\n",
+            "description": "**BOOKING CALENDARS ONLY**  \nOnly return bookings that were created from the booking calendar with the provided ID.\n",
             "schema": {
               "type": "string",
               "default": ""
@@ -200,7 +200,7 @@
             "name": "host",
             "in": "query",
             "required": false,
-            "description": "**BOOKING CALENDARS ONLY**\n\nOnly return bookings hosted or co-hosted by a user with a specific user ID.\n",
+            "description": "**BOOKING CALENDARS ONLY**  \nOnly return bookings hosted or co-hosted by a user with a specific user ID.\n",
             "schema": {
               "type": "string",
               "default": ""

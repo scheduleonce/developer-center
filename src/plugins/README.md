@@ -25,14 +25,14 @@ properties:
     type: string
     description: |
       **BOOKING CALENDARS ONLY**
-      
+
       URL to download an ICS calendar file for this booking.
 
   master_page:
     type: object
     description: |
       **BOOKING PAGES ONLY**
-      
+
       Reference to the master page used to create this booking.
 ```
 
@@ -46,7 +46,7 @@ parameters:
     in: query
     description: |
       **BOOKING CALENDARS ONLY**
-      
+
       Only return bookings from a specific booking calendar.
     schema:
       type: string
@@ -64,12 +64,14 @@ The plugin is currently applied to the following fields:
 ### Booking Schema Properties
 
 **Booking Calendars Only:**
+
 - `ics_url` - Direct URL to download ICS calendar file
 - `booking_calendar` - Reference to booking calendar
 - `cancel_url` - URL for canceling the booking
 - `reschedule_url` - URL for rescheduling the booking
 
 **Booking Pages Only:**
+
 - `booking_page` - Reference to booking page
 - `master_page` - Reference to master page
 - `event_type` - Reference to event type
@@ -77,10 +79,12 @@ The plugin is currently applied to the following fields:
 ### Query Parameters (List Bookings)
 
 **Booking Calendars Only:**
+
 - `booking_calendar` - Filter by booking calendar ID
 - `host` - Filter by host user ID
 
 **Booking Pages Only:**
+
 - `booking_page` - Filter by booking page ID
 - `master_page` - Filter by master page ID
 - `event_type` - Filter by event type ID
@@ -90,19 +94,22 @@ The plugin is currently applied to the following fields:
 To add badges to new fields:
 
 1. **Add badge text** to the description in the OpenAPI schema:
+
    ```yaml
    description: |
      **BOOKING CALENDARS ONLY**
-     
+
      Your field description here.
    ```
 
 2. **Add x-product extension** (for filtering in product variants):
+
    ```yaml
-   x-product: booking-calendars  # or booking-pages
+   x-product: booking-calendars # or booking-pages
    ```
 
 3. **Rebuild API variants:**
+
    ```bash
    npm run openapi:build-variants
    ```
@@ -117,7 +124,7 @@ The plugin is configured in `docusaurus.config.ts`:
 plugins: [
   "./src/plugins/productBadgePlugin.js",
   // ... other plugins
-]
+];
 ```
 
 ## Technical Details
