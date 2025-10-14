@@ -732,11 +732,16 @@ paths:
           content:
             application/json:
               examples:
-                Result:
+                Required fields missing:
                   value:
                     type: invalid_request_error
                     message: Required fields are missing.
                     param: booking_form
+                Time slot unavailable:
+                  value:
+                    type: invalid_request_error
+                    message: The selected start time is not available.
+                    param: start_time
               schema:
                 $ref: '#/components/schemas/Error'
         '402':
