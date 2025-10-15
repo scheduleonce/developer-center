@@ -70,7 +70,10 @@ paths:
 
   # Users
   /users:
-    $ref: "./resources/users/list.yaml#/users"
+    get:
+      $ref: "./resources/users/list.yaml#/users/get"
+    post:
+      $ref: "./resources/users/add.yaml#/users-add/post"
   /users/{id}:
     get:
       $ref: "./resources/users/get.yaml#/users--id/get"

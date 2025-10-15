@@ -1107,6 +1107,147 @@
           }
         },
         "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Add a new user",
+        "description": "Add or invite a new user to your OnceHub account\n\n> [!note]\n> * The user will be added with Member role by default\n> * An invitation email will be sent to the user\n> * User limits apply based on your account plan (500 for purchased accounts, 30 for trial accounts)\n",
+        "operationId": "add-a-new-user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address of the new user",
+                    "example": "carrie.customer@gmail.com"
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "description": "First name of the new user",
+                    "example": "Carrie"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "description": "Last name of the new user",
+                    "example": "Customer"
+                  }
+                },
+                "required": [
+                  "email",
+                  "first_name",
+                  "last_name"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"id\": \"USR-FSD423423\",\n  \"object\": \"user\",\n  \"first_name\": \"Carrie\",\n  \"last_name\": \"Customer\",\n  \"email\": \"carrie.customer@gmail.com\",\n  \"status\": \"active\",\n  \"role_name\": \"Member\",\n  \"timezone\": \"America/Chicago\"\n}"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Required fields missing": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Required fields are missing.",
+                      "param": "email"
+                    }
+                  },
+                  "Invalid first name": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Invalid first_name: 'fir[/*st_na*/]?me'",
+                      "param": "first_name"
+                    }
+                  },
+                  "Invalid last name": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Invalid last_name: 'la[/*st_na*/]?me'",
+                      "param": "last_name"
+                    }
+                  },
+                  "Unsupported fields": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Unsupported fields",
+                      "param": "{param_name}"
+                    }
+                  },
+                  "Email already exists": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Email already exists: 'carrie.customer@gmail.com'",
+                      "param": "email"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "422",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "User limit exceeded": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "You have reached the user limit for your current plan. To add more users, please upgrade your account."
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Internal server error": {
+                    "value": {
+                      "type": "internal_server_error"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
       }
     },
     "/users/{id}": {
