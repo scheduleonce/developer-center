@@ -808,9 +808,10 @@ paths:
 
         > [!note]
         > Notes On Using This Endpoint
-        > * The user will be added with Member role by default
+        > * The user will be added with Member role by default if no role is specified
         > * An invitation email will be sent to the user
         > * User limits apply based on your account plan (500 for purchased accounts, 30 for trial accounts)
+        > * The Account Owner role cannot be assigned through the API
       operationId: add-a-new-user
       requestBody:
         required: true
@@ -832,6 +833,22 @@ paths:
                   type: string
                   description: Last name of the new user
                   example: Customer
+                role_name:
+                  type: string
+                  description: The role to assign to the user. Valid values are Administrator, Member, or Team Manager. Defaults to Member if not specified.
+                  enum:
+                    - Administrator
+                    - Member
+                    - Team Manager
+                  example: Administrator
+                teams:
+                  type: array
+                  items:
+                    type: string
+                  description: Array of team external IDs to add the user to. Each team ID must exist in the account.
+                  example:
+                    - TM-GCJU8DLBTPY1
+                    - TM-ABC123DEF456
               required:
                 - email
                 - first_name
@@ -851,8 +868,9 @@ paths:
                       "last_name": "Customer",
                       "email": "carrie.customer@gmail.com",
                       "status": "active",
-                      "role_name": "Member",
-                      "timezone": "America/Chicago"
+                      "role_name": "Administrator",
+                      "timezone": "America/Chicago",
+                      "teams": ["TM-GCJU8DLBTPY1"]
                     }
               schema:
                 $ref: '#/components/schemas/User'
@@ -886,6 +904,16 @@ paths:
                     type: invalid_request_error
                     message: 'Email already exists: ''carrie.customer@gmail.com'''
                     param: email
+                Invalid role name:
+                  value:
+                    type: invalid_request_error
+                    message: 'Invalid role name: ''Super Admin'''
+                    param: role_name
+                Invalid teams:
+                  value:
+                    type: invalid_request_error
+                    message: 'Invalid team(s): ''TM-INVALID1'', ''TM-INVALID2'''
+                    param: teams
               schema:
                 $ref: '#/components/schemas/Error'
         '422':
