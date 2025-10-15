@@ -7,6 +7,7 @@ users-add:
       Add or invite a new user to your OnceHub account
 
       > [!note]
+      > Notes On Using This Endpoint
       > * The user will be added with Member role by default
       > * An invitation email will be sent to the user
       > * User limits apply based on your account plan (500 for purchased accounts, 30 for trial accounts)

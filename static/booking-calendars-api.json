@@ -1113,7 +1113,7 @@
           "Users"
         ],
         "summary": "Add a new user",
-        "description": "Add or invite a new user to your OnceHub account\n\n> [!note]\n> * The user will be added with Member role by default\n> * An invitation email will be sent to the user\n> * User limits apply based on your account plan (500 for purchased accounts, 30 for trial accounts)\n",
+        "description": "Add or invite a new user to your OnceHub account\n\n> [!note]\n> Notes On Using This Endpoint\n> * The user will be added with Member role by default\n> * An invitation email will be sent to the user\n> * User limits apply based on your account plan (500 for purchased accounts, 30 for trial accounts)\n",
         "operationId": "add-a-new-user",
         "requestBody": {
           "required": true,
