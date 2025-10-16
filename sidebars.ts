@@ -41,6 +41,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Client-Side API",
+      link: { type: "doc", id: "client-side-api/introduction" },
+      items: ["client-side-api/introduction", "client-side-api/url-parameters"],
+    },
+    {
+      type: "category",
       label: "Recipes",
       link: { type: "doc", id: "recipes/fetch-bookings-periodically" },
       items: ["recipes/fetch-bookings-periodically"],
