@@ -43,7 +43,10 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Client-Side API",
       link: { type: "doc", id: "client-side-api/introduction" },
-      items: ["client-side-api/introduction", "client-side-api/url-parameters"],
+      items: [
+        "client-side-api/introduction",
+        "client-side-api/redirecting-booking-confirmation-data",
+      ],
     },
     {
       type: "category",

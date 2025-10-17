@@ -1140,7 +1140,7 @@
                   },
                   "role_name": {
                     "type": "string",
-                    "description": "The role to assign to the user. Valid values are Administrator, Member, or Team Manager. Defaults to Member if not specified.",
+                    "description": "The role to assign to the user. Valid values are `Administrator`, `Member`, or `Team Manager`. Defaults to `Member` if not specified.",
                     "enum": [
                       "Administrator",
                       "Member",
