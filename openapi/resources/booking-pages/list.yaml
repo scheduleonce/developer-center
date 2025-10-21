@@ -31,4 +31,6 @@ booking-pages:
           application/json:
             schema:
               $ref: "../../components/schemas/booking-page.yaml#/BookingPageList"
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
     deprecated: false

@@ -21,4 +21,6 @@ teams:
           application/json:
             schema:
               $ref: "../../components/schemas/team.yaml#/TeamList"
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
     deprecated: false

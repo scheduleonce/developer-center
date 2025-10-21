@@ -413,6 +413,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BookingCalendarList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
       deprecated: false
   /booking-calendars/{id}:
     get:
@@ -643,10 +645,8 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "id": "BKNG-J4FR05BKEWEX"
-                    }
+                  value:
+                    id: BKNG-J4FR05BKEWEX
               schema:
                 type: object
                 properties:
@@ -736,12 +736,10 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "id": "QUHVEKLPD93M",
-                      "url": "https://oncehub.com/.QUHVEKLPD93M",
-                      "creation_time": "2024-06-18T14:28:19Z"
-                    }
+                  value:
+                    id: QUHVEKLPD93M
+                    url: https://oncehub.com/.QUHVEKLPD93M
+                    creation_time: '2024-06-18T14:28:19Z'
               schema:
                 type: object
                 properties:
@@ -798,6 +796,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
       deprecated: false
     post:
       tags:
@@ -860,18 +860,17 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "id": "USR-FSD423423",
-                      "object": "user",
-                      "first_name": "Carrie",
-                      "last_name": "Customer",
-                      "email": "carrie.customer@gmail.com",
-                      "status": "active",
-                      "role_name": "Administrator",
-                      "timezone": "America/Chicago",
-                      "teams": ["TM-GCJU8DLBTPY1"]
-                    }
+                  value:
+                    id: USR-FSD423423
+                    object: user
+                    first_name: Carrie
+                    last_name: Customer
+                    email: carrie.customer@gmail.com
+                    status: active
+                    role_name: Administrator
+                    timezone: America/Chicago
+                    teams:
+                      - TM-GCJU8DLBTPY1
               schema:
                 $ref: '#/components/schemas/User'
         '400':
@@ -934,7 +933,8 @@ paths:
               examples:
                 Internal server error:
                   value:
-                    type: internal_server_error
+                    type: api_error
+                    message: An unexpected error occurred. Please try again later.
               schema:
                 $ref: '#/components/schemas/Error'
       deprecated: false
@@ -1092,7 +1092,7 @@ paths:
         - Users
       summary: Update scheduling availability
       description: Updates the scheduling availability for a user
-      operationId: patch_users{id}scheduling-availability
+      operationId: patch_user_scheduling_availability
       responses:
         '200':
           description: ''
@@ -1299,6 +1299,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TeamList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
       deprecated: false
   /teams/{id}:
     get:
@@ -1522,6 +1524,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WebhookList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
       deprecated: false
   /webhooks/{id}:
     get:

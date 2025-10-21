@@ -21,4 +21,6 @@ booking-calendars:
           application/json:
             schema:
               $ref: "../../components/schemas/booking-calendar.yaml#/BookingCalendarList"
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
     deprecated: false

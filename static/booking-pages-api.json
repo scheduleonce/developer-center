@@ -635,6 +635,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
         },
         "deprecated": false
@@ -722,6 +725,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
         },
         "deprecated": false
@@ -822,11 +828,35 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"object\": \"list\",\n  \"data\": [\n{\n  \"id\": \"MP-73E6RHFU77\",\n  \"object\": \"master_page\",\n  \"name\": \"Star Software LLC\",\n  \"label\": \"Dana\",\n  \"url\": \"https://go.oncehub.com/dana\",\n  \"active\": true\n},\n    {...},\n    {...}\n  ]\n}"
+                    "value": {
+                      "object": "list",
+                      "data": [
+                        {
+                          "id": "MP-73E6RHFU77",
+                          "object": "master_page",
+                          "name": "Star Software LLC",
+                          "label": "Dana",
+                          "url": "https://go.oncehub.com/dana",
+                          "active": true
+                        },
+                        {
+                          "id": "MP-1234567890",
+                          "object": "master_page",
+                          "name": "Example Master Page",
+                          "label": "Team",
+                          "url": "https://go.oncehub.com/team",
+                          "active": false
+                        }
+                      ],
+                      "has_more": false
+                    }
                   }
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
         },
         "deprecated": false
@@ -858,7 +888,14 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"id\": \"MP-73E6RHFU77\",\n  \"object\": \"master_page\",\n  \"name\": \"Star Software LLC\",\n  \"label\": \"Dana\",\n  \"url\": \"https://go.oncehub.com/dana\",\n  \"active\": true\n}"
+                    "value": {
+                      "id": "MP-73E6RHFU77",
+                      "object": "master_page",
+                      "name": "Star Software LLC",
+                      "label": "Dana",
+                      "url": "https://go.oncehub.com/dana",
+                      "active": true
+                    }
                   }
                 },
                 "schema": {
@@ -943,7 +980,11 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"id\": \"S617NW9C\",\n  \"url\": \"https://go.oncehub.com/.S617NW9C\",\n  \"creation_time\": \"2023-12-08T10:21:01Z\"\n}"
+                    "value": {
+                      "id": "S617NW9C",
+                      "url": "https://go.oncehub.com/.S617NW9C",
+                      "creation_time": "2023-12-08T10:21:01Z"
+                    }
                   }
                 },
                 "schema": {
@@ -1040,6 +1081,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
         },
         "deprecated": false
@@ -1112,7 +1156,19 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"id\": \"USR-FSD423423\",\n  \"object\": \"user\",\n  \"first_name\": \"Carrie\",\n  \"last_name\": \"Customer\",\n  \"email\": \"carrie.customer@gmail.com\",\n  \"status\": \"active\",\n  \"role_name\": \"Administrator\",\n  \"timezone\": \"America/Chicago\",\n  \"teams\": [\"TM-GCJU8DLBTPY1\"]\n}"
+                    "value": {
+                      "id": "USR-FSD423423",
+                      "object": "user",
+                      "first_name": "Carrie",
+                      "last_name": "Customer",
+                      "email": "carrie.customer@gmail.com",
+                      "status": "active",
+                      "role_name": "Administrator",
+                      "timezone": "America/Chicago",
+                      "teams": [
+                        "TM-GCJU8DLBTPY1"
+                      ]
+                    }
                   }
                 },
                 "schema": {
@@ -1207,7 +1263,8 @@
                 "examples": {
                   "Internal server error": {
                     "value": {
-                      "type": "internal_server_error"
+                      "type": "api_error",
+                      "message": "An unexpected error occurred. Please try again later."
                     }
                   }
                 },
@@ -1470,7 +1527,7 @@
         ],
         "summary": "Update scheduling availability",
         "description": "Updates the scheduling availability for a user",
-        "operationId": "patch_users{id}scheduling-availability",
+        "operationId": "patch_user_scheduling_availability",
         "responses": {
           "200": {
             "description": "",
@@ -1793,6 +1850,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
         },
         "deprecated": false
@@ -2147,6 +2207,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
         },
         "deprecated": false

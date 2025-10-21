@@ -16,4 +16,6 @@ webhooks:
           application/json:
             schema:
               $ref: "../../components/schemas/webhook.yaml#/WebhookList"
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
     deprecated: false

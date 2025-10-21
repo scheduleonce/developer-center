@@ -53,4 +53,6 @@ master-pages:
                       url: https://go.oncehub.com/team
                       active: false
                   has_more: false
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
     deprecated: false

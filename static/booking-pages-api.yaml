@@ -432,6 +432,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BookingPageList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
       deprecated: false
   /booking-pages/{id}:
     get:
@@ -485,6 +487,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EventTypeList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
       deprecated: false
   /event-types/{id}:
     get:
@@ -551,22 +555,24 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "object": "list",
-                      "data": [
-                    {
-                      "id": "MP-73E6RHFU77",
-                      "object": "master_page",
-                      "name": "Star Software LLC",
-                      "label": "Dana",
-                      "url": "https://go.oncehub.com/dana",
-                      "active": true
-                    },
-                        {...},
-                        {...}
-                      ]
-                    }
+                  value:
+                    object: list
+                    data:
+                      - id: MP-73E6RHFU77
+                        object: master_page
+                        name: Star Software LLC
+                        label: Dana
+                        url: https://go.oncehub.com/dana
+                        active: true
+                      - id: MP-1234567890
+                        object: master_page
+                        name: Example Master Page
+                        label: Team
+                        url: https://go.oncehub.com/team
+                        active: false
+                    has_more: false
+        '401':
+          $ref: '#/components/responses/Unauthorized'
       deprecated: false
   /master-pages/{id}:
     get:
@@ -589,15 +595,13 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "id": "MP-73E6RHFU77",
-                      "object": "master_page",
-                      "name": "Star Software LLC",
-                      "label": "Dana",
-                      "url": "https://go.oncehub.com/dana",
-                      "active": true
-                    }
+                  value:
+                    id: MP-73E6RHFU77
+                    object: master_page
+                    name: Star Software LLC
+                    label: Dana
+                    url: https://go.oncehub.com/dana
+                    active: true
               schema:
                 type: object
                 properties:
@@ -658,12 +662,10 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "id": "S617NW9C",
-                      "url": "https://go.oncehub.com/.S617NW9C",
-                      "creation_time": "2023-12-08T10:21:01Z"
-                    }
+                  value:
+                    id: S617NW9C
+                    url: https://go.oncehub.com/.S617NW9C
+                    creation_time: '2023-12-08T10:21:01Z'
               schema:
                 type: object
                 properties:
@@ -720,6 +722,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
       deprecated: false
     post:
       tags:
@@ -782,18 +786,17 @@ paths:
             application/json:
               examples:
                 Result:
-                  value: |-
-                    {
-                      "id": "USR-FSD423423",
-                      "object": "user",
-                      "first_name": "Carrie",
-                      "last_name": "Customer",
-                      "email": "carrie.customer@gmail.com",
-                      "status": "active",
-                      "role_name": "Administrator",
-                      "timezone": "America/Chicago",
-                      "teams": ["TM-GCJU8DLBTPY1"]
-                    }
+                  value:
+                    id: USR-FSD423423
+                    object: user
+                    first_name: Carrie
+                    last_name: Customer
+                    email: carrie.customer@gmail.com
+                    status: active
+                    role_name: Administrator
+                    timezone: America/Chicago
+                    teams:
+                      - TM-GCJU8DLBTPY1
               schema:
                 $ref: '#/components/schemas/User'
         '400':
@@ -856,7 +859,8 @@ paths:
               examples:
                 Internal server error:
                   value:
-                    type: internal_server_error
+                    type: api_error
+                    message: An unexpected error occurred. Please try again later.
               schema:
                 $ref: '#/components/schemas/Error'
       deprecated: false
@@ -1014,7 +1018,7 @@ paths:
         - Users
       summary: Update scheduling availability
       description: Updates the scheduling availability for a user
-      operationId: patch_users{id}scheduling-availability
+      operationId: patch_user_scheduling_availability
       responses:
         '200':
           description: ''
@@ -1221,6 +1225,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TeamList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
       deprecated: false
   /teams/{id}:
     get:
@@ -1444,6 +1450,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WebhookList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
       deprecated: false
   /webhooks/{id}:
     get:
