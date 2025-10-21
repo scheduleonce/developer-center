@@ -127,7 +127,7 @@ ContactList:
     data:
       type: array
       items:
-        $ref: '#/Contact'
+        $ref: "#/Contact"
     has_more:
       type: boolean
       description: Whether there are more items available
