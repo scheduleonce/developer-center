@@ -3,6 +3,10 @@
   "info": {
     "title": "OnceHub API",
     "version": "2.0.0",
+    "license": {
+      "name": "Proprietary",
+      "url": "https://developers.oncehub.com/docs/developer-support/developer-terms-of-service/"
+    },
     "description": "The OnceHub API allows you to manage bookings, calendars, users, and other scheduling resources programmatically.\n"
   },
   "servers": [

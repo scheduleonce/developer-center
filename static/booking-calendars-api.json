@@ -3,6 +3,10 @@
   "info": {
     "title": "OnceHub Booking Calendars API",
     "version": "2.0.0",
+    "license": {
+      "name": "Proprietary",
+      "url": "https://developers.oncehub.com/docs/developer-support/developer-terms-of-service/"
+    },
     "description": "The OnceHub Booking Calendars API allows you to manage bookings, calendars, event types, and scheduling resources programmatically.\n\n**Note:** This documentation is for the Booking Calendars product. Booking Calendars is our current and recommended scheduling solution."
   },
   "servers": [
