@@ -23,12 +23,10 @@ master-pages--id--one-time-links:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "id": "S617NW9C",
-                    "url": "https://go.oncehub.com/.S617NW9C",
-                    "creation_time": "2023-12-08T10:21:01Z"
-                  }
+                value:
+                  id: S617NW9C
+                  url: https://go.oncehub.com/.S617NW9C
+                  creation_time: "2023-12-08T10:21:01Z"
             schema:
               type: object
               properties:

@@ -58,18 +58,17 @@ users-add:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "id": "USR-FSD423423",
-                    "object": "user",
-                    "first_name": "Carrie",
-                    "last_name": "Customer",
-                    "email": "carrie.customer@gmail.com",
-                    "status": "active",
-                    "role_name": "Administrator",
-                    "timezone": "America/Chicago",
-                    "teams": ["TM-GCJU8DLBTPY1"]
-                  }
+                value:
+                  id: USR-FSD423423
+                  object: user
+                  first_name: Carrie
+                  last_name: Customer
+                  email: carrie.customer@gmail.com
+                  status: active
+                  role_name: Administrator
+                  timezone: America/Chicago
+                  teams:
+                    - TM-GCJU8DLBTPY1
             schema:
               $ref: "../../components/schemas/user.yaml#/User"
       "400":
@@ -132,7 +131,8 @@ users-add:
             examples:
               "Internal server error":
                 value:
-                  type: internal_server_error
+                  type: api_error
+                  message: An unexpected error occurred. Please try again later.
             schema:
               $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false

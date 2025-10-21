@@ -91,10 +91,8 @@ booking-calendars--id--schedule:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "id": "BKNG-J4FR05BKEWEX"
-                  }
+                value:
+                  id: BKNG-J4FR05BKEWEX
             schema:
               type: object
               properties:

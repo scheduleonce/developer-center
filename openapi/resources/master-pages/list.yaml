@@ -37,20 +37,20 @@ master-pages:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "object": "list",
-                    "data": [
-                  {
-                    "id": "MP-73E6RHFU77",
-                    "object": "master_page",
-                    "name": "Star Software LLC",
-                    "label": "Dana",
-                    "url": "https://go.oncehub.com/dana",
-                    "active": true
-                  },
-                      {...},
-                      {...}
-                    ]
-                  }
+                value:
+                  object: list
+                  data:
+                    - id: MP-73E6RHFU77
+                      object: master_page
+                      name: Star Software LLC
+                      label: Dana
+                      url: https://go.oncehub.com/dana
+                      active: true
+                    - id: MP-1234567890
+                      object: master_page
+                      name: Example Master Page
+                      label: Team
+                      url: https://go.oncehub.com/team
+                      active: false
+                  has_more: false
     deprecated: false

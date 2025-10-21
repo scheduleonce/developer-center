@@ -12,10 +12,8 @@ test:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "message": "The API key is valid for account: admin@example.com"
-                  }
+                value:
+                  message: "The API key is valid for account: admin@example.com"
             schema:
               type: object
               properties:

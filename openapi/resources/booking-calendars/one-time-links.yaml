@@ -40,12 +40,10 @@ booking-calendars--id--one-time-links:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "id": "QUHVEKLPD93M",
-                    "url": "https://oncehub.com/.QUHVEKLPD93M",
-                    "creation_time": "2024-06-18T14:28:19Z"
-                  }
+                value:
+                  id: QUHVEKLPD93M
+                  url: https://oncehub.com/.QUHVEKLPD93M
+                  creation_time: "2024-06-18T14:28:19Z"
             schema:
               type: object
               properties:

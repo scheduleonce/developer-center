@@ -19,15 +19,13 @@ master-pages--id:
           application/json:
             examples:
               Result:
-                value: |-
-                  {
-                    "id": "MP-73E6RHFU77",
-                    "object": "master_page",
-                    "name": "Star Software LLC",
-                    "label": "Dana",
-                    "url": "https://go.oncehub.com/dana",
-                    "active": true
-                  }
+                value:
+                  id: MP-73E6RHFU77
+                  object: master_page
+                  name: Star Software LLC
+                  label: Dana
+                  url: https://go.oncehub.com/dana
+                  active: true
             schema:
               type: object
               properties:
