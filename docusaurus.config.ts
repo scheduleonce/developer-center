@@ -135,6 +135,25 @@ const config: Config = {
         },
       },
     ],
+    // OnceHub v1 API Reference (Deprecated)
+    [
+      "@scalar/docusaurus",
+      {
+        id: "oncehub-v1-api",
+        label: "OnceHub v1 (Deprecated)",
+        route: "/reference/oncehub-v1",
+        showNavLink: false,
+        configuration: {
+          spec: {
+            url: "/oncehub-v1.yaml",
+          },
+          hideDownloadButton: false, // Allow downloads for archival
+          hideDarkModeToggle: true,
+          hideModels: true,
+          theme: "alternate",
+        },
+      },
+    ],
   ],
   themeConfig: {
     // Replace with your project's social card
@@ -199,6 +218,10 @@ const config: Config = {
             {
               label: "Booking Pages (Classic)",
               to: "/reference/booking-pages/",
+            },
+            {
+              label: "OnceHub v1 (Deprecated)",
+              to: "/reference/oncehub-v1/",
             },
           ],
         },
