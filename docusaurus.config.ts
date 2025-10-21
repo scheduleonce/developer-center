@@ -106,10 +106,8 @@ const config: Config = {
         route: "/reference/booking-calendars",
         showNavLink: false,
         configuration: {
-          spec: {
-            url: "/booking-calendars-api.yaml",
-          },
-          hideDownloadButton: true,
+          url: "/booking-calendars-api.yaml",
+          documentDownloadType: "original",
           hideDarkModeToggle: true,
           hideModels: true,
           theme: "alternate",
@@ -125,10 +123,8 @@ const config: Config = {
         route: "/reference/booking-pages",
         showNavLink: false,
         configuration: {
-          spec: {
-            url: "/booking-pages-api.yaml",
-          },
-          hideDownloadButton: true,
+          url: "/booking-pages-api.yaml",
+          documentDownloadType: "original",
           hideDarkModeToggle: true,
           hideModels: true,
           theme: "alternate",
@@ -144,10 +140,8 @@ const config: Config = {
         route: "/reference/oncehub-v1",
         showNavLink: false,
         configuration: {
-          spec: {
-            url: "/oncehub-v1.yaml",
-          },
-          hideDownloadButton: false, // Allow downloads for archival
+          url: "/oncehub-v1.yaml",
+          documentDownloadType: "original",
           hideDarkModeToggle: true,
           hideModels: true,
           theme: "alternate",
