@@ -2313,8 +2313,10 @@ components:
           example: list
         data:
           type: array
+          minItems: 0
           items:
             $ref: '#/components/schemas/Booking'
+          example: []
         has_more:
           type: boolean
           description: Whether there are more items available
@@ -2482,8 +2484,10 @@ components:
           example: list
         data:
           type: array
+          minItems: 0
           items:
             $ref: '#/components/schemas/Contact'
+          example: []
         has_more:
           type: boolean
           description: Whether there are more items available
@@ -2528,8 +2532,10 @@ components:
           example: list
         data:
           type: array
+          minItems: 0
           items:
             $ref: '#/components/schemas/BookingPage'
+          example: []
         has_more:
           type: boolean
           description: Whether there are more items available
@@ -2557,8 +2563,10 @@ components:
           example: list
         data:
           type: array
+          minItems: 0
           items:
             $ref: '#/components/schemas/Team'
+          example: []
         has_more:
           type: boolean
           description: Whether there are more items available
@@ -2590,8 +2598,10 @@ components:
           example: list
         data:
           type: array
+          minItems: 0
           items:
             $ref: '#/components/schemas/EventType'
+          example: []
         has_more:
           type: boolean
           description: Whether there are more items available
@@ -2643,8 +2653,10 @@ components:
           example: list
         data:
           type: array
+          minItems: 0
           items:
             $ref: '#/components/schemas/Webhook'
+          example: []
         has_more:
           type: boolean
           description: Whether there are more items available
@@ -2753,8 +2765,10 @@ components:
           example: list
         data:
           type: array
+          minItems: 0
           items:
             $ref: '#/components/schemas/User'
+          example: []
         has_more:
           type: boolean
           description: Whether there are more items available

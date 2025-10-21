@@ -44,8 +44,10 @@ WebhookList:
       example: list
     data:
       type: array
+      minItems: 0
       items:
         $ref: '#/Webhook'
+      example: []
     has_more:
       type: boolean
       description: Whether there are more items available
