@@ -115,8 +115,7 @@ Booking:
           description: The email provided by the customer in the booking form.
           example: carrie.customer@gmail.com
         phone:
-          type: string
-          nullable: true
+          type: [string, "null"]
           description: The phone number provided by the customer in the booking form.
           example: null
         mobile_phone:
@@ -128,8 +127,7 @@ Booking:
           description: The note provided by the customer in the booking form.
           example: I want to discuss whether your product can work for our office.
         company:
-          type: string
-          nullable: true
+          type: [string, "null"]
           description: The company provided by your customer in the booking form.
           example: null
         guests:
@@ -216,11 +214,10 @@ Booking:
       description: "**BOOKING CALENDARS ONLY** A direct, publicly accessible URL that downloads an ICS (.ics) calendar file for the booking."
       example: https://oncehub.com/api/bookings/ics/62ad3bdd-a09f-dfbdffbef389-axs01j
     utm_params:
-      allOf:
+      description: Not included in booking webhooks at this time. If no UTM params exist on the booking, object will return null.
+      oneOf:
         - $ref: "./utm-params.yaml#/UtmParams"
-        - type: object
-          nullable: true
-          description: Not included in booking webhooks at this time. If no UTM params exist on the booking, object will return null.
+        - type: "null"
     contact:
       description: |
         The ID of the contact the booking was scheduled with.

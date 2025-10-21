@@ -20,9 +20,8 @@ Contact:
       description: The date and time the contact was last updated
       example: "2020-03-22T09:48:48Z"
     last_interacted_time:
-      type: string
+      type: [string, "null"]
       format: date-time
-      nullable: true
       description: The date and time of the last interaction with the contact
       example: null
     owner:
@@ -34,23 +33,19 @@ Contact:
       description: The status of the contact
       example: Qualified
     city:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: City of the contact
       example: New York
     company_size:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: Size of the contact's company
       example: null
     company:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: Company name
       example: null
     country:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: Country of the contact
       example: null
     email:
@@ -62,8 +57,7 @@ Contact:
       description: Number of employees
       example: 1
     first_name:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: First name of the contact
       example: null
     has_consent:
@@ -71,48 +65,39 @@ Contact:
       description: Whether the contact has given consent
       example: false
     job_title:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: Job title of the contact
       example: null
     last_name:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: Last name of the contact
       example: null
     mobile_phone:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: Mobile phone number
       example: null
     phone:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: Phone number
       example: null
     post_code:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: Postal code
       example: null
     salutation:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: Salutation
       example: null
     state:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: State or province
       example: null
     street_address:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: Street address
       example: null
     terms_of_sevice:
-      type: boolean
-      nullable: true
+      type: [boolean, "null"]
       description: Whether terms of service were accepted
       example: null
     timezone:
@@ -130,7 +115,7 @@ Contact:
             example: resume
           value:
             description: Value of the custom field
-            nullable: true
+            type: [string, number, boolean, array, object, "null"]
             example: null
 
 ContactList:

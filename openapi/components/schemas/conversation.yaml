@@ -67,8 +67,7 @@ Conversation:
         **Expandable**: Use `expand=website` to include the full Website object.
       example: WEB-B1D45D12BB
     audience:
-      type: string
-      nullable: true
+      type: [string, "null"]
       description: |
         The audience associated with this conversation.
 
@@ -85,8 +84,7 @@ Conversation:
             description: Unique identifier for the interaction.
             example: INT-5D22DCBE36
           internal_label:
-            type: string
-            nullable: true
+            type: [string, "null"]
             description: Internal label for the question.
             example: ""
           question:

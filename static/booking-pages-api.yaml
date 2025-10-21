@@ -2145,8 +2145,9 @@ components:
               description: The email provided by the customer in the booking form.
               example: carrie.customer@gmail.com
             phone:
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
               description: The phone number provided by the customer in the booking form.
               example: null
             mobile_phone:
@@ -2158,8 +2159,9 @@ components:
               description: The note provided by the customer in the booking form.
               example: I want to discuss whether your product can work for our office.
             company:
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
               description: The company provided by your customer in the booking form.
               example: null
             guests:
@@ -2250,11 +2252,10 @@ components:
           description: '**BOOKING CALENDARS ONLY** A direct, publicly accessible URL that downloads an ICS (.ics) calendar file for the booking.'
           example: https://oncehub.com/api/bookings/ics/62ad3bdd-a09f-dfbdffbef389-axs01j
         utm_params:
-          allOf:
+          description: Not included in booking webhooks at this time. If no UTM params exist on the booking, object will return null.
+          oneOf:
             - $ref: '#/components/schemas/UtmParams'
-            - type: object
-              nullable: true
-              description: Not included in booking webhooks at this time. If no UTM params exist on the booking, object will return null.
+            - type: 'null'
         contact:
           description: |
             The ID of the contact the booking was scheduled with.
@@ -2329,9 +2330,10 @@ components:
           description: The date and time the contact was last updated
           example: '2020-03-22T09:48:48Z'
         last_interacted_time:
-          type: string
+          type:
+            - string
+            - 'null'
           format: date-time
-          nullable: true
           description: The date and time of the last interaction with the contact
           example: null
         owner:
@@ -2343,23 +2345,27 @@ components:
           description: The status of the contact
           example: Qualified
         city:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: City of the contact
           example: New York
         company_size:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: Size of the contact's company
           example: null
         company:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: Company name
           example: null
         country:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: Country of the contact
           example: null
         email:
@@ -2371,8 +2377,9 @@ components:
           description: Number of employees
           example: 1
         first_name:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: First name of the contact
           example: null
         has_consent:
@@ -2380,48 +2387,57 @@ components:
           description: Whether the contact has given consent
           example: false
         job_title:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: Job title of the contact
           example: null
         last_name:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: Last name of the contact
           example: null
         mobile_phone:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: Mobile phone number
           example: null
         phone:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: Phone number
           example: null
         post_code:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: Postal code
           example: null
         salutation:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: Salutation
           example: null
         state:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: State or province
           example: null
         street_address:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: Street address
           example: null
         terms_of_sevice:
-          type: boolean
-          nullable: true
+          type:
+            - boolean
+            - 'null'
           description: Whether terms of service were accepted
           example: null
         timezone:
@@ -2439,7 +2455,13 @@ components:
                 example: resume
               value:
                 description: Value of the custom field
-                nullable: true
+                type:
+                  - string
+                  - number
+                  - boolean
+                  - array
+                  - object
+                  - 'null'
                 example: null
     ContactList:
       type: object
@@ -2854,8 +2876,9 @@ components:
             **Expandable**: Use `expand=website` to include the full Website object.
           example: WEB-B1D45D12BB
         audience:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: |
             The audience associated with this conversation.
 
@@ -2872,8 +2895,9 @@ components:
                 description: Unique identifier for the interaction.
                 example: INT-5D22DCBE36
               internal_label:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 description: Internal label for the question.
                 example: ''
               question:

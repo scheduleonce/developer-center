@@ -85,7 +85,7 @@ users--id--scheduling-availability:
       - "Users"
     summary: Update scheduling availability
     description: Updates the scheduling availability for a user
-    operationId: patch_users{id}scheduling-availability
+    operationId: patch_user_scheduling_availability
     responses:
       "200":
         description: ""
