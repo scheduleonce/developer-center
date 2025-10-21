@@ -46,7 +46,7 @@ WebhookList:
       type: array
       minItems: 0
       items:
-        $ref: '#/Webhook'
+        $ref: "#/Webhook"
       example: []
     has_more:
       type: boolean

@@ -24,7 +24,7 @@ TeamList:
       type: array
       minItems: 0
       items:
-        $ref: '#/Team'
+        $ref: "#/Team"
       example: []
     has_more:
       type: boolean

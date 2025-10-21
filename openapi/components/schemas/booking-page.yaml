@@ -41,7 +41,7 @@ BookingPageList:
       type: array
       minItems: 0
       items:
-        $ref: '#/BookingPage'
+        $ref: "#/BookingPage"
       example: []
     has_more:
       type: boolean

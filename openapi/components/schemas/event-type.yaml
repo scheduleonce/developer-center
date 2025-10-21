@@ -28,7 +28,7 @@ EventTypeList:
       type: array
       minItems: 0
       items:
-        $ref: '#/EventType'
+        $ref: "#/EventType"
       example: []
     has_more:
       type: boolean

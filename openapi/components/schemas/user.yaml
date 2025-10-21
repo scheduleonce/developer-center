@@ -54,7 +54,7 @@ UserList:
       type: array
       minItems: 0
       items:
-        $ref: '#/User'
+        $ref: "#/User"
       example: []
     has_more:
       type: boolean
