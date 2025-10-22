@@ -184,6 +184,12 @@ const config: Config = {
           ],
         },
         {
+          type: "doc",
+          docId: "changelog",
+          label: "Changelog",
+          position: "left",
+        },
+        {
           href: "https://github.com/scheduleonce/developer-center",
           label: "GitHub",
           position: "right",
