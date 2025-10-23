@@ -34,6 +34,8 @@ const PRODUCT_RESOURCES = {
     ],
     // Resources to exclude
     exclude: ["booking-pages", "master-pages", "event-types"],
+    // Paths that don't follow the conventional prefix but should remain available
+    extraPaths: ["/test"],
   },
   "booking-pages": {
     // Product-specific resources
@@ -49,6 +51,8 @@ const PRODUCT_RESOURCES = {
     ],
     // Resources to exclude
     exclude: ["booking-calendars"],
+    // Paths that don't follow the conventional prefix but should remain available
+    extraPaths: ["/test"],
   },
 };
 
@@ -61,10 +65,13 @@ function filterPathsForProduct(paths, productConfig) {
     ...productConfig.specific,
     ...productConfig.shared,
   ].map((resource) => `/${resource}`);
+  const extraPaths = productConfig.extraPaths || [];
 
   for (const [path, pathItem] of Object.entries(paths)) {
     // Check if path starts with any allowed prefix
-    const isAllowed = allowedPrefixes.some((prefix) => path.startsWith(prefix));
+    const isAllowed =
+      allowedPrefixes.some((prefix) => path.startsWith(prefix)) ||
+      extraPaths.includes(path);
 
     if (isAllowed) {
       filtered[path] = pathItem;
