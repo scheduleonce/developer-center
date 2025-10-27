@@ -1403,10 +1403,12 @@ paths:
                   mobile_phone: '+12025550195'
                   first_name: Carrie
                   last_name: Customer
-                  company: Example Corp
-                  job_title: Developer
+                  company: Acme Inc
+                  job_title: Executive Assistant
                   status: Qualified
                   city: New York
+                  state: New York
+                  country: United States
                   timezone: America/New_York
       responses:
         '201':
@@ -1439,7 +1441,7 @@ paths:
                     salutation: null
                     state: null
                     street_address: null
-                    terms_of_sevice: null
+                    terms_of_sevice: false
                     timezone: America/New_York
                     custom_fields: []
               schema:
@@ -2640,11 +2642,9 @@ components:
           description: Street address
           example: 123 Main Street
         terms_of_sevice:
-          type:
-            - boolean
-            - 'null'
+          type: boolean
           description: Whether terms of service were accepted
-          example: null
+          example: false
         timezone:
           type: string
           description: Timezone of the contact
