@@ -5,10 +5,12 @@ User:
       type: string
       description: String representing the object's type. Objects of the same type share the same value. The type here is user.
       example: user
+      readOnly: true
     id:
       type: string
       description: Unique identifier for the object.
       example: USR-FSD423423
+      readOnly: true
     first_name:
       type: string
       description: User's first name.
@@ -29,6 +31,7 @@ User:
         - active
         - invited
       example: active
+      readOnly: true
     role_name:
       type: string
       description: The name of the role associated with the user, for example - Administrator, Member, Team manager.

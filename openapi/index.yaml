@@ -80,6 +80,8 @@ paths:
   /users/{id}:
     get:
       $ref: "./resources/users/get.yaml#/users--id/get"
+    patch:
+      $ref: "./resources/users/update.yaml#/users--id/patch"
     delete:
       $ref: "./resources/users/delete.yaml#/users--id/delete"
   /users/{id}/scheduling-availability:

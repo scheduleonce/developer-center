@@ -42,7 +42,7 @@
     "@docusaurus/module-type-aliases": "^3.9.2",
     "@docusaurus/tsconfig": "^3.9.2",
     "@docusaurus/types": "^3.9.2",
-    "@redocly/cli": "^2.7.0",
+    "@redocly/cli": "^2.8.0",
     "@types/node": "^24.9.1",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3"
