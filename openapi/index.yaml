@@ -93,10 +93,10 @@ paths:
 
   # Contacts
   /contacts:
-    $ref: "./resources/contacts/list.yaml#/contacts"
-  /contacts/create:
+    get:
+      $ref: "./resources/contacts/list.yaml#/contacts/get"
     post:
-      $ref: "./resources/contacts/create.yaml#/contacts-create/post"
+      $ref: "./resources/contacts/create.yaml#/contacts/post"
   /contacts/{id}:
     get:
       $ref: "./resources/contacts/get.yaml#/contacts--id/get"

@@ -2114,9 +2114,7 @@
           }
         },
         "deprecated": false
-      }
-    },
-    "/contacts/create": {
+      },
       "post": {
         "tags": [
           "Contacts"
@@ -2129,153 +2127,25 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "email": {
-                    "type": "string",
-                    "format": "email",
-                    "description": "Email address of the contact. Either email or mobile_phone is required.",
-                    "example": "carrie.customer@gmail.com"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Contact"
                   },
-                  "mobile_phone": {
-                    "type": "string",
-                    "description": "Mobile phone number of the contact. Either email or mobile_phone is required.",
-                    "example": "+12025550195"
-                  },
-                  "first_name": {
-                    "type": "string",
-                    "description": "First name of the contact",
-                    "example": "Carrie"
-                  },
-                  "last_name": {
-                    "type": "string",
-                    "description": "Last name of the contact",
-                    "example": "Customer"
-                  },
-                  "phone": {
-                    "type": "string",
-                    "description": "Phone number of the contact",
-                    "example": null
-                  },
-                  "salutation": {
-                    "type": "string",
-                    "description": "Salutation for the contact",
-                    "example": null
-                  },
-                  "company": {
-                    "type": "string",
-                    "description": "Company name",
-                    "example": null
-                  },
-                  "company_size": {
-                    "type": "string",
-                    "description": "Size of the contact's company",
-                    "example": null
-                  },
-                  "job_title": {
-                    "type": "string",
-                    "description": "Job title of the contact",
-                    "example": null
-                  },
-                  "employees": {
-                    "type": "integer",
-                    "description": "Number of employees at the contact's company",
-                    "example": 1
-                  },
-                  "street_address": {
-                    "type": "string",
-                    "description": "Street address of the contact",
-                    "example": null
-                  },
-                  "city": {
-                    "type": "string",
-                    "description": "City of the contact",
-                    "example": "New York"
-                  },
-                  "state": {
-                    "type": "string",
-                    "description": "State or province of the contact",
-                    "example": null
-                  },
-                  "post_code": {
-                    "type": "string",
-                    "description": "Postal code of the contact",
-                    "example": null
-                  },
-                  "country": {
-                    "type": "string",
-                    "description": "Country of the contact",
-                    "example": null
-                  },
-                  "timezone": {
-                    "type": "string",
-                    "description": "Timezone of the contact in IANA format. If not provided, defaults to the owner's timezone.",
-                    "example": "America/New_York"
-                  },
-                  "status": {
-                    "type": "string",
-                    "description": "Status of the contact",
-                    "example": "Qualified"
-                  },
-                  "has_consent": {
-                    "type": "boolean",
-                    "description": "Whether the contact has given consent",
-                    "example": false
-                  },
-                  "terms_of_sevice": {
-                    "type": "boolean",
-                    "description": "Whether terms of service were accepted",
-                    "example": null
-                  },
-                  "owner": {
-                    "type": "string",
-                    "description": "The user ID of the contact owner. If not provided, the API key owner will be used.",
-                    "example": "USR-FSD423423"
-                  },
-                  "custom_fields": {
-                    "type": "array",
-                    "description": "Custom fields associated with the contact",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "Name of the custom field",
-                          "example": "resume"
-                        },
-                        "value": {
-                          "description": "Value of the custom field",
-                          "type": [
-                            "string",
-                            "number",
-                            "boolean",
-                            "array",
-                            "object",
-                            null
-                          ],
-                          "example": null
-                        }
-                      }
-                    },
-                    "example": [
-                      {
-                        "name": "resume",
-                        "value": null
-                      }
+                  {
+                    "type": "object",
+                    "required": [
+                      "first_name",
+                      "last_name"
                     ]
                   }
-                },
-                "required": [
-                  "first_name",
-                  "last_name"
                 ]
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "description": "200",
+          "201": {
+            "description": "201",
             "content": {
               "application/json": {
                 "examples": {
@@ -2283,36 +2153,16 @@
                     "value": {
                       "object": "contact",
                       "id": "CTC-J4FR05BKEW",
-                      "source": "OHAPI",
+                      "status": "Qualified",
                       "email": "carrie.customer@gmail.com",
                       "first_name": "Carrie",
                       "last_name": "Customer",
                       "mobile_phone": "+12025550195",
                       "company": null,
                       "job_title": null,
-                      "phone": null,
-                      "salutation": null,
-                      "street_address": null,
-                      "city": "New York",
-                      "state": null,
-                      "post_code": null,
-                      "country": null,
-                      "timezone": "America/New_York",
-                      "company_size": null,
-                      "employees": 1,
-                      "status": "Qualified",
-                      "has_consent": false,
-                      "terms_of_sevice": null,
-                      "owner": "USR-FSD423423",
-                      "custom_fields": [
-                        {
-                          "name": "resume",
-                          "value": null
-                        }
-                      ],
-                      "creation_time": "2025-01-09T10:30:00Z",
-                      "last_updated_time": "2025-01-09T10:30:00Z",
-                      "last_interacted_time": null
+                      "creation_time": "2025-09-24T04:29:41.270Z",
+                      "last_updated_time": "2025-09-24T04:29:41.270Z",
+                      "timezone": "America/New_York"
                     }
                   }
                 },
@@ -2330,7 +2180,7 @@
                   "Required fields missing": {
                     "value": {
                       "type": "invalid_request_error",
-                      "message": "Either email or mobile_phone is required",
+                      "message": "At least one of 'email' or 'mobile_phone' is required.",
                       "param": "email"
                     }
                   },
@@ -2351,14 +2201,14 @@
                   "Invalid email format": {
                     "value": {
                       "type": "invalid_request_error",
-                      "message": "Invalid email format: 'invalid-email'",
+                      "message": "Invalid email format: 'abc@static'",
                       "param": "email"
                     }
                   },
                   "Invalid mobile phone": {
                     "value": {
                       "type": "invalid_request_error",
-                      "message": "Invalid mobile_phone format",
+                      "message": "Invalid mobile phone format: '+91999999'",
                       "param": "mobile_phone"
                     }
                   },
@@ -2381,11 +2231,18 @@
             "content": {
               "application/json": {
                 "examples": {
-                  "Contact already exists": {
+                  "Contact already exists with email": {
                     "value": {
                       "type": "invalid_request_error",
-                      "message": "Contact already exists: CTC-J4FR05BKEW",
+                      "message": "Contact already exists: 'carrie.customer@gmail.com'",
                       "param": "email"
+                    }
+                  },
+                  "Contact already exists with phone": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Contact already exists: '+12025550195'",
+                      "param": "mobile_phone"
                     }
                   }
                 },
@@ -3845,14 +3702,30 @@
             "example": null,
             "readOnly": true
           },
+          "source": {
+            "type": "string",
+            "description": "The source of the contact creation (e.g., OHAPI for contacts created via the public API)",
+            "example": "OHAPI",
+            "readOnly": true
+          },
           "owner": {
             "type": "string",
             "description": "The ID of the owner of the contact",
             "example": "USR-FSD423423"
           },
           "status": {
-            "type": "string",
-            "description": "The status of the contact",
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The status of the contact. Accepted values are `Qualified`, `Sales qualified`, `Marketing qualified`, or `Disqualified`. If any other value is provided or no value is provided, the status will be set to null.",
+            "enum": [
+              "Qualified",
+              "Sales qualified",
+              "Marketing qualified",
+              "Disqualified",
+              null
+            ],
             "example": "Qualified"
           },
           "city": {

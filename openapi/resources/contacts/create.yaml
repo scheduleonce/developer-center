@@ -1,4 +1,4 @@
-contacts-create:
+contacts:
   post:
     tags:
       - "Contacts"
@@ -21,8 +21,8 @@ contacts-create:
                   - first_name
                   - last_name
     responses:
-      "200":
-        description: "200"
+      "201":
+        description: "201"
         content:
           application/json:
             examples:
@@ -30,33 +30,16 @@ contacts-create:
                 value:
                   object: contact
                   id: CTC-J4FR05BKEW
-                  source: OHAPI
+                  status: Qualified
                   email: carrie.customer@gmail.com
                   first_name: Carrie
                   last_name: Customer
                   mobile_phone: "+12025550195"
                   company: null
                   job_title: null
-                  phone: null
-                  salutation: null
-                  street_address: null
-                  city: New York
-                  state: null
-                  post_code: null
-                  country: null
+                  creation_time: "2025-09-24T04:29:41.270Z"
+                  last_updated_time: "2025-09-24T04:29:41.270Z"
                   timezone: America/New_York
-                  company_size: null
-                  employees: 1
-                  status: Qualified
-                  has_consent: false
-                  terms_of_sevice: null
-                  owner: USR-FSD423423
-                  custom_fields:
-                    - name: resume
-                      value: null
-                  creation_time: "2025-01-09T10:30:00Z"
-                  last_updated_time: "2025-01-09T10:30:00Z"
-                  last_interacted_time: null
             schema:
               $ref: "../../components/schemas/contact.yaml#/Contact"
       "400":
@@ -67,7 +50,7 @@ contacts-create:
               "Required fields missing":
                 value:
                   type: invalid_request_error
-                  message: "Either email or mobile_phone is required"
+                  message: "At least one of 'email' or 'mobile_phone' is required."
                   param: email
               "First name required":
                 value:
@@ -82,12 +65,12 @@ contacts-create:
               "Invalid email format":
                 value:
                   type: invalid_request_error
-                  message: "Invalid email format: 'invalid-email'"
+                  message: "Invalid email format: 'abc@static'"
                   param: email
               "Invalid mobile phone":
                 value:
                   type: invalid_request_error
-                  message: "Invalid mobile_phone format"
+                  message: "Invalid mobile phone format: '+91999999'"
                   param: mobile_phone
               "Unsupported fields":
                 value:
@@ -101,11 +84,16 @@ contacts-create:
         content:
           application/json:
             examples:
-              "Contact already exists":
+              "Contact already exists with email":
                 value:
                   type: invalid_request_error
-                  message: "Contact already exists: CTC-J4FR05BKEW"
+                  message: "Contact already exists: 'carrie.customer@gmail.com'"
                   param: email
+              "Contact already exists with phone":
+                value:
+                  type: invalid_request_error
+                  message: "Contact already exists: '+12025550195'"
+                  param: mobile_phone
             schema:
               $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false

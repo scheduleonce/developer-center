@@ -39,8 +39,9 @@ Contact:
       description: The ID of the owner of the contact
       example: USR-FSD423423
     status:
-      type: string
-      description: The status of the contact
+      type: [string, "null"]
+      description: The status of the contact. Accepted values are `Qualified`, `Sales qualified`, `Marketing qualified`, or `Disqualified`. If any other value is provided or no value is provided, the status will be set to null.
+      enum: [Qualified, Sales qualified, Marketing qualified, Disqualified, null]
       example: Qualified
     city:
       type: [string, "null"]
