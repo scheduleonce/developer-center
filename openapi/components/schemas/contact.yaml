@@ -5,25 +5,35 @@ Contact:
       type: string
       description: String representing the object's type
       example: contact
+      readOnly: true
     id:
       type: string
       description: Unique identifier for the contact
       example: CTC-J4FR05BKEW
+      readOnly: true
     creation_time:
       type: string
       format: date-time
       description: The date and time when the contact was created
       example: "2020-03-22T09:48:48Z"
+      readOnly: true
     last_updated_time:
       type: string
       format: date-time
       description: The date and time the contact was last updated
       example: "2020-03-22T09:48:48Z"
+      readOnly: true
     last_interacted_time:
       type: [string, "null"]
       format: date-time
       description: The date and time of the last interaction with the contact
       example: null
+      readOnly: true
+    source:
+      type: string
+      description: The source of the contact creation (e.g., OHAPI for contacts created via the public API)
+      example: OHAPI
+      readOnly: true
     owner:
       type: string
       description: The ID of the owner of the contact

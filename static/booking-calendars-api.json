@@ -2116,6 +2116,289 @@
         "deprecated": false
       }
     },
+    "/contacts/create": {
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Add a new contact",
+        "description": "Create a new contact in your OnceHub account\n\n> [!note]\n> Either `email` or `mobile_phone` is required - at least one must be provided\n",
+        "operationId": "add-a-new-contact",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address of the contact. Either email or mobile_phone is required.",
+                    "example": "carrie.customer@gmail.com"
+                  },
+                  "mobile_phone": {
+                    "type": "string",
+                    "description": "Mobile phone number of the contact. Either email or mobile_phone is required.",
+                    "example": "+12025550195"
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "description": "First name of the contact",
+                    "example": "Carrie"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "description": "Last name of the contact",
+                    "example": "Customer"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "Phone number of the contact",
+                    "example": null
+                  },
+                  "salutation": {
+                    "type": "string",
+                    "description": "Salutation for the contact",
+                    "example": null
+                  },
+                  "company": {
+                    "type": "string",
+                    "description": "Company name",
+                    "example": null
+                  },
+                  "company_size": {
+                    "type": "string",
+                    "description": "Size of the contact's company",
+                    "example": null
+                  },
+                  "job_title": {
+                    "type": "string",
+                    "description": "Job title of the contact",
+                    "example": null
+                  },
+                  "employees": {
+                    "type": "integer",
+                    "description": "Number of employees at the contact's company",
+                    "example": 1
+                  },
+                  "street_address": {
+                    "type": "string",
+                    "description": "Street address of the contact",
+                    "example": null
+                  },
+                  "city": {
+                    "type": "string",
+                    "description": "City of the contact",
+                    "example": "New York"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "State or province of the contact",
+                    "example": null
+                  },
+                  "post_code": {
+                    "type": "string",
+                    "description": "Postal code of the contact",
+                    "example": null
+                  },
+                  "country": {
+                    "type": "string",
+                    "description": "Country of the contact",
+                    "example": null
+                  },
+                  "timezone": {
+                    "type": "string",
+                    "description": "Timezone of the contact in IANA format. If not provided, defaults to the owner's timezone.",
+                    "example": "America/New_York"
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "Status of the contact",
+                    "example": "Qualified"
+                  },
+                  "has_consent": {
+                    "type": "boolean",
+                    "description": "Whether the contact has given consent",
+                    "example": false
+                  },
+                  "terms_of_sevice": {
+                    "type": "boolean",
+                    "description": "Whether terms of service were accepted",
+                    "example": null
+                  },
+                  "owner": {
+                    "type": "string",
+                    "description": "The user ID of the contact owner. If not provided, the API key owner will be used.",
+                    "example": "USR-FSD423423"
+                  },
+                  "custom_fields": {
+                    "type": "array",
+                    "description": "Custom fields associated with the contact",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "Name of the custom field",
+                          "example": "resume"
+                        },
+                        "value": {
+                          "description": "Value of the custom field",
+                          "type": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "array",
+                            "object",
+                            null
+                          ],
+                          "example": null
+                        }
+                      }
+                    },
+                    "example": [
+                      {
+                        "name": "resume",
+                        "value": null
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "first_name",
+                  "last_name"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "object": "contact",
+                      "id": "CTC-J4FR05BKEW",
+                      "source": "OHAPI",
+                      "email": "carrie.customer@gmail.com",
+                      "first_name": "Carrie",
+                      "last_name": "Customer",
+                      "mobile_phone": "+12025550195",
+                      "company": null,
+                      "job_title": null,
+                      "phone": null,
+                      "salutation": null,
+                      "street_address": null,
+                      "city": "New York",
+                      "state": null,
+                      "post_code": null,
+                      "country": null,
+                      "timezone": "America/New_York",
+                      "company_size": null,
+                      "employees": 1,
+                      "status": "Qualified",
+                      "has_consent": false,
+                      "terms_of_sevice": null,
+                      "owner": "USR-FSD423423",
+                      "custom_fields": [
+                        {
+                          "name": "resume",
+                          "value": null
+                        }
+                      ],
+                      "creation_time": "2025-01-09T10:30:00Z",
+                      "last_updated_time": "2025-01-09T10:30:00Z",
+                      "last_interacted_time": null
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Contact"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Required fields missing": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Either email or mobile_phone is required",
+                      "param": "email"
+                    }
+                  },
+                  "First name required": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "first_name is required",
+                      "param": "first_name"
+                    }
+                  },
+                  "Last name required": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "last_name is required",
+                      "param": "last_name"
+                    }
+                  },
+                  "Invalid email format": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Invalid email format: 'invalid-email'",
+                      "param": "email"
+                    }
+                  },
+                  "Invalid mobile phone": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Invalid mobile_phone format",
+                      "param": "mobile_phone"
+                    }
+                  },
+                  "Unsupported fields": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Unsupported fields",
+                      "param": "{param_name}"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "409",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Contact already exists": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Contact already exists: CTC-J4FR05BKEW",
+                      "param": "email"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
     "/contacts/{id}": {
       "get": {
         "tags": [
@@ -3529,24 +3812,28 @@
           "object": {
             "type": "string",
             "description": "String representing the object's type",
-            "example": "contact"
+            "example": "contact",
+            "readOnly": true
           },
           "id": {
             "type": "string",
             "description": "Unique identifier for the contact",
-            "example": "CTC-J4FR05BKEW"
+            "example": "CTC-J4FR05BKEW",
+            "readOnly": true
           },
           "creation_time": {
             "type": "string",
             "format": "date-time",
             "description": "The date and time when the contact was created",
-            "example": "2020-03-22T09:48:48Z"
+            "example": "2020-03-22T09:48:48Z",
+            "readOnly": true
           },
           "last_updated_time": {
             "type": "string",
             "format": "date-time",
             "description": "The date and time the contact was last updated",
-            "example": "2020-03-22T09:48:48Z"
+            "example": "2020-03-22T09:48:48Z",
+            "readOnly": true
           },
           "last_interacted_time": {
             "type": [
@@ -3555,7 +3842,8 @@
             ],
             "format": "date-time",
             "description": "The date and time of the last interaction with the contact",
-            "example": null
+            "example": null,
+            "readOnly": true
           },
           "owner": {
             "type": "string",
