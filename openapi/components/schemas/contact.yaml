@@ -85,11 +85,11 @@ Contact:
       example: null
     mobile_phone:
       type: [string, "null"]
-      description: Mobile phone number
+      description: Mobile phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format
       example: null
     phone:
       type: [string, "null"]
-      description: Phone number
+      description: Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format
       example: null
     post_code:
       type: [string, "null"]
@@ -118,6 +118,7 @@ Contact:
     custom_fields:
       type: array
       description: Custom fields associated with the contact
+      example: []
       items:
         type: object
         properties:
