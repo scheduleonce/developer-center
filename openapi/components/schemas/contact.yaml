@@ -50,15 +50,15 @@ Contact:
     company_size:
       type: [string, "null"]
       description: Size of the contact's company
-      example: null
+      example: "50-100"
     company:
       type: [string, "null"]
       description: Company name
-      example: null
+      example: "Acme Inc"
     country:
       type: [string, "null"]
       description: Country of the contact
-      example: null
+      example: "United States"
     email:
       type: string
       description: Email address of the contact
@@ -70,7 +70,7 @@ Contact:
     first_name:
       type: [string, "null"]
       description: First name of the contact
-      example: null
+      example: Carrie
     has_consent:
       type: boolean
       description: Whether the contact has given consent
@@ -78,39 +78,39 @@ Contact:
     job_title:
       type: [string, "null"]
       description: Job title of the contact
-      example: null
+      example: "Executive Assistant"
     last_name:
       type: [string, "null"]
       description: Last name of the contact
-      example: null
+      example: Customer
     mobile_phone:
       type: [string, "null"]
       description: Mobile phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format
-      example: null
+      example: "+12025550195"
     phone:
       type: [string, "null"]
       description: Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format
-      example: null
+      example: "+12025550100"
     post_code:
       type: [string, "null"]
       description: Postal code
-      example: null
+      example: "10001"
     salutation:
       type: [string, "null"]
       description: Salutation
-      example: null
+      example: "Ms."
     state:
       type: [string, "null"]
       description: State or province
-      example: null
+      example: "New York"
     street_address:
       type: [string, "null"]
       description: Street address
-      example: null
+      example: "123 Main Street"
     terms_of_sevice:
-      type: [boolean, "null"]
+      type: boolean
       description: Whether terms of service were accepted
-      example: null
+      example: false
     timezone:
       type: string
       description: Timezone of the contact
@@ -128,7 +128,7 @@ Contact:
           value:
             description: Value of the custom field
             type: [string, number, boolean, array, object, "null"]
-            example: null
+            example: "https://example.com/resume.pdf"
 
 ContactList:
   type: object

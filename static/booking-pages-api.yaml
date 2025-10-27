@@ -1391,6 +1391,23 @@ paths:
                   required:
                     - first_name
                     - last_name
+            examples:
+              Minimal required fields:
+                value:
+                  email: carrie.customer@gmail.com
+                  first_name: Carrie
+                  last_name: Customer
+              With additional fields:
+                value:
+                  email: carrie.customer@gmail.com
+                  mobile_phone: '+12025550195'
+                  first_name: Carrie
+                  last_name: Customer
+                  company: Example Corp
+                  job_title: Developer
+                  status: Qualified
+                  city: New York
+                  timezone: America/New_York
       responses:
         '201':
           description: '201'
@@ -2543,19 +2560,19 @@ components:
             - string
             - 'null'
           description: Size of the contact's company
-          example: null
+          example: 50-100
         company:
           type:
             - string
             - 'null'
           description: Company name
-          example: null
+          example: Acme Inc
         country:
           type:
             - string
             - 'null'
           description: Country of the contact
-          example: null
+          example: United States
         email:
           type: string
           description: Email address of the contact
@@ -2569,7 +2586,7 @@ components:
             - string
             - 'null'
           description: First name of the contact
-          example: null
+          example: Carrie
         has_consent:
           type: boolean
           description: Whether the contact has given consent
@@ -2579,49 +2596,49 @@ components:
             - string
             - 'null'
           description: Job title of the contact
-          example: null
+          example: Executive Assistant
         last_name:
           type:
             - string
             - 'null'
           description: Last name of the contact
-          example: null
+          example: Customer
         mobile_phone:
           type:
             - string
             - 'null'
           description: Mobile phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format
-          example: null
+          example: '+12025550195'
         phone:
           type:
             - string
             - 'null'
           description: Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format
-          example: null
+          example: '+12025550100'
         post_code:
           type:
             - string
             - 'null'
           description: Postal code
-          example: null
+          example: '10001'
         salutation:
           type:
             - string
             - 'null'
           description: Salutation
-          example: null
+          example: Ms.
         state:
           type:
             - string
             - 'null'
           description: State or province
-          example: null
+          example: New York
         street_address:
           type:
             - string
             - 'null'
           description: Street address
-          example: null
+          example: 123 Main Street
         terms_of_sevice:
           type:
             - boolean
@@ -2651,7 +2668,7 @@ components:
                   - array
                   - object
                   - 'null'
-                example: null
+                example: https://example.com/resume.pdf
     ContactList:
       type: object
       properties:

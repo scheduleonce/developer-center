@@ -20,6 +20,25 @@ contacts:
                 required:
                   - first_name
                   - last_name
+          examples:
+            "Minimal required fields":
+              value:
+                email: carrie.customer@gmail.com
+                first_name: Carrie
+                last_name: Customer
+            "With additional fields":
+              value:
+                email: carrie.customer@gmail.com
+                mobile_phone: "+12025550195"
+                first_name: Carrie
+                last_name: Customer
+                company: Acme Inc
+                job_title: Executive Assistant
+                status: Qualified
+                city: New York
+                state: New York
+                country: United States
+                timezone: America/New_York
     responses:
       "201":
         description: "201"
@@ -51,7 +70,7 @@ contacts:
                   salutation: null
                   state: null
                   street_address: null
-                  terms_of_sevice: null
+                  terms_of_sevice: false
                   timezone: America/New_York
                   custom_fields: []
             schema:
