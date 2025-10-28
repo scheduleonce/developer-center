@@ -3782,10 +3782,7 @@
                       "type": "string",
                       "description": "Timezone of the contact"
                     }
-                  },
-                  "required": [
-                    "city"
-                  ]
+                  }
                 }
               }
             }
