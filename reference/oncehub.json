@@ -3667,6 +3667,120 @@
                     "city": {
                       "type": "string",
                       "description": "City of the contact"
+                    },
+                    "company": {
+                      "type": "string",
+                      "description": "Company name"
+                    },
+                    "company_size": {
+                      "type": "string",
+                      "description": "Size of the contact's company"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Country of the contact"
+                    },
+                    "creation_time": {
+                      "type": "string",
+                      "description": "The date and time when the contact was created"
+                    },
+                    "custom_fields": {
+                      "type": "array",
+                      "description": "Custom fields associated with the contact",
+                      "items": {
+                        "properties": {},
+                        "type": "object"
+                      }
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Email address of the contact"
+                    },
+                    "employees": {
+                      "type": "string",
+                      "description": "Number of employees"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "description": "First name of the contact"
+                    },
+                    "has_consent": {
+                      "type": "boolean",
+                      "description": "Whether the contact has given consent"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the contact"
+                    },
+                    "job_title": {
+                      "type": "string",
+                      "description": "Job title of the contact"
+                    },
+                    "last_interacted_time": {
+                      "type": "string",
+                      "description": "The date and time of the last interaction with the contact"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "description": "Last name of the contact"
+                    },
+                    "last_updated_time": {
+                      "type": "string",
+                      "description": "The date and time the contact was last updated"
+                    },
+                    "mobile_phone": {
+                      "type": "string",
+                      "description": "Mobile phone number in E.164 format"
+                    },
+                    "object": {
+                      "type": "string",
+                      "description": "String representing the object's type"
+                    },
+                    "owner": {
+                      "type": "string",
+                      "description": "The ID of the owner of the contact"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "description": "Phone number in E.164 format"
+                    },
+                    "post_code": {
+                      "type": "string",
+                      "description": "Postal code"
+                    },
+                    "salutation": {
+                      "type": "string",
+                      "description": "Salutation"
+                    },
+                    "source": {
+                      "type": "string",
+                      "description": "The source of the contact creation (e.g., OHAPI for contacts created via the public API)"
+                    },
+                    "state": {
+                      "type": "string",
+                      "description": "State or province"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "The status of the contact. Accepted values are Qualified, Sales qualified, Marketing qualified, or Disqualified. If any other value is provided or no value is provided, the status will be set to null.",
+                      "enum": [
+                        "Qualified",
+                        "Sales qualified",
+                        "Marketing qualified",
+                        "Disqualified"
+                      ]
+                    },
+                    "street_address": {
+                      "type": "string",
+                      "description": "Street address"
+                    },
+                    "terms_of_sevice": {
+                      "type": "boolean",
+                      "description": "Whether terms of service were accepted"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "description": "Timezone of the contact"
                     }
                   },
                   "required": [
