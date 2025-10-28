@@ -3749,6 +3749,18 @@
                       "Marketing qualified",
                       "Disqualified"
                     ]
+                  },
+                  "street_address": {
+                    "type": "string",
+                    "description": "Street address"
+                  },
+                  "terms_of_sevice": {
+                    "type": "boolean",
+                    "description": "Whether terms of service were accepted"
+                  },
+                  "timezone": {
+                    "type": "string",
+                    "description": "Timezone of the contact"
                   }
                 },
                 "required": [
