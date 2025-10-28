@@ -3830,6 +3830,72 @@
               }
             },
             "description": "Created"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "Required field missing": {
+                    "summary": "Required field missing",
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "At least one of 'email' or 'mobile_phone' is required.",
+                      "param": "email"
+                    }
+                  },
+                  "Last name required": {
+                    "summary": "Last name required",
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "last_name is required",
+                      "param": "last_name"
+                    }
+                  },
+                  "First name required": {
+                    "summary": "First name required",
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "first_name is required",
+                      "param": "first_name"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "Contact already exists with email": {
+                    "summary": "Contact already exists with email",
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Contact already exists: 'carrie.customer@gmail.com'",
+                      "param": "email"
+                    }
+                  },
+                  "Contact already exists with phone": {
+                    "summary": "Contact already exists with phone",
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "Contact already exists: '+12025550195'",
+                      "param": "mobile_phone"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Conflict"
           }
         },
         "parameters": [],
