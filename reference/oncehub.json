@@ -3652,6 +3652,38 @@
           }
         },
         "deprecated": false
+      },
+      "post": {
+        "description": "",
+        "operationId": "post_contacts",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nfirst_nameame": {
+                    "type": "string",
+                    "description": "First name of the contact"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "description": "Last name of the contact"
+                  }
+                },
+                "required": [
+                  "nfirst_nameame"
+                ]
+              }
+            }
+          }
+        }
       }
     },
     "/contacts/{id}": {
