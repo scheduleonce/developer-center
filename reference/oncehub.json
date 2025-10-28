@@ -3675,10 +3675,85 @@
                   "last_name": {
                     "type": "string",
                     "description": "Last name of the contact"
+                  },
+                  "city": {
+                    "type": "string",
+                    "description": "City of the contact"
+                  },
+                  "company": {
+                    "type": "string",
+                    "description": "Company name"
+                  },
+                  "company_size": {
+                    "type": "string",
+                    "description": "Size of the contact's company"
+                  },
+                  "country": {
+                    "type": "string",
+                    "description": "Country of the contact"
+                  },
+                  "custom_fields": {
+                    "type": "array",
+                    "description": "Custom fields associated with the contact",
+                    "items": {
+                      "properties": {},
+                      "type": "object"
+                    }
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "Email address of the contact"
+                  },
+                  "employees": {
+                    "type": "string",
+                    "description": "Number of employees"
+                  },
+                  "has_consent": {
+                    "type": "string",
+                    "description": "Whether the contact has given consent"
+                  },
+                  "job_title": {
+                    "type": "string",
+                    "description": "Job title of the contact"
+                  },
+                  "mobile_phone": {
+                    "type": "string",
+                    "description": "Mobile phone number in E.164 format"
+                  },
+                  "owner": {
+                    "type": "string",
+                    "description": "The ID of the owner of the contact"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "Phone number in E.164 format"
+                  },
+                  "post_code": {
+                    "type": "string",
+                    "description": "Postal code"
+                  },
+                  "salutation": {
+                    "type": "string",
+                    "description": "Salutation"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "State or province"
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "The status of the contact. Accepted values are Qualified, Sales qualified, Marketing qualified, or Disqualified. If any other value is provided or no value is provided, the status will be set to null.",
+                    "enum": [
+                      "Qualified",
+                      "Sales qualified",
+                      "Marketing qualified",
+                      "Disqualified"
+                    ]
                   }
                 },
                 "required": [
-                  "nfirst_nameame"
+                  "nfirst_nameame",
+                  "last_name"
                 ]
               }
             }
