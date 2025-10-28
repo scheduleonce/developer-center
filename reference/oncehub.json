@@ -3786,6 +3786,50 @@
                 }
               }
             }
+          },
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "Created": {
+                    "summary": "Created",
+                    "value": {
+                      "object": "contact",
+                      "id": "CTC-J4FR05BKEW",
+                      "creation_time": "2025-09-24T04:29:41.270Z",
+                      "last_updated_time": "2025-09-24T04:29:41.270Z",
+                      "last_interacted_time": null,
+                      "owner": "USR-FSD423423",
+                      "status": "Qualified",
+                      "city": null,
+                      "company_size": null,
+                      "company": null,
+                      "country": null,
+                      "email": "carrie.customer@gmail.com",
+                      "employees": 1,
+                      "first_name": "Carrie",
+                      "has_consent": false,
+                      "job_title": null,
+                      "last_name": "Customer",
+                      "mobile_phone": "+12025550195",
+                      "phone": null,
+                      "post_code": null,
+                      "salutation": null,
+                      "state": null,
+                      "street_address": null,
+                      "terms_of_sevice": false,
+                      "timezone": "America/New_York",
+                      "custom_fields": []
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Created"
           }
         },
         "parameters": [],
