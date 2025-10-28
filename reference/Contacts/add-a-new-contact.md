@@ -5,7 +5,7 @@ api:
   file: oncehub.json
   operationId: post_contacts
 deprecated: false
-hidden: true
+hidden: false
 link:
   new_tab: false
 metadata:
