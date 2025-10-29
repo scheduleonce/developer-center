@@ -3452,9 +3452,9 @@
                     "value": {
                       "id": "USR-FSD423423",
                       "object": "user",
-                      "first_name": "Carrie",
-                      "last_name": "Customer",
-                      "email": "carrie.customer@gmail.com",
+                      "first_name": "Andrea",
+                      "last_name": "Hartie",
+                      "email": "AndreaHartie@example.com",
                       "status": "active",
                       "role_name": "Administrator",
                       "timezone": "America/Chicago",
