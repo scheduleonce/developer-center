@@ -1,6 +1,6 @@
 ---
 title: Update a user
-excerpt: Add or invite a new user to your OnceHub account
+excerpt: Update an existing user's information in your OnceHub account
 api:
   file: oncehub.json
   operationId: post_users-1
