@@ -14,10 +14,8 @@ metadata:
 <Callout icon="📘" theme="info">
   Notes On Using This Endpoint
 
-  * The user will be added with Member role by default if no role is specified
-  * An invitation email will be sent to the user
-  * User limits apply based on your account plan (500 for purchased accounts, 30 for trial accounts)
-  * The Account Owner role cannot be assigned through the API
+  * At least one field must be provided to update
+  * The Account Owner role cannot be assigned or updated through the APIs
 </Callout>
 
 <br />
