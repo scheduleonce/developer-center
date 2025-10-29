@@ -4049,7 +4049,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "nfirst_nameame": {
+                  "first_nameame": {
                     "type": "string",
                     "description": "First name of the contact"
                   },
@@ -4145,7 +4145,7 @@
                   }
                 },
                 "required": [
-                  "nfirst_nameame",
+                  "first_nameame",
                   "last_name"
                 ]
               }
