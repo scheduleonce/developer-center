@@ -5029,6 +5029,130 @@
         },
         "parameters": []
       }
+    },
+    "/users-1": {
+      "post": {
+        "description": "",
+        "operationId": "post_users-1",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "description": "User's email."
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "description": "User's first name."
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "description": "User's last name."
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the object."
+                    },
+                    "object": {
+                      "type": "string",
+                      "description": "String representing the object's type. Objects of the same type share the same value. The type here is user."
+                    },
+                    "role_name": {
+                      "type": "string",
+                      "description": "The name of the role associated with the user, for example - Administrator, Member, Team manager."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "The status of the user. The user can have one of the following statuses - active or invited."
+                    },
+                    "teams": {
+                      "type": "array",
+                      "description": "The teams the user belongs to.",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "description": "User's timezone. Displayed in IANA timezone format"
+                    }
+                  }
+                },
+                "examples": {
+                  "New Example": {
+                    "summary": "New Example",
+                    "value": {
+                      "id": "USR-FSD423423",
+                      "object": "user",
+                      "first_name": "Carrie",
+                      "last_name": "Customer",
+                      "email": "carrie.customer@gmail.com",
+                      "status": "active",
+                      "role_name": "Administrator",
+                      "timezone": "America/Chicago",
+                      "teams": [
+                        "TM-GCJU8DLBTPY1"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "Email address of the new user"
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "description": "First name of the new user"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "description": "Last name of the new user"
+                  },
+                  "role_name": {
+                    "type": "string",
+                    "description": "The role to assign to the user. Valid values are `Administrator`, `Member`, or `Team Manager`. Defaults to `Member` if not specified.",
+                    "default": "Member",
+                    "enum": [
+                      "Administrator",
+                      "Member",
+                      "Team Manager"
+                    ]
+                  },
+                  "teams": {
+                    "type": "array",
+                    "description": "Array of team external IDs to add the user to. Each team ID must exist in the account.",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "email",
+                  "first_name",
+                  "last_name"
+                ]
+              }
+            }
+          }
+        },
+        "summary": "Copy of "
+      }
     }
   },
   "x-readme": {
