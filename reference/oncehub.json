@@ -3447,8 +3447,8 @@
                   }
                 },
                 "examples": {
-                  "New Example": {
-                    "summary": "New Example",
+                  "Successful update": {
+                    "summary": "Successful update",
                     "value": {
                       "id": "USR-FSD423423",
                       "object": "user",
