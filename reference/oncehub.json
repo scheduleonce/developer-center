@@ -3475,8 +3475,8 @@
                   "properties": {}
                 },
                 "examples": {
-                  "Bad Request": {
-                    "summary": "Bad Request",
+                  "No fields provided": {
+                    "summary": "No fields provided",
                     "value": {
                       "type": "invalid_request_error",
                       "message": "At least one field must be provided to update.",
