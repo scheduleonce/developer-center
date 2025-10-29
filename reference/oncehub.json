@@ -3475,7 +3475,8 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "description": "ID of the user to update"
           }
         ],
         "requestBody": {
@@ -3484,10 +3485,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "email": {
-                    "type": "string",
-                    "description": "Email address of the new user"
-                  },
                   "first_name": {
                     "type": "string",
                     "description": "First name of the new user"
@@ -3513,12 +3510,7 @@
                       "type": "string"
                     }
                   }
-                },
-                "required": [
-                  "email",
-                  "first_name",
-                  "last_name"
-                ]
+                }
               }
             }
           }
