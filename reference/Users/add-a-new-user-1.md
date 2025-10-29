@@ -1,5 +1,5 @@
 ---
-title: Copy of Add a new user
+title: Update a user
 excerpt: Add or invite a new user to your OnceHub account
 api:
   file: oncehub.json
