@@ -103,7 +103,7 @@ contacts:
               "Invalid mobile phone":
                 value:
                   type: invalid_request_error
-                  message: "Invalid mobile phone format: '+91999999'"
+                  message: "Invalid phone format: '+91999999'"
                   param: mobile_phone
               "Unsupported fields":
                 value:

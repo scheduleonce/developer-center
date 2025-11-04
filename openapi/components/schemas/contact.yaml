@@ -29,11 +29,6 @@ Contact:
       description: The date and time of the last interaction with the contact
       example: null
       readOnly: true
-    source:
-      type: string
-      description: The source of the contact creation (e.g., OHAPI for contacts created via the public API)
-      example: OHAPI
-      readOnly: true
     owner:
       type: string
       description: The ID of the owner of the contact

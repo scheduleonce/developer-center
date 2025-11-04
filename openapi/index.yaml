@@ -102,6 +102,8 @@ paths:
   /contacts/{id}:
     get:
       $ref: "./resources/contacts/get.yaml#/contacts--id/get"
+    patch:
+      $ref: "./resources/contacts/update.yaml#/contacts--id/patch"
     delete:
       $ref: "./resources/contacts/delete.yaml#/contacts--id/delete"
 
