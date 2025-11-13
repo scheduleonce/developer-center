@@ -33,7 +33,7 @@
     "@scalar/docusaurus": "^0.7.21",
     "@scalar/react-renderer": "^0.3.0",
     "clsx": "^2.0.0",
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^4.1.1",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
@@ -42,8 +42,8 @@
     "@docusaurus/module-type-aliases": "^3.9.2",
     "@docusaurus/tsconfig": "^3.9.2",
     "@docusaurus/types": "^3.9.2",
-    "@redocly/cli": "^2.10.0",
-    "@types/node": "^24.10.0",
+    "@redocly/cli": "^2.11.1",
+    "@types/node": "^24.10.1",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3"
   },
