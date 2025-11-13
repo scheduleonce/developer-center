@@ -569,7 +569,7 @@ paths:
                             type:
                               - string
                               - 'null'
-                            description: 'The location value. For `virtual` locations: video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`). For `virtual_static` locations: the static meeting URL. For `guest_phone` locations: the phone number in E164 format. For `physical` locations: `null` (use `id` field instead).'
+                            description: 'The location value. For `virtual` locations: video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`). For `virtual_static` locations: `null` (the actual custom link is not known in advance). For `guest_phone` locations: the phone number in E164 format. For `physical` locations: `null` (use `id` field instead).'
                             example: google_meet
                           id:
                             type:
@@ -598,7 +598,7 @@ paths:
                           },
                           {
                             "type": "virtual_static",
-                            "value": "https://customlink.com",
+                            "value": null,
                             "id": null
                           },
                           {

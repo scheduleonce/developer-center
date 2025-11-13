@@ -827,7 +827,7 @@
                                 "string",
                                 "null"
                               ],
-                              "description": "The location value. For `virtual` locations: video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`). For `virtual_static` locations: the static meeting URL. For `guest_phone` locations: the phone number in E164 format. For `physical` locations: `null` (use `id` field instead).",
+                              "description": "The location value. For `virtual` locations: video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`). For `virtual_static` locations: `null` (the actual custom link is not known in advance). For `guest_phone` locations: the phone number in E164 format. For `physical` locations: `null` (use `id` field instead).",
                               "example": "google_meet"
                             },
                             "id": {
@@ -855,7 +855,7 @@
                 },
                 "examples": {
                   "Result": {
-                    "value": "[\n  {\n    \"start_time\": \"2024-12-02T06:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"virtual\",\n        \"value\": \"google_meet\",\n        \"id\": null\n      },\n      {\n        \"type\": \"virtual_static\",\n        \"value\": \"https://customlink.com\",\n        \"id\": null\n      },\n      {\n        \"type\": \"guest_phone\",\n        \"value\": \"+12025550195\",\n        \"id\": null\n      }\n    ]\n  },\n  {\n    \"start_time\": \"2024-12-05T14:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"physical\",\n        \"value\": null,\n        \"id\": \"ADD-17SE9FWWOC\"\n      }\n    ]\n  },\n  // ...\n]\n"
+                    "value": "[\n  {\n    \"start_time\": \"2024-12-02T06:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"virtual\",\n        \"value\": \"google_meet\",\n        \"id\": null\n      },\n      {\n        \"type\": \"virtual_static\",\n        \"value\": null,\n        \"id\": null\n      },\n      {\n        \"type\": \"guest_phone\",\n        \"value\": \"+12025550195\",\n        \"id\": null\n      }\n    ]\n  },\n  {\n    \"start_time\": \"2024-12-05T14:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"physical\",\n        \"value\": null,\n        \"id\": \"ADD-17SE9FWWOC\"\n      }\n    ]\n  },\n  // ...\n]\n"
                   }
                 }
               }
