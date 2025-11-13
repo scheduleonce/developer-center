@@ -553,6 +553,50 @@ paths:
           description: '200'
           content:
             application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    start_time:
+                      type: string
+                      format: date-time
+                      description: The start time of the available slot in ISO 8601 format
+                      example: '2024-12-02T06:30:00.000Z'
+                    locations:
+                      type: array
+                      description: Available location options for this time slot
+                      items:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            description: 'The type of location. Possible values: `virtual` (online meetings with dynamic links), `virtual_static` (online meetings with static links), `physical` (in-person meetings), or `guest_phone` (phone calls).'
+                            enum:
+                              - virtual
+                              - virtual_static
+                              - physical
+                              - guest_phone
+                            example: virtual
+                          value:
+                            type:
+                              - string
+                              - 'null'
+                            description: 'The location value. For `virtual` locations: video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`). For `virtual_static` locations: the static meeting URL. For `guest_phone` locations: the phone number in E164 format. For `physical` locations: `null` (use `id` field instead).'
+                            example: google_meet
+                          id:
+                            type:
+                              - string
+                              - 'null'
+                            description: The location ID. For `physical` locations, this is the address ID (e.g., `ADD-1234`). For other location types, this is `null`.
+                            example: null
+                        required:
+                          - type
+                          - value
+                          - id
+                  required:
+                    - start_time
+                    - locations
               examples:
                 Result:
                   value: |
