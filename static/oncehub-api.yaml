@@ -566,6 +566,11 @@ paths:
                             "id": null
                           },
                           {
+                            "type": "virtual_static",
+                            "value": "https://customlink.com",
+                            "id": null
+                          },
+                          {
                             "type": "guest_phone",
                             "value": "+12025550195",
                             "id": null
@@ -685,11 +690,11 @@ paths:
                   properties:
                     type:
                       type: string
-                      description: Use `physical` for in-person meetings, `virtual` for online meetings, or `guest_phone` for phone calls.
+                      description: Use `physical` for in-person meetings, `virtual` for online meetings, `virtual_static` for static video conferencing links, or `guest_phone` for phone calls.
                       x-readme-id: '1.0'
                     value:
                       type: string
-                      description: 'For virtual meetings, specify one of the following: `google_meet`, `microsoft_teams`, `gotomeeting`, `webex`, or `zoom`. For phone calls, use the guest''s phone number in E164 format. For in-person meetings, use the location''s address ID (e.g., `ADD-1234`).'
+                      description: 'For virtual meetings, specify one of the following: `google_meet`, `microsoft_teams`, `gotomeeting`, `webex`, or `zoom`. For static video conferencing links, use `null`. For phone calls, use the guest''s phone number in E164 format. For in-person meetings, use the location''s address ID (e.g., `ADD-1234`).'
                       x-readme-id: '1.1'
                   required: []
                   type: object

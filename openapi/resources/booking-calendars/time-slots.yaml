@@ -57,6 +57,11 @@ booking-calendars--id--time-slots:
                           "id": null
                         },
                         {
+                          "type": "virtual_static",
+                          "value": "https://customlink.com",
+                          "id": null
+                        },
+                        {
                           "type": "guest_phone",
                           "value": "+12025550195",
                           "id": null

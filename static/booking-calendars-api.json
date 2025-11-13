@@ -796,7 +796,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "[\n  {\n    \"start_time\": \"2024-12-02T06:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"virtual\",\n        \"value\": \"google_meet\",\n        \"id\": null\n      },\n      {\n        \"type\": \"guest_phone\",\n        \"value\": \"+12025550195\",\n        \"id\": null\n      }\n    ]\n  },\n  {\n    \"start_time\": \"2024-12-05T14:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"physical\",\n        \"value\": null,\n        \"id\": \"ADD-17SE9FWWOC\"\n      }\n    ]\n  },\n  // ...\n]\n"
+                    "value": "[\n  {\n    \"start_time\": \"2024-12-02T06:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"virtual\",\n        \"value\": \"google_meet\",\n        \"id\": null\n      },\n      {\n        \"type\": \"virtual_static\",\n        \"value\": \"https://customlink.com\",\n        \"id\": null\n      },\n      {\n        \"type\": \"guest_phone\",\n        \"value\": \"+12025550195\",\n        \"id\": null\n      }\n    ]\n  },\n  {\n    \"start_time\": \"2024-12-05T14:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"physical\",\n        \"value\": null,\n        \"id\": \"ADD-17SE9FWWOC\"\n      }\n    ]\n  },\n  // ...\n]\n"
                   }
                 }
               }
@@ -925,12 +925,12 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "description": "Use `physical` for in-person meetings, `virtual` for online meetings, or `guest_phone` for phone calls.",
+                        "description": "Use `physical` for in-person meetings, `virtual` for online meetings, `virtual_static` for static video conferencing links, or `guest_phone` for phone calls.",
                         "x-readme-id": "1.0"
                       },
                       "value": {
                         "type": "string",
-                        "description": "For virtual meetings, specify one of the following: `google_meet`, `microsoft_teams`, `gotomeeting`, `webex`, or `zoom`. For phone calls, use the guest's phone number in E164 format. For in-person meetings, use the location's address ID (e.g., `ADD-1234`).",
+                        "description": "For virtual meetings, specify one of the following: `google_meet`, `microsoft_teams`, `gotomeeting`, `webex`, or `zoom`. For static video conferencing links, use `null`. For phone calls, use the guest's phone number in E164 format. For in-person meetings, use the location's address ID (e.g., `ADD-1234`).",
                         "x-readme-id": "1.1"
                       }
                     },
