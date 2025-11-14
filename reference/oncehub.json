@@ -2223,12 +2223,18 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "description": "Use `physical` for in-person meetings, `virtual` for online meetings, or `guest_phone` for phone calls.",
-                        "x-readme-id": "1.0"
+                        "description": "Use `physical` for in-person meetings, `virtual` for online meetings, `virtual_static` for static video conferencing links, or `guest_phone` for phone calls.",
+                        "x-readme-id": "1.0",
+                        "enum": [
+                          "physical",
+                          "virtual",
+                          "virtual_static",
+                          "guest_phone"
+                        ]
                       },
                       "value": {
                         "type": "string",
-                        "description": "For virtual meetings, specify one of the following: `google_meet`, `microsoft_teams`, `gotomeeting`, `webex`, or `zoom`. For phone calls, use the guest's phone number in E164 format. For in-person meetings, use the location's address ID (e.g., `ADD-1234`).",
+                        "description": "For virtual meetings, specify one of the following: `google_meet`, `microsoft_teams`, `gotomeeting`, `webex`, or `zoom`. For static video conferencing links, use `null`. For phone calls, use the guest's phone number in E164 format. For in-person meetings, use the location's address ID (e.g., `ADD-1234`).",
                         "x-readme-id": "1.1"
                       }
                     },
