@@ -2057,7 +2057,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "[\n  {\n    \"start_time\": \"2024-12-02T06:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"virtual\",\n        \"value\": \"google_meet\",\n        \"id\": null\n      },\n      {\n        \"type\": \"guest_phone\",\n        \"value\": \"+12025550195\",\n        \"id\": null\n      }\n    ]\n  },\n  {\n    \"start_time\": \"2024-12-05T14:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"physical\",\n        \"value\": null,\n        \"id\": \"ADD-17SE9FWWOC\"\n      }\n    ]\n  },\n  // ...\n]\n"
+                    "value": "[\n  {\n    \"start_time\": \"2024-12-02T06:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"virtual\",\n        \"value\": \"google_meet\",\n        \"id\": null\n      },\n      {\n        \"type\": \"virtual_static\",\n        \"value\": null,\n        \"id\": null\n      },\n      {\n        \"type\": \"guest_phone\",\n        \"value\": \"+12025550195\",\n        \"id\": null\n      }\n    ]\n  },\n  {\n    \"start_time\": \"2024-12-05T14:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"physical\",\n        \"value\": null,\n        \"id\": \"ADD-17SE9FWWOC\"\n      }\n    ]\n  },\n  // ...\n]\n"
                   }
                 }
               }
