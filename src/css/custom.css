@@ -1,3 +1,9 @@
+/* Footer background color: always #242526 */
+footer.theme-layout-footer,
+footer.footer {
+  background: #242526;
+  border-top: 1px solid #6c6c6c;
+}
 /* Footer link hover color: always light blue */
 footer.theme-layout-footer a:hover,
 footer.footer a:hover {
