@@ -153,13 +153,14 @@ const config: Config = {
     // Replace with your project's social card
     image: "/img/docusaurus-social-card.jpg",
     navbar: {
-      title: "", // Remove title to make logo more prominent
+      title: "",
       logo: {
         alt: "OnceHub Developer Center",
-        src: "/img/logo-small.png",
-        href: "/", // Make logo clickable to home
+        src: "/img/logo-light.png",
+        srcDark: "/img/logo-dark.png",
+        href: "/",
         target: "_self",
-        height: 32, // Set height, let width scale proportionally
+        height: 27,
       },
       items: [
         {
