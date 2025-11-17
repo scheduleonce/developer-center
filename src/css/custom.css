@@ -1,3 +1,8 @@
+/* Footer link hover color: always light blue */
+footer.theme-layout-footer a:hover,
+footer.footer a:hover {
+  color: #4fd4fd;
+}
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
