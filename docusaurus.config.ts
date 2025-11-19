@@ -191,6 +191,17 @@ const config: Config = {
           position: "left",
         },
         {
+          type: "dropdown",
+          label: "Support",
+          position: "right",
+          items: [
+            {
+              href: "https://help.oncehub.com",
+              label: "Help Center",
+            },
+          ],
+        },
+        {
           href: "https://github.com/scheduleonce/developer-center",
           label: "GitHub",
           position: "right",
