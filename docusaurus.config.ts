@@ -248,6 +248,14 @@ const config: Config = {
               label: "Contact Us",
               to: "/docs/developer-support/contact-us",
             },
+            {
+              label: "API Terms of Service",
+              to: "/docs/developer-support/developer-terms-of-service/",
+            },
+            {
+              label: "Privacy Policy",
+              href: "https://help.oncehub.com/help/privacy",
+            },
           ],
         },
       ],
