@@ -63,7 +63,6 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         "developer-support/frequently-asked-questions",
-        "developer-support/developer-terms-of-service",
         "developer-support/contact-us",
       ],
     },
