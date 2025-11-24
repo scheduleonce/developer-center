@@ -49,7 +49,7 @@ async function fetchBookingsSince(date) {
     const res = await fetch(url, { headers });
     const data = await res.json();
     results = results.concat(data.data);
-    
+
     // Check if there's a next page
     const nextUrl = parse(res.headers.get("link"))?.next?.url;
     if (nextUrl) {
@@ -62,10 +62,10 @@ async function fetchBookingsSince(date) {
     `${baseUrl}/v2/bookings?limit=10&last_updated_time.gt=${date.toISOString()}`,
     { headers }
   );
-  
+
   const data = await res.json();
   results = results.concat(data.data);
-  
+
   // Handle pagination
   const nextUrl = parse(res.headers.get("link"))?.next?.url;
   if (nextUrl) {
@@ -81,19 +81,18 @@ async function fetchBookingsSince(date) {
 async function fetchPeriodically() {
   try {
     const data = await fetchBookingsSince(lastFetchTime);
-    
+
     if (data.length) {
       lastFetchTime = new Date();
-      
+
       // Process the bookings
       console.log(`Fetched ${data.length} updated booking(s)`);
       console.log(data);
-      
+
       // Add your custom logic here:
       // - Update your database
       // - Send notifications
       // - Sync with other systems
-      
     } else {
       console.log("No new booking updates");
     }
@@ -178,7 +177,7 @@ Valid values: 1-100 (default: 10)
       "id": "abc123",
       "status": "completed",
       "start_time": "2024-11-21T10:00:00Z",
-      "last_updated_time": "2024-11-21T09:55:00Z",
+      "last_updated_time": "2024-11-21T09:55:00Z"
       // ... other booking fields
     }
   ],
