@@ -152,6 +152,19 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: "/img/docusaurus-social-card.jpg",
+    // algolia: {
+    //   // The application ID provided by Algolia
+    //   appId: "YOUR_APP_ID",
+    //   // Public API key: it is safe to commit it
+    //   apiKey: "YOUR_SEARCH_API_KEY",
+    //   indexName: "YOUR_INDEX_NAME",
+    //   // Optional: see doc section below
+    //   contextualSearch: true,
+    //   // Optional: Algolia search parameters
+    //   searchParameters: {},
+    //   // Optional: path for search page that enabled by default (`false` to disable it)
+    //   searchPagePath: "search",
+    // },
     navbar: {
       title: "",
       logo: {
@@ -250,7 +263,7 @@ const config: Config = {
             },
             {
               label: "API Terms of Service",
-              to: "/docs/developer-support/developer-terms-of-service/",
+              href: "https://www.oncehub.com/trustcenter/legal/api-terms-of-use",
             },
             {
               label: "Privacy Policy",
