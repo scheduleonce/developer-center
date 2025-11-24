@@ -32,6 +32,8 @@
     "@mdx-js/react": "^3.0.0",
     "@scalar/docusaurus": "^0.7.22",
     "@scalar/react-renderer": "^0.3.0",
+    "@signalwire/docusaurus-plugin-llms-txt": "^2.0.0-alpha.7",
+    "@signalwire/docusaurus-theme-llms-txt": "^1.0.0-alpha.9",
     "clsx": "^2.0.0",
     "js-yaml": "^4.1.1",
     "prism-react-renderer": "^2.3.0",

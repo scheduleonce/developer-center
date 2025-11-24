@@ -148,7 +148,21 @@ const config: Config = {
         },
       },
     ],
+    [
+      "@signalwire/docusaurus-plugin-llms-txt",
+      {
+        ui: {
+          copyPageContent: {
+            buttonLabel: "Copy Page",
+            display: {
+              docs: true,
+            },
+          },
+        },
+      },
+    ],
   ],
+  themes: ["@signalwire/docusaurus-theme-llms-txt"],
   themeConfig: {
     // Replace with your project's social card
     image: "/img/docusaurus-social-card.jpg",
