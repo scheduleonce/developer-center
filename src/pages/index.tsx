@@ -19,42 +19,42 @@ const FeatureList: FeatureItem[] = [
     title: "Overview",
     icon: "/img/icon-overview.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Learn the fundamentals of the OnceHub API, including authentication, versioning, rate limits, and best practices.",
     link: "/docs/overview/introduction",
   },
   {
     title: "Webhooks",
     icon: "/img/icon-webhooks.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Receive real-time notifications about bookings, cancellations, and other events in your OnceHub account.",
     link: "/docs/webhooks/introduction-to-webhooks",
   },
   {
     title: "Client Side API",
     icon: "/img/icon-client-side-api.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Embed OnceHub scheduling directly into your website with our JavaScript API and capture booking data in real-time.",
     link: "/docs/client-side-api/introduction",
   },
   {
     title: "API For Booking Calendars",
     icon: "/img/icon-booking-calendars.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Manage bookings, contacts, and calendar settings programmatically with our comprehensive REST API.",
     link: "/reference/booking-calendars/",
   },
   {
     title: "API For Booking Pages",
     icon: "/img/icon-booking-pages.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Access and manage your Booking Pages (Classic) programmatically to create seamless scheduling workflows.",
     link: "/reference/booking-pages/",
   },
   {
     title: "Whats New",
     icon: "/img/icon-whats-new.png",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Stay up to date with the latest API updates, new features, and improvements to the OnceHub platform.",
     link: "/docs/changelog",
   },
 ];
@@ -81,9 +81,9 @@ function HomepageHeader() {
           Get Started with OnceHub API
         </Heading>
         <p className={styles.heroSubtitle}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco.
+          Build powerful integrations with OnceHub's REST API. Access
+          scheduling, bookings, webhooks, and more to create seamless
+          experiences for your users.
         </p>
       </div>
     </header>
