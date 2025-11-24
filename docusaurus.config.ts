@@ -209,6 +209,10 @@ const config: Config = {
               to: "/reference/booking-pages/",
               label: "Booking Pages (Classic)",
             },
+            {
+              to: "/docs/client-side-api/introduction/",
+              label: "Client Side APIs",
+            },
           ],
         },
         {
