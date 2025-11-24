@@ -80,7 +80,7 @@ Payload example:
       "term": null,
       "content": null
     },
-		"ics_url": "https://oncehub.com/api/bookings/ics/62ad3bdd-a09f-dfbdffbef389-axs01j",
+    "ics_url": "https://oncehub.com/api/bookings/ics/62ad3bdd-a09f-dfbdffbef389-axs01j",
     "booking_calendar": "BKC-03WJV0R52Z",
     "cancel_url": "https://oncehub.com/m/BKNG-3KM0HY2BF9SL/cancel",
     "reschedule_url": "https://oncehub.com/m/BKNG-3KM0HY2BF9SL",
