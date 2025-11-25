@@ -222,19 +222,18 @@ const config: Config = {
           position: "left",
         },
         {
-          type: "dropdown",
-          label: "Support",
+          href: "https://help.oncehub.com",
+          label: "Help Center",
           position: "right",
-          items: [
-            {
-              href: "https://help.oncehub.com",
-              label: "Help Center",
-            },
-          ],
         },
         {
-          href: "https://github.com/scheduleonce/developer-center",
-          label: "GitHub",
+          href: "https://www.youtube.com/playlist?list=PLbDqoI6OzOkkaEHwtL-GcZZl573tDbtMc",
+          label: "Tutorials",
+          position: "right",
+        },
+        {
+          href: "https://www.oncehub.com/",
+          label: "Website",
           position: "right",
         },
       ],
@@ -246,25 +245,21 @@ const config: Config = {
           title: "Docs",
           items: [
             {
-              label: "Documentation",
-              to: "/docs/overview/introduction",
+              label: "OnceHub v1 (Deprecated)",
+              to: "/reference/oncehub-v1/",
             },
           ],
         },
         {
-          title: "API",
+          title: "Legal & Help",
           items: [
             {
-              label: "Booking Calendars",
-              to: "/reference/booking-calendars/",
+              label: "Privacy Policy",
+              href: "https://www.oncehub.com/trustcenter/data",
             },
             {
-              label: "Booking Pages (Classic)",
-              to: "/reference/booking-pages/",
-            },
-            {
-              label: "OnceHub v1 (Deprecated)",
-              to: "/reference/oncehub-v1/",
+              label: "API Terms of Service",
+              href: "https://www.oncehub.com/trustcenter/legal/api-terms-of-use",
             },
           ],
         },
@@ -272,25 +267,13 @@ const config: Config = {
           title: "Support",
           items: [
             {
-              label: "Developer Support",
-              to: "/docs/developer-support/frequently-asked-questions",
-            },
-            {
-              label: "Contact Us",
-              to: "/docs/developer-support/contact-us",
-            },
-            {
-              label: "API Terms of Service",
-              href: "https://www.oncehub.com/trustcenter/legal/api-terms-of-use",
-            },
-            {
-              label: "Privacy Policy",
-              href: "https://help.oncehub.com/help/privacy",
+              label: "Live Chat",
+              href: "https://www.oncehub.com/live-chat-support",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} OnceHub. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} OnceHub.`,
     },
     prism: {
       theme: prismThemes.github,

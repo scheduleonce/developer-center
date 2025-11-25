@@ -55,16 +55,9 @@ const sidebars: SidebarsConfig = {
       items: ["recipes/fetch-bookings-periodically"],
     },
     {
-      type: "category",
-      label: "Developer Support",
-      link: {
-        type: "doc",
-        id: "developer-support/frequently-asked-questions",
-      },
-      items: [
-        "developer-support/frequently-asked-questions",
-        "developer-support/contact-us",
-      ],
+      type: "doc",
+      id: "faq",
+      label: "FAQ",
     },
   ],
 };

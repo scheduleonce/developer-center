@@ -69,7 +69,6 @@
 
 .featureCard {
   background: white;
-  border: 1px solid #a8a8a8;
   border-radius: 12px;
   padding: 18px;
   display: flex;
@@ -82,14 +81,17 @@
 }
 
 [data-theme="dark"] .featureCard {
-  background: #3c3c3c;
-  border: 1px solid #a8a8a8;
+  background: #242526;
 }
 
 .featureCard:hover {
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
+}
+
+[data-theme="dark"] .featureCard:hover {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 
 .featureIcon {

@@ -1,8 +1,8 @@
 ---
-id: frequently-asked-questions
+id: faq
 title: FAQs
 description: Frequently asked questions
-slug: /developer-support/frequently-asked-questions/
+slug: /faq/
 ---
 
 ## Why isn't my API key working?
