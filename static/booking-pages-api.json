@@ -1036,7 +1036,7 @@
           "Master Pages"
         ],
         "summary": "Create a one-time booking link",
-        "description": "Creates a one time link for a master page\n\n> [!important]\n> One-time links that haven't been consumed will be automatically deleted after one year.\n",
+        "description": "Creates a one time link for a master page\n\n> [!important]\n> One-time links that haven't been consumed will be automatically deleted after 90 days.\n",
         "operationId": "create-one-time-link",
         "parameters": [
           {

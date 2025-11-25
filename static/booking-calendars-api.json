@@ -1108,7 +1108,7 @@
           "Booking Calendars"
         ],
         "summary": "Create a one-time link",
-        "description": "Creates a one time link for a booking calendar\n\n> [!note]\n> One-time links are only available for published booking calendars.\n\n> [!important]\n> One-time links that haven't been consumed will be automatically deleted after one year.\n",
+        "description": "Creates a one time link for a booking calendar\n\n> [!note]\n> One-time links are only available for published booking calendars.\n\n> [!important]\n> One-time links that haven't been consumed will be automatically deleted after 90 days.\n",
         "operationId": "booking-calendars-create-a-one-time-link",
         "parameters": [
           {

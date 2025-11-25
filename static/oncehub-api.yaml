@@ -817,7 +817,7 @@ paths:
         > One-time links are only available for published booking calendars.
 
         > [!important]
-        > One-time links that haven't been consumed will be automatically deleted after one year.
+        > One-time links that haven't been consumed will be automatically deleted after 90 days.
       operationId: booking-calendars-create-a-one-time-link
       parameters:
         - name: id
@@ -1135,7 +1135,7 @@ paths:
         Creates a one time link for a master page
 
         > [!important]
-        > One-time links that haven't been consumed will be automatically deleted after one year.
+        > One-time links that haven't been consumed will be automatically deleted after 90 days.
       operationId: create-one-time-link
       parameters:
         - name: id
