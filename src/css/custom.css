@@ -11,6 +11,11 @@ footer.theme-layout-footer a:hover,
 footer.footer a:hover {
   color: #4fd4fd;
 }
+
+/* Add more space between footer columns and copyright line */
+.footer__bottom {
+  margin-top: 3rem;
+}
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
