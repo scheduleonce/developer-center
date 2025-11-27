@@ -45,6 +45,10 @@ const sidebars: SidebarsConfig = {
       link: { type: "doc", id: "client-side-api/introduction" },
       items: [
         "client-side-api/introduction",
+        "client-side-api/embed-events",
+        "client-side-api/embedded-booking-calendar-events",
+        "client-side-api/embedded-chatbot-events",
+        "client-side-api/embedded-form-events",
         "client-side-api/redirecting-booking-confirmation-data",
       ],
     },
