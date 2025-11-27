@@ -1,10 +1,18 @@
 ---
-title: Embedded booking calendar events
+title: Embedded booking events
 ---
 
-# Embedded booking calendar events
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Embedded booking events
+
+Subscribe to events from embedded booking calendars or booking pages to track visitor interactions and booking completions.
 
 ## List of supported events
+
+<Tabs groupId="product" queryString className="product-tabs">
+  <TabItem value="booking-calendars" label="Booking Calendars [New]" default>
 
 | Event name                                    | Fires when                                                                                  |
 | :-------------------------------------------- | :------------------------------------------------------------------------------------------ |
@@ -12,7 +20,20 @@ title: Embedded booking calendar events
 | `oncehub.booking_calendar.time_slot_selected` | Visitor selects a time slot and confirms it.                                                |
 | `oncehub.booking.scheduled`                   | Visitor successfully completes the final step of the booking, and the meeting is scheduled. |
 
+  </TabItem>
+  <TabItem value="booking-pages" label="Booking Pages [Classic]">
+
+For Booking Pages, use the `SOAfterConfirmationFunction()` JavaScript function to collect booking confirmation data when a booking is scheduled. See [Collecting data from an embedded Booking page](collecting-data-from-embedded-booking-page) for the legacy implementation details.
+
+The function executes when a booking is successfully completed and provides a comprehensive booking data payload.
+
+  </TabItem>
+</Tabs>
+
 ## Events payloads
+
+<Tabs groupId="product" queryString className="product-tabs">
+  <TabItem value="booking-calendars" label="Booking Calendars [New]" default>
 
 ### `oncehub.booking_calendar.loaded`
 
@@ -94,3 +115,15 @@ Payload example:
   }
 }
 ```
+
+  </TabItem>
+  <TabItem value="booking-pages" label="Booking Pages [Classic]">
+
+### Booking confirmation data payload
+
+The `SOAfterConfirmationFunction()` returns a comprehensive JSON object containing booking information. See the [Collecting data from an embedded Booking page](collecting-data-from-embedded-booking-page) documentation for the complete payload structure and implementation details.
+
+The payload includes customer information (name, email, phone), meeting times in multiple time zones (UTC, customer time zone, booking page time zone), cancel/reschedule links, calendar event files (ICS and VCS), and error status codes.
+
+  </TabItem>
+</Tabs>

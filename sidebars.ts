@@ -47,6 +47,7 @@ const sidebars: SidebarsConfig = {
         "client-side-api/introduction",
         "client-side-api/embed-events",
         "client-side-api/embedded-booking-calendar-events",
+        "client-side-api/collecting-data-from-embedded-booking-page",
         "client-side-api/embedded-chatbot-events",
         "client-side-api/embedded-form-events",
         "client-side-api/redirecting-booking-confirmation-data",
