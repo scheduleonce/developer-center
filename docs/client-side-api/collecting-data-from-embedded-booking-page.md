@@ -5,7 +5,7 @@ title: Collecting data from an embedded Booking page
 # Collecting data from an embedded Booking page
 
 :::info Booking Pages (Classic) Only
-This documentation applies to **Booking Pages (Classic)** only. For the modern Booking Calendars implementation, see [Embedded booking events](embedded-booking-calendar-events).
+This documentation applies to **Booking Pages (Classic)** only. For the modern Booking Calendars implementation, see [Embedded booking events](/docs/client-side-api/embedded-booking-calendar-events).
 :::
 
 ## Collect data from an embedded Booking page with JavaScript
