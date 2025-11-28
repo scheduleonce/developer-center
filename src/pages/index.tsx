@@ -16,7 +16,7 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: "Overview",
+    title: "Getting Started",
     icon: "/img/icon-overview.png",
     description:
       "Learn the fundamentals of the OnceHub API, including authentication, versioning, rate limits, and best practices.",
