@@ -33,7 +33,6 @@ const sidebars: SidebarsConfig = {
       label: "Webhooks",
       link: { type: "doc", id: "webhooks/introduction-to-webhooks" },
       items: [
-        "webhooks/introduction-to-webhooks",
         "webhooks/managing-webhook-subscriptions",
         "webhooks/using-webhooks",
         "webhooks/webhook-signatures",
