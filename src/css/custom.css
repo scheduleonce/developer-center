@@ -1,10 +1,15 @@
-/* Footer background color: always #242526 */
+/* Footer background color */
 footer.theme-layout-footer,
 footer.footer {
-  background: #242526;
+  background: #34485a;
   border-top: 1px solid #6c6c6c;
   margin-top: 4rem;
   padding-top: 3rem;
+}
+
+[data-theme="dark"] footer.theme-layout-footer,
+[data-theme="dark"] footer.footer {
+  background: #1e1e1f;
 }
 /* Footer link hover color: always light blue */
 footer.theme-layout-footer a:hover,
@@ -46,8 +51,8 @@ footer.footer a:hover {
   --ifm-color-primary-lighter: #7fe3fe;
   --ifm-color-primary-lightest: #afeefe;
   --ifm-link-color: #4fd4fd;
-  --ifm-background-color: #242526;
-  --ifm-background-surface-color: #242526;
+  --ifm-background-color: #1e1e1f;
+  --ifm-background-surface-color: #1e1e1f;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
