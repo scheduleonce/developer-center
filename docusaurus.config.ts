@@ -254,8 +254,8 @@ const config: Config = {
           title: "Legal & Help",
           items: [
             {
-              label: "Privacy Policy",
-              href: "https://www.oncehub.com/trustcenter/data",
+              label: "Trust Center",
+              href: "https://www.oncehub.com/trustcenter",
             },
             {
               label: "API Terms of Service",
