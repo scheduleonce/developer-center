@@ -83,7 +83,7 @@ function HomepageHeader() {
     <header className={styles.heroBanner}>
       <div className={styles.heroContent}>
         <Heading as="h1" className={styles.heroTitle}>
-          Get Started with OnceHub API
+          Get Started with OnceHub's API
         </Heading>
         <p className={styles.heroSubtitle}>
           Build powerful integrations with OnceHub's REST API. Access
