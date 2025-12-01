@@ -88,7 +88,7 @@ function HomepageHeader() {
         <p className={styles.heroSubtitle}>
           Build powerful integrations with OnceHub's REST API. Access
           scheduling, bookings, webhooks, and more to create seamless
-          experiences for your users.
+          experiences for your guests.
         </p>
       </div>
     </header>
