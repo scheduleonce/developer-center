@@ -51,17 +51,22 @@ const FeatureList: FeatureItem[] = [
     link: "/reference/booking-pages/",
   },
   {
-    title: "Whats New",
+    title: "What's New",
     icon: "/img/icon-whats-new.png",
     description:
       "Stay up to date with the latest API updates, new features, and improvements to the OnceHub platform.",
-    link: "/docs/changelog",
+    link: "https://help.oncehub.com/help/whats-new",
   },
 ];
 
 function Feature({ title, icon, description, link }: FeatureItem) {
+  const isExternalLink = link.startsWith("http");
   return (
-    <Link to={link} className={styles.featureCard}>
+    <Link
+      to={link}
+      className={styles.featureCard}
+      {...(isExternalLink && { target: "_blank", rel: "noopener noreferrer" })}
+    >
       <div className={styles.featureIcon}>
         <img src={icon} alt={title} />
       </div>
