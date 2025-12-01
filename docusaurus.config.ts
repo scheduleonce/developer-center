@@ -216,12 +216,6 @@ const config: Config = {
           ],
         },
         {
-          type: "doc",
-          docId: "changelog",
-          label: "Changelog",
-          position: "left",
-        },
-        {
           href: "https://help.oncehub.com",
           label: "Help Center",
           position: "right",
