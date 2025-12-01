@@ -121,3 +121,8 @@ strong.product-badge.product-badge--booking-calendars {
   align-items: center;
   margin-right: 1.5rem;
 }
+
+/* Hide external link icon in navbar and footer */
+[class*="iconExternalLink_"] {
+  display: none !important;
+}
