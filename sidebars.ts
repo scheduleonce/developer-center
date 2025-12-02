@@ -17,7 +17,6 @@ const sidebars: SidebarsConfig = {
         id: "overview/introduction",
       },
       items: [
-        "overview/introduction",
         "overview/authentication",
         "overview/api-versioning",
         "overview/rate-limits",
