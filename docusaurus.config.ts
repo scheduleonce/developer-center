@@ -166,19 +166,19 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: "/img/docusaurus-social-card.jpg",
-    // algolia: {
-    //   // The application ID provided by Algolia
-    //   appId: "YOUR_APP_ID",
-    //   // Public API key: it is safe to commit it
-    //   apiKey: "YOUR_SEARCH_API_KEY",
-    //   indexName: "YOUR_INDEX_NAME",
-    //   // Optional: see doc section below
-    //   contextualSearch: true,
-    //   // Optional: Algolia search parameters
-    //   searchParameters: {},
-    //   // Optional: path for search page that enabled by default (`false` to disable it)
-    //   searchPagePath: "search",
-    // },
+    algolia: {
+      // The application ID provided by Algolia
+      appId: "BLX1JTJWWV",
+      // Public API key: it is safe to commit it
+      apiKey: "42069158effaf087c1a7669a3a640f40",
+      indexName: "OnceHub Developer Center",
+      // Optional: see doc section below
+      contextualSearch: true,
+      // Optional: Algolia search parameters
+      searchParameters: {},
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: "search",
+    },
     navbar: {
       title: "",
       logo: {
