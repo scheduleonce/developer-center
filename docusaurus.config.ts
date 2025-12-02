@@ -165,7 +165,7 @@ const config: Config = {
   themes: ["@signalwire/docusaurus-theme-llms-txt"],
   themeConfig: {
     // Replace with your project's social card
-    image: "/img/docusaurus-social-card.jpg",
+    image: "/img/oncehub-social-card.png",
     algolia: {
       appId: "BLX1JTJWWV",
       apiKey: "42069158effaf087c1a7669a3a640f40",
