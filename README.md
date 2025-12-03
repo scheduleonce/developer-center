@@ -1,6 +1,6 @@
 # OnceHub Developer Center
 
-![OnceHub Developer Center](static/img/oncehub-social-card.png)
+<img src="static/img/oncehub-social-card.png" alt="OnceHub Developer Center" width="400">
 
 Official developer documentation for OnceHub APIs and integrations.
 
