@@ -47,7 +47,6 @@ WebhookList:
       minItems: 0
       items:
         $ref: "#/Webhook"
-      example: []
     has_more:
       type: boolean
       description: Whether there are more items available

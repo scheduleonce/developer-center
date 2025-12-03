@@ -29,7 +29,6 @@ EventTypeList:
       minItems: 0
       items:
         $ref: "#/EventType"
-      example: []
     has_more:
       type: boolean
       description: Whether there are more items available

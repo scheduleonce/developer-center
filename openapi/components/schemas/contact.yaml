@@ -36,7 +36,8 @@ Contact:
     status:
       type: [string, "null"]
       description: The status of the contact. Accepted values are `Qualified`, `Sales qualified`, `Marketing qualified`, or `Disqualified`. If any other value is provided or no value is provided, the status will be set to null.
-      enum: [Qualified, Sales qualified, Marketing qualified, Disqualified, null]
+      enum:
+        [Qualified, Sales qualified, Marketing qualified, Disqualified, null]
       example: Qualified
     city:
       type: [string, "null"]
@@ -136,7 +137,6 @@ ContactList:
       minItems: 0
       items:
         $ref: "#/Contact"
-      example: []
     has_more:
       type: boolean
       description: Whether there are more items available

@@ -58,7 +58,6 @@ UserList:
       minItems: 0
       items:
         $ref: "#/User"
-      example: []
     has_more:
       type: boolean
       description: Whether there are more items available
