@@ -9,11 +9,11 @@ slug: /webhooks/managing-webhook-subscriptions/
 
 The Webhook API allows you to create, retrieve, and delete your webhook subscriptions.
 
-Create new webhook subscriptions by sending a POST request to the **/webhooks** endpoint. The User must specify the name of the webhook subscription; no two webhooks associated with the same account can share the same name. Each webhook is also assigned a unique and secure alphanumeric ID when it is created. [Learn more about creating Webhooks via the API](https://developers.oncehub.com/reference/create-a-webhook)
+Create new webhook subscriptions by sending a POST request to the **/webhooks** endpoint. The User must specify the name of the webhook subscription; no two webhooks associated with the same account can share the same name. Each webhook is also assigned a unique and secure alphanumeric ID when it is created. [Learn more about creating Webhooks via the API](/reference/booking-calendars/#tag/webhooks/post/webhooks)
 
-You can retrieve a list of all webhook subscriptions associated with your account by passing a GET request to the **/webhooks** endpoint. You can also retrieve a single webhook subscription by passing the ID of the desired webhook object. [Learn more about retrieving Webhooks via the API](https://developers.oncehub.com/reference/list-all-webhooks)
+You can retrieve a list of all webhook subscriptions associated with your account by passing a GET request to the **/webhooks** endpoint. You can also retrieve a single webhook subscription by passing the ID of the desired webhook object. [Learn more about retrieving Webhooks via the API](/reference/booking-calendars/#tag/webhooks/get/webhooks)
 
-If for some reason you need to delete your webhook subscriptions, you can do so by sending a DELETE request to the **/webhooks** endpoint, along with the ID of the webhook you wish to delete. [Learn more about deleting Webhooks via the API](https://developers.oncehub.com/reference/delete-a-webhook)
+If for some reason you need to delete your webhook subscriptions, you can do so by sending a DELETE request to the **/webhooks** endpoint, along with the ID of the webhook you wish to delete. [Learn more about deleting Webhooks via the API](/reference/booking-calendars/#tag/webhooks/delete/webhooksid)
 
 ## Managing Webhook Subscriptions via the OnceHub Application
 

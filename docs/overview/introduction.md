@@ -11,7 +11,7 @@ Based on REST principles, our API sends HTTP requests and returns data in JSON f
 
 :::note
 
-The [OnceHub Developer center](https://developers.oncehub.com/) contains [technical documentation](https://developers.oncehub.com/docs) and [reference](https://developers.oncehub.com/reference) for our API. This includes features that allow access to data submitted or created during the booking process.
+The [OnceHub Developer center](/) contains technical documentation (this section) and [API reference](/reference/booking-calendars/) for our API. This includes features that allow access to data submitted or created during the booking process.
 
 The <a target="_blank" href="https://help.oncehub.com/ ">OnceHub Support center</a> offers detailed information about other advanced features that let you pass external data through OnceHub, including:
 
@@ -23,14 +23,6 @@ The <a target="_blank" href="https://help.oncehub.com/ ">OnceHub Support center<
 
 > - <a target="_blank" href="https://help.oncehub.com/help/login-integration">Login integration</a>
 > - <a target="_blank" href="https://help.oncehub.com/help/website-embed">Website integration</a>
-
-## Getting to Know OnceHub
-
-Discover how OnceHub can benefit you and your customers.
-
-- <a target="_blank" href="https://www.oncehub.com/scheduleonce">ScheduleOnce</a>: Fill up your funnel by automating mass scheduling of initial screenings and discovery calls to meet your specific business needs
-
-- <a target="_blank" href="https://www.oncehub.com/chatonce">ChatOnce:</a> Add lead qualification and scheduling to your website that targets and qualifies visitors with chatbot conversations
 
 ## Using the OnceHub API
 

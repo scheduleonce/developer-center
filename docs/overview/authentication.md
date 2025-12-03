@@ -63,7 +63,7 @@ If an API key is regenerated, the old key will expire and can no longer be used 
 
 However, any webhook subscriptions you created with the old key will still be active, even though the API key that originally authenticated them is now expired. Since webhook subscriptions are not associated with a specific API key after they are created, the status of the webhook is independent of your current API key.
 
-If you wish to delete a webhook that you created with an old API key via the API, you will need to use the new API key to authenticate your DELETE request. [Learn more about managing Webhook subscriptions](https://developers.oncehub.com/docs/webhooks/managing-webhook-subscriptions)
+If you wish to delete a webhook that you created with an old API key via the API, you will need to use the new API key to authenticate your DELETE request. [Learn more about managing Webhook subscriptions](/docs/webhooks/managing-webhook-subscriptions)
 
 ## Security Best Practices
 

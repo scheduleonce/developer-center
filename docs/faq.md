@@ -20,9 +20,9 @@ To use the API you will need a OnceHub account. If you don't have an account yet
 
 ## Why am I not receiving a data payload from my webhook subscription?
 
-Check that you have enabled the correct event triggers. [Learn more about event triggers](https://developers.oncehub.com/docs/webhook-event-triggers)
+Check that you have enabled the correct event triggers when creating your webhook subscription.
 
-Check that your endpoint is set up correctly. [Learn more about configuring your webhook subscriptions](https://developers.oncehub.com/docs/using-webhooks)
+Check that your endpoint is set up correctly. [Learn more about configuring your webhook subscriptions](/docs/webhooks/using-webhooks)
 
 ## Why am I seeing `null` fields in the webhook payload?
 
