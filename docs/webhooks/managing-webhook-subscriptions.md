@@ -21,5 +21,5 @@ Webhook subscriptions can also be managed by the account administrator via the O
 
 When a webhook subscription is successfully created, the webhook object will be available in your OnceHub account. You can view or delete webhook subscriptions associated with your account by navigating to the <a target="_blank" href="https://app.oncehub.com/integrations/api"> API & Webhooks Integration page</a>.
 
-[![](https://files.readme.io/852d690-API_integration_-_Webhook_subscription_list.png "API integration - Webhook subscription list.png")](https://files.readme.io/852d690-API_integration_-_Webhook_subscription_list.png)
+![API integration - Webhook subscription list](/img/screenshots/api-integration-webhook-subscription-list.png)
 _Figure 1: API integration - Webhook subscription list_

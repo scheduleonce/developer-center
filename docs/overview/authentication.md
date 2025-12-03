@@ -17,12 +17,12 @@ The API key is available in your OnceHub account, under <a target="_blank" href=
 
 You can easily access and copy your API key from the API integration page:
 
-[![](https://files.readme.io/2d6ddc4-API_key_in_the_API_integration_page.png "API key in the API integration page.png")](https://files.readme.io/2d6ddc4-API_key_in_the_API_integration_page.png)
+![API key in the API integration page](/img/screenshots/api-key-in-the-api-integration-page.png)
 _Figure 1: API key in the API integration page_
 
 You can easily copy the API key from the API integration page to use when authenticating your HTTP requests in the API:
 
-[![](https://files.readme.io/ccb40ac-API_key_-_Copy_link.png "API key - Copy link.png")](https://files.readme.io/ccb40ac-API_key_-_Copy_link.png)
+![API key - Copy link](/img/screenshots/api-key-copy-link.png)
 _Figure 2: API key - Copy link_
 
 ## Using your API key to authenticate HTTP requests
@@ -54,7 +54,7 @@ If you suspect that your secret API key has been compromised, you may wish to ex
 
 You can do so by clicking on the Regenerate link on the <a target="_blank" href="https://app.oncehub.com/integrations/api">API & Webhooks Integration page</a>.
 
-[![](https://files.readme.io/3d7e8b6-API_key_-_Regenerate_link.png "API key - Regenerate link.png")](https://files.readme.io/3d7e8b6-API_key_-_Regenerate_link.png)
+![API key - Regenerate link](/img/screenshots/api-key-regenerate-link.png)
 _Figure 3: API key - Regenerate link_
 
 ### Effects of Regenerating Your API Key

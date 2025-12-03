@@ -21,5 +21,5 @@ An HTTP POST message is used to push relevant booking or conversation data to th
 
 Webhook subscriptions can be created, deleted, and retrieved via the webhooks API. You can also view and delete your webhooks from the <a target="_blank" href="https://app.oncehub.com/integrations/api">API Integration</a> page. [Learn more about managing Webhook subscriptions](/docs/webhooks/managing-webhook-subscriptions)
 
-[![](https://files.readme.io/bd3d3b3-API_Integration_page_with_navigation_menu.png "API Integration page with navigation menu.png")](https://files.readme.io/bd3d3b3-API_Integration_page_with_navigation_menu.png)
+![API Integration page with navigation menu](/img/screenshots/api-integration-page-with-navigation-menu.png)
 _Figure 1: API Integration page with navigation menu_
