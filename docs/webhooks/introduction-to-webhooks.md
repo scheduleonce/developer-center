@@ -1,7 +1,7 @@
 ---
 id: introduction-to-webhooks
 title: Introduction to Webhooks
-description: ""
+description: Learn how to use OnceHub webhooks to receive real-time notifications about booking and conversation events in your account.
 slug: /webhooks/introduction-to-webhooks/
 ---
 

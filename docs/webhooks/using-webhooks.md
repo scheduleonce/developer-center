@@ -1,7 +1,7 @@
 ---
 id: using-webhooks
 title: Setting Up and Using Webhooks
-description: ""
+description: Set up and configure webhook integrations to automatically receive booking and conversation data from OnceHub when lifecycle events occur.
 slug: /webhooks/using-webhooks/
 ---
 

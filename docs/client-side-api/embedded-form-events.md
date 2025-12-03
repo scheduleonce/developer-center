@@ -1,5 +1,6 @@
 ---
 title: Embedded form events
+description: Track user interactions with embedded OnceHub forms through events including loaded, started, button clicked, and completed events.
 ---
 
 # Embedded form events

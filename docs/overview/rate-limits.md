@@ -25,7 +25,7 @@ When you exceed the rate limits, the API will respond with a `429 Too Many Reque
 
 :::tip
 
-Avoid periodically fetching entire resource collections just to check for updates. This can quickly consume your rate limit allowance. Instead, utilize our [Webhooks](https://developers.oncehub.com/reference/event-triggers) to receive notifications proactively when data changes, leading to more efficient integration.
+Avoid periodically fetching entire resource collections just to check for updates. This can quickly consume your rate limit allowance. Instead, utilize our [Webhooks](/docs/webhooks/introduction-to-webhooks/) to receive notifications proactively when data changes, leading to more efficient integration.
 
 :::
 
