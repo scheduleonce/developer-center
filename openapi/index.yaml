@@ -10,7 +10,7 @@ info:
 servers:
   - url: https://api.oncehub.com/v2
 security:
-  - sec0: []
+  - ApiKey: []
 tags:
   - $ref: "./resources/authentication/tag.yaml"
   - $ref: "./resources/bookings/tag.yaml"
@@ -144,7 +144,7 @@ webhooks:
 
 components:
   securitySchemes:
-    sec0:
+    ApiKey:
       type: apiKey
       in: header
       name: API-Key

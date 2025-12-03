@@ -16,7 +16,7 @@
   ],
   "security": [
     {
-      "sec0": []
+      "ApiKey": []
     }
   ],
   "tags": [
@@ -3946,7 +3946,7 @@
   },
   "components": {
     "securitySchemes": {
-      "sec0": {
+      "ApiKey": {
         "type": "apiKey",
         "in": "header",
         "name": "API-Key"
