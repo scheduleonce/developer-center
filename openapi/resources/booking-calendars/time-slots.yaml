@@ -98,40 +98,23 @@ booking-calendars--id--time-slots:
                   - locations
             examples:
               Result:
-                value: |
-                  [
-                    {
-                      "start_time": "2024-12-02T06:30:00.000Z",
-                      "locations": [
-                        {
-                          "type": "virtual",
-                          "value": "google_meet",
-                          "id": null
-                        },
-                        {
-                          "type": "virtual_static",
-                          "value": null,
-                          "id": null
-                        },
-                        {
-                          "type": "guest_phone",
-                          "value": "+12025550195",
-                          "id": null
-                        }
-                      ]
-                    },
-                    {
-                      "start_time": "2024-12-05T14:30:00.000Z",
-                      "locations": [
-                        {
-                          "type": "physical",
-                          "value": null,
-                          "id": "ADD-17SE9FWWOC"
-                        }
-                      ]
-                    },
-                    // ...
-                  ]
+                value:
+                  - start_time: "2024-12-02T06:30:00.000Z"
+                    locations:
+                      - type: virtual
+                        value: google_meet
+                        id: null
+                      - type: virtual_static
+                        value: null
+                        id: null
+                      - type: guest_phone
+                        value: "+12025550195"
+                        id: null
+                  - start_time: "2024-12-05T14:30:00.000Z"
+                    locations:
+                      - type: physical
+                        value: null
+                        id: ADD-17SE9FWWOC
       "400":
         description: "400"
         content:

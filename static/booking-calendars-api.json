@@ -855,7 +855,38 @@
                 },
                 "examples": {
                   "Result": {
-                    "value": "[\n  {\n    \"start_time\": \"2024-12-02T06:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"virtual\",\n        \"value\": \"google_meet\",\n        \"id\": null\n      },\n      {\n        \"type\": \"virtual_static\",\n        \"value\": null,\n        \"id\": null\n      },\n      {\n        \"type\": \"guest_phone\",\n        \"value\": \"+12025550195\",\n        \"id\": null\n      }\n    ]\n  },\n  {\n    \"start_time\": \"2024-12-05T14:30:00.000Z\",\n    \"locations\": [\n      {\n        \"type\": \"physical\",\n        \"value\": null,\n        \"id\": \"ADD-17SE9FWWOC\"\n      }\n    ]\n  },\n  // ...\n]\n"
+                    "value": [
+                      {
+                        "start_time": "2024-12-02T06:30:00.000Z",
+                        "locations": [
+                          {
+                            "type": "virtual",
+                            "value": "google_meet",
+                            "id": null
+                          },
+                          {
+                            "type": "virtual_static",
+                            "value": null,
+                            "id": null
+                          },
+                          {
+                            "type": "guest_phone",
+                            "value": "+12025550195",
+                            "id": null
+                          }
+                        ]
+                      },
+                      {
+                        "start_time": "2024-12-05T14:30:00.000Z",
+                        "locations": [
+                          {
+                            "type": "physical",
+                            "value": null,
+                            "id": "ADD-17SE9FWWOC"
+                          }
+                        ]
+                      }
+                    ]
                   }
                 }
               }
