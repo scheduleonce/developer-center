@@ -1,5 +1,5 @@
 headers = { "API-Key" = "XXXXX" }
-base-url = "https://api3.onceplatform.com/v2"
+base-url = "https://BASE_URL/v2"
 rate-limit = "2/s"
 
 [[operations]]
