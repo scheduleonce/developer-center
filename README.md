@@ -1,41 +1,28 @@
-# Website
+# OnceHub Developer Center
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+![OnceHub Developer Center](static/img/oncehub-social-card.png)
 
-## Installation
+Official developer documentation for OnceHub APIs and integrations.
 
-```bash
-yarn
-```
+Visit the documentation at: [developer.oncehub.com](https://developer.oncehub.com)
 
-## Local Development
+## Contributing
 
-```bash
-yarn start
-```
+This site is built using [Docusaurus](https://docusaurus.io/) and [Scalar](https://scalar.com/) for API reference documentation.
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
+### Local Development
 
 ```bash
-yarn build
+npm install
+npm start
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
+### Build
 
 ```bash
-USE_SSH=true yarn deploy
+npm run build
 ```
 
-Not using SSH:
+## License
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Documentation content is © OnceHub.
