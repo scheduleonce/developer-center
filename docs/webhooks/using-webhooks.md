@@ -11,7 +11,7 @@ Webhooks are a useful tool if you want to receive automatic notifications whenev
 
 For example, you can use a webhook subscription to automatically send guest details to your server whenever a new booking is made.
 
-You can register webhooks to send an HTTP POST request for specific types of booking or conversation events, or register a webhook to let you know when any booking or conversation lifecycle event takes place.
+You can register webhooks to send an HTTP POST request for specific types of booking or conversation events, or register a webhook to let you know when any booking or conversation lifecycle event takes place. [See all available webhook events and their payloads](/reference/booking-calendars/#tag/webhook-events).
 
 > 🚧 POST messages may contain sensitive customer data. Always use HTTPS when providing the receiving POST URL.
 

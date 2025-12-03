@@ -15,7 +15,7 @@ The Webhooks API is used to communicate with third-party web services. Webhook s
 
 Multiple webhook subscriptions can be associated with the same OnceHub account. This lets you create different triggers for different booking and conversation lifecycle events.
 
-An HTTP POST message is used to push relevant booking or conversation data to the webhook URL, and is triggered whenever the defined lifecycle event occurs. The data is sent as JSON key-value pairs (KVPs) to your receiving server when a booking lifecycle event occurs in your OnceHub account. For example, you can create a webhook that sends customer details whenever a new booking is scheduled.
+An HTTP POST message is used to push relevant booking or conversation data to the webhook URL, and is triggered whenever the defined lifecycle event occurs. The data is sent as JSON key-value pairs (KVPs) to your receiving server when a booking lifecycle event occurs in your OnceHub account. For example, you can create a webhook that sends customer details whenever a new booking is scheduled. [View all available webhook events](/reference/booking-calendars/#tag/webhook-events).
 
 ## Managing Your Webhooks
 
