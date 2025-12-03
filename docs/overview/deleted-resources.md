@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: Deleted Resources
+description: Understand how OnceHub API handles deleted resources in redacted mode and how they appear in responses and expansions.
 ---
 
 # Deleted resources

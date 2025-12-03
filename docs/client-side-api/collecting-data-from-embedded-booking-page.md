@@ -1,5 +1,6 @@
 ---
 title: Collecting data from an embedded Booking page
+description: Collect booking confirmation data from embedded Booking Pages using the SOAfterConfirmationFunction JavaScript callback.
 ---
 
 # Collecting data from an embedded Booking page

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: Pagination
+description: Navigate large result sets using cursor-based pagination with before, after, and limit parameters in list API methods.
 ---
 
 # Pagination

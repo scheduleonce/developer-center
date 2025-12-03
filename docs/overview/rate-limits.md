@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: Rate Limits
+description: Learn about OnceHub API rate limits, including per-account and per-IP restrictions, and best practices to avoid hitting limits.
 ---
 
 # Rate Limits

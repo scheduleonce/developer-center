@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: Expanding Responses
+description: Retrieve expanded nested objects in API responses using the expand parameter to reduce additional API calls.
 ---
 
 # Expanding responses

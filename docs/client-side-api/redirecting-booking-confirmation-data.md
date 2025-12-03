@@ -1,5 +1,6 @@
 ---
 title: Redirecting booking confirmation data
+description: Send booking confirmation data to custom redirect pages via URL parameters after successful booking completion.
 ---
 
 import Tabs from '@theme/Tabs';

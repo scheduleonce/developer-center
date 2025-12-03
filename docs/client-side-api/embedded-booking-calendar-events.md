@@ -1,5 +1,6 @@
 ---
 title: Embedded booking events
+description: Track embedded booking calendar events including calendar loaded, time slot selection, and booking completion with detailed payload data.
 ---
 
 import Tabs from '@theme/Tabs';

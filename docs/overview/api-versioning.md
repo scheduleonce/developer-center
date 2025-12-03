@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: API Versioning
+description: Understand OnceHub API versioning strategy, how to specify versions in requests, and manage backward compatibility.
 ---
 
 # Versioning

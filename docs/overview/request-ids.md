@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: Request IDs
+description: Track and troubleshoot API requests using unique Request-Id headers included in all OnceHub API responses.
 ---
 
 # Request IDs

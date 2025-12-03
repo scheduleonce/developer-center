@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: Error Handling
+description: Handle API errors effectively with standard HTTP status codes, error types, and detailed error messages for troubleshooting.
 ---
 
 # Errors
