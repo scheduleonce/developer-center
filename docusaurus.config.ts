@@ -56,7 +56,7 @@ const config: Config = {
           routeBasePath: "docs",
           sidebarPath: "./sidebars.ts",
           editUrl:
-            "https://github.com/scheduleonce/developer-center/tree/main/",
+            "https://github.com/scheduleonce/developer-center/tree/docusaurus-main/",
           remarkPlugins: [
             function legacyImage() {
               return (tree: any) => {
