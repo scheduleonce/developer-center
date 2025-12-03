@@ -58,6 +58,8 @@ tags:
       scheduling availability.
   - name: Webhooks
     description: Manage webhook subscriptions to receive real-time notifications for booking lifecycle events.
+  - name: Webhook Events
+    description: Event payloads sent to your webhook endpoints when booking lifecycle events occur.
 paths:
   /test:
     get:
@@ -2532,7 +2534,7 @@ webhooks:
   booking.scheduled:
     post:
       tags:
-        - Webhooks
+        - Webhook Events
       summary: Booking Scheduled Event
       description: |
         Triggered when:
@@ -2585,7 +2587,7 @@ webhooks:
   booking.rescheduled:
     post:
       tags:
-        - Webhooks
+        - Webhook Events
       summary: Booking Rescheduled Event
       description: |
         Triggered when:
@@ -2638,7 +2640,7 @@ webhooks:
   booking.canceled_then_rescheduled:
     post:
       tags:
-        - Webhooks
+        - Webhook Events
       summary: Booking Canceled Then Rescheduled Event
       description: Triggered when Customer cancels a booking and then reschedules on a different booking page.
       operationId: webhook-booking-canceled-then-rescheduled
@@ -2688,7 +2690,7 @@ webhooks:
   booking.canceled_reschedule_requested:
     post:
       tags:
-        - Webhooks
+        - Webhook Events
       summary: Booking Canceled Reschedule Requested Event
       description: Triggered when User cancels and sends a request to the Customer to reschedule.
       operationId: webhook-booking-canceled-reschedule-requested
@@ -2738,7 +2740,7 @@ webhooks:
   booking.canceled:
     post:
       tags:
-        - Webhooks
+        - Webhook Events
       summary: Booking Canceled Event
       description: Triggered when User or Customer cancels a booking.
       operationId: webhook-booking-canceled
@@ -2788,7 +2790,7 @@ webhooks:
   booking.completed:
     post:
       tags:
-        - Webhooks
+        - Webhook Events
       summary: Booking Completed Event
       description: Triggered when booking end time has passed.
       operationId: webhook-booking-completed
@@ -2838,7 +2840,7 @@ webhooks:
   booking.no_show:
     post:
       tags:
-        - Webhooks
+        - Webhook Events
       summary: Booking No-Show Event
       description: Triggered when User sets the completed booking to No-show.
       operationId: webhook-booking-no-show
@@ -2888,7 +2890,7 @@ webhooks:
   conversation.started:
     post:
       tags:
-        - Webhooks
+        - Webhook Events
       summary: Conversation Started Event
       description: Triggered when website visitor starts interacting with a chatbot.
       operationId: webhook-conversation-started
@@ -2935,7 +2937,7 @@ webhooks:
   conversation.closed:
     post:
       tags:
-        - Webhooks
+        - Webhook Events
       summary: Conversation Closed Event
       description: |
         Triggered when:
@@ -2985,7 +2987,7 @@ webhooks:
   conversation.abandoned:
     post:
       tags:
-        - Webhooks
+        - Webhook Events
       summary: Conversation Abandoned Event
       description: Triggered when website visitor stops interacting with a bot for more than 10 minutes.
       operationId: webhook-conversation-abandoned

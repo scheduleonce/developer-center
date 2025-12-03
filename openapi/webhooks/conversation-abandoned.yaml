@@ -1,6 +1,6 @@
 post:
   tags:
-    - "Webhooks"
+    - "Webhook Events"
   summary: Conversation Abandoned Event
   description: Triggered when website visitor stops interacting with a bot for more than 10 minutes.
   operationId: webhook-conversation-abandoned

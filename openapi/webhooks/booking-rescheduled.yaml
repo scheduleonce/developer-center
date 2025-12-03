@@ -1,6 +1,6 @@
 post:
   tags:
-    - "Webhooks"
+    - "Webhook Events"
   summary: Booking Rescheduled Event
   description: |
     Triggered when:

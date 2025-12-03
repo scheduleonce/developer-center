@@ -1,6 +1,6 @@
 post:
   tags:
-    - "Webhooks"
+    - "Webhook Events"
   summary: Booking No-Show Event
   description: Triggered when User sets the completed booking to No-show.
   operationId: webhook-booking-no-show

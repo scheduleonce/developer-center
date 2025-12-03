@@ -90,6 +90,10 @@ function filterTagsForProduct(tags, productConfig) {
   return tags.filter((tag) => {
     // Handle both direct tags and $ref tags
     if (tag.$ref) {
+      // Check if it's the webhooks events tag (./webhooks/tag.yaml)
+      if (tag.$ref === "./webhooks/tag.yaml") {
+        return allowedResources.includes("webhooks");
+      }
       const tagName = tag.$ref.split("/")[2]; // Extract resource name from path
       return allowedResources.includes(tagName);
     }

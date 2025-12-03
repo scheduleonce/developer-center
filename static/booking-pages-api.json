@@ -3133,7 +3133,7 @@
     "booking.scheduled": {
       "post": {
         "tags": [
-          "Webhooks"
+          "Webhook Events"
         ],
         "summary": "Booking Scheduled Event",
         "description": "Triggered when:\n- Customer schedules a booking\n- User approves a booking requested by a Customer\n",
@@ -3203,7 +3203,7 @@
     "booking.rescheduled": {
       "post": {
         "tags": [
-          "Webhooks"
+          "Webhook Events"
         ],
         "summary": "Booking Rescheduled Event",
         "description": "Triggered when:\n- Customer reschedules a booking on the same booking page\n- Customer reschedules a booking following a request from the User to reschedule\n",
@@ -3273,7 +3273,7 @@
     "booking.canceled_then_rescheduled": {
       "post": {
         "tags": [
-          "Webhooks"
+          "Webhook Events"
         ],
         "summary": "Booking Canceled Then Rescheduled Event",
         "description": "Triggered when Customer cancels a booking and then reschedules on a different booking page.",
@@ -3343,7 +3343,7 @@
     "booking.canceled_reschedule_requested": {
       "post": {
         "tags": [
-          "Webhooks"
+          "Webhook Events"
         ],
         "summary": "Booking Canceled Reschedule Requested Event",
         "description": "Triggered when User cancels and sends a request to the Customer to reschedule.",
@@ -3413,7 +3413,7 @@
     "booking.canceled": {
       "post": {
         "tags": [
-          "Webhooks"
+          "Webhook Events"
         ],
         "summary": "Booking Canceled Event",
         "description": "Triggered when User or Customer cancels a booking.",
@@ -3483,7 +3483,7 @@
     "booking.completed": {
       "post": {
         "tags": [
-          "Webhooks"
+          "Webhook Events"
         ],
         "summary": "Booking Completed Event",
         "description": "Triggered when booking end time has passed.",
@@ -3553,7 +3553,7 @@
     "booking.no_show": {
       "post": {
         "tags": [
-          "Webhooks"
+          "Webhook Events"
         ],
         "summary": "Booking No-Show Event",
         "description": "Triggered when User sets the completed booking to No-show.",
@@ -3623,7 +3623,7 @@
     "conversation.started": {
       "post": {
         "tags": [
-          "Webhooks"
+          "Webhook Events"
         ],
         "summary": "Conversation Started Event",
         "description": "Triggered when website visitor starts interacting with a chatbot.",
@@ -3689,7 +3689,7 @@
     "conversation.closed": {
       "post": {
         "tags": [
-          "Webhooks"
+          "Webhook Events"
         ],
         "summary": "Conversation Closed Event",
         "description": "Triggered when:\n- Website visitor reaches the end of the conversation flow\n- Website visitor starts a new conversation with a different chatbot\n",
@@ -3755,7 +3755,7 @@
     "conversation.abandoned": {
       "post": {
         "tags": [
-          "Webhooks"
+          "Webhook Events"
         ],
         "summary": "Conversation Abandoned Event",
         "description": "Triggered when website visitor stops interacting with a bot for more than 10 minutes.",

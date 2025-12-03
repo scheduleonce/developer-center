@@ -1,6 +1,6 @@
 post:
   tags:
-    - "Webhooks"
+    - "Webhook Events"
   summary: Booking Completed Event
   description: Triggered when booking end time has passed.
   operationId: webhook-booking-completed

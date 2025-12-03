@@ -1,6 +1,6 @@
 post:
   tags:
-    - "Webhooks"
+    - "Webhook Events"
   summary: Conversation Closed Event
   description: |
     Triggered when:

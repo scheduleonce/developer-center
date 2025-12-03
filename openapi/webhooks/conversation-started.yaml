@@ -1,6 +1,6 @@
 post:
   tags:
-    - "Webhooks"
+    - "Webhook Events"
   summary: Conversation Started Event
   description: Triggered when website visitor starts interacting with a chatbot.
   operationId: webhook-conversation-started

@@ -22,6 +22,7 @@ tags:
   - $ref: "./resources/teams/tag.yaml"
   - $ref: "./resources/users/tag.yaml"
   - $ref: "./resources/webhooks/tag.yaml"
+  - $ref: "./webhooks/tag.yaml"
 paths:
   # Authentication
   /test:

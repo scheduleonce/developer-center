@@ -1,6 +1,6 @@
 post:
   tags:
-    - "Webhooks"
+    - "Webhook Events"
   summary: Booking Canceled Reschedule Requested Event
   description: Triggered when User cancels and sends a request to the Customer to reschedule.
   operationId: webhook-booking-canceled-reschedule-requested

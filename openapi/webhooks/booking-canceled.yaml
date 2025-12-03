@@ -1,6 +1,6 @@
 post:
   tags:
-    - "Webhooks"
+    - "Webhook Events"
   summary: Booking Canceled Event
   description: Triggered when User or Customer cancels a booking.
   operationId: webhook-booking-canceled
