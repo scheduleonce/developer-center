@@ -4,7 +4,7 @@
 
 Official developer documentation for OnceHub APIs and integrations.
 
-Visit the documentation at: [developer.oncehub.com](https://developer.oncehub.com)
+Visit the documentation at: [developers.oncehub.com](https://developers.oncehub.com)
 
 ## Contributing
 
