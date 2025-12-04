@@ -85,7 +85,7 @@ bookings:
         in: query
         description: >-
           A comma separated list of fields that you want to
-          [expand](https://developers.oncehub.com/v2.0.0/reference#expanding-responses). Possible values are
+          [expand](/docs/overview/expanding-responses). Possible values are
           `booking_page`, `master_page`, `event_type`, `owner`.
         schema:
           type: string
