@@ -173,6 +173,12 @@ components:
       $ref: "./components/schemas/webhook.yaml#/Webhook"
     WebhookList:
       $ref: "./components/schemas/webhook.yaml#/WebhookList"
+    WebhookEvent:
+      $ref: "./components/schemas/webhook-event.yaml#/WebhookEvent"
+    BookingWebhookData:
+      $ref: "./components/schemas/booking-webhook-event.yaml#/BookingWebhookData"
+    ConversationWebhookData:
+      $ref: "./components/schemas/conversation-webhook-event.yaml#/ConversationWebhookData"
     BookingCalendar:
       $ref: "./components/schemas/booking-calendar.yaml#/BookingCalendar"
     BookingCalendarList:

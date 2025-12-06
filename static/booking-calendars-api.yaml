@@ -2233,42 +2233,19 @@ webhooks:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: Unique alphanumeric identifier for the event object
-                  example: EVNT-KN56U3YL7C
-                object:
-                  type: string
-                  description: String representing the object's type
-                  example: event
-                creation_time:
-                  type: string
-                  format: date-time
-                  description: The time the event object was created
-                  example: '2020-03-22T09:49:12Z'
-                type:
-                  type: string
-                  description: The type of the event
-                  example: booking.scheduled
-                api_version:
-                  type: string
-                  description: The OnceHub API version used to render the data object
-                  example: v2
-                data:
-                  type: object
-                  description: The booking object containing relevant data associated with the event
+              allOf:
+                - $ref: '#/components/schemas/WebhookEvent'
+                - type: object
                   properties:
-                    object:
+                    type:
                       type: string
-                      example: booking
-                    id:
-                      type: string
-                      example: BKNG-J4FR05BKEWEX
-                    status:
-                      type: string
-                      example: scheduled
+                      enum:
+                        - booking.scheduled
+                      example: booking.scheduled
+                    data:
+                      description: The booking object containing relevant data associated with the event
+                      allOf:
+                        - $ref: '#/components/schemas/BookingWebhookData'
       responses:
         '200':
           description: Webhook received successfully
@@ -2286,42 +2263,19 @@ webhooks:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: Unique alphanumeric identifier for the event object
-                  example: EVNT-KN56U3YL7C
-                object:
-                  type: string
-                  description: String representing the object's type
-                  example: event
-                creation_time:
-                  type: string
-                  format: date-time
-                  description: The time the event object was created
-                  example: '2020-03-22T09:49:12Z'
-                type:
-                  type: string
-                  description: The type of the event
-                  example: booking.rescheduled
-                api_version:
-                  type: string
-                  description: The OnceHub API version used to render the data object
-                  example: v2
-                data:
-                  type: object
-                  description: The booking object containing relevant data associated with the event
+              allOf:
+                - $ref: '#/components/schemas/WebhookEvent'
+                - type: object
                   properties:
-                    object:
+                    type:
                       type: string
-                      example: booking
-                    id:
-                      type: string
-                      example: BKNG-J4FR05BKEWEX
-                    status:
-                      type: string
-                      example: scheduled
+                      enum:
+                        - booking.rescheduled
+                      example: booking.rescheduled
+                    data:
+                      description: The booking object containing relevant data associated with the event
+                      allOf:
+                        - $ref: '#/components/schemas/BookingWebhookData'
       responses:
         '200':
           description: Webhook received successfully
@@ -2336,42 +2290,19 @@ webhooks:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: Unique alphanumeric identifier for the event object
-                  example: EVNT-KN56U3YL7C
-                object:
-                  type: string
-                  description: String representing the object's type
-                  example: event
-                creation_time:
-                  type: string
-                  format: date-time
-                  description: The time the event object was created
-                  example: '2020-03-22T09:49:12Z'
-                type:
-                  type: string
-                  description: The type of the event
-                  example: booking.canceled_then_rescheduled
-                api_version:
-                  type: string
-                  description: The OnceHub API version used to render the data object
-                  example: v2
-                data:
-                  type: object
-                  description: The booking object containing relevant data associated with the event
+              allOf:
+                - $ref: '#/components/schemas/WebhookEvent'
+                - type: object
                   properties:
-                    object:
+                    type:
                       type: string
-                      example: booking
-                    id:
-                      type: string
-                      example: BKNG-J4FR05BKEWEX
-                    status:
-                      type: string
-                      example: scheduled
+                      enum:
+                        - booking.canceled_then_rescheduled
+                      example: booking.canceled_then_rescheduled
+                    data:
+                      description: The booking object containing relevant data associated with the event
+                      allOf:
+                        - $ref: '#/components/schemas/BookingWebhookData'
       responses:
         '200':
           description: Webhook received successfully
@@ -2386,42 +2317,19 @@ webhooks:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: Unique alphanumeric identifier for the event object
-                  example: EVNT-KN56U3YL7C
-                object:
-                  type: string
-                  description: String representing the object's type
-                  example: event
-                creation_time:
-                  type: string
-                  format: date-time
-                  description: The time the event object was created
-                  example: '2020-03-22T09:49:12Z'
-                type:
-                  type: string
-                  description: The type of the event
-                  example: booking.canceled_reschedule_requested
-                api_version:
-                  type: string
-                  description: The OnceHub API version used to render the data object
-                  example: v2
-                data:
-                  type: object
-                  description: The booking object containing relevant data associated with the event
+              allOf:
+                - $ref: '#/components/schemas/WebhookEvent'
+                - type: object
                   properties:
-                    object:
+                    type:
                       type: string
-                      example: booking
-                    id:
-                      type: string
-                      example: BKNG-J4FR05BKEWEX
-                    status:
-                      type: string
-                      example: canceled
+                      enum:
+                        - booking.canceled_reschedule_requested
+                      example: booking.canceled_reschedule_requested
+                    data:
+                      description: The booking object containing relevant data associated with the event
+                      allOf:
+                        - $ref: '#/components/schemas/BookingWebhookData'
       responses:
         '200':
           description: Webhook received successfully
@@ -2436,42 +2344,19 @@ webhooks:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: Unique alphanumeric identifier for the event object
-                  example: EVNT-KN56U3YL7C
-                object:
-                  type: string
-                  description: String representing the object's type
-                  example: event
-                creation_time:
-                  type: string
-                  format: date-time
-                  description: The time the event object was created
-                  example: '2020-03-22T09:49:12Z'
-                type:
-                  type: string
-                  description: The type of the event
-                  example: booking.canceled
-                api_version:
-                  type: string
-                  description: The OnceHub API version used to render the data object
-                  example: v2
-                data:
-                  type: object
-                  description: The booking object containing relevant data associated with the event
+              allOf:
+                - $ref: '#/components/schemas/WebhookEvent'
+                - type: object
                   properties:
-                    object:
+                    type:
                       type: string
-                      example: booking
-                    id:
-                      type: string
-                      example: BKNG-J4FR05BKEWEX
-                    status:
-                      type: string
-                      example: canceled
+                      enum:
+                        - booking.canceled
+                      example: booking.canceled
+                    data:
+                      description: The booking object containing relevant data associated with the event
+                      allOf:
+                        - $ref: '#/components/schemas/BookingWebhookData'
       responses:
         '200':
           description: Webhook received successfully
@@ -2486,42 +2371,19 @@ webhooks:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: Unique alphanumeric identifier for the event object
-                  example: EVNT-KN56U3YL7C
-                object:
-                  type: string
-                  description: String representing the object's type
-                  example: event
-                creation_time:
-                  type: string
-                  format: date-time
-                  description: The time the event object was created
-                  example: '2020-03-22T09:49:12Z'
-                type:
-                  type: string
-                  description: The type of the event
-                  example: booking.completed
-                api_version:
-                  type: string
-                  description: The OnceHub API version used to render the data object
-                  example: v2
-                data:
-                  type: object
-                  description: The booking object containing relevant data associated with the event
+              allOf:
+                - $ref: '#/components/schemas/WebhookEvent'
+                - type: object
                   properties:
-                    object:
+                    type:
                       type: string
-                      example: booking
-                    id:
-                      type: string
-                      example: BKNG-J4FR05BKEWEX
-                    status:
-                      type: string
-                      example: completed
+                      enum:
+                        - booking.completed
+                      example: booking.completed
+                    data:
+                      description: The booking object containing relevant data associated with the event
+                      allOf:
+                        - $ref: '#/components/schemas/BookingWebhookData'
       responses:
         '200':
           description: Webhook received successfully
@@ -2536,42 +2398,19 @@ webhooks:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: Unique alphanumeric identifier for the event object
-                  example: EVNT-KN56U3YL7C
-                object:
-                  type: string
-                  description: String representing the object's type
-                  example: event
-                creation_time:
-                  type: string
-                  format: date-time
-                  description: The time the event object was created
-                  example: '2020-03-22T09:49:12Z'
-                type:
-                  type: string
-                  description: The type of the event
-                  example: booking.no_show
-                api_version:
-                  type: string
-                  description: The OnceHub API version used to render the data object
-                  example: v2
-                data:
-                  type: object
-                  description: The booking object containing relevant data associated with the event
+              allOf:
+                - $ref: '#/components/schemas/WebhookEvent'
+                - type: object
                   properties:
-                    object:
+                    type:
                       type: string
-                      example: booking
-                    id:
-                      type: string
-                      example: BKNG-J4FR05BKEWEX
-                    status:
-                      type: string
-                      example: completed
+                      enum:
+                        - booking.no_show
+                      example: booking.no_show
+                    data:
+                      description: The booking object containing relevant data associated with the event
+                      allOf:
+                        - $ref: '#/components/schemas/BookingWebhookData'
       responses:
         '200':
           description: Webhook received successfully
@@ -2586,39 +2425,19 @@ webhooks:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: Unique alphanumeric identifier for the event object
-                  example: EVNT-KN56U3YL7C
-                object:
-                  type: string
-                  description: String representing the object's type
-                  example: event
-                creation_time:
-                  type: string
-                  format: date-time
-                  description: The time the event object was created
-                  example: '2020-03-22T09:49:12Z'
-                type:
-                  type: string
-                  description: The type of the event
-                  example: conversation.started
-                api_version:
-                  type: string
-                  description: The OnceHub API version used to render the data object
-                  example: v2
-                data:
-                  type: object
-                  description: The conversation object containing relevant data associated with the event
+              allOf:
+                - $ref: '#/components/schemas/WebhookEvent'
+                - type: object
                   properties:
-                    object:
+                    type:
                       type: string
-                      example: conversation
-                    id:
-                      type: string
-                      example: CONV-ABC123XYZ
+                      enum:
+                        - conversation.started
+                      example: conversation.started
+                    data:
+                      description: The conversation object containing relevant data associated with the event
+                      allOf:
+                        - $ref: '#/components/schemas/ConversationWebhookData'
       responses:
         '200':
           description: Webhook received successfully
@@ -2636,39 +2455,19 @@ webhooks:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: Unique alphanumeric identifier for the event object
-                  example: EVNT-KN56U3YL7C
-                object:
-                  type: string
-                  description: String representing the object's type
-                  example: event
-                creation_time:
-                  type: string
-                  format: date-time
-                  description: The time the event object was created
-                  example: '2020-03-22T09:49:12Z'
-                type:
-                  type: string
-                  description: The type of the event
-                  example: conversation.closed
-                api_version:
-                  type: string
-                  description: The OnceHub API version used to render the data object
-                  example: v2
-                data:
-                  type: object
-                  description: The conversation object containing relevant data associated with the event
+              allOf:
+                - $ref: '#/components/schemas/WebhookEvent'
+                - type: object
                   properties:
-                    object:
+                    type:
                       type: string
-                      example: conversation
-                    id:
-                      type: string
-                      example: CONV-ABC123XYZ
+                      enum:
+                        - conversation.closed
+                      example: conversation.closed
+                    data:
+                      description: The conversation object containing relevant data associated with the event
+                      allOf:
+                        - $ref: '#/components/schemas/ConversationWebhookData'
       responses:
         '200':
           description: Webhook received successfully
@@ -2683,39 +2482,19 @@ webhooks:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: Unique alphanumeric identifier for the event object
-                  example: EVNT-KN56U3YL7C
-                object:
-                  type: string
-                  description: String representing the object's type
-                  example: event
-                creation_time:
-                  type: string
-                  format: date-time
-                  description: The time the event object was created
-                  example: '2020-03-22T09:49:12Z'
-                type:
-                  type: string
-                  description: The type of the event
-                  example: conversation.abandoned
-                api_version:
-                  type: string
-                  description: The OnceHub API version used to render the data object
-                  example: v2
-                data:
-                  type: object
-                  description: The conversation object containing relevant data associated with the event
+              allOf:
+                - $ref: '#/components/schemas/WebhookEvent'
+                - type: object
                   properties:
-                    object:
+                    type:
                       type: string
-                      example: conversation
-                    id:
-                      type: string
-                      example: CONV-ABC123XYZ
+                      enum:
+                        - conversation.abandoned
+                      example: conversation.abandoned
+                    data:
+                      description: The conversation object containing relevant data associated with the event
+                      allOf:
+                        - $ref: '#/components/schemas/ConversationWebhookData'
       responses:
         '200':
           description: Webhook received successfully
@@ -3362,6 +3141,88 @@ components:
           type: boolean
           description: Whether there are more items available
           example: false
+    WebhookEvent:
+      type: object
+      description: Base webhook event structure sent to your webhook URL
+      properties:
+        id:
+          type: string
+          description: Unique alphanumeric identifier for the event object
+          example: EVNT-KN56U3YL7C
+        object:
+          type: string
+          description: String representing the object's type
+          example: event
+        creation_time:
+          type: string
+          format: date-time
+          description: The time the event object was created
+          example: '2020-03-22T09:49:12Z'
+        type:
+          type: string
+          description: The type of the event (e.g., booking.scheduled, conversation.started)
+          example: booking.scheduled
+        api_version:
+          type: string
+          description: The OnceHub API version used to render the data object
+          example: v2
+      required:
+        - id
+        - object
+        - creation_time
+        - type
+        - api_version
+    BookingWebhookData:
+      allOf:
+        - $ref: '#/components/schemas/Booking'
+        - type: object
+          description: |
+            Booking object as sent in webhook events.
+
+            **Important differences from REST API:**
+            - The `owner` field is always expanded to the full User object
+            - The `contact` field is always expanded to the full Contact object
+            - The `cancel_reschedule_url` field is included (webhooks only)
+            - The `utm_params` field is NOT included in webhook payloads
+          properties:
+            owner:
+              description: The owner user object (always expanded in webhooks)
+              allOf:
+                - $ref: '#/components/schemas/User'
+            contact:
+              description: The contact object (always expanded in webhooks)
+              allOf:
+                - $ref: '#/components/schemas/Contact'
+            conversation:
+              description: The conversation object if booking came from a conversation (expanded in webhooks when present)
+              oneOf:
+                - $ref: '#/components/schemas/Conversation'
+                - type: 'null'
+            cancel_reschedule_url:
+              type: string
+              description: URL for cancelling and rescheduling the booking (only included in webhook events)
+              example: https://oncehub.com/m/BKNG-3KM0HY2BF9SL
+    ConversationWebhookData:
+      allOf:
+        - $ref: '#/components/schemas/Conversation'
+        - type: object
+          description: |
+            Conversation object as sent in webhook events.
+
+            **Important differences from REST API:**
+            - The `contact` field is always expanded to the full Contact object
+            - The `owner` field is always expanded to the full User object
+            - The `bot` field is always expanded to the full Bot object
+            - The `website` field is always expanded to the full Website object
+          properties:
+            contact:
+              description: The contact object (always expanded in webhooks)
+              allOf:
+                - $ref: '#/components/schemas/Contact'
+            owner:
+              description: The owner user object (always expanded in webhooks)
+              allOf:
+                - $ref: '#/components/schemas/User'
     BookingCalendar:
       type: object
       properties:

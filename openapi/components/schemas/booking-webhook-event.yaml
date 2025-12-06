@@ -1,0 +1,30 @@
+BookingWebhookData:
+  allOf:
+    - $ref: "./booking.yaml#/Booking"
+    - type: object
+      description: |
+        Booking object as sent in webhook events.
+
+        **Important differences from REST API:**
+        - The `owner` field is always expanded to the full User object
+        - The `contact` field is always expanded to the full Contact object
+        - The `cancel_reschedule_url` field is included (webhooks only)
+        - The `utm_params` field is NOT included in webhook payloads
+      properties:
+        owner:
+          description: The owner user object (always expanded in webhooks)
+          allOf:
+            - $ref: "./user.yaml#/User"
+        contact:
+          description: The contact object (always expanded in webhooks)
+          allOf:
+            - $ref: "./contact.yaml#/Contact"
+        conversation:
+          description: The conversation object if booking came from a conversation (expanded in webhooks when present)
+          oneOf:
+            - $ref: "./conversation.yaml#/Conversation"
+            - type: "null"
+        cancel_reschedule_url:
+          type: string
+          description: URL for cancelling and rescheduling the booking (only included in webhook events)
+          example: https://oncehub.com/m/BKNG-3KM0HY2BF9SL

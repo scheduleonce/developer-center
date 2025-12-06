@@ -8,39 +8,18 @@ post:
     content:
       application/json:
         schema:
-          type: object
-          properties:
-            id:
-              type: string
-              description: Unique alphanumeric identifier for the event object
-              example: EVNT-KN56U3YL7C
-            object:
-              type: string
-              description: String representing the object's type
-              example: event
-            creation_time:
-              type: string
-              format: date-time
-              description: The time the event object was created
-              example: "2020-03-22T09:49:12Z"
-            type:
-              type: string
-              description: The type of the event
-              example: conversation.started
-            api_version:
-              type: string
-              description: The OnceHub API version used to render the data object
-              example: v2
-            data:
-              type: object
-              description: The conversation object containing relevant data associated with the event
+          allOf:
+            - $ref: "../components/schemas/webhook-event.yaml#/WebhookEvent"
+            - type: object
               properties:
-                object:
+                type:
                   type: string
-                  example: conversation
-                id:
-                  type: string
-                  example: CONV-ABC123XYZ
+                  enum: [conversation.started]
+                  example: conversation.started
+                data:
+                  description: The conversation object containing relevant data associated with the event
+                  allOf:
+                    - $ref: "../components/schemas/conversation-webhook-event.yaml#/ConversationWebhookData"
   responses:
     "200":
       description: Webhook received successfully
