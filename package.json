@@ -24,7 +24,6 @@
     "@docusaurus/preset-classic": "^3.9.2",
     "@mdx-js/react": "^3.0.0",
     "@scalar/docusaurus": "^0.7.23",
-    "@scalar/react-renderer": "^0.3.0",
     "@signalwire/docusaurus-plugin-llms-txt": "^2.0.0-alpha.7",
     "@signalwire/docusaurus-theme-llms-txt": "^1.0.0-alpha.9",
     "clsx": "^2.0.0",
@@ -37,9 +36,8 @@
     "@docusaurus/module-type-aliases": "^3.9.2",
     "@docusaurus/tsconfig": "^3.9.2",
     "@docusaurus/types": "^3.9.2",
-    "@redocly/cli": "^2.12.3",
-    "@types/node": "^24.10.1",
-    "tsx": "^4.21.0",
+    "@redocly/cli": "^2.12.4",
+    "@types/node": "^24.10.2",
     "typescript": "^5.9.3"
   },
   "browserslist": {
