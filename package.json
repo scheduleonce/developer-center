@@ -14,10 +14,13 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc --noEmit",
+    "prettier:check": "prettier . --check",
+    "prettier:write": "prettier . --write",
     "openapi:validate": "redocly lint openapi/index.yaml",
     "openapi:build": "node scripts/build-openapi.js",
     "openapi:watch": "node scripts/build-openapi.js --watch",
-    "prebuild": "npm run openapi:build"
+    "prebuild": "npm run openapi:build",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
@@ -38,6 +41,8 @@
     "@docusaurus/types": "3.9.2",
     "@redocly/cli": "2.12.4",
     "@types/node": "24.10.2",
+    "husky": "9.1.7",
+    "lint-staged": "16.2.7",
     "prettier": "3.7.4",
     "typescript": "5.9.3"
   },
@@ -55,5 +60,8 @@
   },
   "engines": {
     "node": ">=18.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,md,yaml,yml}": "prettier --write"
   }
 }

@@ -1,0 +1,38 @@
+# Dependencies
+node_modules
+
+# Build outputs
+build
+dist
+.docusaurus
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Generated files
+static/oncehub-api.yaml
+static/oncehub-api.json
+static/booking-calendars-api.yaml
+static/booking-calendars-api.json
+static/booking-pages-api.yaml
+static/booking-pages-api.json
+
+# Cache
+.cache
+.parcel-cache
+.next
+.nuxt
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
