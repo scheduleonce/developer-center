@@ -7,12 +7,12 @@ description: Track user interactions with embedded OnceHub forms through events 
 
 ## List of supported events
 
-| Event name                   | Fires when                                                   |
-| ---------------------------- | ------------------------------------------------------------ |
-| `oncehub.form.loaded`        | Form is first loaded.                                        |
-| `oncehub.form.started`       | Visitor starts interacting with the form.                    |
-| `oncehub.form.button_clicked`| Visitor clicks on a button during the form submission process.|
-| `oncehub.form.completed`     | Visitor successfully completes the form.                     |
+| Event name                    | Fires when                                                     |
+| ----------------------------- | -------------------------------------------------------------- |
+| `oncehub.form.loaded`         | Form is first loaded.                                          |
+| `oncehub.form.started`        | Visitor starts interacting with the form.                      |
+| `oncehub.form.button_clicked` | Visitor clicks on a button during the form submission process. |
+| `oncehub.form.completed`      | Visitor successfully completes the form.                       |
 
 ## Events payloads
 
@@ -36,8 +36,8 @@ Payload example:
 
 This event fires when the visitor begins interacting with the form. This trigger varies based on the form's welcome message setting:
 
-* **Title only:** The event fires when the visitor answers the first question.
-* **Welcome message card:** The event fires when the visitor clicks the "Get Started" button.
+- **Title only:** The event fires when the visitor answers the first question.
+- **Welcome message card:** The event fires when the visitor clicks the "Get Started" button.
 
 Payload example:
 

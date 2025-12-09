@@ -66,14 +66,14 @@ const config: Config = {
                     node.name === "Image"
                   ) {
                     const srcAttr = node.attributes?.find(
-                      (a: any) => a.name === "src"
+                      (a: any) => a.name === "src",
                     );
                     if (srcAttr) {
                       const altAttr = node.attributes?.find(
-                        (a: any) => a.name === "alt"
+                        (a: any) => a.name === "alt",
                       );
                       const titleAttr = node.attributes?.find(
-                        (a: any) => a.name === "title"
+                        (a: any) => a.name === "title",
                       );
                       node.type = "image";
                       node.url = srcAttr.value;

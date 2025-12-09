@@ -44,7 +44,7 @@ async function bundleMasterSpec() {
       {
         stdio: "inherit",
         cwd: process.cwd(),
-      }
+      },
     );
 
     console.log(`✅ Master YAML bundled: ${OUTPUT_YAML}`);
@@ -157,7 +157,7 @@ function filterTagsForProduct(tags, productConfig) {
       }
       // Check other tags by name matching
       return allowedResources.some((resource) =>
-        tag.name.toLowerCase().includes(resource.replace("-", " "))
+        tag.name.toLowerCase().includes(resource.replace("-", " ")),
       );
     }
     return false;
@@ -273,12 +273,12 @@ The OnceHub Booking Pages API allows you to manage bookings, booking pages, mast
   if (productSpec.components && productSpec.components.schemas) {
     productSpec.components.schemas = filterSchemasForProduct(
       masterSpec.components.schemas,
-      productConfig
+      productConfig,
     );
     console.log(
       `   ✓ ${Object.keys(productSpec.components.schemas).length} schemas, ${
         Object.keys(productSpec.paths).length
-      } endpoints`
+      } endpoints`,
     );
   }
 
@@ -310,7 +310,7 @@ function writeSpecFiles(spec, product) {
   console.log(
     `   ✓ Generated: ${(yamlStats.size / 1024).toFixed(1)}KB YAML, ${(
       jsonStats.size / 1024
-    ).toFixed(1)}KB JSON`
+    ).toFixed(1)}KB JSON`,
   );
 }
 
@@ -336,7 +336,7 @@ async function build() {
     const bookingCalendarsSpec = generateProductSpec(
       masterSpec,
       "booking-calendars",
-      PRODUCT_RESOURCES["booking-calendars"]
+      PRODUCT_RESOURCES["booking-calendars"],
     );
     writeSpecFiles(bookingCalendarsSpec, "booking-calendars");
 
@@ -344,7 +344,7 @@ async function build() {
     const bookingPagesSpec = generateProductSpec(
       masterSpec,
       "booking-pages",
-      PRODUCT_RESOURCES["booking-pages"]
+      PRODUCT_RESOURCES["booking-pages"],
     );
     writeSpecFiles(bookingPagesSpec, "booking-pages");
 
@@ -416,7 +416,9 @@ async function watchAndBuild() {
           const changedFiles = Array.from(lastChangedFiles);
           lastChangedFiles.clear();
 
-          console.log(`\n🔄 OpenAPI file(s) changed: ${changedFiles.join(", ")}`);
+          console.log(
+            `\n🔄 OpenAPI file(s) changed: ${changedFiles.join(", ")}`,
+          );
           console.log("📄 Rebuilding...");
           isRebuilding = true;
 
@@ -431,7 +433,7 @@ async function watchAndBuild() {
           }
         }, 1000);
       }
-    }
+    },
   );
 
   // Handle graceful shutdown

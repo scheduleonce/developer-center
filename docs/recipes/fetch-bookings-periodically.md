@@ -60,7 +60,7 @@ async function fetchBookingsSince(date) {
   // Initial fetch with filter
   const res = await fetch(
     `${baseUrl}/v2/bookings?limit=10&last_updated_time.gt=${date.toISOString()}`,
-    { headers }
+    { headers },
   );
 
   const data = await res.json();
@@ -152,7 +152,7 @@ Adjust the number of bookings fetched per page:
 ```javascript
 const res = await fetch(
   `${baseUrl}/v2/bookings?limit=100&last_updated_time.gt=${date.toISOString()}`,
-  { headers }
+  { headers },
 );
 ```
 
