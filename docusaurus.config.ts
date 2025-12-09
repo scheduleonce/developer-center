@@ -102,11 +102,14 @@ const config: Config = {
       "@scalar/docusaurus",
       {
         id: "booking-calendars-api",
-        label: "Booking Calendars",
+        label: "Booking Calendars API Reference",
         route: "/reference/booking-calendars",
         showNavLink: false,
         configuration: {
           url: "/booking-calendars-api.yaml",
+          metaData: {
+            title: "Booking Calendars API Reference | OnceHub Developer Center",
+          },
           documentDownloadType: "original",
           hideDarkModeToggle: true,
           hideModels: true,
@@ -119,11 +122,14 @@ const config: Config = {
       "@scalar/docusaurus",
       {
         id: "booking-pages-api",
-        label: "Booking Pages",
+        label: "Booking Pages API Reference",
         route: "/reference/booking-pages",
         showNavLink: false,
         configuration: {
           url: "/booking-pages-api.yaml",
+          metaData: {
+            title: "Booking Pages API Reference | OnceHub Developer Center",
+          },
           documentDownloadType: "original",
           hideDarkModeToggle: true,
           hideModels: true,
@@ -136,11 +142,15 @@ const config: Config = {
       "@scalar/docusaurus",
       {
         id: "oncehub-v1-api",
-        label: "OnceHub v1 (Deprecated)",
+        label: "OnceHub v1 API Reference (Deprecated)",
         route: "/reference/oncehub-v1",
         showNavLink: false,
         configuration: {
           url: "/oncehub-v1.yaml",
+          metaData: {
+            title:
+              "OnceHub v1 API Reference (Deprecated) | OnceHub Developer Center",
+          },
           documentDownloadType: "original",
           hideDarkModeToggle: true,
           hideModels: true,
