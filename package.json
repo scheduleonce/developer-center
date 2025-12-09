@@ -20,7 +20,7 @@
     "openapi:build": "node scripts/build-openapi.js",
     "openapi:watch": "node scripts/build-openapi.js --watch",
     "prebuild": "npm run openapi:build",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
