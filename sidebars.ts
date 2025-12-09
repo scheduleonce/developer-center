@@ -42,7 +42,6 @@ const sidebars: SidebarsConfig = {
       label: "Client-Side API",
       link: { type: "doc", id: "client-side-api/introduction" },
       items: [
-        "client-side-api/introduction",
         "client-side-api/embed-events",
         "client-side-api/embedded-booking-calendar-events",
         "client-side-api/collecting-data-from-embedded-booking-page",
@@ -55,7 +54,7 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Recipes",
       link: { type: "doc", id: "recipes/fetch-bookings-periodically" },
-      items: ["recipes/fetch-bookings-periodically"],
+      items: [],
     },
     {
       type: "doc",
