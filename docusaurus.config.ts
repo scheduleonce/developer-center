@@ -1,5 +1,4 @@
 import { themes as prismThemes } from "prism-react-renderer";
-import { visit } from "unist-util-visit";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
@@ -57,36 +56,6 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           editUrl:
             "https://github.com/scheduleonce/developer-center/tree/docusaurus-main/",
-          remarkPlugins: [
-            function legacyImage() {
-              return (tree: any) => {
-                visit(tree, (node: any) => {
-                  if (
-                    node.type === "mdxJsxFlowElement" &&
-                    node.name === "Image"
-                  ) {
-                    const srcAttr = node.attributes?.find(
-                      (a: any) => a.name === "src",
-                    );
-                    if (srcAttr) {
-                      const altAttr = node.attributes?.find(
-                        (a: any) => a.name === "alt",
-                      );
-                      const titleAttr = node.attributes?.find(
-                        (a: any) => a.name === "title",
-                      );
-                      node.type = "image";
-                      node.url = srcAttr.value;
-                      node.alt = String(altAttr?.value || "");
-                      node.title = titleAttr?.value;
-                      delete node.name;
-                      delete node.attributes;
-                    }
-                  }
-                });
-              };
-            },
-          ],
         },
         theme: {
           customCss: "./src/css/custom.css",
