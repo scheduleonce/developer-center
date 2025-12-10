@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "dev": "npm run openapi:watch & npm start",
+    "dev": "concurrently --prefix none --kill-others --kill-others-on-fail \"npm run openapi:watch\" \"npm start\"",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -41,6 +41,7 @@
     "@docusaurus/types": "3.9.2",
     "@redocly/cli": "2.12.4",
     "@types/node": "24.10.2",
+    "concurrently": "9.2.1",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "prettier": "3.7.4",

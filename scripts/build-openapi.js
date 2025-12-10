@@ -39,13 +39,10 @@ async function bundleMasterSpec() {
   try {
     // Use Redocly CLI to bundle the API spec by resolving all $refs
     console.log("🔄 Resolving external $refs with Redocly CLI...");
-    execSync(
-      `./node_modules/.bin/redocly bundle "${SOURCE_FILE}" --output "${OUTPUT_YAML}"`,
-      {
-        stdio: "inherit",
-        cwd: process.cwd(),
-      },
-    );
+    execSync(`npx redocly bundle "${SOURCE_FILE}" --output "${OUTPUT_YAML}"`, {
+      stdio: "inherit",
+      cwd: process.cwd(),
+    });
 
     console.log(`✅ Master YAML bundled: ${OUTPUT_YAML}`);
     const stats = fs.statSync(OUTPUT_YAML);
