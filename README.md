@@ -14,14 +14,36 @@ This site is built using [Docusaurus](https://docusaurus.io/) and [Scalar](https
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
+
+The `dev` script runs:
+
+- Docusaurus development server with hot reload
+- OpenAPI build watcher for specification changes
+
+**Note:** Docusaurus content changes are hot-reloaded automatically. OpenAPI specification changes require a manual browser reload.
+
+**Important:** When modifying the OpenAPI specification files in `/openapi`, the build script generates variant files (JSON/YAML) in the `/static` folder. These auto-generated files must be committed to Git as Scalar serves them directly from the static folder.
 
 ### Build
 
 ```bash
 npm run build
 ```
+
+### Testing
+
+Run code quality checks:
+
+```bash
+npm test
+```
+
+This runs:
+
+- Prettier code formatting check
+- OpenAPI specification validation
 
 ## License
 
