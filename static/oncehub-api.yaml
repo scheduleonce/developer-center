@@ -45,6 +45,10 @@ tags:
       Manage master page configurations and settings. Master pages serve as templates 
       that define the overall structure and branding for booking pages. Use these endpoints 
       to list master pages, retrieve master page details, and create one-time booking links.
+  - name: Notifications
+    description: |
+      Notifications are messages sent by OnceHub to contacts and users through various channels such as SMS, email, or push notifications.
+      The notifications API allows you to retrieve and monitor notification delivery status and details.
   - name: Teams
     description: |
       Manage teams and team memberships. Teams allow you to organize users into groups 
@@ -234,11 +238,12 @@ paths:
           content:
             application/json:
               examples:
-                Result:
-                  value:
-                    type: invalid_request_error
-                    message: last_updated_time.gt cannot be later than last_updated_time.lt
-                    param: last_updated_time.gt
+                invalid_date_range:
+                  $ref: '#/components/examples/InvalidLastUpdatedDateRangeExample'
+                out_of_range_limit:
+                  $ref: '#/components/examples/OutOfRangeLimitExample'
+                both_before_and_after:
+                  $ref: '#/components/examples/BothBeforeAndAfterExample'
               schema:
                 $ref: '#/components/schemas/Error'
       deprecated: false
@@ -481,6 +486,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BookingCalendarList'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                out_of_range_limit:
+                  $ref: '#/components/examples/OutOfRangeLimitExample'
+                both_before_and_after:
+                  $ref: '#/components/examples/BothBeforeAndAfterExample'
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           $ref: '#/components/responses/Unauthorized'
       deprecated: false
@@ -911,6 +927,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BookingPageList'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                out_of_range_limit:
+                  $ref: '#/components/examples/OutOfRangeLimitExample'
+                both_before_and_after:
+                  $ref: '#/components/examples/BothBeforeAndAfterExample'
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           $ref: '#/components/responses/Unauthorized'
       deprecated: false
@@ -966,6 +993,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EventTypeList'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                out_of_range_limit:
+                  $ref: '#/components/examples/OutOfRangeLimitExample'
+                both_before_and_after:
+                  $ref: '#/components/examples/BothBeforeAndAfterExample'
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           $ref: '#/components/responses/Unauthorized'
       deprecated: false
@@ -1182,6 +1220,93 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       deprecated: false
+  /notifications/sms:
+    get:
+      tags:
+        - Notifications
+      summary: List all SMS notifications
+      description: |
+        Returns a list of SMS notifications sent from your account, sorted by creation date.
+        You can filter by recipient, recipient type, and creation time.
+
+        The `recipient` field can be expanded to include full contact or user details.
+      operationId: list-all-sms-notifications
+      parameters:
+        - name: creation_time.gt
+          in: query
+          description: Return SMS notifications created after this date
+          schema:
+            type: string
+            format: date-time
+          example: '2025-11-01T00:00:00Z'
+        - name: creation_time.lt
+          in: query
+          description: Return SMS notifications created before this date
+          schema:
+            type: string
+            format: date-time
+          example: '2025-12-01T00:00:00Z'
+        - name: recipient
+          in: query
+          description: |
+            Filter by specific recipient ID (contact or user ID).
+          schema:
+            type: string
+          example: CTC-555444333
+        - name: recipient_type
+          in: query
+          description: |
+            Filter by recipient type. Valid values are `contact` or `user`.
+          schema:
+            type: string
+            enum:
+              - contact
+              - user
+          example: contact
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Limit'
+        - name: expand
+          in: query
+          description: |
+            A comma-separated list of fields to expand.
+            Currently supports: `recipient`.
+          schema:
+            type: string
+          example: recipient
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmsNotificationList'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                invalid_recipient_type:
+                  summary: Invalid recipient type
+                  value:
+                    type: invalid_request_error
+                    message: 'Invalid string: customer'
+                    param: recipient_type
+                invalid_date_range:
+                  $ref: '#/components/examples/InvalidCreationDateRangeExample'
+                invalid_expansion:
+                  $ref: '#/components/examples/InvalidExpansionExample'
+                out_of_range_limit:
+                  $ref: '#/components/examples/OutOfRangeLimitExample'
+                both_before_and_after:
+                  $ref: '#/components/examples/BothBeforeAndAfterExample'
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+      deprecated: false
   /users:
     get:
       tags:
@@ -1201,6 +1326,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserList'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                out_of_range_limit:
+                  $ref: '#/components/examples/OutOfRangeLimitExample'
+                both_before_and_after:
+                  $ref: '#/components/examples/BothBeforeAndAfterExample'
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           $ref: '#/components/responses/Unauthorized'
       deprecated: false
@@ -1862,6 +1998,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TeamList'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                out_of_range_limit:
+                  $ref: '#/components/examples/OutOfRangeLimitExample'
+                both_before_and_after:
+                  $ref: '#/components/examples/BothBeforeAndAfterExample'
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           $ref: '#/components/responses/Unauthorized'
       deprecated: false
@@ -1951,11 +2098,12 @@ paths:
           content:
             application/json:
               examples:
-                Result:
-                  value:
-                    type: invalid_request_error
-                    message: last_updated_time.gt cannot be later than last_updated_time.lt
-                    param: last_updated_time.gt
+                invalid_date_range:
+                  $ref: '#/components/examples/InvalidLastUpdatedDateRangeExample'
+                out_of_range_limit:
+                  $ref: '#/components/examples/OutOfRangeLimitExample'
+                both_before_and_after:
+                  $ref: '#/components/examples/BothBeforeAndAfterExample'
               schema:
                 $ref: '#/components/schemas/Error'
       deprecated: false
@@ -2465,6 +2613,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WebhookList'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                out_of_range_limit:
+                  $ref: '#/components/examples/OutOfRangeLimitExample'
+                both_before_and_after:
+                  $ref: '#/components/examples/BothBeforeAndAfterExample'
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           $ref: '#/components/responses/Unauthorized'
       deprecated: false
@@ -3673,6 +3832,95 @@ components:
           type: boolean
           description: Whether there are more items available
           example: false
+    SmsNotification:
+      type: object
+      properties:
+        object:
+          type: string
+          description: String representing the object's type. Objects of the same type share the same value.
+          example: notification
+        id:
+          type: string
+          description: Unique identifier for the object.
+          example: SMS-8X92M293
+        type:
+          type: string
+          description: The type of notification. For SMS notifications, this is always "sms".
+          example: sms
+        status:
+          type: string
+          description: The delivery status of the SMS notification.
+          enum:
+            - sent
+            - failed
+            - delivered
+            - rejected
+          example: delivered
+        creation_time:
+          type: string
+          format: date-time
+          description: The date and time when the SMS notification was created.
+          example: '2025-11-25T14:30:00Z'
+        recipient:
+          description: |
+            The ID of the recipient who received the SMS. Can be either a contact ID or a user ID.
+            When expanded, this will include the full contact or user object.
+          oneOf:
+            - type: string
+              example: CTC-555444333
+            - $ref: '#/components/schemas/Contact'
+            - $ref: '#/components/schemas/User'
+        recipient_type:
+          type: string
+          description: Indicates whether the recipient is a contact or a user.
+          enum:
+            - contact
+            - user
+          example: contact
+        details:
+          type: object
+          description: SMS-specific delivery details.
+          properties:
+            delivered_to:
+              type: string
+              description: The phone number where the SMS was delivered.
+              example: '+12025550195'
+            message_body:
+              type: string
+              description: The content of the SMS message that was sent.
+              example: Hi Carrie, see you at 3PM!
+            segment_count:
+              type: integer
+              description: The number of segments the SMS was split into. SMS messages are charged per segment.
+              example: 1
+          required:
+            - delivered_to
+            - message_body
+            - segment_count
+      required:
+        - object
+        - id
+        - type
+        - status
+        - creation_time
+        - recipient
+        - recipient_type
+        - details
+    SmsNotificationList:
+      type: object
+      properties:
+        object:
+          type: string
+          description: String representing the object's type. Always "list" for list responses.
+          example: list
+        data:
+          type: array
+          description: Array of SMS notification objects.
+          items:
+            $ref: '#/components/schemas/SmsNotification'
+      required:
+        - object
+        - data
     Error:
       type: object
       properties:
@@ -3991,3 +4239,33 @@ components:
         type: string
         format: email
       example: user@example.com
+  examples:
+    InvalidLastUpdatedDateRangeExample:
+      summary: Invalid last_updated_time date range
+      value:
+        type: invalid_request_error
+        message: last_updated_time.gt cannot be later than last_updated_time.lt
+        param: last_updated_time.gt
+    OutOfRangeLimitExample:
+      summary: Out of range limit
+      value:
+        type: invalid_request_error
+        message: 'Out of range value: 500. Please provide a number between 1 and 100.'
+        param: limit
+    BothBeforeAndAfterExample:
+      summary: Both before and after provided
+      value:
+        type: invalid_request_error
+        message: Received both before and after parameters. Please provide only one.
+    InvalidCreationDateRangeExample:
+      summary: Invalid creation_time date range
+      value:
+        type: invalid_request_error
+        message: creation_time.gt cannot be later than creation_time.lt
+        param: creation_time.gt
+    InvalidExpansionExample:
+      summary: Invalid expansion property
+      value:
+        type: invalid_request_error
+        message: 'This property cannot be expanded: invalid_property'
+        param: expand

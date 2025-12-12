@@ -80,6 +80,7 @@ const PRODUCT_RESOURCES = {
       "users",
       "teams",
       "webhooks",
+      "notifications",
     ],
     // Resources to exclude
     exclude: ["booking-pages", "master-pages", "event-types"],
@@ -97,6 +98,7 @@ const PRODUCT_RESOURCES = {
       "users",
       "teams",
       "webhooks",
+      "notifications",
     ],
     // Resources to exclude
     exclude: ["booking-calendars"],
