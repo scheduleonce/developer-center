@@ -19,6 +19,7 @@ tags:
   - $ref: "./resources/contacts/tag.yaml"
   - $ref: "./resources/event-types/tag.yaml"
   - $ref: "./resources/master-pages/tag.yaml"
+  - $ref: "./resources/notifications/tag.yaml"
   - $ref: "./resources/teams/tag.yaml"
   - $ref: "./resources/users/tag.yaml"
   - $ref: "./resources/webhooks/tag.yaml"
@@ -71,6 +72,10 @@ paths:
     $ref: "./resources/master-pages/get.yaml#/master-pages--id"
   /master-pages/{id}/one-time-links:
     $ref: "./resources/master-pages/one-time-links.yaml#/master-pages--id--one-time-links"
+
+  # Notifications
+  /notifications/sms:
+    $ref: "./resources/notifications/list.yaml#/notifications-sms"
 
   # Users
   /users:
@@ -187,6 +192,10 @@ components:
       $ref: "./components/schemas/user.yaml#/User"
     UserList:
       $ref: "./components/schemas/user.yaml#/UserList"
+    SmsNotification:
+      $ref: "./components/schemas/notification.yaml#/SmsNotification"
+    SmsNotificationList:
+      $ref: "./components/schemas/notification.yaml#/SmsNotificationList"
   responses:
     Unauthorized:
       $ref: "./components/responses/errors.yaml#/Unauthorized"
