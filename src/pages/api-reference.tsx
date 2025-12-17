@@ -12,16 +12,17 @@ type ApiReferenceComponent = React.ComponentType<{
 
 export default function ApiReferencePage(): React.JSX.Element {
   const { siteConfig } = useDocusaurusContext();
-  const specUrl = `${siteConfig.baseUrl}openapi.json`;
-  const [ApiReference, setApiReference] =
+  const [ScalarApiReference, setScalarApiReference] =
     useState<ApiReferenceComponent | null>(null);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     // Dynamically import the Scalar ApiReference component to avoid SSR issues
+    // Empty dependency array is intentional - we only need to load the component module once.
+    // The configuration (including specUrl) is handled separately via useMemo and passed as props.
     import("@scalar/api-reference")
       .then((module) => {
-        setApiReference(module.ApiReference);
+        setScalarApiReference(module.ApiReference);
       })
       .catch((err) => {
         console.error("Failed to load API Reference component:", err);
@@ -31,11 +32,11 @@ export default function ApiReferencePage(): React.JSX.Element {
 
   const configuration = useMemo(
     () => ({
-      spec: { url: specUrl },
+      spec: { url: `${siteConfig.baseUrl}openapi.json` },
       hideDownloadButton: false,
       hideDarkModeToggle: true,
     }),
-    [specUrl],
+    [siteConfig.baseUrl],
   );
 
   return (
@@ -61,8 +62,8 @@ export default function ApiReferencePage(): React.JSX.Element {
               </pre>
             </details>
           </div>
-        ) : ApiReference ? (
-          <ApiReference configuration={configuration} />
+        ) : ScalarApiReference ? (
+          <ScalarApiReference configuration={configuration} />
         ) : (
           <div style={{ padding: "2rem", textAlign: "center" }}>
             Loading API Reference...
