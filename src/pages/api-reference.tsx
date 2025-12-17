@@ -21,7 +21,7 @@ export default function ApiReferencePage(): React.JSX.Element {
     // Dynamically import the Scalar ApiReference component to avoid SSR issues
     import("@scalar/api-reference")
       .then((module) => {
-        setApiReference(() => module.ApiReference);
+        setApiReference(module.ApiReference);
       })
       .catch((err) => {
         console.error("Failed to load API Reference component:", err);
