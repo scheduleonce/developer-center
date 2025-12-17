@@ -2,10 +2,19 @@ import React, { useState, useEffect, useMemo } from "react";
 import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
+type ApiReferenceComponent = React.ComponentType<{
+  configuration: {
+    spec: { url: string };
+    hideDownloadButton?: boolean;
+    hideDarkModeToggle?: boolean;
+  };
+}>;
+
 export default function ApiReferencePage(): React.JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   const specUrl = `${siteConfig.baseUrl}openapi.json`;
-  const [ApiReference, setApiReference] = useState<any>(null);
+  const [ApiReference, setApiReference] =
+    useState<ApiReferenceComponent | null>(null);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
