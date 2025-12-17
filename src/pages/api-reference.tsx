@@ -21,10 +21,8 @@ export default function ApiReferencePage(): React.JSX.Element {
     // Empty dependency array is intentional - we only need to load the component module once.
     // The configuration (including specUrl) is handled separately via useMemo and passed as props.
     import("@scalar/api-reference")
-      .then((module) => {
-        setScalarApiReference(
-          () => module.ApiReference as ApiReferenceComponent,
-        );
+      .then(({ ApiReference }) => {
+        setScalarApiReference(() => ApiReference as ApiReferenceComponent);
       })
       .catch((err) => {
         console.error("Failed to load API Reference component:", err);
