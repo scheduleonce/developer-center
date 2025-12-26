@@ -3834,6 +3834,54 @@
         }
       }
     },
+    "booking.reassigned": {
+      "post": {
+        "tags": [
+          "Webhook Events"
+        ],
+        "summary": "Booking Reassigned Event",
+        "description": "Triggered when a booking is reassigned to a different user.\n",
+        "operationId": "webhook-booking-reassigned",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/WebhookEvent"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "booking.reassigned"
+                        ],
+                        "example": "booking.reassigned"
+                      },
+                      "data": {
+                        "description": "The booking object containing relevant data associated with the event",
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/BookingWebhookData"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received successfully"
+          }
+        }
+      }
+    },
     "booking.canceled_then_rescheduled": {
       "post": {
         "tags": [
