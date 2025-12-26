@@ -130,6 +130,8 @@ webhooks:
     $ref: "./webhooks/booking-scheduled.yaml"
   booking.rescheduled:
     $ref: "./webhooks/booking-rescheduled.yaml"
+  booking.reassigned:
+    $ref: "./webhooks/booking-reassigned.yaml"
   booking.canceled_then_rescheduled:
     $ref: "./webhooks/booking-canceled-then-rescheduled.yaml"
   booking.canceled_reschedule_requested:
