@@ -124,11 +124,12 @@ bookings:
         content:
           application/json:
             examples:
-              Result:
-                value:
-                  type: invalid_request_error
-                  message: "last_updated_time.gt cannot be later than last_updated_time.lt"
-                  param: last_updated_time.gt
+              invalid_date_range:
+                $ref: "../../components/examples/list-errors.yaml#/InvalidLastUpdatedDateRangeExample"
+              out_of_range_limit:
+                $ref: "../../components/examples/list-errors.yaml#/OutOfRangeLimitExample"
+              both_before_and_after:
+                $ref: "../../components/examples/list-errors.yaml#/BothBeforeAndAfterExample"
             schema:
               $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false

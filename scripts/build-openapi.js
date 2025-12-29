@@ -80,11 +80,14 @@ const PRODUCT_RESOURCES = {
       "users",
       "teams",
       "webhooks",
+      "notifications",
     ],
     // Resources to exclude
     exclude: ["booking-pages", "master-pages", "event-types"],
     // Paths that don't follow the conventional prefix but should remain available
     extraPaths: ["/test"],
+    // Webhook events to exclude for this product variant
+    webhookExclude: [],
   },
   "booking-pages": {
     // Product-specific resources
@@ -97,11 +100,15 @@ const PRODUCT_RESOURCES = {
       "users",
       "teams",
       "webhooks",
+      "notifications",
     ],
     // Resources to exclude
     exclude: ["booking-calendars"],
     // Paths that don't follow the conventional prefix but should remain available
     extraPaths: ["/test"],
+    // Webhook events to exclude for this product variant
+    // booking.reassigned is only applicable to Booking Calendars
+    webhookExclude: ["booking.reassigned"],
   },
 };
 
@@ -279,7 +286,30 @@ The OnceHub Booking Pages API allows you to manage bookings, booking pages, mast
     );
   }
 
+  // Filter webhook events per product (OpenAPI 3.1 top-level webhooks)
+  if (masterSpec.webhooks) {
+    productSpec.webhooks = filterWebhooksForProduct(
+      masterSpec.webhooks,
+      productConfig,
+    );
+  }
+
   return productSpec;
+}
+
+/**
+ * Filter webhook events (top-level OpenAPI 3.1 `webhooks`) based on product configuration
+ */
+function filterWebhooksForProduct(webhooks, productConfig) {
+  if (!webhooks) return webhooks;
+  const excluded = new Set(productConfig.webhookExclude || []);
+  const filtered = {};
+  for (const [name, def] of Object.entries(webhooks)) {
+    if (!excluded.has(name)) {
+      filtered[name] = def;
+    }
+  }
+  return filtered;
 }
 
 /**
