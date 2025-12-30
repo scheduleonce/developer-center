@@ -22,7 +22,9 @@ export default function ApiReferencePage(): React.JSX.Element {
     // The configuration (including specUrl) is handled separately via useMemo and passed as props.
     import("@scalar/api-reference")
       .then(({ ApiReference }) => {
-        setScalarApiReference(() => ApiReference as ApiReferenceComponent);
+        setScalarApiReference(
+          () => ApiReference as unknown as ApiReferenceComponent,
+        );
       })
       .catch((err) => {
         console.error("Failed to load API Reference component:", err);
