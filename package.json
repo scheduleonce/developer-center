@@ -27,6 +27,7 @@
     "@docusaurus/core": "3.9.2",
     "@docusaurus/preset-classic": "3.9.2",
     "@mdx-js/react": "3.1.1",
+    "@scalar/api-reference": "1.40.5",
     "@scalar/docusaurus": "0.7.24",
     "@signalwire/docusaurus-plugin-llms-txt": "2.0.0-alpha.7",
     "@signalwire/docusaurus-theme-llms-txt": "1.0.0-alpha.9",
