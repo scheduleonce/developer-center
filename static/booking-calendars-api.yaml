@@ -80,27 +80,11 @@ paths:
                     type: string
                     example: 'The API key is valid for account: admin@example.com'
         '401':
-          description: '401'
-          content:
-            application/json:
-              examples:
-                Result:
-                  value:
-                    type: authentication_error
-                    message: Invalid API key.
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/components/responses/Unauthorized'
         '403':
-          description: '403'
-          content:
-            application/json:
-              examples:
-                Result:
-                  value:
-                    type: authentication_error
-                    message: Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan.
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /bookings:
     get:
@@ -233,6 +217,10 @@ paths:
                   $ref: '#/components/examples/BothBeforeAndAfterExample'
               schema:
                 $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /bookings/{id}:
     get:
@@ -255,6 +243,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Booking'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -267,6 +257,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /bookings/{id}/cancel:
     post:
@@ -302,6 +294,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Booking'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -337,6 +331,8 @@ paths:
                     message: Paid bookings cannot be canceled through this endpoint. Please login to OnceHub and use the Activity Stream to cancel paid bookings.
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /bookings/{id}/request-reschedule:
     post:
@@ -368,6 +364,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Booking'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -403,6 +401,8 @@ paths:
                     message: Paid bookings can only be requested for reschedule in your OnceHub account. Log in and use the activity stream to submit a reschedule request for this booking.
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /bookings/{id}/no-show:
     post:
@@ -425,6 +425,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Booking'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -449,6 +451,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /booking-calendars:
     get:
@@ -486,6 +490,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /booking-calendars/{id}:
     get:
@@ -508,6 +514,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BookingCalendar'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -520,6 +528,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /booking-calendars/{id}/time-slots:
     get:
@@ -638,6 +648,8 @@ paths:
                     param: end_time
               schema:
                 $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '402':
           description: '402'
           content:
@@ -661,6 +673,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /booking-calendars/{id}/schedule:
     post:
@@ -774,6 +788,8 @@ paths:
                     param: start_time
               schema:
                 $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '402':
           description: '402'
           content:
@@ -797,6 +813,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /booking-calendars/{id}/one-time-links:
     post:
@@ -868,6 +886,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -880,6 +900,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /notifications/sms:
     get:
@@ -967,6 +989,8 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /users:
     get:
@@ -1000,6 +1024,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
     post:
       tags:
@@ -1117,6 +1143,8 @@ paths:
                     param: teams
               schema:
                 $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '422':
           description: '422'
           content:
@@ -1128,6 +1156,8 @@ paths:
                     message: You have reached the user limit for your current plan. To add more users, please upgrade your account.
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
         '500':
           description: '500'
           content:
@@ -1161,6 +1191,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -1173,6 +1205,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
     patch:
       tags:
@@ -1296,6 +1330,8 @@ paths:
                     param: '{param_name}'
               schema:
                 $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '403':
           description: '403'
           content:
@@ -1331,6 +1367,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
     delete:
       tags:
@@ -1352,6 +1390,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeletedObject'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -1364,6 +1404,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /users/{id}/scheduling-availability:
     get:
@@ -1440,6 +1482,10 @@ paths:
                   summary: Result 1
               schema:
                 $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       parameters:
         - in: path
           name: id
@@ -1523,6 +1569,8 @@ paths:
                     param: weekly
               schema:
                 $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '422':
           description: Unprocessable Entity
           content:
@@ -1535,6 +1583,8 @@ paths:
                     param: weekly.working_hours.locations
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       parameters:
         - in: path
           name: id
@@ -1672,6 +1722,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /teams/{id}:
     get:
@@ -1694,6 +1746,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Team'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -1706,6 +1760,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /contacts:
     get:
@@ -1767,6 +1823,10 @@ paths:
                   $ref: '#/components/examples/BothBeforeAndAfterExample'
               schema:
                 $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
     post:
       tags:
@@ -1881,6 +1941,8 @@ paths:
                     param: '{param_name}'
               schema:
                 $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '409':
           description: '409'
           content:
@@ -1898,6 +1960,8 @@ paths:
                     param: mobile_phone
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /contacts/{id}:
     get:
@@ -1920,6 +1984,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Contact'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -1932,6 +1998,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
     patch:
       tags:
@@ -2156,6 +2224,8 @@ paths:
                     param: '{param_name}'
               schema:
                 $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -2168,6 +2238,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
         '500':
           description: '500'
           content:
@@ -2200,6 +2272,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeletedObject'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -2212,6 +2286,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /webhooks:
     post:
@@ -2244,6 +2320,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Webhook'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '409':
           description: '409'
           content:
@@ -2256,6 +2334,8 @@ paths:
                     param: name
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
     get:
       tags:
@@ -2287,6 +2367,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
   /webhooks/{id}:
     get:
@@ -2309,6 +2391,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Webhook'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -2321,6 +2405,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
     delete:
       tags:
@@ -2342,6 +2428,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeletedObject'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           description: '404'
           content:
@@ -2354,6 +2442,8 @@ paths:
                     param: id
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       deprecated: false
 webhooks:
   booking.scheduled:
@@ -3864,7 +3954,7 @@ components:
             Result:
               value:
                 type: authentication_error
-                message: Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan.
+                message: Your account plan does not support API access. To use the OnceHub API, you must upgrade to the Enterprise plan.
           schema:
             $ref: '#/components/schemas/Error'
     NotFound:
@@ -3877,6 +3967,17 @@ components:
       description: 400 - Bad Request
       content:
         application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: 429 - Too Many Requests
+      content:
+        application/json:
+          examples:
+            Result:
+              value:
+                type: rate_limit_error
+                message: Request rate limit exceeded
           schema:
             $ref: '#/components/schemas/Error'
   parameters:

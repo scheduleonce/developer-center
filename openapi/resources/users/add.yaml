@@ -52,6 +52,10 @@ users-add:
               - first_name
               - last_name
     responses:
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "200":
         description: "200"
         content:

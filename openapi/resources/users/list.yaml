@@ -11,6 +11,10 @@ users:
       - $ref: "../../components/parameters/common.yaml#/After"
       - $ref: "../../components/parameters/common.yaml#/Limit"
     responses:
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "200":
         description: "200"
         content:
@@ -28,6 +32,4 @@ users:
                 $ref: "../../components/examples/list-errors.yaml#/BothBeforeAndAfterExample"
             schema:
               $ref: "../../components/schemas/common.yaml#/Error"
-      "401":
-        $ref: "../../components/responses/errors.yaml#/Unauthorized"
     deprecated: false

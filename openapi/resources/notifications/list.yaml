@@ -53,6 +53,12 @@ notifications-sms:
           type: string
         example: "recipient"
     responses:
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "403":
+        $ref: "../../components/responses/errors.yaml#/Forbidden"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "200":
         description: "200"
         content:
@@ -80,8 +86,4 @@ notifications-sms:
                 $ref: "../../components/examples/list-errors.yaml#/BothBeforeAndAfterExample"
             schema:
               $ref: "../../components/schemas/common.yaml#/Error"
-      "401":
-        $ref: "../../components/responses/errors.yaml#/Unauthorized"
-      "403":
-        $ref: "../../components/responses/errors.yaml#/Forbidden"
     deprecated: false

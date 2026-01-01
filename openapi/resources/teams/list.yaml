@@ -15,6 +15,8 @@ teams:
       - $ref: "../../components/parameters/common.yaml#/After"
       - $ref: "../../components/parameters/common.yaml#/Limit"
     responses:
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "200":
         description: "200"
         content:

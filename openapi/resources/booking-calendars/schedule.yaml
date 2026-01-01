@@ -87,6 +87,10 @@ booking-calendars--id--schedule:
               - guest_time_zone
               - booking_form
     responses:
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "200":
         description: "200"
         content:

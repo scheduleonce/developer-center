@@ -26,6 +26,10 @@ bookings--id--cancel:
                 description: Whether a cancellation email should be sent
                 default: true
     responses:
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "200":
         description: "200"
         content:

@@ -22,6 +22,10 @@ bookings--id--request-reschedule:
                 type: string
                 description: Reason for requesting the customer to reschedule the meeting (optional)
     responses:
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "200":
         description: "200"
         content:

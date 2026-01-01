@@ -18,7 +18,7 @@ Forbidden:
         Result:
           value:
             type: authentication_error
-            message: Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan.
+            message: Your account plan does not support API access. To use the OnceHub API, you must upgrade to the Enterprise plan.
       schema:
         $ref: "../schemas/common.yaml#/Error"
 
@@ -45,5 +45,26 @@ TooManyRequests:
           value:
             type: rate_limit_error
             message: Request rate limit exceeded
+      schema:
+        $ref: "../schemas/common.yaml#/Error"
+
+Conflict:
+  description: "409 - Conflict"
+  content:
+    application/json:
+      schema:
+        $ref: "../schemas/common.yaml#/Error"
+
+UnprocessableEntity:
+  description: "422 - Unprocessable Entity"
+  content:
+    application/json:
+      schema:
+        $ref: "../schemas/common.yaml#/Error"
+
+PaymentRequired:
+  description: "402 - Payment Required"
+  content:
+    application/json:
       schema:
         $ref: "../schemas/common.yaml#/Error"

@@ -34,6 +34,10 @@ booking-calendars--id--one-time-links:
               utm_params:
                 $ref: "../../components/schemas/utm-params.yaml#/UtmParams"
     responses:
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "200":
         description: "200"
         content:
