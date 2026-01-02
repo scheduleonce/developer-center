@@ -4739,7 +4739,13 @@
           },
           "role_name": {
             "type": "string",
-            "description": "The name of the role associated with the user, for example - Administrator, Member, Team manager.",
+            "description": "The name of the role associated with the user, for example - Administrator, Member, Team Manager, or Account Owner.",
+            "enum": [
+              "Account Owner",
+              "Administrator",
+              "Member",
+              "Team Manager"
+            ],
             "example": "Member"
           },
           "timezone": {
@@ -5315,6 +5321,72 @@
           }
         }
       },
+      "Bot": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique alphanumeric identifier for the object. The prefix of the Bot ID is BOT-.",
+            "example": "BOT-62774A40FB"
+          },
+          "object": {
+            "type": "string",
+            "description": "String representing the object's type. Objects of the same type share the same value. The value here is bot.",
+            "example": "bot"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the bot.",
+            "example": "Sales Assistant Bot"
+          }
+        }
+      },
+      "Website": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique alphanumeric identifier for the object. The prefix of the Website ID is WEB-.",
+            "example": "WEB-B1D45D12BB"
+          },
+          "object": {
+            "type": "string",
+            "description": "String representing the object's type. Objects of the same type share the same value. The value here is website.",
+            "example": "website"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the website.",
+            "example": "Company Website"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL of the website.",
+            "example": "https://www.example.com"
+          }
+        }
+      },
+      "Audience": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique alphanumeric identifier for the object. The prefix of the Audience ID is AUD-.",
+            "example": "AUD-123ABC456"
+          },
+          "object": {
+            "type": "string",
+            "description": "String representing the object's type. Objects of the same type share the same value. The value here is audience.",
+            "example": "audience"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the audience.",
+            "example": "Enterprise Customers"
+          }
+        }
+      },
       "Conversation": {
         "type": "object",
         "properties": {
@@ -5356,14 +5428,30 @@
             "example": "2021-07-13T12:33:54Z"
           },
           "contact": {
-            "type": "string",
             "description": "The contact / customer involved in this conversation.\n\n**Expandable**: Use `expand=contact` to include the full Contact object.\n",
-            "example": "CTC-9QEG09XXYN"
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Contact ID (when not expanded)",
+                "example": "CTC-9QEG09XXYN"
+              },
+              {
+                "$ref": "#/components/schemas/Contact"
+              }
+            ]
           },
           "owner": {
-            "type": "string",
             "description": "The owner (user object) of the conversation.\n\n**Expandable**: Use `expand=owner` to include the full User object.\n",
-            "example": "USR-GNSBE50D6A"
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "User ID (when not expanded)",
+                "example": "USR-GNSBE50D6A"
+              },
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
           },
           "status": {
             "type": "string",
@@ -5376,22 +5464,47 @@
             "example": "closed"
           },
           "bot": {
-            "type": "string",
             "description": "The bot that facilitated the conversation.\n\n**Expandable**: Use `expand=bot` to include the full Bot object.\n",
-            "example": "BOT-62774A40FB"
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Bot ID (when not expanded)",
+                "example": "BOT-62774A40FB"
+              },
+              {
+                "$ref": "#/components/schemas/Bot"
+              }
+            ]
           },
           "website": {
-            "type": "string",
             "description": "The website this conversation was triggered on.\n\n**Expandable**: Use `expand=website` to include the full Website object.\n",
-            "example": "WEB-B1D45D12BB"
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Website ID (when not expanded)",
+                "example": "WEB-B1D45D12BB"
+              },
+              {
+                "$ref": "#/components/schemas/Website"
+              }
+            ]
           },
           "audience": {
-            "type": [
-              "string",
-              "null"
-            ],
             "description": "The audience associated with this conversation.\n\n**Expandable**: Use `expand=audience` to include the full Audience object.\n",
-            "example": null
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Audience ID (when not expanded)",
+                "example": "AUD-123ABC456"
+              },
+              {
+                "$ref": "#/components/schemas/Audience"
+              },
+              {
+                "type": "null",
+                "description": "No audience associated"
+              }
+            ]
           },
           "answers": {
             "type": "array",
