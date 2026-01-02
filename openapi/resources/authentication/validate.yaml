@@ -21,25 +21,9 @@ test:
                   type: string
                   example: "The API key is valid for account: admin@example.com"
       "401":
-        description: "401"
-        content:
-          application/json:
-            examples:
-              Result:
-                value:
-                  type: authentication_error
-                  message: "Invalid API key."
-            schema:
-              $ref: "../../components/schemas/common.yaml#/Error"
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
       "403":
-        description: "403"
-        content:
-          application/json:
-            examples:
-              Result:
-                value:
-                  type: authentication_error
-                  message: "Your account plan does not support API access. To use the ScheduleOnce API, you must upgrade to the Enterprise plan."
-            schema:
-              $ref: "../../components/schemas/common.yaml#/Error"
+        $ref: "../../components/responses/errors.yaml#/Forbidden"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
     deprecated: false

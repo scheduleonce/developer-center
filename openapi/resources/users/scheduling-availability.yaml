@@ -6,6 +6,10 @@ users--id--scheduling-availability:
     description: Returns the scheduling availability for a user
     operationId: get_user_scheduling_availability
     responses:
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "200":
         description: ""
         content:
@@ -87,6 +91,10 @@ users--id--scheduling-availability:
     description: Updates the scheduling availability for a user
     operationId: patch_user_scheduling_availability
     responses:
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "200":
         description: ""
         content:
@@ -312,6 +320,10 @@ users--id--scheduling-availability-alt:
     description: ""
     operationId: get_user_scheduling_availability_alt
     responses:
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "200":
         description: ""
     parameters:

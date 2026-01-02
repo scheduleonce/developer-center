@@ -207,6 +207,8 @@ components:
       $ref: "./components/responses/errors.yaml#/NotFound"
     BadRequest:
       $ref: "./components/responses/errors.yaml#/BadRequest"
+    TooManyRequests:
+      $ref: "./components/responses/errors.yaml#/TooManyRequests"
   parameters:
     Id:
       $ref: "./components/parameters/common.yaml#/Id"

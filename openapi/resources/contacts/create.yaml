@@ -40,6 +40,10 @@ contacts:
                 country: United States
                 timezone: America/New_York
     responses:
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "201":
         description: "201"
         content:
