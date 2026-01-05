@@ -68,8 +68,12 @@ booking-calendars--id--schedule:
                       - virtual_static
                       - guest_phone
                     description: |
-                      Use `physical` for in-person meetings, `virtual` for online meetings, `virtual_static` for static
-                      video conferencing links, or `guest_phone` for phone calls.
+                      The type of location:
+
+                      * `physical`: In-person meetings.
+                      * `virtual`: Online meetings with dynamic links.
+                      * `virtual_static`: Online meetings with static links.
+                      * `guest_phone`: Phone calls.
                   value:
                     type:
                       - string
