@@ -1064,14 +1064,14 @@
                           "virtual_static",
                           "guest_phone"
                         ],
-                        "description": "Use `physical` for in-person meetings, `virtual` for online meetings, `virtual_static` for static video conferencing links, or `guest_phone` for phone calls."
+                        "description": "Use `physical` for in-person meetings, `virtual` for online meetings, `virtual_static` for static\nvideo conferencing links, or `guest_phone` for phone calls.\n"
                       },
                       "value": {
                         "type": [
                           "string",
                           "null"
                         ],
-                        "description": "For virtual meetings, specify one of the following: `google_meet`, `microsoft_teams`, `gotomeeting`, `webex`, or `zoom`. For static video conferencing links, use `null`. For phone calls, use the guest's phone number in E164 format. For in-person meetings, use the location's address ID (e.g., `ADD-1234`)."
+                        "description": "The value to provide depends on the location `type`:\n\n* `physical`: The location's address ID (e.g., `ADD-1234`).\n* `virtual`: One of the following: `google_meet`, `microsoft_teams`, `gotomeeting`, `webex`, or `zoom`.\n* `virtual_static`: Use `null`.\n* `guest_phone`: The guest's phone number in E164 format.\n"
                       }
                     },
                     "required": [],
