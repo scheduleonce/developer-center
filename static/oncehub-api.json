@@ -865,7 +865,7 @@
                           "properties": {
                             "type": {
                               "type": "string",
-                              "description": "The type of location. Possible values: `virtual` (online meetings with dynamic links), `virtual_static` (online meetings with static links), `physical` (in-person meetings), or `guest_phone` (phone calls).",
+                              "description": "The type of location:\n\n* `virtual`: Online meetings with dynamic links.\n* `virtual_static`: Online meetings with static links.\n* `physical`: In-person meetings.\n* `guest_phone`: Phone calls.\n",
                               "enum": [
                                 "virtual",
                                 "virtual_static",
@@ -879,7 +879,7 @@
                                 "string",
                                 "null"
                               ],
-                              "description": "The location value. For `virtual` locations: video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`). For `virtual_static` locations: `null` (the actual custom link is not known in advance). For `guest_phone` locations: the phone number in E164 format. For `physical` locations: `null` (use `id` field instead).",
+                              "description": "The value returned depends on the location `type`:\n\n* `virtual`: Video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`).\n* `virtual_static`: `null` (the actual custom link is not known in advance).\n* `physical`: `null` (use the `id` instead).\n* `guest_phone`: The phone number in E164 format.\n",
                               "example": "google_meet"
                             },
                             "id": {
@@ -887,7 +887,7 @@
                                 "string",
                                 "null"
                               ],
-                              "description": "The location ID. For `physical` locations, this is the address ID (e.g., `ADD-1234`). For other location types, this is `null`.",
+                              "description": "The location ID:\n\n* `physical`: The address ID (e.g., `ADD-1234`).\n* `virtual`, `virtual_static`, `guest_phone`: `null`.\n",
                               "example": null
                             }
                           },
@@ -1076,14 +1076,14 @@
                           "virtual_static",
                           "guest_phone"
                         ],
-                        "description": "Use `physical` for in-person meetings, `virtual` for online meetings, `virtual_static` for static video conferencing links, or `guest_phone` for phone calls."
+                        "description": "The type of location:\n\n* `physical`: In-person meetings.\n* `virtual`: Online meetings with dynamic links.\n* `virtual_static`: Online meetings with static links.\n* `guest_phone`: Phone calls.\n"
                       },
                       "value": {
                         "type": [
                           "string",
                           "null"
                         ],
-                        "description": "For virtual meetings, specify one of the following: `google_meet`, `microsoft_teams`, `gotomeeting`, `webex`, or `zoom`. For static video conferencing links, use `null`. For phone calls, use the guest's phone number in E164 format. For in-person meetings, use the location's address ID (e.g., `ADD-1234`)."
+                        "description": "The value to provide depends on the location `type`:\n\n* `physical`: The location's address ID (e.g., `ADD-1234`).\n* `virtual`: One of the following: `google_meet`, `microsoft_teams`, `gotomeeting`, `webex`, or `zoom`.\n* `virtual_static`: Use `null`.\n* `guest_phone`: The guest's phone number in E164 format.\n"
                       }
                     },
                     "required": [],

@@ -67,18 +67,24 @@ booking-calendars--id--schedule:
                       - virtual
                       - virtual_static
                       - guest_phone
-                    description: >-
-                      Use `physical` for in-person meetings, `virtual` for online meetings, `virtual_static` for static
-                      video conferencing links, or `guest_phone` for phone calls.
+                    description: |
+                      The type of location:
+
+                      * `physical`: In-person meetings.
+                      * `virtual`: Online meetings with dynamic links.
+                      * `virtual_static`: Online meetings with static links.
+                      * `guest_phone`: Phone calls.
                   value:
                     type:
                       - string
                       - "null"
-                    description: >-
-                      For virtual meetings, specify one of the following: `google_meet`, `microsoft_teams`,
-                      `gotomeeting`, `webex`, or `zoom`. For static video conferencing links, use `null`. For phone
-                      calls, use the guest's phone number in E164 format. For in-person meetings, use the location's
-                      address ID (e.g., `ADD-1234`).
+                    description: |
+                      The value to provide depends on the location `type`:
+
+                      * `physical`: The location's address ID (e.g., `ADD-1234`).
+                      * `virtual`: One of the following: `google_meet`, `microsoft_teams`, `gotomeeting`, `webex`, or `zoom`.
+                      * `virtual_static`: Use `null`.
+                      * `guest_phone`: The guest's phone number in E164 format.
                 required: []
                 type: object
                 description: The meeting location object. This field is optional; if omitted, a virtual location will be selected.
