@@ -74,6 +74,7 @@ const config: Config = {
         label: "Booking Calendars API Reference",
         route: "/reference/booking-calendars",
         showNavLink: false,
+        cdn: "",
         configuration: {
           url: "/booking-calendars-api.yaml",
           metaData: {
@@ -94,6 +95,7 @@ const config: Config = {
         label: "Booking Pages API Reference",
         route: "/reference/booking-pages",
         showNavLink: false,
+        cdn: "",
         configuration: {
           url: "/booking-pages-api.yaml",
           metaData: {
@@ -114,6 +116,7 @@ const config: Config = {
         label: "OnceHub v1 API Reference (Deprecated)",
         route: "/reference/oncehub-v1",
         showNavLink: false,
+        cdn: "",
         configuration: {
           url: "/oncehub-v1.yaml",
           metaData: {
