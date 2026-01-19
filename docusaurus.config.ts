@@ -64,6 +64,8 @@ const config: Config = {
     ],
   ],
   plugins: [
+    // Load Scalar standalone script once globally
+    "./src/plugins/scalarScriptPlugin.js",
     // Product Badge Enhancement Plugin
     "./src/plugins/productBadgePlugin.js",
     // Booking Calendars API Reference
