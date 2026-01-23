@@ -717,7 +717,6 @@ paths:
         > Notes On Using This Endpoint
         > * This endpoint is designed to be used with the "Get available time slots" endpoint. First, retrieve available time slots for a specific time range, and then use this endpoint to book one of those slots.
         > * You can only select a location from those offered within the available time slots.
-        > * This endpoint doesn't support booking calendars with required custom fields.
         > * All datetime strings are [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) in full form. For example, `2024-11-29T09:30:00.000Z`.
 
         > [!tip]
