@@ -52,6 +52,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "MCP Server",
+      link: { type: "doc", id: "mcp-server/introduction" },
+      items: ["mcp-server/getting-started", "mcp-server/tools"],
+    },
+    {
+      type: "category",
       label: "Recipes",
       link: { type: "doc", id: "recipes/fetch-bookings-periodically" },
       items: [],
