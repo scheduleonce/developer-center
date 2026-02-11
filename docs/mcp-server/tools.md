@@ -3,11 +3,11 @@ title: MCP Server Tools
 description: Reference documentation for the Get available time slots and Schedule a meeting tools.
 ---
 
-# Tools
+# MCP Server Tools
 
 The MCP Server exposes a set of tools that follow the same logic and rules as the existing OnceHub Booking API, but are accessed through the standardized MCP layer.
 
-## 1. Get available time slots
+## 1. Get Available Time Slots
 
 The **Get available time slots** (`get_booking_time_slots`) tool allows an AI Agent to retrieve a list of bookable times for a specific Booking Calendar.
 
@@ -15,7 +15,7 @@ The **Get available time slots** (`get_booking_time_slots`) tool allows an AI Ag
 
 Retrieves a list of valid bookable time slots within a specified date range.
 
-### How it works
+### How It Works
 
 The tool queries your Booking Calendar's configuration to identify valid available time slots. It respects all supported scheduling settings found on the Booking Settings tab, including:
 
@@ -43,7 +43,7 @@ For example, you might ask an AI Agent:
 
 The AI Agent calls this tool to obtain available times for you to choose from.
 
-## 2. Schedule a meeting
+## 2. Schedule A Meeting
 
 The **Schedule a meeting** (`schedule_meeting`) tool allows an AI Agent to book a specific time slot on a Booking Calendar.
 
@@ -51,7 +51,7 @@ The **Schedule a meeting** (`schedule_meeting`) tool allows an AI Agent to book 
 
 Creates a new booking on a Booking Calendar at a time selected from the available slots.
 
-### How it works
+### How It Works
 
 Once you choose a time slot from the results of **Get available time slots**, the AI Agent calls this tool and sends the required details:
 

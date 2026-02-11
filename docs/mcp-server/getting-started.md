@@ -3,7 +3,7 @@ title: Getting Started with OnceHub MCP Server
 description: Step-by-step guide to configure your AI Agent with the OnceHub MCP Server for automated meeting scheduling.
 ---
 
-# Getting Started
+# Getting Started with OnceHub MCP Server
 
 This section guides you through setting up your environment to use the OnceHub MCP Server. The MCP Server is intended for developers and users familiar with the Model Context Protocol.
 
@@ -34,7 +34,7 @@ Your AI Agent must include your API key in the request header as follows:
 
 For details on generating and managing API keys, see [Authentication](/docs/overview/authentication).
 
-## Step 3: Start Scheduling by Integrating the Tool Calls
+## Step 3: Start scheduling by integrating the tool calls
 
 Integrate the two MCP tools into your AI Agent's normal conversation flow. To ensure the Agent interacts with the correct Booking Calendar, you must include the specific Booking Calendar ID in the Agent's system prompt or tool configuration.
 
@@ -43,8 +43,7 @@ Integrate the two MCP tools into your AI Agent's normal conversation flow. To en
 
 Once configured, your AI Agent can check availability and schedule meetings entirely through natural-language interaction with you.
 
-### Prompting Tip
-
+**Prompting Tip**
 In your AI Agent's system instructions, specify which Booking Calendar it should work with. For example:
 
 > "If the user needs to meet with a specialist, offer to schedule a meeting using the MCP scheduling tools with Booking Calendar ID: BKC-XXXXXXXX."
