@@ -60,6 +60,12 @@ const config: Config = {
         theme: {
           customCss: "./src/css/custom.css",
         },
+        googleTagManager: {
+          containerId:
+            process.env.DOCUSAURUS_URL === "https://developers.oncehub.com"
+              ? "GTM-WJ6GSHH"
+              : "GTM-PL2LFVW2",
+        },
       } satisfies Preset.Options,
     ],
   ],
