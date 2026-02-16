@@ -1,32 +1,70 @@
 ---
 sidebar_position: 1
-title: Introduction
+title: Overview
 description: Learn how to integrate with the OnceHub REST API to access booking data, manage calendars, and automate scheduling workflows.
 ---
 
-## Welcome to OnceHub!
+## OnceHub Developer Center
 
-Our API lets your application receive data from your OnceHub account.
+[**The OnceHub Developer Center**](https://developers.oncehub.com/) provides tools and APIs for integrating OnceHub scheduling and booking capabilities into your websites, business workflows and AI agents. Our platform is designed for everyone who wants to build robust integrations that securely access booking data, manage scheduling and automate complex workflows using server-side **REST APIs**, **client-side APIs**, and **Model Context Protocol (MCP)** integrations.
 
-Based on REST principles, our API sends HTTP requests and returns data in JSON format. The API provides access to booking data such as meeting time, guest details, location, and up-to-date meeting status as well as the main setup objects, namely Users, Booking Calendars, Booking Pages, Master Pages and Event Types.
+## Integration Options
 
-:::note
+OnceHub offers a variety of integration approaches. Users can select the method that best aligns with their specific use case and technical environment:
 
-The [OnceHub Developer center](/) contains technical documentation (this section) and [API reference](/reference/booking-calendars/) for our API. This includes features that allow access to data submitted or created during the booking process.
+- **Server-Side REST APIs:** Best for synchronizing booking data, managing scheduling resources, and automating backend workflows following REST principles.
+- **Webhooks:** Essential for receiving real-time, event-driven notifications for bookings, updates, and cancellation events to keep your external systems perfectly synchronized.
+- **Client-Side APIs:** Use these to embed OnceHub interfaces directly into web applications and interact with them using client-side event listeners. This approach supports capturing real-time events for chatbots, routing forms and booking pages.
+- **URL Parameters & Embedding:** A powerful mechanism to **fetch data from** (pre-filling booking forms) or **pass information to** redirect parameters after a booking is completed.
+- **MCP Server:** Designed for integrating OnceHub into Model Context Protocol (MCP) environments for AI-driven scheduling and automation workflows.
 
-The <a target="_blank" href="https://help.oncehub.com/ ">OnceHub Support center</a> offers detailed information about other advanced features that let you pass external data through OnceHub, including:
+## Developer Center Structure
 
-- <a target="_blank" href="https://help.oncehub.com/help/prepopulated-booking-forms">Prepopulated Booking forms</a>
-- <a target="_blank" href="https://help.oncehub.com/help/introduction-to-webform-integration">Web form integration</a>
-- <a target="_blank" href="https://help.oncehub.com/help/using-scheduleonce-with-source-tracking-utm-tags">Source tracking</a>
+The OnceHub Developer Center is organized into two sections:
 
-:::
+### Documentation
 
-> - <a target="_blank" href="https://help.oncehub.com/help/login-integration">Login integration</a>
-> - <a target="_blank" href="https://help.oncehub.com/help/website-embed">Website integration</a>
+Covers shared concepts and platform standards across all integration types:
 
-## Using the OnceHub API
+- Authentication and API keys
+- Client configuration and embedded components
+- URL parameter reference
+- API versioning, rate limits, pagination, and error handling
+- MCP integration guidelines
+- Webhook event delivery and validation
 
-To use the API, you will need a OnceHub account. If you don't have an account yet, <a target="_blank" href="https://account.oncehub.com/signup">sign up here</a>.
+### API Reference
 
-The OnceHub API allows direct and reliable access to booking and setup data via REST API and booking data via Webhook subscriptions. You can also extract booking confirmation data from OnceHub at the time of scheduling with our client-side API. Using the API lets you achieve deeper integration of OnceHub with your application environment.
+Provides detailed endpoint documentation for OnceHub products:
+
+- [**Booking Calendars API:**](https://developers.oncehub.com/reference/booking-calendars/) Manage bookings, Booking Calendars, webhook event types, users, teams and scheduling resources.
+- [**Booking Pages API (Classic):**](https://developers.oncehub.com/reference/booking-pages/#tag/authentication) Access and manage data related to booking pages.
+
+Each reference includes supported endpoints, parameters, authentication requirements and example responses.
+
+## Getting Started
+
+Select your preferred integration method to begin. Most methods require an active OnceHub account and valid API credentials.
+
+### To Use REST API or MCP Server
+
+1. [**Sign up**](https://account.oncehub.com/signup) for a OnceHub account if you don’t have one.
+2. Create your API keys using the [**Authentication guide**](https://developers.oncehub.com/reference/booking-pages/#description/introduction).
+3. Choose between Rest APIs for standard integrations or the MCP Server for AI-driven workflows.
+
+### To Use Client-Side API
+
+- Use the Website embed feature to publish your Booking page or Booking calendar directly on your site.
+- Add a [**JavaScript function**](https://developers.oncehub.com/docs/client-side-api/embed-events/) to your embed code to collect real-time booking confirmation data or trigger custom analytics.
+
+### To Use Webhooks
+
+- Use the [**Webhooks API**](https://developers.oncehub.com/reference/booking-calendars/#tag/webhooks/POST/webhooks) (via POST request) to create a new subscription.
+- Select specific [**event types**](https://developers.oncehub.com/reference/booking-calendars/#tag/webhook-events) (e.g., `booking.scheduled`) from the array of available booking lifecycle triggers.
+- Provide a secure POST URL where OnceHub will send real-time JSON payloads whenever the defined events occur.
+
+### To Use URL Parameters & Embedding
+
+- Map your custom field names in the Booking Calendar's form settings to ensure data is correctly identified.
+- Append parameters to your OnceHub URL to push data and pre-fill guest information in both [**Booking Forms**](https://help.oncehub.com/help/pre-filling-guest-information-in-your-booking-calendar) and [**Routing Forms**](https://help.oncehub.com/help/embedding-your-routing-form-on-your-website) for a frictionless scheduling experience.
+- [**Configure a redirect page**](https://developers.oncehub.com/docs/client-side-api/redirecting-booking-confirmation-data/) to automatically capture system-generated data and submission data via URL parameters upon booking completion.
