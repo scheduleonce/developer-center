@@ -55,7 +55,7 @@ const config: Config = {
           routeBasePath: "docs",
           sidebarPath: "./sidebars.ts",
           editUrl:
-            "https://github.com/scheduleonce/developer-center/tree/docusaurus-main/",
+            "https://github.com/scheduleonce/developer-center/tree/main/",
         },
         theme: {
           customCss: "./src/css/custom.css",
