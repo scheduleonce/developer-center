@@ -12,5 +12,52 @@
       "rewrite": "/404.html",
       "statusCode": 404
     }
-  }
+  },
+  "routes": [
+    {
+      "route": "/docs/collecting-data-from-an-embedded-booking-page",
+      "redirect": "/docs/client-side-api/collecting-data-from-embedded-booking-page",
+      "statusCode": 301
+    },
+    {
+      "route": "/docs/getting-your-api-key",
+      "redirect": "/docs/overview/authentication",
+      "statusCode": 301
+    },
+    {
+      "route": "/docs/introduction-to-the-scheduleonce-api",
+      "redirect": "/docs/overview/introduction",
+      "statusCode": 301
+    },
+    {
+      "route": "/docs/using-the-oncehub-api",
+      "redirect": "/docs/overview/introduction",
+      "statusCode": 301
+    },
+    {
+      "route": "/reference/authentication",
+      "redirect": "/docs/overview/authentication",
+      "statusCode": 301
+    },
+    {
+      "route": "/reference/get-a-single-contact",
+      "redirect": "/reference/booking-calendars",
+      "statusCode": 301
+    },
+    {
+      "route": "/reference/get-a-single-team",
+      "redirect": "/reference/booking-calendars",
+      "statusCode": 301
+    },
+    {
+      "route": "/reference/the-conversation-object",
+      "redirect": "/reference/booking-calendars",
+      "statusCode": 301
+    },
+    {
+      "route": "/reference/the-master-page-object",
+      "redirect": "/reference/booking-pages",
+      "statusCode": 301
+    }
+  ]
 }
