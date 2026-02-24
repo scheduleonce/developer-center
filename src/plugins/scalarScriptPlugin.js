@@ -9,7 +9,7 @@ module.exports = function (context, options) {
             tagName: "script",
             attributes: {
               src: "/js/scalar-standalone.js",
-              async: true,
+              defer: true,
             },
           },
         ],
