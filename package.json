@@ -64,6 +64,9 @@
   "engines": {
     "node": ">=20.0"
   },
+  "overrides": {
+    "serialize-javascript": ">=7.0.3"
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,md,yaml,yml}": "prettier --write"
   }
