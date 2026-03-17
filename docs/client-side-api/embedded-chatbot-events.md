@@ -93,5 +93,5 @@ Payload example:
 ```
 
 :::note
-This event triggers whenever a visitor submits an answer in the chatbot, but does not trigger for AI-generated responses or live chat sessions with human agents.
+This event triggers whenever a visitor submits an answer in the chatbot (e.g., selecting an option, typing a response, or confirming), but does not trigger for AI-generated responses or live chat sessions with human agents.
 :::

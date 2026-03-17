@@ -1,0 +1,63 @@
+bookings--id--reassign:
+  patch:
+    tags:
+      - Bookings
+    summary: Reassign a booking
+    description: Reassign a booking to a new host by ID
+    operationId: reassign-booking
+    parameters:
+      - name: id
+        in: path
+        description: ID of the booking
+        schema:
+          type: string
+        required: true
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              new_host:
+                type: string
+                description: The user ID of the new host to assign the booking to
+              conferencing_type:
+                type: string
+                description: The conferencing type to use for the reassigned booking (e.g., Zoom, Teams)
+            required:
+              - new_host
+    responses:
+      "200":
+        description: "200"
+        content:
+          application/json:
+            schema:
+              $ref: "../../components/schemas/booking.yaml#/Booking"
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "404":
+        description: "404"
+        content:
+          application/json:
+            examples:
+              Result:
+                value:
+                  type: invalid_request_error
+                  message: "No such booking: '123'"
+                  param: id
+            schema:
+              $ref: "../../components/schemas/common.yaml#/Error"
+      "409":
+        description: "409"
+        content:
+          application/json:
+            examples:
+              Result:
+                value:
+                  type: invalid_request_error
+                  message: "Booking cannot be reassigned"
+            schema:
+              $ref: "../../components/schemas/common.yaml#/Error"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
