@@ -60,7 +60,10 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Recipes",
       link: { type: "doc", id: "recipes/fetch-bookings-periodically" },
-      items: [],
+      items: [
+        "recipes/fetch-bookings-periodically",
+        "recipes/embed-calendar-cohosts",
+      ],
     },
     {
       type: "doc",

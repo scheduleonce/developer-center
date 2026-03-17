@@ -1,0 +1,14 @@
+# Use this workspace to collaborate
+workspace:
+  id: 54cb2326-2536-4d8b-8c39-481733cb61cc
+
+localResources:
+  specs:
+    - ..\openapi\index.yaml
+    - ..\static\booking-calendars-api.json
+    - ..\static\booking-calendars-api.yaml
+    - ..\static\booking-pages-api.json
+    - ..\static\booking-pages-api.yaml
+    - ..\static\oncehub-api.json
+    - ..\static\oncehub-api.yaml
+    - ..\static\oncehub-v1.yaml
