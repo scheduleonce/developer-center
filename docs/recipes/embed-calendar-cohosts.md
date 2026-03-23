@@ -11,80 +11,142 @@ This recipe shows how to dynamically update the OnceHub Booking Calendar to show
 
 ## Prerequisites
 
-- An active OnceHub Booking Page.
-- The standard OnceHub embed script integrated into your page.
-- The email addresses of the team members as configured in OnceHub.
+- An active OnceHub Booking Calendar for every potential host in the pool. This allows any team member to be selected as the primary host before dynamically adding others as co-hosts.
+- The standard OnceHub embed script must be integrated into your host page.
+- A list of the email addresses of all potential co-hosts as configured in OnceHub, which will be mapped to the checkbox values.
 
 ## Example HTML
 
 This implementation uses a list of checkboxes to dynamically update the Booking Calendar by appending the `co_hosts` parameter to the iframe URL. The JavaScript listens for selection changes and refreshes the iframe content in real-time.
 
 ```html
-<div id="oncehub-container-wrapper">
-  <div id="oncehub-target-div"></div>
+<div
+  class="booking-controls"
+  style="margin-bottom: 20px; font-family: sans-serif;"
+>
+  <h3>Select Team Members</h3>
+  <p style="font-size: 14px; color: #666;">
+    Choose who you would like to meet with:
+  </p>
+
+  <div
+    id="team-selector-container"
+    style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;"
+  >
+    <label
+      style="display: flex; align-items: center; padding: 10px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer;"
+    >
+      <input
+        type="checkbox"
+        class="oncehub-cohost-checkbox"
+        value="team.member1@example.com"
+        style="margin-right: 10px;"
+      />
+      <span>Team Member A</span>
+    </label>
+
+    <label
+      style="display: flex; align-items: center; padding: 10px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer;"
+    >
+      <input
+        type="checkbox"
+        class="oncehub-cohost-checkbox"
+        value="team.member2@example.com"
+        style="margin-right: 10px;"
+      />
+      <span>Team Member B</span>
+    </label>
+  </div>
 </div>
 
-<div id="team-selection">
-  <label
-    ><input type="checkbox" class="cohost-cb" value="sales-1@company.com" />
-    Sales Lead</label
-  >
-  <label
-    ><input type="checkbox" class="cohost-cb" value="tech-1@company.com" />
-    Technical Lead</label
-  >
-</div>
+<div
+  id="oncehub-embed-wrapper"
+  style="border: 1px solid #eee; border-radius: 12px; overflow: hidden;"
+>
+  <div
+    id="oncehub-target-div"
+    data-oh-booking-calendar-id="YOUR-BOOKING-CALENDAR-ID"
+    style="min-width:320px; height:700px;"
+  ></div>
 
-<script src="https://embed.oncehub.com/calendar.js"></script>
+  <script
+    type="text/javascript"
+    src="https://cdn.oncehub.com/cal/embed.js"
+    async
+  ></script>
+</div>
 
 <script>
   (function () {
-    const checkboxes = document.querySelectorAll(".cohost-cb");
-    let baseIframeSrc = "";
+    const wrapper = document.getElementById("oncehub-embed-wrapper");
+    const checkboxes = document.querySelectorAll(".oncehub-cohost-checkbox");
+    let baseIframeSrc = null;
 
     /**
-     * Updates the iframe's 'src' by appending or removing the 'co_hosts' query parameter.
+     * Helper to find the iframe injected by OnceHub
+     */
+    function findOnceHubIframe() {
+      return wrapper.querySelector("iframe");
+    }
+
+    /**
+     * Updates the Calendar URL with selected co-hosts
      */
     function refreshCalendar() {
-      // Find the iframe injected by OnceHub inside the wrapper
-      const iframe = document.querySelector(
-        "#oncehub-container-wrapper iframe",
-      );
-
-      // If the embed script hasn't finished injecting the iframe yet, exit
+      const iframe = findOnceHubIframe();
       if (!iframe) return;
 
-      // Capture the original URL on the first interaction to preserve
-      // original query parameters (e.g., booking page ID)
-      if (!baseIframeSrc) baseIframeSrc = iframe.src;
+      // Store the original source on first run to preserve default parameters
+      if (!baseIframeSrc) {
+        baseIframeSrc = iframe.src;
+      }
 
-      // Map selected checkboxes to a comma-separated list of emails
-      const selected = Array.from(checkboxes)
+      // Gather all checked emails
+      const selectedEmails = Array.from(checkboxes)
         .filter((cb) => cb.checked)
         .map((cb) => cb.value);
 
-      // Use the URL API to safely manipulate query parameters
+      // Construct new URL using the URL API
       const url = new URL(baseIframeSrc);
 
-      if (selected.length > 0) {
-        // Appends ?co_hosts=email1,email2 to the URL
-        url.searchParams.set("co_hosts", selected.join(","));
+      if (selectedEmails.length > 0) {
+        // Append co_hosts as a comma-separated list
+        url.searchParams.set("co_hosts", selectedEmails.join(","));
       } else {
-        // Reverts to the default availability if no co-hosts are selected
+        // Remove parameter to show default availability
         url.searchParams.delete("co_hosts");
       }
 
-      // Updating the src triggers an automatic reload of the iframe content
+      // Setting the src triggers the iframe to reload with new availability
       iframe.src = url.toString();
     }
 
-    // Attach change listeners to all selection inputs
-    checkboxes.forEach((cb) => cb.addEventListener("change", refreshCalendar));
+    // Attach event listeners to all checkboxes
+    checkboxes.forEach((cb) => {
+      cb.addEventListener("change", refreshCalendar);
+    });
+
+    /**
+     * WATCHDOG: OnceHub loads its iframe asynchronously.
+     * We observe the wrapper to detect when the iframe is injected.
+     */
+    const observer = new MutationObserver((mutations, obs) => {
+      const iframe = findOnceHubIframe();
+      if (iframe) {
+        baseIframeSrc = iframe.src;
+        console.log("OnceHub Widget initialized.");
+        obs.disconnect(); // Stop observing once the reference is captured
+      }
+    });
+
+    observer.observe(wrapper, { childList: true, subtree: true });
   })();
 </script>
 ```
 
-> **Tip:** Ensure the custom script is placed after the OnceHub embed script to ensure the target container is available in the DOM.
+:::info
+The code below uses a placeholder ID. Replace YOUR-BOOKING-CALENDAR-ID with your own ID to initialize the embed correctly. Ensure the custom script is placed after the OnceHub embed script so the target container is available in the DOM.
+:::
 
 ## How It Works
 
