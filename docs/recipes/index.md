@@ -14,7 +14,7 @@ Practical how-to guides to help you build common workflows with the OnceHub APIs
 
 Learn how to poll the API for new or updated bookings with automatic pagination.
 
-### [Embed with Co-host Selection](./embed-calendar-cohosts)
+### [Dynamic co-host selection](./embed-calendar-cohosts)
 
 Dynamically adjust your booking interface based on team availability.
 
