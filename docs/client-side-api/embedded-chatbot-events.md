@@ -81,7 +81,7 @@ Payload example:
 {
   "type": "oncehub.chatbot.button_clicked",
   "payload": {
-    "bot_id": "BOT-1033739F74",
+    "bot_id": "BOT-1234",
     "bot_name": "Example bot",
     "button_text": "confirm",
     "interaction_label": "single_choice",

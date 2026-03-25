@@ -1,6 +1,6 @@
 ---
 id: embed-calendar-cohosts
-title: Embed calendar with co-host selection
+title: Dynamic Co‑Host Selection
 description: Add checkboxes that update an embedded OnceHub calendar to include co-hosts.
 slug: /recipes/embed-calendar-cohosts/
 ---
@@ -13,7 +13,7 @@ This recipe shows how to dynamically update the OnceHub Booking Calendar to show
 
 - An active OnceHub Booking Calendar for every potential host in the pool. This allows any team member to be selected as the primary host before dynamically adding others as co-hosts.
 - The standard OnceHub embed script must be integrated into your host page.
-- A list of the email addresses of all potential co-hosts as configured in OnceHub, which will be mapped to the checkbox values.
+- A list of the email addresses of all potential co-hosts as configured in OnceHub, which will be mapped to the checkbox values in your HTML.
 
 ## Example HTML
 
