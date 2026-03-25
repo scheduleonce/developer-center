@@ -5,7 +5,7 @@ description: Add checkboxes that update an embedded OnceHub calendar to include 
 slug: /recipes/embed-calendar-cohosts/
 ---
 
-# Embed Calendar With Co‑Host Selection
+# Dynamic Co‑Host Selection
 
 This recipe shows how to dynamically update the OnceHub Booking Calendar to show availability for specific team members based on user-selected checkboxes at runtime. It’s useful when you want guests to pick one or more team members and only show availability for the chosen co‑hosts.
 
@@ -145,7 +145,7 @@ This implementation uses a list of checkboxes to dynamically update the Booking 
 ```
 
 :::info
-The code below uses a placeholder ID. Replace YOUR-BOOKING-CALENDAR-ID with your own ID to initialize the embed correctly. Ensure the custom script is placed after the OnceHub embed script so the target container is available in the DOM.
+The code below uses a placeholder. Replace YOUR-BOOKING-CALENDAR-ID with your actual booking calendar ID to initialize the embed correctly. Ensure the custom script is placed after the OnceHub embed script so the target container is available in the DOM.
 :::
 
 ## How It Works
