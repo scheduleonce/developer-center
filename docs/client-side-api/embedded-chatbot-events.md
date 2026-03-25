@@ -81,8 +81,8 @@ Payload example:
 {
   "type": "oncehub.chatbot.button_clicked",
   "payload": {
-    "bot_id": "BOT-1234",
-    "bot_name": "Example bot",
+    "bot_id": "BOT-1033739F74",
+    "bot_name": "example bot",
     "button_text": "confirm",
     "interaction_label": "single_choice",
     "booking_calendar_name": "Sales Team Calendar",
