@@ -427,7 +427,7 @@ paths:
               properties:
                 new_host:
                   type: string
-                  description: The external user identifier for the new host. The user must belong to the same account, hold an active seat license, and cannot be the current host of the booking.
+                  description: The OnceHub User ID for the new host. The user must belong to the same account, hold an active seat license, and cannot be the current host of the booking.
                 location:
                   type: object
                   description: Optional. The virtual location for the reassigned booking. If omitted, the system automatically assigns a location based on the new host's defaults.
