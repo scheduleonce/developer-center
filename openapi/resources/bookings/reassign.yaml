@@ -39,14 +39,16 @@ bookings--id--reassign:
             required:
               - new_host
     responses:
+      "401":
+        $ref: "../../components/responses/errors.yaml#/Unauthorized"
+      "429":
+        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
       "200":
         description: "200"
         content:
           application/json:
             schema:
               $ref: "../../components/schemas/booking.yaml#/Booking"
-      "401":
-        $ref: "../../components/responses/errors.yaml#/Unauthorized"
       "404":
         description: "404"
         content:
@@ -104,6 +106,4 @@ bookings--id--reassign:
                   message: "Cannot reassign booking: The new host requires an assigned seat."
             schema:
               $ref: "../../components/schemas/common.yaml#/Error"
-      "429":
-        $ref: "../../components/responses/errors.yaml#/TooManyRequests"
     deprecated: false
