@@ -157,7 +157,7 @@ The code below uses a placeholder. Replace YOUR-BOOKING-CALENDAR-ID with your ac
 
 ## Tips
 
-- **Case Sensitivity:** Ensure checkbox `value` attributes exactly match the OnceHub user's email address. If the case or spelling is incorrect, the `co_hosts` parameter will be ignored.
+- **Case Sensitivity:** While the email address itself is not case-sensitive, the `co_hosts` parameter and checkbox `value` attributes are. Ensure these exactly match the OnceHub user's email; if the case or spelling is incorrect, the parameter will be ignored.
 - **Asynchronous Loading:** Because the OnceHub script injects the iframe asynchronously, the script includes a safety check (if (!iframe)) to ensure the calendar is present before attempting an update.
 - **URL Integrity:** The script uses a `baseIframeSrc` variable to store the original URL. This prevents query parameters from "stacking" or duplicating during multiple selections.
 - **Availability Logic:** Selecting multiple `co_hosts` will only display time slots where all chosen team members are simultaneously free.
