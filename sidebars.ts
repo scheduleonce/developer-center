@@ -62,7 +62,7 @@ const sidebars: SidebarsConfig = {
       link: { type: "doc", id: "recipes/recipes-index" },
       items: [
         "recipes/fetch-bookings-periodically",
-        "recipes/embed-calendar-cohosts",
+        "recipes/dynamic-co-host-selection",
       ],
     },
     {
