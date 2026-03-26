@@ -7,13 +7,13 @@ description: Listen to real-time events from embedded OnceHub chatbot widgets in
 
 ## List of supported events
 
-| Event name                       | Fires when                                                  |
-| :------------------------------- | :---------------------------------------------------------- |
-| `oncehub.chatbot.loaded`         | Chatbot widget is first loaded, on page load.               |
-| `oncehub.chatbot.opened`         | Visitor clicks anywhere to interact with the chatbot.       |
-| `oncehub.chatbot.started`        | Visitor starts interacting with the chatbot.                |
-| `oncehub.chatbot.closed`         | Visitor closes the chatbot widget.                          |
-| `oncehub.chatbot.button_clicked` | Visitor clicks on a button during the chatbot conversation. |
+| Event name                       | Fires when                                                                     |
+| :------------------------------- | :----------------------------------------------------------------------------- |
+| `oncehub.chatbot.loaded`         | Chatbot widget is first loaded, on page load.                                  |
+| `oncehub.chatbot.opened`         | Visitor clicks anywhere to interact with the chatbot.                          |
+| `oncehub.chatbot.started`        | Visitor starts interacting with the chatbot.                                   |
+| `oncehub.chatbot.closed`         | Visitor closes the chatbot widget.                                             |
+| `oncehub.chatbot.button_clicked` | Visitor submits an answer in the chatbot (by clicking send or pressing enter). |
 
 ## Events payloads
 
@@ -84,7 +84,14 @@ Payload example:
     "bot_id": "BOT-1234",
     "bot_name": "example bot",
     "button_text": "confirm",
-    "interaction_label": "schedule"
+    "interaction_label": "single_choice",
+    "booking_calendar_name": "Sales Team Calendar",
+    "question_text": "How many people are in your organization?",
+    "answer": "100-500"
   }
 }
 ```
+
+:::note
+This event triggers whenever a visitor submits an answer in the chatbot (e.g., selecting an option, typing a response, or confirming), but does not trigger for AI-generated responses or live chat sessions with human agents.
+:::

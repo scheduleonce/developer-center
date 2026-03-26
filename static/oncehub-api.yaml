@@ -417,6 +417,116 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
       deprecated: false
+  /bookings/{id}/reassign:
+    patch:
+      tags:
+        - Bookings
+      summary: Reassign a booking
+      description: Reassign a booking to a new host by ID
+      operationId: reassign-booking
+      parameters:
+        - name: id
+          in: path
+          description: ID of the booking
+          schema:
+            type: string
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                new_host:
+                  type: string
+                  description: The OnceHub User ID for the new host. The user must belong to the same account, hold an active seat license, and cannot be the current host of the booking.
+                location:
+                  type: object
+                  description: Optional. The virtual location for the reassigned booking. If omitted, the system automatically assigns a location based on the new host's defaults.
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                        - virtual
+                      description: Must be virtual.
+                    value:
+                      type: string
+                      description: The virtual conferencing service (e.g. google_meet, microsoft_teams, webex, gotomeeting, zoom).
+                  required:
+                    - type
+                    - value
+              required:
+                - new_host
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                BookingNotFound:
+                  value:
+                    type: invalid_request_error
+                    message: 'No such booking: ''123'''
+                    param: id
+                UserNotFound:
+                  value:
+                    type: invalid_request_error
+                    message: 'No such user: ''USR-XXXXXXXXXX'''
+                    param: new_host
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                UserInactive:
+                  value:
+                    type: invalid_request_error
+                    message: User is inactive.
+                    param: new_host
+                PlanRestriction:
+                  value:
+                    type: invalid_request_error
+                    message: Reassign is available on the Route plan and above.
+                SameHost:
+                  value:
+                    type: invalid_request_error
+                    message: Booking cannot be reassigned to its current host.
+                    param: new_host
+                BookingsStatus:
+                  value:
+                    type: invalid_request_error
+                    message: Booking cannot be reassigned in its current status.
+                    param: id
+                InvalidLocation:
+                  value:
+                    type: invalid_request_error
+                    message: 'Invalid location: ''Webex'' is not connected for this user. Connected video conferencing options: google_meet, microsoft_teams.'
+                    param: location.value
+                InvalidLocationType:
+                  value:
+                    type: invalid_request_error
+                    message: location.type must be 'virtual'
+                    param: location.type
+                HostSeat:
+                  value:
+                    type: invalid_request_error
+                    message: 'Cannot reassign booking: The new host requires an assigned seat.'
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+      deprecated: false
   /bookings/{id}/no-show:
     post:
       tags:
