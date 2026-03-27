@@ -1,5 +1,5 @@
 bookings--id--reassign:
-  patch:
+  post:
     tags:
       - Bookings
     summary: Reassign a booking
@@ -83,7 +83,7 @@ bookings--id--reassign:
               SameHost:
                 value:
                   type: invalid_request_error
-                  message: "Booking cannot be reassigned to its current host."
+                  message: "Booking cannot be reassigned to the same host."
                   param: new_host
               BookingsStatus:
                 value:
@@ -95,15 +95,22 @@ bookings--id--reassign:
                   type: invalid_request_error
                   message: "Invalid location: 'Webex' is not connected for this user. Connected video conferencing options: google_meet, microsoft_teams."
                   param: location.value
+              HostSeat:
+                value:
+                  type: invalid_request_error
+                  message: "Cannot reassign booking: The new host requires an assigned seat."
+            schema:
+              $ref: "../../components/schemas/common.yaml#/Error"
+      "400":
+        description: "400"
+        content:
+          application/json:
+            examples:
               InvalidLocationType:
                 value:
                   type: invalid_request_error
                   message: "location.type must be 'virtual'"
                   param: location.type
-              HostSeat:
-                value:
-                  type: invalid_request_error
-                  message: "Cannot reassign booking: The new host requires an assigned seat."
             schema:
               $ref: "../../components/schemas/common.yaml#/Error"
     deprecated: false
