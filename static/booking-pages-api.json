@@ -663,6 +663,25 @@
               }
             }
           },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "InvalidLocationType": {
+                    "value": {
+                      "type": "invalid_request_error",
+                      "message": "location.type must be 'virtual'",
+                      "param": "location.type"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
           },
@@ -729,13 +748,6 @@
                       "type": "invalid_request_error",
                       "message": "Invalid location: 'Webex' is not connected for this user. Connected video conferencing options: google_meet, microsoft_teams.",
                       "param": "location.value"
-                    }
-                  },
-                  "InvalidLocationType": {
-                    "value": {
-                      "type": "invalid_request_error",
-                      "message": "location.type must be 'virtual'",
-                      "param": "location.type"
                     }
                   },
                   "HostSeat": {
