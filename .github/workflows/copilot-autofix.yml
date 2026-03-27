@@ -23,7 +23,7 @@ concurrency:
 
 jobs:
   copilot-autofix:
-    runs-on: activitystream-service-runner-scale-set
+    runs-on: developer-center-runner-scale-set
     timeout-minutes: 45
     steps:
       - uses: scheduleonce/github-workflows/.github/actions/copilot-dependency-autofix@main
