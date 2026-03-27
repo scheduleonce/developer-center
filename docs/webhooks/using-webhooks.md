@@ -15,6 +15,20 @@ You can register webhooks to send an HTTP POST request for specific types of boo
 
 > 🚧 POST messages may contain sensitive customer data. Always use HTTPS when providing the receiving POST URL.
 
+## Webhook Delivery Retries
+
+If your endpoint does not return a successful `2xx` status code, the delivery is treated as failed and OnceHub retries it automatically.
+
+Retries use exponential backoff, so the time between attempts increases over time.
+
+Retries continue for up to about 3 days. If delivery still does not succeed within that retry window, the webhook is automatically disabled.
+
+To avoid missed events, make sure your endpoint:
+
+- Returns a `2xx` response as soon as the payload is accepted.
+- Handles temporary errors and downtime gracefully.
+- Logs failed deliveries so you can investigate and recover quickly.
+
 ## Check That Your Webhook is Configured Correctly
 
 Once you have created your webhook subscription, you can check that it is configured correctly by using a service like <a target="_blank" href="https://webhook.site/">Webhook Tester</a>.

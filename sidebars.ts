@@ -59,8 +59,11 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Recipes",
-      link: { type: "doc", id: "recipes/fetch-bookings-periodically" },
-      items: [],
+      link: { type: "doc", id: "recipes/recipes-index" },
+      items: [
+        "recipes/fetch-bookings-periodically",
+        "recipes/dynamic-co-host-selection",
+      ],
     },
     {
       type: "doc",

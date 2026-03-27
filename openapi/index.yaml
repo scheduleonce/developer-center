@@ -38,6 +38,8 @@ paths:
     $ref: "./resources/bookings/cancel.yaml#/bookings--id--cancel"
   /bookings/{id}/request-reschedule:
     $ref: "./resources/bookings/reschedule.yaml#/bookings--id--request-reschedule"
+  /bookings/{id}/reassign:
+    $ref: "./resources/bookings/reassign.yaml#/bookings--id--reassign"
   /bookings/{id}/no-show:
     $ref: "./resources/bookings/no-show.yaml#/bookings--id--no-show"
 
