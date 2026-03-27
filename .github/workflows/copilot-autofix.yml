@@ -23,7 +23,7 @@ concurrency:
 
 jobs:
   copilot-autofix:
-    runs-on: developer-center-runner-scale-set
+    runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
       - uses: scheduleonce/github-workflows/.github/actions/copilot-dependency-autofix@main
