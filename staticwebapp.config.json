@@ -58,6 +58,11 @@
       "route": "/reference/the-master-page-object",
       "redirect": "/reference/booking-pages",
       "statusCode": 301
+    },
+    {
+      "route": "/docs/introduction-to-webhooks",
+      "redirect": "/docs/webhooks/introduction-to-webhooks/",
+      "statusCode": 301
     }
   ]
 }
