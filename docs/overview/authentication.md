@@ -6,32 +6,39 @@ description: Generate and use API keys to authenticate requests to the OnceHub A
 
 # Authentication
 
-To interact with the **Rest API and MCP Server**, you must authenticate every request using a unique API Key. All communication must occur over **HTTPS**; requests made over plain HTTP will fail.
+To interact with the **OnceHub Rest API and MCP Server**, you must authenticate every request using a unique **API Key**. For your security, all communication must occur over **HTTPS**; requests made over plain HTTP will be rejected.
 
-## Getting Started
+OnceHub utilizes industry-standard cryptographic practices to protect your credentials.
 
-This key is automatically generated the first time you access the **API Integrations** section of your OnceHub account. The API key remains valid until you choose to regenerate it or delete your account.
+- **Hashed Key Storage:** OnceHub does not store API keys in plaintext. Because we only store a secure cryptographic hash, your key is **displayed only once** upon generation. It cannot be retrieved again by any user or by OnceHub Support.
+- **Multi-Key Management:** You can maintain up to **25 active API keys** per account to support:
+  - **Environment Segregation:** Use separate keys for staging and production environments to prevent accidental data leaks.
+  - **Vendor Management:** Assign unique keys to different third-party integrations to manage or revoke access independently.
+  - **Zero-Downtime Rotation:** Supporting multiple concurrent keys allows you to generate a new key and update your application before revoking the old one, ensuring continuous service.
 
-## Locating Your API Key
+## Generate an API Key
 
-1. **Log in** to your OnceHub account.
-2. Click the **gear icon** in the top right corner and select **Account Integrations**.
+1. Login to Oncehub account and click the **gear icon** located in the top-right corner of the page.
+2. Select **Account Integrations** from the dropdown menu.
 3. Select the **APIs & Webhooks** tile.
-4. Your key is displayed at the top
+4. In the **API Keys** section, click the **Create API key** button.
+5. In the pop-up, enter a descriptive **API Key Name** (e.g., "Production CRM").
+6. Click **Generate key**. The **API Key Created Successfully** pop-up will appear. **Note:**
+   Your API key is displayed here. For security reasons, it will only be displayed once.
+7. Click **Copy & close** to copy the key to your clipboard and save it in a secure location.
 
 <img src="/img/API-Key.png" alt="API Key" width="780" />
 
-## Managing Your Key
+## Delete an API Key
 
-You can manage your credentials using the following links located next to your key:
+If a key is compromised or no longer needed, you should delete it immediately to protect your data.
 
-- **Copy:** Click this to instantly copy your API key to your clipboard for use in your application.
+1. Locate the specific key in the **API Keys** list.
+2. Click the **Delete** link next to the key name.
+3. A **Delete Key** confirmation pop-up will appear warning that any application using this key will immediately lose access.
+4. Click **Delete key** button to permanently delete the credential.
 
-<img src="/img/Regenerate-API-Key.png" alt="Copy-API-Key" width="780" />
-
-- **Regenerate:** If you suspect your key has been compromised, click **Regenerate** to expire your current key and generate a new one for security reasons.
-
-<img src="/img/Regenerate-API-Key.png" alt="Regenerate API Key" width="780" />
+<img src="/img/Delete-API-Key.png" alt="Copy-API-Key" width="780" />
 
 ## Using your API Key
 
@@ -46,18 +53,14 @@ API-Key: your-api-key-here
 Content-Type: application/json
 ```
 
-## Testing Your API Key
+## Testing your API Key
 
-Once you have your key, test it by making a request to our [**validation endpoint**](https://developers.oncehub.com/reference/booking-calendars/#tag/authentication/get/test) to confirm your connection is active.
+Once you have your key, test it by making a request to our [**validation endpoint**](https://developers.oncehub.com/reference/booking-calendars/#tag/authentication/GET/test) to confirm your connection is active. If the key is missing or invalid, the API will return a 401 Unauthorized error.
 
 ## Security Best Practices
 
 Your API key grants significant access to your account data. Protect it by following these standards:
 
 - **Server-Side Only:** Never expose your API key in client-side code (JavaScript), public GitHub repositories, or mobile app binaries.
-- **Environment Variables:** Store keys in secure environment variables rather than hard-coding them.
-- **Regular Rotation:** Periodically regenerate your key to minimize the impact of potential leaks.
-
-```
-
-```
+- **Environment Variables:** Store keys in secure environment variables rather than hard-coding them into your source code.
+- **Lost Keys:** If you lose an API key, OnceHub Support cannot recover it for you. You must delete the lost key, generate a new one, and update your integration.
