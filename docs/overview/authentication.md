@@ -6,7 +6,7 @@ description: Generate and use API keys to authenticate requests to the OnceHub A
 
 # Authentication
 
-To interact with the **OnceHub Rest API and MCP Server**, you must authenticate every request using a unique **API Key**. For your security, all communication must occur over **HTTPS**; requests made over plain HTTP will be rejected.
+To interact with the **OnceHub REST API and MCP Server**, you must authenticate every request using a unique **API Key**. For your security, all communication must occur over **HTTPS**; requests made over plain HTTP will be rejected.
 
 OnceHub utilizes industry-standard cryptographic practices to protect your credentials.
 
@@ -18,7 +18,7 @@ OnceHub utilizes industry-standard cryptographic practices to protect your crede
 
 ## Generate an API Key
 
-1. Login to Oncehub account and click the **gear icon** located in the top-right corner of the page.
+1. Log in to Oncehub account and click the **gear icon** located in the top-right corner of the page.
 2. Select **Account Integrations** from the dropdown menu.
 3. Select the **APIs & Webhooks** tile.
 4. In the **API Keys** section, click the **Create API key** button.

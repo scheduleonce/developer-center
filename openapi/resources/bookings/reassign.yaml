@@ -38,7 +38,7 @@ bookings--id--reassign:
 
                 properties:
                   type:
-                    type: enum
+                    type: string
                     enum: [virtual]
                     description: |
                       The required location type for virtual conferencing.
