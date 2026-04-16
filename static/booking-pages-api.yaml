@@ -418,12 +418,17 @@ paths:
       tags:
         - Bookings
       summary: Reassign a booking
-      description: Reassign a booking to a new host by ID
+      description: |
+        Reassign an existing booking to a new host by ID.
+
+        Effects of reassignment:
+        - The original calendar event is deleted, and a new event is created in the new host's integrated calendar.
+        - Reassignment notifications are sent to guests and hosts.
       operationId: reassign-booking
       parameters:
         - name: id
           in: path
-          description: ID of the booking
+          description: The unique ID of the booking.
           schema:
             type: string
           required: true
@@ -439,16 +444,31 @@ paths:
                   description: The OnceHub user ID for the new host. The user must belong to the same account, hold an active seat license, and cannot be the current host of the booking.
                 location:
                   type: object
-                  description: Optional. The virtual location for the reassigned booking. If omitted, the system automatically assigns a location based on the new host's defaults.
+                  description: |
+                    Optional. Controls the video conferencing service for the reassigned meeting.
+
+                    - Omit this object to use the new host's default settings or original location if no default settings exist. The meeting will keep its existing physical location, or virtual link.
+                    - Include this object to set or change the video conferencing service. This converts the meeting to virtual and overrides any existing provider.
                   properties:
                     type:
                       type: string
                       enum:
                         - virtual
-                      description: Must be virtual.
+                      description: |
+                        The required location type for virtual conferencing.
                     value:
                       type: string
-                      description: The virtual conferencing service (e.g. google_meet, microsoft_teams, webex, gotomeeting, zoom).
+                      description: |
+                        The specific video conferencing service to be used.
+
+                        **IMPORTANT:**
+                        The selected video conferencing service must be connected and active in the new host's OnceHub account. If the video conferencing service is not connected, the reassignment will fail.
+                      enum:
+                        - google_meet
+                        - microsoft_teams
+                        - webex
+                        - gotomeeting
+                        - zoom
                   required:
                     - type
                     - value
@@ -461,18 +481,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Booking'
-        '400':
-          description: '400'
-          content:
-            application/json:
-              examples:
-                InvalidLocationType:
-                  value:
-                    type: invalid_request_error
-                    message: location.type must be 'virtual'
-                    param: location.type
-              schema:
-                $ref: '#/components/schemas/Error'
         '401':
           $ref: '#/components/responses/Unauthorized'
         '404':
@@ -492,8 +500,8 @@ paths:
                     param: new_host
               schema:
                 $ref: '#/components/schemas/Error'
-        '422':
-          description: '422'
+        '409':
+          description: '409'
           content:
             application/json:
               examples:

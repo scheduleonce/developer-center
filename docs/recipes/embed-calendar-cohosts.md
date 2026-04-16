@@ -11,10 +11,10 @@ This recipe shows how to dynamically update the OnceHub Booking Calendar to show
 
 ## Prerequisites
 
-- An active OnceHub Booking Calendar for the primary host. This Booking Calendar acts as the base for the booking and determines the meeting's primary configuration.
-- An active seat/license and configured availability for all potential co-hosts.
+- A primary OnceHub Booking Calendar, which determines the meeting's base configuration, defining the duration, location, and meeting type. Additional team members are appended as co-hosts via the `co_hosts` parameter.
+- Each team member must have an active seat and configured availability within OnceHub.
+- A list of team member email addresses (exactly as configured in OnceHub) to map to your HTML checkbox values.
 - The standard OnceHub embed script integrated into your host page.
-- A list of team member email addresses (as configured in OnceHub) to map to your checkbox values in the HTML.
 
 ## Example HTML
 
