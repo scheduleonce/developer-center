@@ -51,7 +51,7 @@ Select your preferred integration method to begin. Most methods require an activ
 1. [**Sign up**](https://account.oncehub.com/signup) for a OnceHub account if you don’t have one.
 2. Create your API keys using the [**Authentication guide**](/docs/overview/authentication/). You can maintain up to 25 active keys to segregate environments (Staging vs. Production) and manage third-party vendors securely.
 
-3. Choose between Rest APIs for standard integrations or the MCP Server for AI-driven workflows.
+3. Choose between REST APIs for standard integrations or the MCP Server for AI-driven workflows.
 
 ### To Use Client-Side API
 

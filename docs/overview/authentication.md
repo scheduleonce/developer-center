@@ -18,7 +18,7 @@ OnceHub utilizes industry-standard cryptographic practices to protect your crede
 
 ## Generate an API Key
 
-1. Log in to Oncehub account and click the **gear icon** located in the top-right corner of the page.
+1. Log in to your OnceHub account and click the **gear icon** located in the top-right corner of the page.
 2. Select **Account Integrations** from the dropdown menu.
 3. Select the **APIs & Webhooks** tile.
 4. In the **API Keys** section, click the **Create API key** button.
