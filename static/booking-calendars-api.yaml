@@ -452,7 +452,7 @@ paths:
                       description: |
                         The specific video conferencing service to be used.
 
-                        **IMPORTANT :**
+                        **IMPORTANT:**
                         The selected video conferencing service must be connected and active in the new host's OnceHub account. If the video conferencing service is not connected, the reassignment will fail.
                       enum:
                         - google_meet

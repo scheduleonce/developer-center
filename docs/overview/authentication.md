@@ -38,7 +38,7 @@ If a key is compromised or no longer needed, you should delete it immediately to
 3. A **Delete Key** confirmation pop-up will appear warning that any application using this key will immediately lose access.
 4. Click **Delete key** button to permanently delete the credential.
 
-<img src="/img/Delete-API-Key.png" alt="Copy-API-Key" width="780" />
+<img src="/img/Delete-API-Key.png" alt="Delete API key confirmation dialog" width="780" />
 
 ## Using your API Key
 
