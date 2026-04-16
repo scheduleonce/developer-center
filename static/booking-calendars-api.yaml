@@ -451,15 +451,10 @@ paths:
                       type: string
                       description: |
                         The specific video conferencing service to be used.
+                        Currently supported values include: `google_meet`, `microsoft_teams`, `webex`, `gotomeeting`, and `zoom`.
 
                         **IMPORTANT:**
                         The selected video conferencing service must be connected and active in the new host's OnceHub account. If the video conferencing service is not connected, the reassignment will fail.
-                      enum:
-                        - google_meet
-                        - microsoft_teams
-                        - webex
-                        - gotomeeting
-                        - zoom
                   required:
                     - type
                     - value
