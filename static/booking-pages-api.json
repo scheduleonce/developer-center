@@ -628,7 +628,7 @@
                     "description": "Optional. Controls the video conferencing service for the reassigned meeting.\n\n- Omit this object to use the new host's default settings or original location if no default settings exist. The meeting will keep its existing physical location, or virtual link.\n- Include this object to set or change the video conferencing service. This converts the meeting to virtual and overrides any existing provider.\n",
                     "properties": {
                       "type": {
-                        "type": "enum",
+                        "type": "string",
                         "enum": [
                           "virtual"
                         ],

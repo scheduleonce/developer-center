@@ -442,7 +442,7 @@ paths:
                     - Include this object to set or change the video conferencing service. This converts the meeting to virtual and overrides any existing provider.
                   properties:
                     type:
-                      type: enum
+                      type: string
                       enum:
                         - virtual
                       description: |
