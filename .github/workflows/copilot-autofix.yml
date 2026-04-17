@@ -18,7 +18,7 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: copilot-autofix-${{ github.ref }}-${{ inputs.package_name }}
+  group: copilot-autofix-${{ github.ref }}-${{ inputs.PACKAGE_NAME }}
   cancel-in-progress: true
 
 jobs:

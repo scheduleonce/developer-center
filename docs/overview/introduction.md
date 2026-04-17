@@ -13,7 +13,7 @@ description: Learn how to integrate with the OnceHub REST API to access booking 
 OnceHub offers a variety of integration approaches. Users can select the method that best aligns with their specific use case and technical environment:
 
 - **Server-Side REST APIs:** Best for synchronizing booking data, managing scheduling resources, and automating backend workflows following REST principles.
-- **Webhooks:** Essential for receiving real-time, event-driven notifications for bookings, updates, and cancellation events to keep your external systems perfectly synchronized.
+- **Webhooks:** Essential for receiving real-time, event-driven notifications for booking lifecycle events, digital conversation interactions (Chatbots/ Live engagement), and cancellation events to keep your external systems synchronized.
 - **Client-Side APIs:** Use these to embed OnceHub interfaces directly into web applications and interact with them using client-side event listeners. This approach supports capturing real-time events for chatbots, routing forms and booking pages.
 - **URL Parameters & Embedding:** A powerful mechanism to **fetch data from** (pre-filling booking forms) or **pass information to** redirect parameters after a booking is completed.
 - **MCP Server:** Designed for integrating OnceHub into Model Context Protocol (MCP) environments for AI-driven scheduling and automation workflows.
@@ -49,8 +49,9 @@ Select your preferred integration method to begin. Most methods require an activ
 ### To Use REST API or MCP Server
 
 1. [**Sign up**](https://account.oncehub.com/signup) for a OnceHub account if you don’t have one.
-2. Create your API keys using the [**Authentication guide**](https://developers.oncehub.com/reference/booking-pages/#description/introduction).
-3. Choose between Rest APIs for standard integrations or the MCP Server for AI-driven workflows.
+2. Create your API keys using the [**Authentication guide**](/docs/overview/authentication/). You can maintain up to 25 active keys to segregate environments (Staging vs. Production) and manage third-party vendors securely.
+
+3. Choose between REST APIs for standard integrations or the MCP Server for AI-driven workflows.
 
 ### To Use Client-Side API
 
@@ -59,9 +60,11 @@ Select your preferred integration method to begin. Most methods require an activ
 
 ### To Use Webhooks
 
-- Use the [**Webhooks API**](https://developers.oncehub.com/reference/booking-calendars/#tag/webhooks/POST/webhooks) (via POST request) to create a new subscription.
-- Select specific [**event types**](https://developers.oncehub.com/reference/booking-calendars/#tag/webhook-events) (e.g., `booking.scheduled`) from the array of available booking lifecycle triggers.
-- Provide a secure POST URL where OnceHub will send real-time JSON payloads whenever the defined events occur.
+Webhooks can be configured through the OnceHub application interface for a quick setup or via the API.
+
+- To configure your webhooks directly in the OnceHub Application, define your webhook URL (must be https://), select your triggers from the provided list, and save your Webhook Secret to verify data authenticity.
+
+- Use the [**Webhooks API**](https://developers.oncehub.com/reference/booking-calendars/#tag/webhooks/POST/webhooks) to create a new subscription (via POST request). You must define your destination `url` and an array of [**event types**](https://developers.oncehub.com/reference/booking-calendars/#tag/webhook-events) (e.g., `booking.scheduled`) within the JSON request body. Once created, retrieve the `signing_secret` from the API response to implement signature verification on your server.
 
 ### To Use URL Parameters & Embedding
 
