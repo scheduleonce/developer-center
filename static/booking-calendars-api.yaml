@@ -436,25 +436,38 @@ paths:
                 location:
                   type: object
                   description: |
-                    Optional. Controls the video conferencing service for the reassigned meeting.
+                    Optional. Controls the Video Conference Service for the reassigned meeting.
 
-                    - Omit this object to use the new host's default settings or original location if no default settings exist. The meeting will keep its existing physical location, or virtual link.
-                    - Include this object to set or change the video conferencing service. This converts the meeting to virtual and overrides any existing provider.
+                    - If omitted: The system first tries to use the same Video Conference Service provider as the original booking.
+                      - VCS Meetings: If that specific VCS provider is not connected for the new host, the system automatically selects the best available integration based on this priority: Google Meet, Microsoft Teams, Zoom, WebEx, then GoToMeeting.
+                      - Non-VCS Meetings: If the original meeting location was Non-VCS (e.g., phone or a in-person location), the original meeting location remains unchanged.
+                      
+                      Note: If the new host has no Video Conference Service integrations connected, the booking will be reassigned successfully but will proceed without a virtual link.
+
+                    - If included: You must provide a specific `type` and `value` for the new host. The selected Video Conference Service must be connected and active in the new host's OnceHub account.
+                      
+                      Important: If the specified Video Conference Service is not connected for the new host, the reassignment request will fail. In this case, the API will return an error along with a list of connected Video Conference Service options available for that host.
                   properties:
                     type:
                       type: string
                       enum:
                         - virtual
                       description: |
+                        Fixed Value: virtual.
+
                         The required location type for virtual conferencing.
                     value:
                       type: string
                       description: |
-                        The specific video conferencing service to be used.
-                        Currently supported values include: `google_meet`, `microsoft_teams`, `webex`, `gotomeeting`, and `zoom`.
+                        Supported Values: google_meet, microsoft_teams, webex, gotomeeting, zoom.
 
-                        **IMPORTANT:**
-                        The selected video conferencing service must be connected and active in the new host's OnceHub account. If the video conferencing service is not connected, the reassignment will fail.
+                        The specific service to be used.
+                      enum:
+                        - google_meet
+                        - microsoft_teams
+                        - webex
+                        - gotomeeting
+                        - zoom
                   required:
                     - type
                     - value
