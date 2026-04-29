@@ -448,9 +448,8 @@ paths:
                     Optional. Controls the Video Conference Service for the reassigned meeting.
 
                     - If omitted: The system first tries to use the same Video Conference Service provider as the original booking.
-                      - VCS Meetings: If that specific VCS provider is not connected for the new host, the system automatically selects the best available integration based on this priority: Google Meet, Microsoft Teams, Zoom, WebEx, then GoToMeeting.
-                      - Non-VCS Meetings: If the original meeting location was Non-VCS (e.g., phone or an in-person location), the original meeting location remains unchanged.
-                      
+                      - Online Meetings: If that specific Video Conferencing Service provider is not connected for the new host, the system automatically selects the best available integration based on this priority: Google Meet, Microsoft Teams, Zoom, Webex Meetings, then GoTo Meeting.
+                                         
                       Note: If the new host has no Video Conference Service integrations connected, the booking will be reassigned successfully but will proceed without a virtual link.
 
                     - If included: You must provide a specific `type` and `value` for the new host. The selected Video Conference Service must be connected and active in the new host's OnceHub account.
