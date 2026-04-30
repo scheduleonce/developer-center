@@ -35,7 +35,7 @@ bookings--id--reassign:
 
                   **Case 1: When `location` object is omitted:** The system applies the following logic based on the original booking's location type:
 
-                  - *Online Meetings:* The system first tries to use the same Video Conferencing Service provider as the original host. If that specific Video Conferencing Service provider is not connected to the new host, it automatically selects the best available integration based on this priority:
+                  - *Online Meetings:* The system first tries to use the same Video Conference Service provider as the original host. If that specific Video Conference Service provider is not connected to the new host, it automatically selects the best available integration based on this priority:
 
                     1. Google Meet
                     2. Microsoft Teams
@@ -131,7 +131,7 @@ bookings--id--reassign:
               InvalidLocation:
                 value:
                   type: invalid_request_error
-                  message: "Invalid location: 'Webex' is not connected for this user. Connected video conferencing options: google_meet, microsoft_teams."
+                  message: "Invalid location: 'Webex' is not connected for this user. Connected video conference options: google_meet, microsoft_teams."
                   param: location.value
               HostSeat:
                 value:
