@@ -455,7 +455,6 @@ paths:
 
                     **Case 2: When `location` object is included:** The system applies the specific `type` and `value` for the new host. Currently, this object only supports virtual updates and cannot be used to switch a virtual meeting to an In-person location. The selected Video Conference Service must be connected and active in the new host's OnceHub account.
 
-
                     >[!IMPORTANT]
                     Reassignment Failure: If the specified Video Conference Service is not connected for the new host, the reassignment request will fail. In this case, the API will return an error along with a list of connected Video Conference Service options available for that host.
                   properties:
