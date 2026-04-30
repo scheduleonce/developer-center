@@ -449,16 +449,28 @@ paths:
                 location:
                   type: object
                   description: |
-                    Optional. Controls the Video Conference Service for the reassigned meeting.
+                    Optional. Determines how the location is handled when a meeting is reassigned to a new host.
 
-                    - If omitted: The system first tries to use the same Video Conference Service provider as the original booking.
-                      - Online Meetings: If that specific Video Conferencing Service provider is not connected for the new host, the system automatically selects the best available integration based on this priority: Google Meet, Microsoft Teams, Zoom, Webex Meetings, then GoTo Meeting.
-                                         
-                      Note: If the new host has no Video Conference Service integrations connected, the booking will be reassigned successfully but will proceed without a virtual link.
+                    **Case 1: When `location` object is omitted:** The system applies the following logic based on the original booking's location type:
 
-                    - If included: You must provide a specific `type` and `value` for the new host. The selected Video Conference Service must be connected and active in the new host's OnceHub account.
-                      
-                      Important: If the specified Video Conference Service is not connected for the new host, the reassignment request will fail. In this case, the API will return an error along with a list of connected Video Conference Service options available for that host.
+                    - *Online Meetings:* The system first tries to use the same Video Conferencing Service provider as the original host. If that specific Video Conferencing Service provider is not connected to the new host, it automatically selects the best available integration based on this priority:
+
+                      1. Google Meet
+                      2. Microsoft Teams
+                      3. Zoom
+                      4. Webex Meetings
+                      5. GoTo Meeting
+
+                    - *In-person/ Phone Meetings:* The location remains unchanged for the new host.
+
+                    >[!NOTE]
+                    Missing Integration: If the original meeting was virtual but the new host has no Video Conference Service integrations connected, the booking will be reassigned successfully but will proceed without a virtual link. To avoid meetings without links, it is recommended to verify host integrations before reassignment.
+
+                    **Case 2: When `location` object is included:** The system applies the specific `type` and `value` for the new host. Currently, this object only supports virtual updates and cannot be used to switch a virtual meeting to an In-person location. The selected Video Conference Service must be connected and active in the new host's OnceHub account.
+
+
+                    >[!IMPORTANT]
+                    Reassignment Failure: If the specified Video Conference Service is not connected for the new host, the reassignment request will fail. In this case, the API will return an error along with a list of connected Video Conference Service options available for that host.
                   properties:
                     type:
                       type: string
@@ -468,12 +480,12 @@ paths:
                         Fixed Value: virtual.
 
                         The required location type for virtual conferencing.
+
+                        Note: virtual is currently the only supported override type. In-person and Phone locations can only be maintained by omitting the location object.
                     value:
                       type: string
                       description: |
-                        Supported Values: google_meet, microsoft_teams, webex, gotomeeting, zoom.
-
-                        The specific service to be used.
+                        Supported Values: The specific service to be used.
                       enum:
                         - google_meet
                         - microsoft_teams
