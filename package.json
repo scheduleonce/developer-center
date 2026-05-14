@@ -41,7 +41,7 @@
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
-    "@redocly/cli": "2.25.4",
+    "@redocly/cli": "2.30.4",
     "@types/node": "25.5.1",
     "concurrently": "9.2.1",
     "husky": "9.1.7",
