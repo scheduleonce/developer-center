@@ -38,6 +38,9 @@ users--id--scheduling-availability:
                             - type: in_person_by_host
                               value: 123 Office Street, New York, NY
                               id: ADD-K8E9X
+                            - type: in_person_by_guest
+                              value: 456 Guest Lane, Boston, MA
+                              id: null
                     - day: Wednesday
                       working_hours:
                         - start_time: "10:00"
@@ -134,6 +137,9 @@ users--id--scheduling-availability:
                             - type: online_dynamic_link
                               value: google_meet
                               id: null
+                            - type: in_person_by_guest
+                              value: 456 Guest Lane, Boston, MA
+                              id: null
       "400":
         description: Bad Request
         content:
@@ -220,8 +226,8 @@ users--id--scheduling-availability:
                                 type:
                                   type: string
                                   description: >-
-                                    The type of location. Valid options are: `in_person_by_host`, `online_dynamic_link`,
-                                    `online_static_link`, `phone_by_guest`. Duplicate types are not allowed within the
+                                    The type of location. Valid options are: `in_person_by_host`, `in_person_by_guest`,
+                                    `online_dynamic_link`, `online_static_link`, `phone_by_guest`. Duplicate types are not allowed within the
                                     same slot.
                                 id:
                                   type: string
@@ -231,8 +237,9 @@ users--id--scheduling-availability:
                                 value:
                                   type: string
                                   description: >-
-                                    The static URL for an online meeting. This field is required and only used when the
-                                    type is `online_static_link`.
+                                    The value depends on the location type. For `online_static_link`, this is the
+                                    static meeting URL. For `in_person_by_guest`, this is the guest-provided meeting location.
+                                    This field is required only when the type is `online_static_link` or `in_person_by_guest`.
                               type: object
                               required:
                                 - type
@@ -285,7 +292,7 @@ users--id--scheduling-availability:
                                   type: string
                                   description: >-
                                     The type of location for the override slot. Valid options are: `in_person_by_host`,
-                                    `online_dynamic_link`, `online_static_link`, `phone_by_guest`.
+                                    `in_person_by_guest`, `online_dynamic_link`, `online_static_link`, `phone_by_guest`.
                                 id:
                                   type: string
                                   description: >-
@@ -294,8 +301,9 @@ users--id--scheduling-availability:
                                 value:
                                   type: string
                                   description: >-
-                                    The static URL for an online meeting. This field is required and only used when the
-                                    type is `online_static_link`.
+                                    The value depends on the location type. For `online_static_link`, this is the
+                                    static meeting URL. For `in_person_by_guest`, this is the guest-provided meeting location.
+                                    This field is required only when the type is `online_static_link` or `in_person_by_guest`.
                               type: object
                               required:
                                 - type

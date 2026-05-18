@@ -73,11 +73,13 @@ booking-calendars--id--time-slots:
                             * `virtual_static`: Online meetings with static links.
                             * `physical`: In-person meetings.
                             * `guest_phone`: Phone calls.
+                            * `in_person_by_guest`: Guest provides the meeting location.
                           enum:
                             - virtual
                             - virtual_static
                             - physical
                             - guest_phone
+                            - in_person_by_guest
                           example: virtual
                         value:
                           type:
@@ -90,6 +92,7 @@ booking-calendars--id--time-slots:
                             * `virtual_static`: `null` (the actual custom link is not known in advance).
                             * `physical`: `null` (use the `id` instead).
                             * `guest_phone`: The phone number in E164 format.
+                            * `in_person_by_guest`: The address provided by the guest.
                           example: google_meet
                         id:
                           type:
@@ -99,7 +102,7 @@ booking-calendars--id--time-slots:
                             The location ID:
 
                             * `physical`: The address ID (e.g., `ADD-1234`).
-                            * `virtual`, `virtual_static`, `guest_phone`: `null`.
+                            * `virtual`, `virtual_static`, `guest_phone`, `in_person_by_guest`: `null`.
                           example: null
                       required:
                         - type
@@ -127,6 +130,9 @@ booking-calendars--id--time-slots:
                       - type: physical
                         value: null
                         id: ADD-17SE9FWWOC
+                      - type: in_person_by_guest
+                        value: "123 Guest Street, New York, NY"
+                        id: null
       "400":
         description: "400"
         content:
