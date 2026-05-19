@@ -5957,7 +5957,7 @@
               },
               "actioned_by": {
                 "type": "string",
-                "description": "The person who actioned the cancel / reschedule. Valid options are user (person in your team) and customer (person who made the booking).",
+                "description": "Indicates the entity that performed the action. Valid options are user (person in your team) and customer (person who made the booking).\n\nNote: When an action (cancel/reschedule) is performed via the API, this field returns `user` and the `user_id` reflects the owner of the API Key used to authorize the request.\n",
                 "enum": [
                   "user",
                   "customer"
