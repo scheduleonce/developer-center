@@ -66,6 +66,7 @@ booking-calendars--id--schedule:
                       - virtual
                       - virtual_static
                       - guest_phone
+                      - in_person_by_guest
                     description: |
                       The type of location:
 
@@ -73,6 +74,7 @@ booking-calendars--id--schedule:
                       * `virtual`: Online meetings with dynamic links.
                       * `virtual_static`: Online meetings with static links.
                       * `guest_phone`: Phone calls.
+                      * `in_person_by_guest`: Guest provides the meeting location.
                   value:
                     type:
                       - string
@@ -84,9 +86,11 @@ booking-calendars--id--schedule:
                       * `virtual`: One of the following: `google_meet`, `microsoft_teams`, `gotomeeting`, `webex`, or `zoom`.
                       * `virtual_static`: Use `null`.
                       * `guest_phone`: The guest's phone number in E164 format.
+                      * `in_person_by_guest`: The address provided by the guest.
+
                 required: []
                 type: object
-                description: The meeting location object. This field is optional; if omitted, a virtual location will be selected.
+                description: The location object is optional. If omitted, the system automatically selects an available host's pre-set location (such as `virtual`, `virtual_static` or `physical`), prioritizing `virtual` whenever it is an available option. **Note:** If only a single location is available for the slot, that location will be automatically selected. To use a guest-driven location type like `in_person_by_guest` or `guest_phone`, the value must be explicitly provided.
             required:
               - start_time
               - guest_time_zone

@@ -1494,6 +1494,9 @@ paths:
                               - type: in_person_by_host
                                 value: 123 Office Street, New York, NY
                                 id: ADD-K8E9X
+                              - type: in_person_by_guest
+                                value: 456 Guest Lane, Boston, MA
+                                id: null
                       - day: Wednesday
                         working_hours:
                           - start_time: '10:00'
@@ -1590,6 +1593,9 @@ paths:
                               - type: online_dynamic_link
                                 value: google_meet
                                 id: null
+                              - type: in_person_by_guest
+                                value: 456 Guest Lane, Boston, MA
+                                id: null
         '400':
           description: Bad Request
           content:
@@ -1671,13 +1677,13 @@ paths:
                                 properties:
                                   type:
                                     type: string
-                                    description: 'The type of location. Valid options are: `in_person_by_host`, `online_dynamic_link`, `online_static_link`, `phone_by_guest`. Duplicate types are not allowed within the same slot.'
+                                    description: 'The type of location. Valid options are: `in_person_by_host`, `in_person_by_guest`, `online_dynamic_link`, `online_static_link`, `phone_by_guest`. Duplicate types are not allowed within the same slot.'
                                   id:
                                     type: string
                                     description: The unique identifier for a physical address. This field is required and only used when the type is `in_person_by_host`.
                                   value:
                                     type: string
-                                    description: The static URL for an online meeting. This field is required and only used when the type is `online_static_link`.
+                                    description: The value depends on the location type. For `online_static_link`, this is the static meeting URL. For `in_person_by_guest`, this is the guest-provided meeting location. This field is required only when the type is `online_static_link` or `in_person_by_guest`.
                                 type: object
                                 required:
                                   - type
@@ -1716,13 +1722,13 @@ paths:
                                 properties:
                                   type:
                                     type: string
-                                    description: 'The type of location for the override slot. Valid options are: `in_person_by_host`, `online_dynamic_link`, `online_static_link`, `phone_by_guest`.'
+                                    description: 'The type of location for the override slot. Valid options are: `in_person_by_host`, `in_person_by_guest`, `online_dynamic_link`, `online_static_link`, `phone_by_guest`.'
                                   id:
                                     type: string
                                     description: The unique identifier for a physical address. This field is required and only used when the type is `in_person_by_host`.
                                   value:
                                     type: string
-                                    description: The static URL for an online meeting. This field is required and only used when the type is `online_static_link`.
+                                    description: The value depends on the location type. For `online_static_link`, this is the static meeting URL. For `in_person_by_guest`, this is the guest-provided meeting location. This field is required only when the type is `online_static_link` or `in_person_by_guest`.
                                 type: object
                                 required:
                                   - type
@@ -3614,7 +3620,10 @@ components:
               example: Change in schedule
             actioned_by:
               type: string
-              description: The person who actioned the cancel / reschedule. Valid options are user (person in your team) and customer (person who made the booking).
+              description: |
+                Indicates the entity that performed the action. Valid options are user (person in your team) and customer (person who made the booking).
+
+                Note: When an action (cancel/reschedule) is performed via the API, this field returns `user` and the `user_id` reflects the owner of the API Key used to authorize the request.
               enum:
                 - user
                 - customer
