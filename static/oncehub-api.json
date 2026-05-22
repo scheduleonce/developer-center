@@ -1089,7 +1089,7 @@
                           },
                           {
                             "type": "guest_phone",
-                            "value": "+12025550195",
+                            "value": null,
                             "id": null
                           }
                         ]
@@ -1104,7 +1104,7 @@
                           },
                           {
                             "type": "in_person_by_guest",
-                            "value": "123 Guest Street, New York, NY",
+                            "value": null,
                             "id": null
                           }
                         ]
@@ -2807,7 +2807,7 @@
                                 },
                                 {
                                   "type": "in_person_by_guest",
-                                  "value": "456 Guest Lane, Boston, MA",
+                                  "value": null,
                                   "id": null
                                 }
                               ]
@@ -2979,7 +2979,7 @@
                                 },
                                 {
                                   "type": "in_person_by_guest",
-                                  "value": "456 Guest Lane, Boston, MA",
+                                  "value": null,
                                   "id": null
                                 }
                               ]
@@ -3112,7 +3112,7 @@
                                     },
                                     "value": {
                                       "type": "string",
-                                      "description": "The value depends on the location type. For `online_static_link`, this is the static meeting URL. For `in_person_by_guest`, this is the guest-provided meeting location. This field is required only when the type is `online_static_link` or `in_person_by_guest`."
+                                      "description": "The value depends on the location type. For `online_static_link`, this is the static meeting URL. For `in_person_by_guest`, this is the guest-provided meeting location. This field is required only when the type is `online_static_link` or `in_person_by_host`."
                                     }
                                   },
                                   "type": "object",
