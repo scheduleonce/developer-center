@@ -91,8 +91,8 @@ booking-calendars--id--time-slots:
                             * `virtual`: Video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`).
                             * `virtual_static`: `null` (the actual custom link is not known in advance).
                             * `physical`: `null` (use the `id` instead).
-                            * `guest_phone`: The phone number in E164 format.
-                            * `in_person_by_guest`: The address provided by the guest.
+                            * `guest_phone`: `null` (the actual phone number is not known in advance).
+                            * `in_person_by_guest`: `null` (the actual address is not known in advance).
                           example: google_meet
                         id:
                           type:

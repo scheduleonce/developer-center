@@ -1045,7 +1045,7 @@
                                 "string",
                                 "null"
                               ],
-                              "description": "The value returned depends on the location `type`:\n\n* `virtual`: Video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`).\n* `virtual_static`: `null` (the actual custom link is not known in advance).\n* `physical`: `null` (use the `id` instead).\n* `guest_phone`: The phone number in E164 format.\n* `in_person_by_guest`: The address provided by the guest.\n",
+                              "description": "The value returned depends on the location `type`:\n\n* `virtual`: Video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`).\n* `virtual_static`: `null` (the actual custom link is not known in advance).\n* `physical`: `null` (use the `id` instead).\n* `guest_phone`: `null` (the actual phone number is not known in advance).\n* `in_person_by_guest`: `null` (the actual address is not known in advance).\n",
                               "example": "google_meet"
                             },
                             "id": {
