@@ -1033,7 +1033,7 @@
                                 "string",
                                 "null"
                               ],
-                              "description": "The value returned depends on the location `type`:\n\n* `virtual`: Video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`).\n* `virtual_static`: `null` (the actual custom link is not known in advance).\n* `physical`: `null` (use the `id` instead).\n* `guest_phone`: The phone number in E164 format.\n* `in_person_by_guest`: The address provided by the guest.\n",
+                              "description": "The value returned depends on the location `type`:\n\n* `virtual`: Video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`).\n* `virtual_static`: `null` (the actual custom link is not known in advance).\n* `physical`: Actual address string (e.g., \"123 Business Lane\").\n* `guest_phone`: `null` (the actual phone number is not known in advance).\n* `in_person_by_guest`: `null` (the actual address is not known in advance).\n",
                               "example": "google_meet"
                             },
                             "id": {
@@ -1077,7 +1077,7 @@
                           },
                           {
                             "type": "guest_phone",
-                            "value": "+12025550195",
+                            "value": null,
                             "id": null
                           }
                         ]
@@ -1087,12 +1087,12 @@
                         "locations": [
                           {
                             "type": "physical",
-                            "value": null,
+                            "value": "123 Business Lane, Suite 400, New York, NY",
                             "id": "ADD-17SE9FWWOC"
                           },
                           {
                             "type": "in_person_by_guest",
-                            "value": "123 Guest Street, New York, NY",
+                            "value": null,
                             "id": null
                           }
                         ]
@@ -2259,7 +2259,7 @@
                                 },
                                 {
                                   "type": "in_person_by_guest",
-                                  "value": "456 Guest Lane, Boston, MA",
+                                  "value": null,
                                   "id": null
                                 }
                               ]
@@ -2431,7 +2431,7 @@
                                 },
                                 {
                                   "type": "in_person_by_guest",
-                                  "value": "456 Guest Lane, Boston, MA",
+                                  "value": null,
                                   "id": null
                                 }
                               ]
@@ -2564,7 +2564,7 @@
                                     },
                                     "value": {
                                       "type": "string",
-                                      "description": "The value depends on the location type. For `online_static_link`, this is the static meeting URL. For `in_person_by_guest`, this is the guest-provided meeting location. This field is required only when the type is `online_static_link` or `in_person_by_guest`."
+                                      "description": "The value depends on the location type. For `online_static_link`, this is the static meeting URL. For `in_person_by_guest`, this is the guest-provided meeting location. This field is required only when the type is `online_static_link` or `in_person_by_host`."
                                     }
                                   },
                                   "type": "object",
@@ -2627,7 +2627,7 @@
                                     },
                                     "value": {
                                       "type": "string",
-                                      "description": "The value depends on the location type. For `online_static_link`, this is the static meeting URL. For `in_person_by_guest`, this is the guest-provided meeting location. This field is required only when the type is `online_static_link` or `in_person_by_guest`."
+                                      "description": "The value depends on the location type. For `online_static_link`, this is the static meeting URL. For `in_person_by_guest`, this is the guest-provided meeting location. This field is required only when the type is `online_static_link` or `in_person_by_host`."
                                     }
                                   },
                                   "type": "object",

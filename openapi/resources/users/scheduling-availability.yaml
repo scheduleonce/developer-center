@@ -39,7 +39,7 @@ users--id--scheduling-availability:
                               value: 123 Office Street, New York, NY
                               id: ADD-K8E9X
                             - type: in_person_by_guest
-                              value: 456 Guest Lane, Boston, MA
+                              value: null
                               id: null
                     - day: Wednesday
                       working_hours:
@@ -138,7 +138,7 @@ users--id--scheduling-availability:
                               value: google_meet
                               id: null
                             - type: in_person_by_guest
-                              value: 456 Guest Lane, Boston, MA
+                              value: null
                               id: null
       "400":
         description: Bad Request
@@ -239,7 +239,7 @@ users--id--scheduling-availability:
                                   description: >-
                                     The value depends on the location type. For `online_static_link`, this is the
                                     static meeting URL. For `in_person_by_guest`, this is the guest-provided meeting location.
-                                    This field is required only when the type is `online_static_link` or `in_person_by_guest`.
+                                    This field is required only when the type is `online_static_link` or `in_person_by_host`.
                               type: object
                               required:
                                 - type
@@ -303,7 +303,7 @@ users--id--scheduling-availability:
                                   description: >-
                                     The value depends on the location type. For `online_static_link`, this is the
                                     static meeting URL. For `in_person_by_guest`, this is the guest-provided meeting location.
-                                    This field is required only when the type is `online_static_link` or `in_person_by_guest`.
+                                    This field is required only when the type is `online_static_link` or `in_person_by_host`.
                               type: object
                               required:
                                 - type
