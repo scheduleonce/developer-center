@@ -90,7 +90,7 @@ booking-calendars--id--time-slots:
 
                             * `virtual`: Video conferencing platform (e.g., `google_meet`, `microsoft_teams`, `zoom`, `webex`, `gotomeeting`).
                             * `virtual_static`: `null` (the actual custom link is not known in advance).
-                            * `physical`: `null` (use the `id` instead).
+                            * `physical`: Actual address string (e.g., "123 Business Lane").
                             * `guest_phone`: `null` (the actual phone number is not known in advance).
                             * `in_person_by_guest`: `null` (the actual address is not known in advance).
                           example: google_meet
@@ -128,7 +128,7 @@ booking-calendars--id--time-slots:
                   - start_time: "2024-12-05T14:30:00.000Z"
                     locations:
                       - type: physical
-                        value: null
+                        value: 123 Business Lane, Suite 400, New York, NY
                         id: ADD-17SE9FWWOC
                       - type: in_person_by_guest
                         value: null
