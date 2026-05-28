@@ -1,11 +1,11 @@
 ---
-title: Getting Started with OnceHub MCP Server
-description: Step-by-step guide to configure your AI Agent with the OnceHub MCP Server for automated meeting scheduling.
+title: Getting Started with OnceHub Platform MCP Server
+description: Step-by-step guide to configure your AI Agent with the OnceHub Platform MCP Server for automated meeting scheduling.
 ---
 
-# Getting Started with OnceHub MCP Server
+# Getting Started with OnceHub Platform MCP Server
 
-This section guides you through setting up your environment to use the OnceHub MCP Server. The MCP Server is intended for developers and users familiar with the Model Context Protocol.
+This section guides you through setting up your environment to use the OnceHub Platform MCP Server. The MCP Server is intended for developers and users familiar with the Model Context Protocol.
 
 To begin, configure your AI Agent with the required server details and API key.
 
@@ -20,7 +20,7 @@ Your AI Agent will use this API Key for authentication.
 
 ## Step 2: Configure your MCP Client
 
-Point your MCP-compatible AI Agent or application to the MCP Server endpoint:
+Point your MCP-compatible AI Agent or application to the OnceHub Platform MCP Server endpoint:
 
 ```
 https://mcp.oncehub.com/sse
