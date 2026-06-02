@@ -85,8 +85,7 @@ Payload example:
     "bot_name": "example bot",
     "button_text": "confirm",
     "interaction_label": "single_choice",
-    "booking_calendar_name": "Sales Team Calendar",
-    "question_text": "How many people are in your organization?",
+    "question_text": "Sales Team Calendar",
     "answer": "100-500"
   }
 }
