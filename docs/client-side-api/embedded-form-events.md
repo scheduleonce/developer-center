@@ -65,8 +65,7 @@ Payload example:
     "form_name": "Example Form",
     "button_text": "Next",
     "interaction_label": "single_choice",
-    "booking_calendar_name": "Sales Team Calendar",
-    "question_text": "How many people are in your organization?",
+    "question_text": "Sales Team Calendar",
     "company_size": "100-500"
   }
 }
