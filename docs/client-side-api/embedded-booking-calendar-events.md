@@ -5,6 +5,9 @@ description: Track embedded booking calendar events including calendar loaded, t
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import BookingConfirmationTocToggle from '@site/src/components/BookingConfirmationTocToggle';
+
+<BookingConfirmationTocToggle />
 
 # Embedded booking events
 
