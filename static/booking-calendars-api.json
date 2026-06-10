@@ -4043,7 +4043,7 @@
                         "example": "booking.canceled"
                       },
                       "data": {
-                        "description": "The booking object containing relevant data associated with the event",
+                        "description": "The booking object containing relevant data associated with the event.",
                         "allOf": [
                           {
                             "$ref": "#/components/schemas/BookingWebhookData"
@@ -5409,7 +5409,7 @@
               },
               "actioned_by": {
                 "type": "string",
-                "description": "Indicates the entity that performed the action. Valid options are user (person in your team) and customer (person who made the booking).\n\nNote: When an action (cancel/reschedule) is performed via the API, this field returns `user` and the `user_id` reflects the owner of the API Key used to authorize the request.\n",
+                "description": "Indicates the entity that performed the action. Valid options are user (person in your team) and customer (person who made the booking).\n",
                 "enum": [
                   "user",
                   "customer"
@@ -5418,7 +5418,7 @@
               },
               "user_id": {
                 "type": "string",
-                "description": "If the cancel reschedule was done by the user, this field will contain their user id.",
+                "description": "If the cancel reschedule was done by the user, this field will contain their user id.\n\nNote: When a meeting is cancelled via the API, the `user_id` depends on the booking source:\n- **Booking Calendars:** The `user_id` is booking host's user ID.\n- **Booking Pages:** The `user_id` is the account owner's user ID.\n",
                 "example": "USR-FSD423423"
               }
             }
