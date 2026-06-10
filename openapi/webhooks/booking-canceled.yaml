@@ -17,7 +17,7 @@ post:
                   enum: [booking.canceled]
                   example: booking.canceled
                 data:
-                  description: The booking object containing relevant data associated with the event
+                  description: The booking object containing relevant data associated with the event.
                   allOf:
                     - $ref: "../components/schemas/booking-webhook-event.yaml#/BookingWebhookData"
   responses:
