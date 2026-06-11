@@ -15,7 +15,7 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc --noEmit",
     "test": "concurrently --prefix none \"npm:prettier:check\" \"npm:openapi:validate\"",
-    "prettier:check": "prettier . --check",
+    "prettier:check": "prettier . --check --cache",
     "prettier:write": "prettier . --write",
     "openapi:validate": "redocly lint openapi/index.yaml",
     "openapi:build": "node scripts/build-openapi.js",
