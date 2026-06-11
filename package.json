@@ -15,7 +15,7 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc --noEmit",
     "test": "concurrently --prefix none \"npm:prettier:check\" \"npm:openapi:validate\"",
-    "prettier:check": "prettier . --check",
+    "prettier:check": "prettier . --check --cache",
     "prettier:write": "prettier . --write",
     "openapi:validate": "redocly lint openapi/index.yaml",
     "openapi:build": "node scripts/build-openapi.js",
@@ -24,30 +24,31 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@docusaurus/core": "3.9.2",
-    "@docusaurus/preset-classic": "3.9.2",
+    "@docusaurus/core": "3.10.1",
+    "@docusaurus/faster": "3.10.1",
+    "@docusaurus/preset-classic": "3.10.1",
     "@mdx-js/react": "3.1.1",
-    "@scalar/api-reference": "1.51.0",
-    "@scalar/docusaurus": "0.8.6",
+    "@scalar/api-reference": "1.59.2",
+    "@scalar/docusaurus": "0.8.23",
     "@signalwire/docusaurus-plugin-llms-txt": "2.0.0-alpha.7",
     "@signalwire/docusaurus-theme-llms-txt": "1.0.0-alpha.9",
     "clsx": "2.1.1",
-    "js-yaml": "4.1.1",
+    "js-yaml": "4.2.0",
     "prism-react-renderer": "2.4.1",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.9.2",
-    "@docusaurus/tsconfig": "3.9.2",
-    "@docusaurus/types": "3.9.2",
-    "@redocly/cli": "2.30.4",
-    "@types/node": "25.5.1",
-    "concurrently": "9.2.1",
+    "@docusaurus/module-type-aliases": "3.10.1",
+    "@docusaurus/tsconfig": "3.10.1",
+    "@docusaurus/types": "3.10.1",
+    "@redocly/cli": "2.32.2",
+    "@types/node": "25.9.3",
+    "concurrently": "10.0.3",
     "husky": "9.1.7",
-    "lint-staged": "16.4.0",
-    "prettier": "3.8.1",
-    "typescript": "6.0.2"
+    "lint-staged": "17.0.7",
+    "prettier": "3.8.4",
+    "typescript": "6.0.3"
   },
   "browserslist": {
     "production": [
@@ -62,7 +63,7 @@
     ]
   },
   "engines": {
-    "node": ">=20.0"
+    "node": ">=22.0"
   },
   "overrides": {
     "dompurify": "3.4.0",

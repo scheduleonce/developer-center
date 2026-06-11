@@ -186,6 +186,10 @@ components:
       $ref: "./components/schemas/webhook-event.yaml#/WebhookEvent"
     BookingWebhookData:
       $ref: "./components/schemas/booking-webhook-event.yaml#/BookingWebhookData"
+    BookingWebhookCancelData:
+      $ref: "./components/schemas/booking-webhook-event.yaml#/BookingWebhookCancelData"
+    BookingWithCancelInfo:
+      $ref: "./components/schemas/booking.yaml#/BookingWithCancelInfo"
     ConversationWebhookData:
       $ref: "./components/schemas/conversation-webhook-event.yaml#/ConversationWebhookData"
     BookingCalendar:

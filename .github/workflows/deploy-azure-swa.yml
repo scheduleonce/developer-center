@@ -1,0 +1,46 @@
+name: Deploy to Azure Static Web Apps
+
+on:
+  workflow_call:
+    inputs:
+      docusaurus_url:
+        required: true
+        type: string
+    secrets:
+      azure_token:
+        required: true
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: true
+          lfs: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit --progress=false
+      - name: Check code formatting
+        run: npm run prettier:check
+      - name: Run typecheck
+        run: npm run typecheck
+      - name: Validate OpenAPI
+        run: npm run openapi:validate
+      - name: Build Docusaurus site
+        run: npm run build
+        env:
+          DOCUSAURUS_URL: ${{ inputs.docusaurus_url }}
+      - name: Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.azure_token }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "build"
+          skip_app_build: true
