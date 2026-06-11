@@ -19,7 +19,7 @@ post:
                 data:
                   description: The booking object containing relevant data associated with the event.
                   allOf:
-                    - $ref: "../components/schemas/booking-webhook-event.yaml#/BookingWebhookData"
+                    - $ref: "../components/schemas/booking-webhook-event.yaml#/BookingWebhookCancelData"
   responses:
     "200":
       description: Webhook received successfully
