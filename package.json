@@ -63,7 +63,7 @@
     ]
   },
   "engines": {
-    "node": ">=20.0"
+    "node": ">=22.0"
   },
   "overrides": {
     "dompurify": "3.4.0",

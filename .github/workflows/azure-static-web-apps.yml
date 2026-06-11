@@ -12,72 +12,46 @@ on:
       - dev
 
 jobs:
-  build_and_deploy_job:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - environment: production
-            branch: main
-            azure_token_secret: AZURE_STATIC_WEB_APPS_API_TOKEN_DELIGHTFUL_DESERT_0513AD50F
-            docusaurus_url: https://developers.oncehub.com
-          - environment: staging
-            branch: dev
-            azure_token_secret: AZURE_STATIC_WEB_APPS_API_TOKEN_NICE_MEADOW_0C0634100
-            docusaurus_url: https://developers.staticso2.com
-    name: Build and Deploy (${{ matrix.environment }})
+  build_and_deploy_production:
     if: |
-      (github.event_name == 'push' && github.ref_name == matrix.branch) ||
-      (github.event_name == 'pull_request' && github.base_ref == matrix.branch && github.event.action != 'closed')
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          submodules: true
-          lfs: false
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "22"
-          cache: "npm"
-      - name: Install dependencies
-        run: npm ci --prefer-offline --no-audit --progress=false
-      - name: Check code formatting
-        run: npm run prettier:check
-      - name: Run typecheck
-        run: npm run typecheck
-      - name: Validate OpenAPI
-        run: npm run openapi:validate
-      - name: Build Docusaurus site
-        run: npm run build
-        env:
-          DOCUSAURUS_URL: ${{ matrix.docusaurus_url }}
-      - name: Deploy
-        id: builddeploy
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets[matrix.azure_token_secret] }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
-          app_location: "/"
-          api_location: ""
-          output_location: "build"
-          skip_app_build: true
+      (github.event_name == 'push' && github.ref_name == 'main') ||
+      (github.event_name == 'pull_request' && github.base_ref == 'main' && github.event.action != 'closed')
+    uses: ./.github/workflows/deploy-azure-swa.yml
+    with:
+      docusaurus_url: https://developers.oncehub.com
+    secrets:
+      azure_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DELIGHTFUL_DESERT_0513AD50F }}
 
-  close_pull_request_job:
+  build_and_deploy_staging:
+    if: |
+      (github.event_name == 'push' && github.ref_name == 'dev') ||
+      (github.event_name == 'pull_request' && github.base_ref == 'dev' && github.event.action != 'closed')
+    uses: ./.github/workflows/deploy-azure-swa.yml
+    with:
+      docusaurus_url: https://developers.staticso2.com
+    secrets:
+      azure_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_NICE_MEADOW_0C0634100 }}
+
+  close_pr_production:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.base_ref == 'main'
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - branch: main
-            azure_token_secret: AZURE_STATIC_WEB_APPS_API_TOKEN_DELIGHTFUL_DESERT_0513AD50F
-          - branch: dev
-            azure_token_secret: AZURE_STATIC_WEB_APPS_API_TOKEN_NICE_MEADOW_0C0634100
-    name: Close PR (${{ matrix.branch }})
-    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.base_ref == matrix.branch
+    name: Close PR (main)
     steps:
       - name: Close Pull Request
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets[matrix.azure_token_secret] }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DELIGHTFUL_DESERT_0513AD50F }}
+          action: "close"
+
+  close_pr_staging:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.base_ref == 'dev'
+    runs-on: ubuntu-latest
+    name: Close PR (dev)
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_NICE_MEADOW_0C0634100 }}
           action: "close"
