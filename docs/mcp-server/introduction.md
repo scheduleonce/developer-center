@@ -23,18 +23,9 @@ The OnceHub Platform MCP Server enables AI Assistants to:
 - Generate booking links
 - Manage user availability
 - Access Booking Calendars and Booking Hubs
-- Update meeting statuses
+- Update meeting status
 
 These capabilities are exposed through MCP tools that AI Assistants can invoke as needed during a conversation.
-
-## Common Use Cases
-
-The OnceHub Platform MCP Server is ideal for organizations that want to:
-
-- Schedule meetings through AI-powered conversations
-- Manage cancellations and rescheduling requests
-- Provide conversational access to availability and scheduling information
-- Integrate OnceHub scheduling into AI-driven workflows and applications
 
 ## Primary Endpoint
 
