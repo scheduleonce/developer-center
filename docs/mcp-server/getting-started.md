@@ -32,6 +32,24 @@ Your AI Agent must include your API key in the request header as follows:
 | ----------- | ---------------- |
 | `API-Key`   | `[Your API Key]` |
 
+Example MCP configuration:
+
+```json
+{
+  "servers": {
+    "oncehub": {
+      "url": "https://mcp.oncehub.com/sse",
+      "type": "http",
+      "headers": {
+        "authorization": "Bearer YOUR_ONCEHUB_API_KEY"
+      }
+    }
+  }
+}
+```
+
+Replace `YOUR_ONCEHUB_API_KEY` with your actual OnceHub API Key.
+
 For details on generating and managing API keys, see [Authentication](/docs/overview/authentication).
 
 ## Step 3: Start scheduling by integrating the tool calls
