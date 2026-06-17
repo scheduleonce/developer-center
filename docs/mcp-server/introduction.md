@@ -1,38 +1,29 @@
 ---
 id: introduction
-title: Introduction to the OnceHub Platform MCP Server
-description: Learn how the OnceHub Platform MCP Server enables AI Assistants to interact directly with OnceHub scheduling workflows using the Model Context Protocol (MCP).
+title: Introduction to the Model Context Protocol (MCP) Server
+description: Learn how to use the OnceHub Platform MCP Server to enable AI agents to automate meeting scheduling through natural language interaction.
 ---
 
-# Introduction to the OnceHub Platform MCP Server
+# Introduction to the Model Context Protocol (MCP) Server
 
-The OnceHub Platform MCP Server enables AI Assistants to interact directly with OnceHub scheduling workflows using the Model Context Protocol (MCP).
+## What is the OnceHub Platform MCP Server?
 
-Instead of directing users to a booking page and requiring them to schedule manually, AI Assistants can interact directly with OnceHub scheduling workflows through MCP tools.
+The OnceHub Platform MCP Server provides a standardized way for AI models and agents to interact directly with your OnceHub scheduling API. Rather than sending users a booking link and asking them to schedule manually, an AI Agent can retrieve availability and schedule meetings on the user's behalf using MCP tools, through a natural language flow.
 
-This enables AI Assistants to retrieve availability, schedule meetings, manage bookings, generate booking links, and update availability through natural-language conversations.
+This solution enables external AI Agents to access OnceHub scheduling APIs within AI-driven workflows using the standardized Model Context Protocol (MCP) remote server.
 
-The OnceHub Platform MCP Server provides a standardized interface on top of OnceHub's existing scheduling APIs, allowing MCP-compatible AI clients to securely access OnceHub scheduling capabilities without requiring custom integrations.
+## Use Cases
 
-## Key Capabilities
+The OnceHub Platform MCP Server is ideal for organizations that:
 
-The OnceHub Platform MCP Server enables AI Assistants to:
-
-- Discover availability
-- Schedule and manage meetings
-- Generate booking links
-- Manage user availability
-- Access Booking Calendars and Booking Hubs
-- Update meeting status
-
-These capabilities are exposed through MCP tools that AI Assistants can invoke as needed during a conversation.
+- Enable AI Agents to automate the meeting scheduling process by calling specialized tools to fetch available slots and schedule meetings during a live conversation.
 
 ## Primary Endpoint
 
-MCP-compatible AI Assistants communicate with the OnceHub Platform MCP Server using the public endpoint below:
+AI Agents communicate with the OnceHub scheduling system through the following public MCP endpoint:
 
 ```
 https://mcp.oncehub.com/sse
 ```
 
-You must configure this endpoint in your MCP-compatible AI Assistant and authenticate using a valid OnceHub API Key before invoking MCP tools.
+You must configure this endpoint in your MCP compatible AI Agent to begin interacting with the scheduling tools.
