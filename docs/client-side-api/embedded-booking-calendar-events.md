@@ -85,13 +85,13 @@ Payload example:
 {
   "type": "oncehub.booking.scheduled",
   "payload": {
-    "id": "BKNG-4J3BEFXRQKHN",
+    "id": "BKNG-YZ7MEBLJFRV8",
     "subject": "Introductory Sales Call",
     "status": "scheduled",
-    "creation_time": "2026-06-15T14:20:30.501Z",
-    "starting_time": "2026-06-15T14:45:00.000Z",
+    "creation_time": "2026-06-18T10:17:50.141Z",
+    "starting_time": "2026-06-18T13:00:00.000Z",
     "customer_timezone": "America/New_York",
-    "host": "USR-FN1DQZ5UTP",
+    "host": "USR-8YB4TL0VW9",
     "duration_minutes": 30,
     "location_description": "",
     "attendees": [
@@ -99,17 +99,15 @@ Payload example:
       "donaldmembermeeting@hotmail.com",
       "markmembermeeting@outlook.com"
     ],
-    "utm_params": {
-      "source": "",
-      "medium": "",
-      "campaign": "",
-      "term": "",
-      "content": ""
-    },
-    "ics_url": "https://oncehub.com/api/bookings/ics/69dab7fb-52e2-481d-9dda-301f2f7743ba-xrqkhn",
     "booking_calendar": "BKC-8DJNDNL86G",
-    "cancel_url": "https://oncehub.com/m/BKNG-4J3BEFXRQKHN/cancel",
-    "reschedule_url": "https://oncehub.com/m/BKNG-4J3BEFXRQKHN",
+    "cancel_url": "https://oncehub.com/m/BKNG-YZ7MEBLJFRV8/cancel",
+    "reschedule_url": "https://oncehub.com/m/BKNG-YZ7MEBLJFRV8",
+    "utm_campaign": "",
+    "utm_content": "",
+    "utm_medium": "",
+    "utm_source": "",
+    "utm_term": "",
+    "ics_url": "https://oncehub.com/api/bookings/ics/e193123e-3ca9-4cad-bd4d-5ed4f75c2550-ljfrv8",
     "custom_fields": [
       {
         "name": "name",
