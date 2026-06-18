@@ -47,11 +47,11 @@ Payload example:
 {
   "type": "oncehub.booking_calendar.loaded",
   "payload": {
-    "id": "BKC-LDJ878496X",
-    "subject": "Meeting with Gilad Goraly",
-    "host": "USR-HYPGJXN3A8",
-    "url": "https://oncehub.com/gilad15",
-    "name": "Gilad Goraly booking calendar",
+    "id": "BKC-8DJNDNL86G",
+    "subject": "Introductory Sales Call",
+    "host": "USR-FN1DQZ5UTP",
+    "url": "https://oncehub.com/PAGE-DFFBCE6467",
+    "name": "Introductory Call With Sales",
     "duration_minutes": 30
   }
 }
@@ -65,13 +65,13 @@ Payload example:
 {
   "type": "oncehub.booking_calendar.time_slot_selected",
   "payload": {
-    "id": "BKC-LDJ878496X",
-    "subject": "Meeting with Gilad Goraly",
-    "host": "USR-HYPGJXN3A8",
-    "url": "https://oncehub.com/gilad15",
-    "name": "Gilad Goraly booking calendar",
+    "id": "BKC-8DJNDNL86G",
+    "subject": "Introductory Sales Call",
+    "host": "USR-FN1DQZ5UTP",
+    "url": "https://oncehub.com/PAGE-DFFBCE6467",
+    "name": "Introductory Call With Sales",
     "duration_minutes": 30,
-    "starting_time": "2020-03-22T04:30:00Z",
+    "starting_time": "2026-06-15T14:45:00.000Z",
     "customer_timezone": "America/New_York"
   }
 }
@@ -85,35 +85,37 @@ Payload example:
 {
   "type": "oncehub.booking.scheduled",
   "payload": {
-    "id": "BKNG-J4FR05BKEWEX",
-    "subject": "Live demo",
+    "id": "BKNG-YZ7MEBLJFRV8",
+    "subject": "Introductory Sales Call",
     "status": "scheduled",
-    "creation_time": "2020-03-22T09:48:48Z",
-    "starting_time": "2020-03-22T04:30:00Z",
+    "creation_time": "2026-06-18T10:17:50.141Z",
+    "starting_time": "2026-06-18T13:00:00.000Z",
     "customer_timezone": "America/New_York",
-    "host": "USR-FSD423423",
-    "duration_minutes": 60,
-    "location_description": "123 Office Street",
-    "attendees": ["andrea.hartie@example.com", "carrie.customer@gmail.com"],
-    "utm_params": {
-      "source": "facebook",
-      "medium": "social",
-      "campaign": null,
-      "term": null,
-      "content": null
-    },
-    "ics_url": "https://oncehub.com/api/bookings/ics/62ad3bdd-a09f-dfbdffbef389-axs01j",
-    "booking_calendar": "BKC-03WJV0R52Z",
-    "cancel_url": "https://oncehub.com/m/BKNG-3KM0HY2BF9SL/cancel",
-    "reschedule_url": "https://oncehub.com/m/BKNG-3KM0HY2BF9SL",
+    "host": "USR-8YB4TL0VW9",
+    "duration_minutes": 30,
+    "location_description": "",
+    "attendees": [
+      "henryhostmeeting@gmail.com",
+      "donaldmembermeeting@hotmail.com",
+      "markmembermeeting@outlook.com"
+    ],
+    "booking_calendar": "BKC-8DJNDNL86G",
+    "cancel_url": "https://oncehub.com/m/BKNG-YZ7MEBLJFRV8/cancel",
+    "reschedule_url": "https://oncehub.com/m/BKNG-YZ7MEBLJFRV8",
+    "utm_campaign": "",
+    "utm_content": "",
+    "utm_medium": "",
+    "utm_source": "",
+    "utm_term": "",
+    "ics_url": "https://oncehub.com/api/bookings/ics/e193123e-3ca9-4cad-bd4d-5ed4f75c2550-ljfrv8",
     "custom_fields": [
       {
-        "name": "discussion_points",
-        "value": "Need support on new product"
+        "name": "name",
+        "value": "Mark"
       },
       {
-        "name": "meeting_reason",
-        "value": "Product demo"
+        "name": "email",
+        "value": "mark@outlook.com"
       }
     ]
   }
