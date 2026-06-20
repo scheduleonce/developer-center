@@ -6,7 +6,7 @@ description: Navigate large result sets using cursor-based pagination with befor
 
 # Pagination
 
-All API resources have support for bulk fetches via "list" API methods. For instance, you can list `bookings`, `booking-pages`, and list `event-types`. These list API methods share a common structure, using at least these three parameters: `limit`, `after`, and `before`.
+All API resources have support for bulk fetches via "list" API methods. For instance, you can list `bookings`, `booking-pages`, and `event-types`. These list API methods share a common structure, using at least these three parameters: `limit`, `after`, and `before`.
 
 OnceHub utilizes cursor-based pagination by making use of the `after` and `before` parameters. Both parameters take an existing object ID value (see below) and return objects in reverse chronological order. The `before` parameter returns objects listed before the named object. The `after` parameter returns objects listed after the named object. These parameters are mutually exclusive - only one of `after` or `before` may be used.
 
@@ -16,7 +16,7 @@ To retrieve the next page of results, you can use the `after` parameter with the
 
 To retrieve the previous page of results, you can use the `before` parameter with the object ID of the first object that was returned in the list.
 
-The `limit` parameter determines the number of objects that will be returned on each page. The `limit` will default to 10 if not specified and has a maximum limit of 100 objects per page.
+The `limit` parameter determines the number of objects that will be returned on each page. It will default to 10 if not specified and has a maximum limit of 100 objects per page.
 
 ## Link header
 

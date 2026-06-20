@@ -29,7 +29,7 @@ That's it! You have enabled redirecting booking confirmation data to your specif
   </TabItem>
   <TabItem value="booking-pages" label="Booking Pages [Classic]">
 
-In order to send booking confirmation data to your redirect page, you must enable the <a target="_blank" href="https://help.oncehub.com/help/automatic-redirect">Automatic redirect</a> feature from the Booking form and redirect section of your Event type or Booking page:
+In order to send booking confirmation data to your redirect page, you must enable the [Automatic redirect](https://help.oncehub.com/help/automatic-redirect) feature from the Booking form and redirect section of your Event type or Booking page:
 
 1. Turn Automatic redirect to **ON**.
 2. Enter the URL of your redirect page.
@@ -175,7 +175,7 @@ All datetime values are sent in ISO 8601 format in UTC.
   </TabItem>
   <TabItem value="booking-pages" label="Booking Pages [Classic]">
 
-Booking confirmation data will not be sent to the redirect page if you are using a CRM record ID to <a target="_blank" href="https://help.oncehub.com/help/prepopulated-booking-forms">skip or prepopulate the booking form</a>, because this data is encrypted.
+Booking confirmation data will not be sent to the redirect page if you are using a CRM record ID to [skip or prepopulate the booking form](https://help.oncehub.com/help/prepopulated-booking-forms), because this data is encrypted.
 
   </TabItem>
 </Tabs>

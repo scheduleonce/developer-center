@@ -17,13 +17,13 @@ By default, objects embedded in other objects are referenced by their object ID.
 }
 ```
 
-You can ask to _expand_ the `booking_page` object by passing an `expand` query parameter to the api:
+You can ask to _expand_ the `booking_page` object by passing an `expand` query parameter to the API:
 
-```
+```http
 GET /bookings/BKNG-J4FR05BKEWEX?expand=booking_page
 ```
 
-And the api will return the _expanded_ object:
+And the API will return the _expanded_ object:
 
 ```json
 {
@@ -43,7 +43,7 @@ And the api will return the _expanded_ object:
 
 :::note
 
-Expandable properties are listed in this api documentation as _expandable_.
+Expandable properties are listed in this API documentation as _expandable_.
 
 :::
 
@@ -51,7 +51,7 @@ Expandable properties are listed in this api documentation as _expandable_.
 
 You can pass multiple objects to expand in the response using comma separated values. For example, to expand both `booking_page` and `event_type` you could request:
 
-```
+```http
 GET /bookings/BKNG-J4FR05BKEWEX?expand=booking_page,event_type
 ```
 
@@ -59,7 +59,7 @@ GET /bookings/BKNG-J4FR05BKEWEX?expand=booking_page,event_type
 
 Expansions on list requests start with the `data` property. For example, you would expand `data.booking_pages` on a request to list bookings and associated booking pages:
 
-```
+```http
 GET /bookings/?expand=data.booking_page
 ```
 
@@ -73,7 +73,7 @@ Since expanding specific data in the response causes additional lookups to multi
 
 :::info
 
-Expansions have a maximum depth of two levels
+Expansions have a maximum depth of two levels.
 
 To avoid circular calls there is a hard limit to expand to a maximum of two levels.
 
@@ -81,4 +81,4 @@ To avoid circular calls there is a hard limit to expand to a maximum of two leve
 
 ## Expansions and webhooks
 
-Included objects in Webhooks are expanded by default, but additional objects in theses payloads cannot be expanded. If you need the fully expanded object, you could trigger a call to the appropriate api upon receiving the webhook.
+Included objects in Webhooks are expanded by default, but additional objects in these payloads cannot be expanded. If you need the fully expanded object, you could trigger a call to the appropriate API upon receiving the webhook.

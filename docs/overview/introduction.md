@@ -37,8 +37,8 @@ Covers shared concepts and platform standards across all integration types:
 
 Provides detailed endpoint documentation for OnceHub products:
 
-- [**Booking Calendars API:**](https://developers.oncehub.com/reference/booking-calendars/) Manage bookings, Booking Calendars, webhook event types, users, teams and scheduling resources.
-- [**Booking Pages API (Classic):**](https://developers.oncehub.com/reference/booking-pages/#tag/authentication) Access and manage data related to booking pages.
+- [**Booking Calendars API:**](/reference/booking-calendars/) Manage bookings, Booking Calendars, webhook event types, users, teams and scheduling resources.
+- [**Booking Pages API (Classic):**](/reference/booking-pages/#tag/authentication) Access and manage data related to booking pages.
 
 Each reference includes supported endpoints, parameters, authentication requirements and example responses.
 
@@ -50,21 +50,20 @@ Select your preferred integration method to begin. Most methods require an activ
 
 1. [**Sign up**](https://account.oncehub.com/signup) for a OnceHub account if you don’t have one.
 2. Create your API keys using the [**Authentication guide**](/docs/overview/authentication/). You can maintain up to 25 active keys to segregate environments (Staging vs. Production) and manage third-party vendors securely.
-
 3. Choose between REST APIs for standard integrations or the MCP Server for AI-driven workflows.
 
 ### To Use Client-Side API
 
 - Use the Website embed feature to publish your Booking page or Booking calendar directly on your site.
-- Add a [**JavaScript function**](https://developers.oncehub.com/docs/client-side-api/embed-events/) to your embed code to collect real-time booking confirmation data or trigger custom analytics.
+- Add a [**JavaScript function**](/docs/client-side-api/embed-events/) to your embed code to collect real-time booking confirmation data or trigger custom analytics.
 
 ### To Use Webhooks
 
 Webhooks can be configured through the OnceHub application interface for a quick setup or via the API.
 
-- To configure your webhooks directly in the OnceHub Application, define your webhook URL (must be https://), select your triggers from the provided list, and save your Webhook Secret to verify data authenticity.
+- To configure your webhooks directly in the OnceHub Application, define your webhook URL (must be `https://`), select your triggers from the provided list, and save your Webhook Secret to verify data authenticity.
 
-- Use the [**Webhooks API**](https://developers.oncehub.com/reference/booking-calendars/#tag/webhooks/POST/webhooks) to create a new subscription (via POST request). You must define your destination `url` and an array of [**event types**](https://developers.oncehub.com/reference/booking-calendars/#tag/webhook-events) (e.g., `booking.scheduled`) within the JSON request body. Once created, retrieve the `signing_secret` from the API response to implement signature verification on your server.
+- Use the [**Webhooks API**](/reference/booking-calendars/#tag/webhooks/POST/webhooks) to create a new subscription (via POST request). You must define your destination `url` and an array of [**event types**](/reference/booking-calendars/#tag/webhook-events) (e.g., `booking.scheduled`) within the JSON request body. Once created, retrieve the `signing_secret` from the API response to implement signature verification on your server.
 
 ### To Use URL Parameters & Embedding
 
