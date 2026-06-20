@@ -14,7 +14,7 @@ To view previous versions of the API that are still supported, simply toggle to 
 
 ## Version History
 
-:::info Current Version
+:::info[Current Version]
 
 **v2.0.0** is the current and recommended version for all new integrations. This version includes the latest features and improvements.
 
@@ -24,7 +24,7 @@ To view previous versions of the API that are still supported, simply toggle to 
 
 When breaking changes are necessary, we release a new API version to ensure existing integrations continue to work without interruption. Previous versions remain supported to give you time to migrate at your own pace.
 
-:::tip Migration Advice
+:::tip[Migration Advice]
 
 When planning to migrate to a newer API version, we recommend:
 

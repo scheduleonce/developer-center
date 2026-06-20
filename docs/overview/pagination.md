@@ -26,7 +26,7 @@ If your initial request doesn't return enough records to generate an additional 
 
 For example:
 
-```
+```http
 Link: <https://api.oncehub.com/bookings?after=BKNG-22RN37EED5WS&limit=10>; rel="next",
   <https://api.oncehub.com/bookings?before=BKNG-D3EYIES69QMH&limit=10>; rel="previous"
 ```
@@ -41,7 +41,7 @@ The URL in the link header can include up to three parameters:
 2. **`after`**: An object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, ending with `OBJ-XXXX`, your subsequent call can include `after=OBJ-XXXX` in order to fetch the next page of the list.
 3. **`before`**: An object ID that defines your place in the list. For instance, if you make a list request and receive 30 objects, starting with `OBJ-YYYY`, your subsequent call can include `before=OBJ-YYYY` in order to fetch the previous page of the list.
 
-:::tip
+:::tip[Tip]
 
 Use the `Link` header to easily traverse the list of results.
 

@@ -28,7 +28,7 @@ window.addEventListener("message", function (e) {
 });
 ```
 
-:::info Note
+:::info[Note]
 
 The `oncehubEvent` function in the example verifies two things:
 
