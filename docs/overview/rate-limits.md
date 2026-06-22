@@ -30,7 +30,7 @@ Avoid periodically fetching entire resource collections just to check for update
 
 :::
 
-### Additional recommendations:
+### Additional recommendations
 
 - **Implement exponential backoff**: When you receive a rate limit error, wait before retrying the request
 - **Cache responses**: Store frequently accessed data locally to reduce API calls
