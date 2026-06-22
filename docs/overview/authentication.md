@@ -23,8 +23,12 @@ OnceHub utilizes industry-standard cryptographic practices to protect your crede
 3. Select the **APIs & Webhooks** tile.
 4. In the **API Keys** section, click the **Create API key** button.
 5. In the pop-up, enter a descriptive **API Key Name** (e.g., "Production CRM").
-6. Click **Generate key**. The **API Key Created Successfully** pop-up will appear. **Note:**
+6. Click **Generate key**. The **API Key Created Successfully** pop-up will appear.
+
+   :::note
    Your API key is displayed here. For security reasons, it will only be displayed once.
+   :::
+
 7. Click **Copy & close** to copy the key to your clipboard and save it in a secure location.
 
 <img src="/img/API-Key.png" alt="API Key" width="780" />
@@ -42,7 +46,7 @@ If a key is compromised or no longer needed, you should delete it immediately to
 
 ## Using your API Key
 
-Include your API key in the API-Key header of every HTTP request. If the key is missing or invalid, the API will return an error response to assist with troubleshooting. [**Learn more about error responses**](https://developers.oncehub.com/docs/overview/error-handling/).
+Include your API key in the API-Key header of every HTTP request. If the key is missing or invalid, the API will return an error response to assist with troubleshooting. [**Learn more about error responses**](/docs/overview/error-handling/).
 
 ### Example Request
 
@@ -55,7 +59,7 @@ Content-Type: application/json
 
 ## Testing your API Key
 
-Once you have your key, test it by making a request to our [**validation endpoint**](https://developers.oncehub.com/reference/booking-calendars/#tag/authentication/GET/test) to confirm your connection is active. If the key is missing or invalid, the API will return a 401 Unauthorized error.
+Once you have your key, test it by making a request to our [**validation endpoint**](/reference/booking-calendars/#tag/authentication/GET/test) to confirm your connection is active. If the key is missing or invalid, the API will return a 401 Unauthorized error.
 
 ## Security Best Practices
 

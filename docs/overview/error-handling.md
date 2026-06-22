@@ -8,7 +8,7 @@ description: Handle API errors effectively with standard HTTP status codes, erro
 
 ## Overview of error responses
 
-OnceHub uses conventional <a target="_blank" href="https://httpstatuses.com/">HTTP response codes</a> to indicate the success or failure of an API request.
+OnceHub uses conventional [HTTP response codes](https://httpstatuses.com/) to indicate the success or failure of an API request.
 
 Successful requests are given status codes in the `2xx` range, while unsuccessful requests have status codes in the `4xx` or `5xx` range.
 
@@ -24,16 +24,24 @@ Successful requests are given status codes in the `2xx` range, while unsuccessfu
 
 The API returns error responses in JSON format, with the following structure:
 
+```json
+{
+  "type": "error_type",
+  "message": "Human-readable error description",
+  "param": "parameter_name"
+}
+```
+
 ## Error types
 
 Error responses are categorized into four different types, corresponding to the following situations:
 
-| Type                    | Description                                                                                                                                                                                         |
-| :---------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `authentication_error`  | The server could not authenticate your request. Check to make sure you have entered a valid API key in the correct format, in the `API-Key` header.                                                 |
-| `invalid_request_error` | One or more of the input parameters is not valid. Check that you have entered the correct values for all required parameters. URLs must be entered in full, and they must use the https\:// prefix. |
-| `rate_limit_error`      | The amount of API requests per second has exceeded the allowed amount.                                                                                                                              |
-| `api_error`             | There was an error on the OnceHub servers.                                                                                                                                                          |
+| Type                    | Description                                                                                                                                                                                          |
+| :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `authentication_error`  | The server could not authenticate your request. Check to make sure you have entered a valid API key in the correct format, in the `API-Key` header.                                                  |
+| `invalid_request_error` | One or more of the input parameters is not valid. Check that you have entered the correct values for all required parameters. URLs must be entered in full, and they must use the `https://` prefix. |
+| `rate_limit_error`      | The amount of API requests per second has exceeded the allowed amount.                                                                                                                               |
+| `api_error`             | There was an error on the OnceHub servers.                                                                                                                                                           |
 
 ## Error messages
 

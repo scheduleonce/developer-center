@@ -15,7 +15,7 @@ This recipe demonstrates how to periodically poll the OnceHub API to fetch booki
 - An OnceHub API key
 - The `parse-link-header` npm package
 
-:::info Node.js Version
+:::info[Node.js Version]
 This recipe uses native `fetch` in Node.js. If you're using an older version of Node.js (< 18.0.0), you can use the [node-fetch](https://github.com/node-fetch/node-fetch) library instead.
 :::
 

@@ -13,7 +13,7 @@ Deleted resources are usually still accessible after deletion in _redacted_ mode
 
 For example, a call to
 
-```
+```http
 GET /booking-pages/BP-X0LCRU5LES
 ```
 
@@ -29,7 +29,7 @@ Will return the object in redacted mode:
 
 However, `BP-X0LCRU5LES` booking page will not be returned when listing all booking pages via
 
-```
+```http
 GET /booking-pages
 ```
 
