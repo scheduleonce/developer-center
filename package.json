@@ -24,9 +24,9 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@docusaurus/core": "3.10.1",
-    "@docusaurus/faster": "3.10.1",
-    "@docusaurus/preset-classic": "3.10.1",
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/faster": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
     "@mdx-js/react": "3.1.1",
     "@scalar/api-reference": "1.62.4",
     "@scalar/docusaurus": "0.8.29",
@@ -39,9 +39,9 @@
     "react-dom": "19.2.7"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.10.1",
-    "@docusaurus/tsconfig": "3.10.1",
-    "@docusaurus/types": "3.10.1",
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2",
     "@redocly/cli": "2.37.0",
     "@types/node": "26.1.0",
     "concurrently": "10.0.3",
