@@ -54,7 +54,7 @@ For details on generating and managing API keys, see [Authentication](/docs/over
 
 ## Step 3: Start scheduling by integrating the tool calls
 
-Integrate the two MCP tools into your AI Agent's normal conversation flow. To ensure the Agent interacts with the correct Booking Calendar, you must include the specific Booking Calendar ID in the Agent's system prompt or tool configuration.
+Integrate the two MCP tools into your AI Agent's normal conversation flow. To ensure the AI Agent interacts with the correct Booking Calendar, you must include the specific Booking Calendar ID in the AI Agent's system prompt or tool configuration.
 
 - Use **Get available time slots** (`get_booking_time_slots`) to retrieve available meeting slots for your specific Booking Calendar ID.
 - Once a time is confirmed, call **Schedule a meeting** (`schedule_meeting`) to create the appointment.

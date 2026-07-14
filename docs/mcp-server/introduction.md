@@ -1,14 +1,14 @@
 ---
 id: introduction
 title: Introduction to the Model Context Protocol (MCP) Server
-description: Learn how to use the OnceHub Platform MCP Server to enable AI agents to automate meeting scheduling through natural language interaction.
+description: Learn how to use the OnceHub Platform MCP Server to enable AI Agents to automate meeting scheduling through natural language interaction.
 ---
 
-# Introduction to the Model Context Protocol (MCP) Server
+# Introduction to the Model Protocol (MCP) Server
 
 ## What is the OnceHub Platform MCP Server?
 
-The OnceHub Platform MCP Server provides a standardized way for AI models and agents to interact directly with your OnceHub scheduling API. Rather than sending users a booking link and asking them to schedule manually, an AI Agent can retrieve availability and schedule meetings on the user's behalf using MCP tools, through a natural language flow.
+The OnceHub Platform MCP Server provides a standardized way for AI models and AI Agents to interact directly with your OnceHub scheduling API. Rather than sending users a booking link and asking them to schedule manually, an AI Agent can retrieve availability and schedule meetings on the user's behalf using MCP tools, through a natural language flow.
 
 This solution enables external AI Agents to access OnceHub scheduling APIs within AI-driven workflows using the standardized Model Context Protocol (MCP) remote server.
 

@@ -1001,7 +1001,7 @@ paths:
         - Booking Calendars
       summary: Create a one-time link
       description: |
-        Creates a one time link for a booking calendar
+        Creates a one time link for a Booking Calendar.
 
         > [!note]
         > One-time links are only available for published booking calendars.
@@ -1025,11 +1025,50 @@ paths:
                 hide_url_params:
                   type: boolean
                   description: When set to `true`, the API generates a short one-time-use link with no visible query parameters.
-                  default: false
+                  default: true
                 booking_form:
                   $ref: '#/components/schemas/BookingForm'
                 utm_params:
                   $ref: '#/components/schemas/UtmParams'
+                booking_settings:
+                  type: object
+                  x-propertyOrder:
+                    - host
+                    - co_hosts
+                    - duration_minutes
+                    - skip
+                  description: Settings for the booking calendar when the one-time link is used.
+                  properties:
+                    host:
+                      type: string
+                      description: The email of the team member who should host the booking. Only supported on team booking calendars. If the host is not a part of the team or doesn't have a license, the host is ignored and the distribution method continues as configured.
+                    co_hosts:
+                      type: string
+                      description: A comma-separated list of email addresses for co-hosts to be added to the booking. All co-hosts must share the same OnceHub account, possess an active license, and must not be deleted. Multiple email addresses should be separated strictly by commas (e.g., `cohost1@example.com,cohost2@example.com`).
+                    duration_minutes:
+                      type: integer
+                      description: The meeting duration in minutes. Must be one of the durations configured in the booking calendar settings. When set, the guest cannot change the duration.
+                    skip:
+                      type: array
+                      items:
+                        type: string
+                      description: List of booking flow steps to skip (e.g., contact_info, questions, co_hosts).
+              example:
+                booking_form:
+                  name: Carrie Customer
+                  email: carrie.customer@example.com
+                utm_params:
+                  source: facebook
+                  medium: social
+                  campaign: webinar_signup
+                  term: onlinemeeting+scheduler
+                  content: logolink
+                booking_settings:
+                  host: teamlead@example.com
+                  co_hosts: cohost3@example.com,cohost4@example.com
+                  duration_minutes: 30
+                  skip:
+                    - contact_info
       responses:
         '200':
           description: '200'
@@ -3822,10 +3861,6 @@ components:
           type: string
           description: The ID of the booking that was rescheduled.
           example: BKNG-J4FR05BKEWEX
-        cancel_reschedule_url:
-          type: string
-          description: URL for cancelling and rescheduling the booking. At the moment, only being sent out in webhooks.
-          example: https://oncehub.com/m/BKNG-3KM0HY2BF9SL
         cancel_reschedule_information:
           type:
             - object
