@@ -88,7 +88,7 @@ const config: Config = {
           metaData: {
             title: "Booking Calendars API Reference | OnceHub Developer Center",
           },
-          documentDownloadType: "original",
+          documentDownloadType: "direct",
           hideDarkModeToggle: true,
           hideModels: true,
           theme: "alternate",
@@ -109,7 +109,7 @@ const config: Config = {
           metaData: {
             title: "Booking Pages API Reference | OnceHub Developer Center",
           },
-          documentDownloadType: "original",
+          documentDownloadType: "direct",
           hideDarkModeToggle: true,
           hideModels: true,
           theme: "alternate",
@@ -131,7 +131,7 @@ const config: Config = {
             title:
               "OnceHub v1 API Reference (Deprecated) | OnceHub Developer Center",
           },
-          documentDownloadType: "original",
+          documentDownloadType: "direct",
           hideDarkModeToggle: true,
           hideModels: true,
           theme: "alternate",

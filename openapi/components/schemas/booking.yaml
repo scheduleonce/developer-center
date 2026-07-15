@@ -65,10 +65,6 @@ BookingBase:
       type: string
       description: The ID of the booking that was rescheduled.
       example: BKNG-J4FR05BKEWEX
-    cancel_reschedule_url:
-      type: string
-      description: URL for cancelling and rescheduling the booking. At the moment, only being sent out in webhooks.
-      example: https://oncehub.com/m/BKNG-3KM0HY2BF9SL
     cancel_reschedule_information:
       type: [object, "null"]
       description: An object containing information about the cancel / reschedule event. This field is `null` if the booking has not been cancelled or rescheduled.

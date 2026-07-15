@@ -24,30 +24,30 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@docusaurus/core": "3.10.1",
-    "@docusaurus/faster": "3.10.1",
-    "@docusaurus/preset-classic": "3.10.1",
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/faster": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
     "@mdx-js/react": "3.1.1",
-    "@scalar/api-reference": "1.59.2",
-    "@scalar/docusaurus": "0.8.23",
+    "@scalar/api-reference": "1.62.4",
+    "@scalar/docusaurus": "0.8.29",
     "@signalwire/docusaurus-plugin-llms-txt": "2.0.0-alpha.7",
     "@signalwire/docusaurus-theme-llms-txt": "1.0.0-alpha.9",
     "clsx": "2.1.1",
-    "js-yaml": "4.2.0",
+    "js-yaml": "5.2.1",
     "prism-react-renderer": "2.4.1",
     "react": "19.2.7",
     "react-dom": "19.2.7"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.10.1",
-    "@docusaurus/tsconfig": "3.10.1",
-    "@docusaurus/types": "3.10.1",
-    "@redocly/cli": "2.34.0",
-    "@types/node": "25.9.3",
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2",
+    "@redocly/cli": "2.37.0",
+    "@types/node": "26.1.0",
     "concurrently": "10.0.3",
     "husky": "9.1.7",
-    "lint-staged": "17.0.7",
-    "prettier": "3.8.4",
+    "lint-staged": "17.0.8",
+    "prettier": "3.9.4",
     "typescript": "6.0.3"
   },
   "browserslist": {
@@ -66,7 +66,10 @@
     "node": ">=22.0"
   },
   "overrides": {
-    "serialize-javascript": ">=7.0.3"
+    "serialize-javascript": ">=7.0.3",
+    "sockjs": {
+      "uuid": "11.1.1"
+    }
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,md,yaml,yml}": "prettier --write"
