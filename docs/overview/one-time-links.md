@@ -203,4 +203,4 @@ Once a booking is made using a one-time link, it expires immediately and cannot 
 
 - [Authentication](/docs/overview/authentication)
 - [Error Handling](/docs/overview/error-handling)
-- [Embed Calendar with Co-hosts](/docs/recipes/embed-calendar-cohosts)
+- [Dynamic co-host selection](/docs/recipes/dynamic-co-host-selection/)
