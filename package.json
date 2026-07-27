@@ -33,7 +33,7 @@
     "@signalwire/docusaurus-plugin-llms-txt": "2.0.0-alpha.7",
     "@signalwire/docusaurus-theme-llms-txt": "1.0.0-alpha.9",
     "clsx": "2.1.1",
-    "js-yaml": "5.2.1",
+    "js-yaml": "5.2.2",
     "prism-react-renderer": "2.4.1",
     "react": "19.2.7",
     "react-dom": "19.2.7"
