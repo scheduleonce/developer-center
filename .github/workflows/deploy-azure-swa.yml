@@ -35,6 +35,8 @@ jobs:
         run: npm run build
         env:
           DOCUSAURUS_URL: ${{ inputs.docusaurus_url }}
+      - name: Copy SWA routing config into build artifact
+        run: cp staticwebapp.config.json build/staticwebapp.config.json
       - name: Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
